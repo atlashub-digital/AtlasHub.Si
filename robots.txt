@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://atlashub.si/sitemap.xml
