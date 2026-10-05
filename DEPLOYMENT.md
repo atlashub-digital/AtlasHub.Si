@@ -20,10 +20,11 @@ Variáveis de servidor: LEAD_WEBHOOK_URL (HTTPS), LEAD_WEBHOOK_TOKEN e PUBLIC_OR
 
 O webhook deve deduplicar requestId, guardar lead, consentimento e diagnóstico e só depois devolver 202 {id,route:"human"}. Sem configuração, a API devolve 503; se o destino não confirmar, 502. A Clara não inventa receção, encaminhamento, consulta a CRM/agenda nem marcação.
 
-Os contactos em public/clara-config.json continuam null até serem fornecidos valores comerciais confirmados. Nunca colocar tokens nesse ficheiro público. LEAD_WEBHOOK_TOKEN fica apenas nas variáveis de servidor da Vercel.
+WhatsApp oficial: +55 62 99190-3462, configurado em public/clara-config.json. O email continua por definir. O contacto WhatsApp funciona sem webhook e só envia a mensagem após ação do visitante. O formulário de entrega automática só é apresentado quando LEAD_WEBHOOK_URL e LEAD_WEBHOOK_TOKEN estão definidos no build; após os configurar, fazer novo deploy. Nunca colocar tokens nesse ficheiro público. LEAD_WEBHOOK_TOKEN fica apenas nas variáveis de servidor da Vercel.
 
 Antes de ativar a recolha real: configurar rate limiting/antiabuso, responsável por retenção/eliminação, aviso de privacidade e validar entrega ponta a ponta. Origin e honeypot não substituem proteção contra bots.
 
 ## Contribuição futura
 
-Main de desenvolvimento: nexflowx-hub/AtlasHub.Si. O contributo e PR para atlashub-digital serão preparados posteriormente, comparando primeiro o destino, sem substituir histórico nem fazer force push. Editions continua num repositório e projeto Vercel separado.
+Main de desenvolvimento: nexflowx-hub/AtlasHub.Si. Produção segue por contribuição e PR para atlashub-digital, merge após checks e deploy na Vercel atlashub1, sem substituir histórico nem fazer force push. Editions continua num repositório e projeto Vercel separado.
+

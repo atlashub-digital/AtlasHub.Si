@@ -23,6 +23,7 @@ export default function Hero() {
             Explorar Empresa Aumentada <span>↗</span>
           </a>
         </div>
+        <a className="text-link hero-lab-link" href="#simulador">Experimentar o laboratório de operações <span aria-hidden="true">↗</span></a>
       </div>
       <div className="hero-note">
         <span>01 / A NOSSA VISÃO</span>
