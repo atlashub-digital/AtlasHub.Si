@@ -1,0 +1,8 @@
+{
+  "leadEndpoint": "/api/lead",
+  "meeting_url": null,
+  "commercial": {
+    "whatsapp": null,
+    "email": null
+  }
+}
