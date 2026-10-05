@@ -19,7 +19,7 @@ export default function Home() {
         <Approach />
         <Areas />
         <Cases />
-        <Clara />
+        <Clara leadsEnabled={Boolean(process.env.LEAD_WEBHOOK_URL && process.env.LEAD_WEBHOOK_TOKEN)} />
         <Method />
         <Ecosystem />
         <Editions />

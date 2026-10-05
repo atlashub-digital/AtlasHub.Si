@@ -2,6 +2,8 @@
 import { Fragment, useEffect, useRef, useState, type FormEvent } from "react";
 import { cases } from "../lib/cases";
 import settings from "../public/clara-config.json";
+import LiveMark from "./LiveMark";
+import OperationLab from "./OperationLab";
 
 type Question = [string, [string, string][]];
 const questions: Question[] = [
@@ -42,7 +44,11 @@ const questions: Question[] = [
   ],
 ];
 
-export default function Clara() {
+export default function Clara({
+  leadsEnabled = false,
+}: {
+  leadsEnabled?: boolean;
+}) {
   const [answers, setAnswers] = useState<string[]>([]);
   const [contact, setContact] = useState(false);
   const [busy, setBusy] = useState(false);
@@ -210,9 +216,7 @@ export default function Clara() {
         <div className="clara-workspace">
           <div className="clara-chat">
             <header>
-              <span className="clara-avatar" aria-hidden="true">
-                C
-              </span>
+              <LiveMark active={busy} />
               <div>
                 <strong>Clara</strong>
                 <small>Assistente de pré-análise · Simulação guiada</small>
@@ -293,15 +297,33 @@ export default function Clara() {
               {complete && contact && (
                 <div className="clara-contact" id="clara-contact">
                   <h4>Como gostaria de continuar?</h4>
+                  <a
+                    className="button primary"
+                    href={
+                      "https://wa.me/5562991903462?text=" +
+                      encodeURIComponent(
+                        `Olá, equipa AtlasHub. Explorei o cenário «${c.title}» com a Clara e gostaria de pedir uma análise técnica. A minha janela preferida para contacto é: `,
+                      )
+                    }
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Conversar pelo WhatsApp oficial ↗
+                  </a>
+                  <p>
+                    +55 62 99190-3462 · A mensagem abre para revisão. Só é
+                    enviada por si no WhatsApp.
+                  </p>
                   <p>
                     Posso pedir confirmação de contacto, de uma reunião ou de
                     uma análise para orçamento. O diagnóstico continua
                     disponível sem partilhar dados.
                   </p>
-                  {settings.leadEndpoint !== "/api/lead" ? (
+                  {!leadsEnabled || settings.leadEndpoint !== "/api/lead" ? (
                     <p>
-                      O contacto direto está em preparação. Por agora, guarde o
-                      diagnóstico para o partilhar com a equipa.
+                      Partilhe o diagnóstico pelo WhatsApp e indique a sua
+                      janela preferida. A equipa confirma consigo o próximo
+                      passo.
                     </p>
                   ) : (
                     <form onSubmit={submit} aria-busy={busy}>
@@ -473,6 +495,7 @@ export default function Clara() {
           Esta pré-análise usa cenários e regras orientadoras. A viabilidade, as
           integrações e o orçamento são confirmados pela equipa técnica.
         </p>
+        <OperationLab key={c.id} scenario={c.id} />
         <noscript>
           Ative JavaScript para usar o diagnóstico. Os casos de aplicação acima
           continuam disponíveis.
