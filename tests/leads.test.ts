@@ -133,3 +133,9 @@ test("fails closed without configuration; acknowledges only confirmed human deli
     else process.env.LEAD_WEBHOOK_TOKEN = prior.token;
   }
 });
+test("accepts the optional Managed / Build / Co-Build triage answer and rejects unknown models", () => {
+  const withModel = (model: string) => ({ ...base(), diagnostic: { ...base().diagnostic, model } });
+  assert.equal(validateLead(withModel("build")).diagnostic.model, "build");
+  assert.equal(validateLead(base()).diagnostic.model, undefined);
+  assert.throws(() => validateLead(withModel("autopilot")));
+});

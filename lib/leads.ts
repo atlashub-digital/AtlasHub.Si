@@ -44,12 +44,16 @@ export function validateLead(input: unknown) {
     frequency: ["low", "daily", "high"],
     approach: ["draft", "bounded", "explore"],
   };
+  // Optional triage answer (Visual Pack V1): managed service, Build & Transfer, Co-Build or undecided.
+  if (d.model !== undefined && !["managed", "build", "cobuild", "unsure"].includes(d.model as string))
+    throw Error("Invalid answer");
   const diagnostic: Record<string, string> = { scenario: c.id, title: c.title };
   for (const [key, values] of Object.entries(options)) {
     if (typeof d[key] !== "string" || !values.includes(d[key] as string))
       throw Error("Invalid answer");
     diagnostic[key] = d[key] as string;
   }
+  if (typeof d.model === "string") diagnostic.model = d.model;
   return {
     requestId,
     name,

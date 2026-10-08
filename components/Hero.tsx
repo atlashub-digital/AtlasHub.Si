@@ -1,47 +1,36 @@
+import Image from "next/image";
+
+// P01 hero: split 52/48, headline left, editorial photo right with the official mark (not baked into the photo).
 export default function Hero() {
   return (
-    <section className="hero" id="inicio">
-      <div className="hero-content">
-        <p className="eyebrow">PEOPLE · TECHNOLOGY · RESULTS</p>
-        <h1>
-          INTELIGÊNCIA PARA
-          <br />
-          <span>EMPRESAS REAIS.</span>
-        </h1>
-        <p className="lead">
-          Pessoas, agentes inteligentes e operações a trabalhar como um só
-          sistema. Da tecnologia à capacidade de fazer melhor.
-        </p>
-        <div className="actions">
-          <a className="button primary" href="#clara">
-            Desenhar com a Clara <span>→</span>
-          </a>
-          <a
-            className="button secondary"
-            href="https://editions.atlashub.si/livros/empresa-aumentada"
-          >
-            Explorar Empresa Aumentada <span>↗</span>
-          </a>
+    <section className="vp-hero" id="inicio" aria-labelledby="hero-title">
+      <div className="vp-wrap">
+        <div>
+          <p className="vp-eyebrow">Inteligência em operação</p>
+          <h1 className="vp-h1" id="hero-title">
+            Mais capacidade. <em>Menos complexidade.</em>
+          </h1>
+          <p className="vp-lead">
+            Ajudamos empresas a reforçar suas operações com colaboradores digitais e a construir sua
+            própria capacidade para o futuro.
+          </p>
+          <div className="vp-actions">
+            <a className="vp-btn vp-btn-primary" href="#clara">Fale com a Clara <span aria-hidden="true">→</span></a>
+            <a className="vp-btn vp-btn-secondary" href="#solucoes">Conheça as soluções</a>
+          </div>
+          <div className="vp-hero-chips" aria-label="Princípios">
+            <span className="vp-chip">People</span>
+            <span className="vp-chip">Technology</span>
+            <span className="vp-chip">Results</span>
+          </div>
         </div>
-        <a className="text-link hero-lab-link" href="#simulador">Experimentar o laboratório de operações <span aria-hidden="true">↗</span></a>
-      </div>
-      <div className="hero-note">
-        <span>01 / A NOSSA VISÃO</span>
-        <p>
-          Da Inteligência Artificial
-          <br />à Organização Inteligente.
-        </p>
-      </div>
-      <div className="strip">
-        <span>IDEIAS</span>
-        <i>•</i>
-        <span>OPERAÇÕES</span>
-        <i>•</i>
-        <span>TECNOLOGIA</span>
-        <i>•</i>
-        <span>AUTOMAÇÃO</span>
-        <i>•</i>
-        <span>RESULTADOS</span>
+        <div className="vp-hero-media">
+          <Image src="/assets/hero-office.jpg" alt="Equipe de operações num escritório à noite" fill sizes="(max-width: 900px) 100vw, 46vw" priority />
+          <div className="vp-hero-badge">
+            <Image src="/assets/atlashub-logo.webp" width={44} height={44} alt="" />
+            <p><strong>Pessoas + agentes, com supervisão.</strong>As decisões continuam com a sua equipe.</p>
+          </div>
+        </div>
       </div>
     </section>
   );
