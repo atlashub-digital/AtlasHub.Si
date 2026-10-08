@@ -5,7 +5,7 @@
   "approval": "visual-concept-approved; technical-implementation-pending",
   "brand": {
     "logo": {
-      "source": "../../assets/brand/Logo_Oficial_AtlasHub.png",
+      "source": "../assets/brand/Logo_Oficial_AtlasHub.png",
       "mustUseOriginal": true,
       "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
     },
