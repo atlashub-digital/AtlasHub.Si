@@ -5,7 +5,9 @@
 ## Gate G0 — baseline
 - Next 16.3.8, React 19, CSS global, Node 24. Rotas: `/` e `/api/lead` (contrato 202/502/503 preservado).
 - Componentes preservados: Clara (+ laboratório de operações e fluxo de leads), Áreas, Casos, Ecossistema, Editions, Closing, SiteInteractions. Reescritos no lugar: Header, Hero, Footer e Method (jornada). `Approach.tsx` mantém-se no repositório, fora da composição (os pilares People/Technology/Results passaram a chips do hero).
-- **Assets:** o ZIP do Visual Pack (11 PNG + `Logo_Oficial_AtlasHub.png`, SHA256SUMS) **ainda não foi importado**. Usa-se a marca atual do site (`public/assets/atlashub-logo.webp`, 128×128) e a foto `hero-office.jpg`. Nada foi extraído das maquetes. Substituir quando o ZIP chegar.
+- **Assets:** ZIP `AtlasHub_Visual_Implementation_Pack_V1_20261008.zip` (SHA256 `d6ee31d4…c203`) importado com `scripts/import-assets.sh`: 11 PNG, todos com SHA256 conferido contra o `SHA256SUMS.txt` do ZIP (`assets/SHA256SUMS.txt`).
+- **Logo oficial:** `Logo_Oficial_AtlasHub.png` (1254×1254, fundo opaco) apenas redimensionado para `public/brand/` (64–512 px, webp) e mostrado com máscara circular que segue o anel do símbolo; favicon e apple-touch-icon a partir do mesmo ficheiro. Nada foi extraído ou recortado das maquetes.
+- **Fotografia:** as maquetes usam retratos de pessoas geradas e imagens com texto embutido. Por regra do pack não são usadas como UI. O hero usa a foto existente do escritório com o símbolo luminoso; ofertas e áreas usam as fotos de ambiente já existentes. **Falta fotografia editorial aprovada com pessoas** para igualar as maquetes.
 
 ## O que foi implementado
 | Pack | Rota | Implementação |
@@ -14,6 +16,7 @@
 | P02 Enterprise Transformation | `/solucoes/enterprise-transformation` | Hero, separadores Build & Transfer / Co-Build (padrão ARIA, setas/Home/End), 5 áreas, método em 5 passos, contratos e segurança, FAQ com respostas revistas, CTA |
 | P03 AI Workforce | `/solucoes/ai-workforce` | Hero, 8 perfis com estado real (**Demonstração**) e filtro por área, links para os simuladores da App, como funciona, Managed vs Build & Transfer, operação responsável, "Ainda sem medições publicadas", CTA |
 | Clara | `#clara` | 6.ª pergunta de triagem: Managed / Build / Co-Build / Ainda não sei. Chegada com `?clara=` sugere a opção (sem a escolher). `model` opcional na rota de leads |
+| Composição | todas | Hero fotográfico com símbolo oficial em órbita (desligada com movimento reduzido), cartões flutuantes, ícones SVG próprios, ofertas e áreas com imagem, jornada e métodos com passos numerados |
 | Base | — | `app/tokens.css` (tokens.json), Inter (next/font), `lang="pt-BR"`, OG `pt_BR`, metadata e canonical por página, sitemap com as rotas novas |
 
 Removido das maquetes, por regra: percentagens, 3x/-60%/+45%, 24/7, "online", "pronto", nomes de pessoas e logótipos de clientes.
@@ -37,10 +40,10 @@ Removido das maquetes, por regra: percentagens, 3x/-60%/+45%, 24/7, "online", "p
 Capturas: `previews/site-v1/` (com `SHA256SUMS.txt`).
 
 ## Pendências
-1. Importar o ZIP (logo oficial e imagens editoriais com pessoas) e substituir a marca e a foto do hero.
+1. Fotografia editorial aprovada (pessoas) para o hero e os cartões das ofertas, com licença registada.
 2. Páginas de Privacidade e Termos (o rodapé indica "em revisão jurídica").
 3. Migrar para PT-BR os textos antigos que ainda estão em PT-PT (Clara, áreas, casos), sem perder conteúdo.
 4. P04–P07 (App) e P08 (Editions) em PRs próprios.
 
 **Rollback:** fechar o PR (nada foi publicado). Depois do merge: reverter o commit do merge.
-**Recomendação:** GO para preview e revisão; NO-GO para produção até importar o logo oficial e aprovar o conteúdo.
+**Recomendação:** GO para preview e revisão visual; produção após aprovação do owner (fotografia editorial pode seguir num PR posterior).

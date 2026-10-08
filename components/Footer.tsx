@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import Brand from "./Brand";
 import { APP_URL, EDITIONS_URL } from "../lib/site";
 
 export default function Footer() {
@@ -7,10 +7,7 @@ export default function Footer() {
     <footer className="vp-footer">
       <div className="vp-wrap">
         <div>
-          <Link className="vp-brand" href="/" aria-label="AtlasHub.SI — início">
-            <Image src="/assets/atlashub-logo.webp" width={36} height={36} alt="" />
-            <span>Atlas<b>Hub</b></span>
-          </Link>
+          <Brand size={36} />
           <p>People | Technology | Results</p>
           <p>Colaboradores digitais geridos e transformação empresarial, com pessoas no controle.</p>
         </div>

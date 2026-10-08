@@ -11,7 +11,7 @@ export const metadata: Metadata = {
   description:
     "Colaboradores digitais geridos e transformação empresarial: reforce a sua operação hoje e construa a sua própria capacidade, com pessoas no controle.",
   alternates: { canonical: "/" },
-  icons: { icon: "/assets/atlashub-logo.webp" },
+  icons: { icon: "/brand/atlashub-symbol-64.png", apple: "/brand/apple-touch-icon.png" },
   openGraph: {
     type: "website",
     locale: "pt_BR",

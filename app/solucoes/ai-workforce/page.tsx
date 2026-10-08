@@ -3,7 +3,10 @@ import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
 import RoleLibrary from "../../../components/RoleLibrary";
-import { workforceSteps, supervision } from "../../../lib/site";
+import Image from "next/image";
+import Icon, { type IconName } from "../../../components/Icon";
+import { Symbol } from "../../../components/Brand";
+import { workforceSteps, supervision, areaIcon } from "../../../lib/site";
 
 export const metadata: Metadata = {
   title: "AI Workforce",
@@ -18,17 +21,21 @@ export default function AiWorkforce() {
     <>
       <Header current="/solucoes/ai-workforce" />
       <main id="conteudo">
-        <section className="vp-hero" aria-labelledby="aiw-title">
-          <div className="vp-wrap" style={{ gridTemplateColumns: "1fr", minHeight: 0, paddingTop: 96, paddingBottom: 96 }}>
+        <section className="vp-hero vp-hero-photo" aria-labelledby="aiw-title">
+          <Image className="vp-hero-bg" src="/assets/hero-office.jpg" alt="" fill sizes="100vw" priority />
+          <div className="vp-wrap">
             <div>
-              <p className="vp-eyebrow">AI Workforce · Mais capacidade. Menos complexidade.</p>
+              <p className="vp-eyebrow">AI Workforce</p>
               <h1 className="vp-h1" id="aiw-title">Reforce sua operação com <em>colaboradores digitais geridos.</em></h1>
               <p className="vp-lead">Perfis digitais preparados para tarefas específicas e operados pela AtlasHub, com limites, supervisão e acompanhamento definidos.</p>
               <div className="vp-actions">
-                <Link className="vp-btn vp-btn-primary" href="/?clara=managed#clara">Falar com a Clara <span aria-hidden="true">→</span></Link>
-                <a className="vp-btn vp-btn-secondary" href="#perfis">Conheça os perfis</a>
+                <Link className="vp-btn vp-btn-primary" href="/?clara=managed#clara"><Icon name="chat" size={18} /> Falar com a Clara <span aria-hidden="true">→</span></Link>
+                <a className="vp-btn vp-btn-secondary" href="#perfis">Conheça os perfis <span aria-hidden="true">→</span></a>
               </div>
-              <div className="vp-hero-chips">{["Atendimento", "Leads", "Processos", "Agenda", "Relatórios"].map((b) => <span className="vp-chip" key={b}>{b}</span>)}</div>
+            </div>
+            <div className="vp-hero-visual" aria-hidden="true">
+              <ul className="vp-float">{["Atendimento", "Leads", "Processos", "Agenda", "Relatórios"].map((b) => <li key={b}><Icon name={areaIcon[b] as IconName} /> {b}</li>)}</ul>
+              <div className="vp-orbit"><span /><span /><Symbol size={300} priority /></div>
             </div>
           </div>
         </section>
@@ -45,7 +52,7 @@ export default function AiWorkforce() {
         <section className="vp-section vp-band" aria-labelledby="como">
           <div className="vp-wrap">
             <div className="vp-intro"><p className="vp-eyebrow">Como funciona</p><h2 className="vp-h2" id="como">Da tarefa à missão gerida.</h2></div>
-            <ol className="vp-grid vp-grid-5" style={{ listStyle: "none", padding: 0, margin: 0 }}>{workforceSteps.map((s, i) => <li className="vp-step" key={s.title}><span>{String(i + 1).padStart(2, "0")}</span><h3>{s.title}</h3><p>{s.text}</p></li>)}</ol>
+            <ol className="vp-steps vp-steps-5">{workforceSteps.map((s, i) => <li key={s.title}><span className="vp-step-num">{String(i + 1).padStart(2, "0")}</span><span className="vp-icon-box"><Icon name={s.icon as IconName} /></span><div><h3>{s.title}</h3><p>{s.text}</p></div></li>)}</ol>
           </div>
         </section>
         <section className="vp-section" aria-labelledby="comparar">
@@ -60,7 +67,7 @@ export default function AiWorkforce() {
         <section className="vp-section vp-band" aria-labelledby="supervisao">
           <div className="vp-wrap">
             <div className="vp-intro"><p className="vp-eyebrow">Operação responsável</p><h2 className="vp-h2" id="supervisao">Supervisão por desenho, não por promessa.</h2></div>
-            <div className="vp-grid vp-grid-5">{supervision.map((s) => <article className="vp-card" key={s.title}><h3>{s.title}</h3><p>{s.text}</p></article>)}</div>
+            <div className="vp-grid vp-grid-5">{supervision.map((s) => <article className="vp-card" key={s.title}><span className="vp-icon-box"><Icon name={s.icon as IconName} /></span><h3>{s.title}</h3><p>{s.text}</p></article>)}</div>
           </div>
         </section>
         <section className="vp-section" aria-labelledby="resultados">

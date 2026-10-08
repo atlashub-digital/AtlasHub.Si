@@ -2,7 +2,10 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import Image from "next/image";
 import OfferTabs from "../../../components/OfferTabs";
+import Icon, { type IconName } from "../../../components/Icon";
+import { Symbol } from "../../../components/Brand";
 import { transformationDomains, transformationMethod, transformationTrust, transformationFaq } from "../../../lib/site";
 
 export const metadata: Metadata = {
@@ -18,17 +21,26 @@ export default function EnterpriseTransformation() {
     <>
       <Header current="/solucoes/enterprise-transformation" />
       <main id="conteudo">
-        <section className="vp-hero" aria-labelledby="et-title">
-          <div className="vp-wrap" style={{ gridTemplateColumns: "1fr", minHeight: 0, paddingTop: 96, paddingBottom: 96 }}>
+        <section className="vp-hero vp-hero-photo" aria-labelledby="et-title">
+          <Image className="vp-hero-bg" src="/assets/case-industry.jpg" alt="" fill sizes="100vw" priority />
+          <div className="vp-wrap">
             <div>
               <p className="vp-eyebrow">Enterprise Transformation</p>
               <h1 className="vp-h1" id="et-title">Construa sua própria <em>capacidade digital.</em></h1>
               <p className="vp-lead">Implementamos agentes e processos inteligentes no seu ecossistema, com integração, governança e capacitação da sua equipe.</p>
               <div className="vp-actions">
-                <Link className="vp-btn vp-btn-primary" href="/?clara=build#clara">Agendar diagnóstico <span aria-hidden="true">→</span></Link>
-                <a className="vp-btn vp-btn-secondary" href="#metodologia">Conheça nossa abordagem</a>
+                <Link className="vp-btn vp-btn-primary" href="/?clara=build#clara"><Icon name="calendar" size={18} /> Agendar diagnóstico <span aria-hidden="true">→</span></Link>
+                <a className="vp-btn vp-btn-secondary" href="#metodologia">Conheça nossa abordagem <span aria-hidden="true">→</span></a>
               </div>
-              <div className="vp-hero-chips"><span className="vp-chip">No seu ambiente</span><span className="vp-chip">Com seu time</span><span className="vp-chip">Governança nativa</span></div>
+              <ul className="vp-badges">
+                <li><Icon name="check" /><div><strong>No seu ambiente</strong><span>Implantação segura e integrada</span></div></li>
+                <li><Icon name="users" /><div><strong>Com seu time</strong><span>Transferência de conhecimento</span></div></li>
+                <li><Icon name="shield" /><div><strong>Governança nativa</strong><span>Segurança desde o início</span></div></li>
+              </ul>
+            </div>
+            <div className="vp-hero-visual" aria-hidden="true">
+              <ul className="vp-float">{transformationDomains.slice(0, 3).map((d) => <li key={d.title}><Icon name={d.icon as IconName} /> {d.title}</li>)}</ul>
+              <div className="vp-orbit"><span /><span /><Symbol size={300} priority /></div>
             </div>
           </div>
         </section>
@@ -41,13 +53,13 @@ export default function EnterpriseTransformation() {
         <section className="vp-section vp-band" aria-labelledby="areas-et">
           <div className="vp-wrap">
             <div className="vp-intro"><p className="vp-eyebrow">Áreas de transformação</p><h2 className="vp-h2" id="areas-et">Onde trabalhamos.</h2></div>
-            <ul className="vp-grid vp-grid-5" style={{ listStyle: "none", padding: 0, margin: 0 }}>{transformationDomains.map((d) => <li className="vp-card" key={d}><h3>{d}</h3></li>)}</ul>
+            <ul className="vp-grid vp-grid-5 vp-plain">{transformationDomains.map((d) => <li className="vp-card" key={d.title}><span className="vp-icon-box"><Icon name={d.icon as IconName} /></span><h3>{d.title}</h3><p>{d.text}</p></li>)}</ul>
           </div>
         </section>
         <section className="vp-section" id="metodologia" aria-labelledby="metodo-et">
           <div className="vp-wrap">
             <div className="vp-intro"><p className="vp-eyebrow">Da oportunidade à autonomia</p><h2 className="vp-h2" id="metodo-et">Uma abordagem por etapas, com critérios de aceitação.</h2></div>
-            <ol className="vp-grid vp-grid-5" style={{ listStyle: "none", padding: 0, margin: 0 }}>{transformationMethod.map((s, i) => <li className="vp-step" key={s.title}><span>{String(i + 1).padStart(2, "0")}</span><h3>{s.title}</h3><p>{s.text}</p></li>)}</ol>
+            <ol className="vp-steps vp-steps-5">{transformationMethod.map((s, i) => <li key={s.title}><span className="vp-step-num">{String(i + 1).padStart(2, "0")}</span><span className="vp-icon-box"><Icon name={s.icon as IconName} /></span><div><h3>{s.title}</h3><p>{s.text}</p></div></li>)}</ol>
           </div>
         </section>
         <section className="vp-section vp-band" aria-labelledby="confianca">

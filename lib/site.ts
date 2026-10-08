@@ -37,17 +37,17 @@ export const offers = [
 ] as const;
 
 export const capabilities = [
-  { title: "Employee Factory", text: "Perfis digitais com funções, competências e limites versionados." },
-  { title: "Integração e segurança", text: "Ligação aos seus sistemas com permissões mínimas, isolamento e auditoria." },
-  { title: "Gestão e evolução", text: "Acompanhamento da operação, revisão humana e melhoria contínua." },
-  { title: "Pessoas + agentes", text: "As decisões continuam com a sua equipe; os agentes ampliam a capacidade." },
+  { icon: "users", title: "Employee Factory", text: "Perfis digitais com funções, competências e limites versionados." },
+  { icon: "shield", title: "Integração e segurança", text: "Ligação aos seus sistemas com permissões mínimas, isolamento e auditoria." },
+  { icon: "gear", title: "Gestão e evolução", text: "Acompanhamento da operação, revisão humana e melhoria contínua." },
+  { icon: "heart", title: "Pessoas + agentes", text: "As decisões continuam com a sua equipe; os agentes ampliam a capacidade." },
 ] as const;
 
 export const journey = [
-  { title: "Diagnóstico", text: "Entender a operação, os dados e o que deve mudar." },
-  { title: "Reforço operacional", text: "Começar com uma missão supervisionada e de âmbito limitado." },
-  { title: "Implantação e capacitação", text: "Integrar no seu ambiente e preparar a sua equipe." },
-  { title: "Capacidade permanente", text: "Operar com autonomia, com governança e evolução." },
+  { icon: "search", title: "Diagnóstico", text: "Entender a operação, os dados e o que deve mudar." },
+  { icon: "bolt", title: "Reforço operacional", text: "Começar com uma missão supervisionada e de âmbito limitado." },
+  { icon: "gear", title: "Implantação e capacitação", text: "Integrar no seu ambiente e preparar a sua equipe." },
+  { icon: "chart", title: "Capacidade permanente", text: "Operar com autonomia, com governança e evolução." },
 ] as const;
 
 // Estados reais dos colaboradores (AtlasHub-AI-WaaS, docs/ROLES.md): todos em demonstração; ROLE-001..008
@@ -66,19 +66,19 @@ export const roles = [
 export const roleAreas = ["Todos", "Atendimento", "Leads", "Processos", "Agenda", "Relatórios"] as const;
 
 export const workforceSteps = [
-  { title: "Assessment", text: "Entendemos a tarefa, o volume, os canais e os sistemas." },
-  { title: "Função e limites", text: "Escolhemos o perfil, as ações permitidas e o que exige aprovação." },
-  { title: "Configuração e testes", text: "Integramos em ambiente de teste e validamos com dados de teste." },
-  { title: "Missão gerida", text: "A AtlasHub opera com supervisão humana e trilha de auditoria." },
-  { title: "Relatório e evolução", text: "Acompanhamos o que foi feito e decidimos o próximo passo." },
+  { icon: "chat", title: "Assessment", text: "Entendemos a tarefa, o volume, os canais e os sistemas." },
+  { icon: "target", title: "Função e limites", text: "Escolhemos o perfil, as ações permitidas e o que exige aprovação." },
+  { icon: "gear", title: "Configuração e testes", text: "Integramos em ambiente de teste e validamos com dados de teste." },
+  { icon: "users", title: "Missão gerida", text: "A AtlasHub opera com supervisão humana e trilha de auditoria." },
+  { icon: "chart", title: "Relatório e evolução", text: "Acompanhamos o que foi feito e decidimos o próximo passo." },
 ] as const;
 
 export const supervision = [
-  { title: "Permissões e escopo", text: "Cada colaborador só usa as ferramentas autorizadas para o seu cliente." },
-  { title: "Auditoria e métricas", text: "Cada execução fica registrada; as métricas vêm da operação real." },
-  { title: "Aprovação humana", text: "Envios, compromissos e ações sensíveis esperam por uma pessoa." },
-  { title: "Gestão de incidentes", text: "Falhas abrem incidentes visíveis e reprocessamento controlado." },
-  { title: "Suspensão e encerramento", text: "A operação pode ser pausada a qualquer momento, com histórico preservado." },
+  { icon: "lock", title: "Permissões e escopo", text: "Cada colaborador só usa as ferramentas autorizadas para o seu cliente." },
+  { icon: "file", title: "Auditoria e métricas", text: "Cada execução fica registrada; as métricas vêm da operação real." },
+  { icon: "check", title: "Aprovação humana", text: "Envios, compromissos e ações sensíveis esperam por uma pessoa." },
+  { icon: "alert", title: "Gestão de incidentes", text: "Falhas abrem incidentes visíveis e reprocessamento controlado." },
+  { icon: "pause", title: "Suspensão e encerramento", text: "A operação pode ser pausada a qualquer momento, com histórico preservado." },
 ] as const;
 
 export const transformationOffers = [
@@ -98,13 +98,19 @@ export const transformationOffers = [
   },
 ] as const;
 
-export const transformationDomains = ["Processos", "Operações", "Pessoas & RH", "TI & Integrações", "Governança"] as const;
+export const transformationDomains = [
+  { icon: "database", title: "Processos", text: "Fluxos ponta a ponta redesenhados com agentes e regras claras." },
+  { icon: "chart", title: "Operações", text: "Agentes que executam e acompanham tarefas no dia a dia." },
+  { icon: "users", title: "Pessoas & RH", text: "Apoio a recrutamento, desenvolvimento e experiência do colaborador." },
+  { icon: "cloud", title: "TI & Integrações", text: "Ligação segura aos seus sistemas e ambientes." },
+  { icon: "shield", title: "Governança", text: "Controles, rastreabilidade e uso responsável da IA." },
+] as const;
 export const transformationMethod = [
-  { title: "Diagnóstico", text: "Oportunidades, riscos e pré-requisitos." },
-  { title: "Roadmap", text: "Prioridades, responsáveis e critérios de aceitação." },
-  { title: "Arquitetura e integração", text: "Desenho técnico no seu ambiente e com os seus sistemas." },
-  { title: "Capacitação e transferência", text: "Formação da equipe e passagem contratual da operação." },
-  { title: "Escala e evolução", text: "Novos casos de uso com a mesma governança." },
+  { icon: "search", title: "Diagnóstico", text: "Oportunidades, riscos e pré-requisitos." },
+  { icon: "map", title: "Roadmap", text: "Prioridades, responsáveis e critérios de aceitação." },
+  { icon: "network", title: "Arquitetura e integração", text: "Desenho técnico no seu ambiente e com os seus sistemas." },
+  { icon: "graduation", title: "Capacitação e transferência", text: "Formação da equipe e passagem contratual da operação." },
+  { icon: "trending", title: "Escala e evolução", text: "Novos casos de uso com a mesma governança." },
 ] as const;
 export const transformationTrust = ["IP e licenças explícitos", "DPA / LGPD", "Políticas de permissão", "Auditoria e rollback", "Aceitação operacional"] as const;
 export const transformationFaq = [
@@ -125,3 +131,12 @@ export const transformationFaq = [
     a: "A sua equipe, com o suporte que for contratado. Âmbito, prazos de resposta e responsabilidades ficam escritos antes da transferência.",
   },
 ] as const;
+
+// P01 "Aplicações por área": illustrative scenarios (not proven clients), environment photos only.
+export const verticals = [
+  { icon: "chat", title: "Atendimento ao cliente", text: "Respostas consistentes e encaminhamento para a equipe.", image: "/assets/case-healthcare.jpg" },
+  { icon: "target", title: "Prospecção de leads", text: "Qualificação e próximo passo comercial com aprovação.", image: "/assets/case-realestate.jpg" },
+  { icon: "file", title: "Back-office e operações", text: "Tarefas administrativas com regras e auditoria.", image: "/assets/case-industry.jpg" },
+  { icon: "megaphone", title: "Marketing e conteúdo", text: "Pesquisa e rascunhos que a equipe revê antes de publicar.", image: "/assets/case-retail.jpg" },
+] as const;
+export const areaIcon: Record<string, string> = { Atendimento: "chat", Leads: "target", Processos: "file", Agenda: "calendar", "Relatórios": "megaphone" };

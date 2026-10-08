@@ -1,21 +1,9 @@
 "use client";
 import Link from "next/link";
-import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import { nav } from "../lib/site";
 
-// Shared header (Visual Pack V1 · P01–P03). Logo: current official mark until the PNG from the
-// visual-pack ZIP is imported (design/visual-pack-v1/assets/brand); never extracted from a mockup.
-function Brand() {
-  return (
-    <Link className="vp-brand" href="/" aria-label="AtlasHub.SI — início">
-      <Image src="/assets/atlashub-logo.webp" width={40} height={40} alt="" priority />
-      <span>
-        Atlas<b>Hub</b>
-      </span>
-    </Link>
-  );
-}
+import Brand from "./Brand";
 
 export default function Header({ current }: { current?: string }) {
   const [open, setOpen] = useState(false);
