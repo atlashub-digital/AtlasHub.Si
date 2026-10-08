@@ -1,0 +1,166 @@
+{
+  "version": "1.0.0",
+  "locale": "pt-BR",
+  "owner": "AtlasHub.SI",
+  "approval": "visual-concept-approved; technical-implementation-pending",
+  "brand": {
+    "logo": {
+      "source": "../../assets/brand/Logo_Oficial_AtlasHub.png",
+      "mustUseOriginal": true,
+      "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
+    },
+    "colors": {
+      "navy": "#040C18",
+      "navyRaised": "#061321",
+      "panel": "#09192D",
+      "cyan": "#16D8ED",
+      "electricBlue": "#008DFF",
+      "white": "#F5F8FD",
+      "muted": "#B9C9DA",
+      "border": "#1D4564",
+      "positive": "#2AD9A0",
+      "warning": "#F0B84A",
+      "negative": "#FF6E78"
+    },
+    "typography": {
+      "family": "Inter, Arial, sans-serif",
+      "headings": "font-weight 750-850; letter-spacing -0.035em",
+      "body": "font-size 16px; line-height 1.55"
+    },
+    "responsive": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "motion": {
+      "defaultMs": 240,
+      "reducedMotion": "disable ambient parallax and nonessential transitions"
+    }
+  },
+  "guardrails": {
+    "allDataInMockupIsFictional": true,
+    "publicClaims": "Não usar desempenho, quantidades, garantias, 24/7 ou casos reais sem evidência e revisão humana.",
+    "stateBadges": "conceito, demonstração, teste, piloto e homologado são estados distintos.",
+    "actions": "CTA deve navegar para rota real ou estar explicitamente desabilitado com texto de disponibilidade.",
+    "security": "Nunca permitir ações operacionais fora de autenticação, RBAC, tenant context e policies backend."
+  },
+  "id": "08-editions",
+  "name": "Website — AtlasHub Editions / Knowledge",
+  "surface": "public",
+  "route": "https://editions.atlashub.si",
+  "asset": "08_editions_knowledge.png",
+  "objective": "Promover propriedade intelectual e conhecimento sem reduzir a AtlasHub ao fornecimento de agentes.",
+  "eyebrow": "ATLASHUB EDITIONS",
+  "headline": "Conhecimento para empresas que querem evoluir.",
+  "subheadline": "Livros, pesquisas, guias e ensaios sobre inteligência, trabalho e transformação das organizações.",
+  "primary": {
+    "label": "Explorar conteúdos",
+    "href": "https://editions.atlashub.si"
+  },
+  "secondary": {
+    "label": "Conheça AtlasHub Editions",
+    "href": "https://editions.atlashub.si"
+  },
+  "layout": {
+    "type": "editorial-site",
+    "header": "identidade semelhante ao site corporativo, autonomia do app de Editions",
+    "hero": "book cover placeholder + human editorial portrait",
+    "maxWidth": 1440
+  },
+  "sections": [
+    {
+      "key": "hero",
+      "components": [
+        "headline",
+        "lead",
+        "primary-cta",
+        "editorial-book-cover"
+      ],
+      "copy": {
+        "title": "Conhecimento para empresas que querem evoluir."
+      }
+    },
+    {
+      "key": "categories",
+      "items": [
+        "Livros",
+        "Executive Papers",
+        "Pesquisas",
+        "Guias de Campo",
+        "Ensaios"
+      ]
+    },
+    {
+      "key": "featured",
+      "title": "Empresa Aumentada",
+      "status": "Usar disponibilidade verificada na Editions",
+      "description": "Da Inteligência Artificial à Organização Inteligente",
+      "rule": "Manter título do livro; não inferir que é nome comercial da empresa."
+    },
+    {
+      "key": "articles",
+      "label": "Conteúdos em destaque",
+      "dataSource": "publications registry approved entries",
+      "fallback": "Aguarde novas publicações"
+    },
+    {
+      "key": "newsletter",
+      "label": "Atualizações",
+      "consent": "opt-in, finalidade definida, confirmação e unsubscribe"
+    },
+    {
+      "key": "crossLink",
+      "label": "Da ideia à operação",
+      "items": [
+        "Conheça a AtlasHub.SI",
+        "Descubra AI Workforce",
+        "Conheça Enterprise Transformation"
+      ]
+    }
+  ],
+  "dataContract": {
+    "source": "Publications Registry approved-only",
+    "rule": "Não inventar obras, autores, data de publicação ou avaliações"
+  },
+  "interactions": [
+    {
+      "id": "category",
+      "event": "click",
+      "effect": "filtrar conteúdo existente"
+    },
+    {
+      "id": "book",
+      "event": "click",
+      "effect": "navegar Reader/publication real"
+    },
+    {
+      "id": "newsletter",
+      "event": "submit",
+      "effect": "somente se backend, consentimento e política de privacidade operacionais"
+    }
+  ],
+  "responsive": {
+    "desktop": "hero split + 5 categorias",
+    "tablet": "3 categorias",
+    "mobile": "hero e conteúdo empilhados"
+  },
+  "acceptance": [
+    "Ficar no repositório Editions.AtlasHub.Si; esta pasta contém só briefing de integração",
+    "Não modificar conteúdos do livro",
+    "Só lista publicações reais e aprovadas",
+    "Newsletter não pode confirmar cadastro não realizado"
+  ],
+  "implementation": {
+    "targetRepo": "atlashub-digital/Editions.AtlasHub.Si",
+    "framework": "Next.js App Router + React + TypeScript",
+    "reuseExisting": true,
+    "doNotOverwriteExistingMain": true,
+    "imagePolicy": "Maquete é referência editorial e de layout; reconstruir UI com componentes reais. PNG de mockup não deve substituir HTML.",
+    "assetsGuide": "../assets/README.md"
+  },
+  "legal": {
+    "logoReviewRequired": true,
+    "userConsentRequiredForLead": true,
+    "simulatedStatesClearlyLabeled": true
+  }
+}
