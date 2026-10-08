@@ -1,29 +1,31 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import "./globals.css";
+import "./tokens.css";
+
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+
 export const metadata: Metadata = {
   metadataBase: new URL("https://atlashub.si"),
-  title: "AtlasHub — People · Technology · Results",
+  title: { default: "AtlasHub.SI — Mais capacidade. Menos complexidade.", template: "%s · AtlasHub.SI" },
   description:
-    "Pessoas, inteligência artificial e operações ligadas para transformar tecnologia em resultados. Conheça a abordagem AtlasHub e as edições abertas à comunidade.",
+    "Colaboradores digitais geridos e transformação empresarial: reforce a sua operação hoje e construa a sua própria capacidade, com pessoas no controle.",
   alternates: { canonical: "/" },
   icons: { icon: "/assets/atlashub-logo.webp" },
   openGraph: {
     type: "website",
-    locale: "pt_PT",
+    locale: "pt_BR",
     url: "/",
-    title: "AtlasHub — Pessoas, tecnologia e resultados",
-    description: "Da inteligência artificial à organização inteligente.",
+    siteName: "AtlasHub.SI",
+    title: "AtlasHub.SI — Mais capacidade. Menos complexidade.",
+    description: "AI Workforce e Enterprise Transformation: capacidade gerida ou capacidade própria.",
     images: ["/assets/hero-office.jpg"],
   },
 };
-export const viewport: Viewport = { themeColor: "#031020" };
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export const viewport: Viewport = { themeColor: "#040C18" };
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-PT">
+    <html lang="pt-BR" className={inter.variable}>
       <body>{children}</body>
     </html>
   );

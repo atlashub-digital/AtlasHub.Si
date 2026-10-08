@@ -1,5 +1,5 @@
 "use client";
-import { Fragment, useEffect, useRef, useState, type FormEvent } from "react";
+import { Fragment, useEffect, useRef, useState, useSyncExternalStore, type FormEvent } from "react";
 import { cases } from "../lib/cases";
 import settings from "../public/clara-config.json";
 import LiveMark from "./LiveMark";
@@ -42,7 +42,18 @@ const questions: Question[] = [
       ["explore", "Primeiro, compreender a viabilidade"],
     ],
   ],
+  [
+    // Visual Pack V1 triage: managed service, own capability (Build & Transfer) or Co-Build.
+    "A necessidade é temporária ou a empresa quer operar esta capacidade permanentemente?",
+    [
+      ["managed", "AtlasHub opera por nós (missão ou contínuo)"],
+      ["build", "Capacidade própria, construída para nós"],
+      ["cobuild", "Construir junto com a nossa equipe"],
+      ["unsure", "Ainda não sei"],
+    ],
+  ],
 ];
+const MODELS = ["managed", "build", "cobuild", "unsure"];
 
 export default function Clara({
   leadsEnabled = false,
@@ -61,7 +72,13 @@ export default function Clara({
   const controller = useRef<AbortController | null>(null);
   const focusNext = useRef(false);
   const c = cases.find((c) => c.id === answers[0]) || cases[0];
-  const complete = answers.length === 5;
+  const complete = answers.length === questions.length;
+  // Arrival from a solution page (?clara=build|cobuild|managed) suggests, never pre-selects, the model.
+  const suggested = useSyncExternalStore(
+    () => () => {},
+    () => { const m = new URLSearchParams(location.search).get("clara") ?? ""; return MODELS.includes(m) ? m : ""; },
+    () => "",
+  );
   const label = (i: number) =>
     questions[i][1].find((x) => x[0] === answers[i])?.[1] || "";
   const diagnostic = () => ({
@@ -71,6 +88,7 @@ export default function Clara({
     systems: answers[2],
     frequency: answers[3],
     approach: answers[4],
+    model: answers[5],
   });
 
   useEffect(() => {
@@ -263,6 +281,7 @@ export default function Clara({
                       onClick={() => change([...answers, id])}
                     >
                       {text}
+                      {answers.length === 5 && id === suggested ? " · sugerido pela página" : ""}
                     </button>
                   ))}
                 </div>
@@ -431,7 +450,7 @@ export default function Clara({
               <span id="clara-step">
                 {complete
                   ? "Diagnóstico concluído"
-                  : `Passo ${answers.length + 1} de 5`}
+                  : `Passo ${answers.length + 1} de ${questions.length}`}
               </span>
               <progress
                 id="clara-progress"
