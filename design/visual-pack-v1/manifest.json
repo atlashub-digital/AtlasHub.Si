@@ -1,0 +1,93 @@
+{
+  "name": "AtlasHub Visual Implementation Pack",
+  "version": "1.0.0",
+  "date": "2026-10-08",
+  "repository": "atlashub-digital/AtlasHub.Si",
+  "branch": "design/visual-pack-v1-20261008",
+  "baseFolder": "design/visual-pack-v1",
+  "scope": "Documentation, JSON specs and approved static concept artwork; no deploy in this branch.",
+  "approvals": {
+    "visualDirection": "validated by stakeholder",
+    "implementation": "pending code review",
+    "publicClaims": "require evidence review",
+    "marketingSlogan": "AI Workforce — Mais capacidade. Menos complexidade.",
+    "corporateName": "AtlasHub.SI",
+    "corporateCandidate": "Inteligência em operação. (under review)"
+  },
+  "screens": [
+    {
+      "id": "01",
+      "repo": "AtlasHub.Si",
+      "spec": "packs/01-corporate-home.json",
+      "image": "assets/screens/01_site_home.png",
+      "route": "/"
+    },
+    {
+      "id": "02",
+      "repo": "AtlasHub.Si",
+      "spec": "packs/02-enterprise-transformation.json",
+      "image": "assets/screens/02_enterprise_transformation.png",
+      "route": "/solucoes/enterprise-transformation"
+    },
+    {
+      "id": "03",
+      "repo": "AtlasHub.Si",
+      "spec": "packs/03-ai-workforce.json",
+      "image": "assets/screens/03_ai_workforce.png",
+      "route": "/solucoes/ai-workforce"
+    },
+    {
+      "id": "04",
+      "repo": "App.AtlasHub.Si",
+      "spec": "packs/04-agent-library.json",
+      "image": "assets/screens/04_agent_library.png",
+      "route": "/app/employee-factory"
+    },
+    {
+      "id": "05",
+      "repo": "App.AtlasHub.Si",
+      "spec": "packs/05-app-dashboard.json",
+      "image": "assets/screens/05_app_dashboard.png",
+      "route": "/app"
+    },
+    {
+      "id": "06",
+      "repo": "App.AtlasHub.Si",
+      "spec": "packs/06-app-agent-detail.json",
+      "image": "assets/screens/06_clara_agent_detail.png",
+      "route": "/app/agents/:deploymentId"
+    },
+    {
+      "id": "07",
+      "repo": "App.AtlasHub.Si",
+      "spec": "packs/07-app-missions.json",
+      "image": "assets/screens/07_missions_operations.png",
+      "route": "/app/missions"
+    },
+    {
+      "id": "08",
+      "repo": "Editions.AtlasHub.Si",
+      "spec": "packs/08-editions.json",
+      "image": "assets/screens/08_editions_knowledge.png",
+      "route": "https://editions.atlashub.si"
+    }
+  ],
+  "technicalFoundations": {
+    "corporate": "Next.js 16, React 19, TypeScript, App Router",
+    "app": "Inspect real connected repo before changes",
+    "editions": "Independent existing repo; preserve book and reader",
+    "agentPacks": "Catalog state must match contract"
+  },
+  "delivery": {
+    "docStatus": "Committed on design branch",
+    "imageBinaryStatus": "Bundled separately for owner/Claude to import; do not assume files are in this GitHub branch until git confirms",
+    "merge": "PR review before main",
+    "deploy": "not authorized"
+  },
+  "nonGoals": [
+    "No dummy production dashboards",
+    "No overwrite of Clara without regression tests",
+    "No changing PaperClip/atlas-si-os",
+    "No publishing unreviewed marketing claims"
+  ]
+}
