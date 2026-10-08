@@ -1,0 +1,55 @@
+{
+  "version": "1.0.0",
+  "site": {
+    "/": {
+      "id": "01",
+      "type": "public",
+      "cta": "#clara"
+    },
+    "/solucoes/ai-workforce": {
+      "id": "03",
+      "type": "public",
+      "cta": "#clara"
+    },
+    "/solucoes/enterprise-transformation": {
+      "id": "02",
+      "type": "public",
+      "cta": "#clara"
+    }
+  },
+  "app": {
+    "/app": {
+      "id": "05",
+      "auth": true
+    },
+    "/app/employee-factory": {
+      "id": "04",
+      "auth": true
+    },
+    "/app/agents/:deploymentId": {
+      "id": "06",
+      "auth": true,
+      "tenantScoped": true
+    },
+    "/app/missions": {
+      "id": "07",
+      "auth": true,
+      "tenantScoped": true
+    }
+  },
+  "external": {
+    "https://editions.atlashub.si": {
+      "id": "08",
+      "ownedRepo": "Editions.AtlasHub.Si"
+    }
+  },
+  "clara": {
+    "current": "rules-based diagnostic with optional authenticated server lead webhook",
+    "update": "extend triage for Managed / Build / Co-Build; no automatic client activation"
+  },
+  "links": {
+    "siteToApp": "only link login after confirming real auth URL",
+    "appToWorkforce": "external to public website",
+    "copyright": "People | Technology | Results"
+  }
+}

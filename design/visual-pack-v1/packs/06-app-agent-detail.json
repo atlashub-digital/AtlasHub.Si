@@ -1,0 +1,252 @@
+{
+  "version": "1.0.0",
+  "locale": "pt-BR",
+  "owner": "AtlasHub.SI",
+  "approval": "visual-concept-approved; technical-implementation-pending",
+  "brand": {
+    "logo": {
+      "source": "../assets/brand/Logo_Oficial_AtlasHub.png",
+      "mustUseOriginal": true,
+      "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
+    },
+    "colors": {
+      "navy": "#040C18",
+      "navyRaised": "#061321",
+      "panel": "#09192D",
+      "cyan": "#16D8ED",
+      "electricBlue": "#008DFF",
+      "white": "#F5F8FD",
+      "muted": "#B9C9DA",
+      "border": "#1D4564",
+      "positive": "#2AD9A0",
+      "warning": "#F0B84A",
+      "negative": "#FF6E78"
+    },
+    "typography": {
+      "family": "Inter, Arial, sans-serif",
+      "headings": "font-weight 750-850; letter-spacing -0.035em",
+      "body": "font-size 16px; line-height 1.55"
+    },
+    "responsive": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "motion": {
+      "defaultMs": 240,
+      "reducedMotion": "disable ambient parallax and nonessential transitions"
+    }
+  },
+  "guardrails": {
+    "allDataInMockupIsFictional": true,
+    "publicClaims": "Não usar desempenho, quantidades, garantias, 24/7 ou casos reais sem evidência e revisão humana.",
+    "stateBadges": "conceito, demonstração, teste, piloto e homologado são estados distintos.",
+    "actions": "CTA deve navegar para rota real ou estar explicitamente desabilitado com texto de disponibilidade.",
+    "security": "Nunca permitir ações operacionais fora de autenticação, RBAC, tenant context e policies backend."
+  },
+  "id": "06-app-agent-detail",
+  "name": "App — Dossiê do colaborador digital",
+  "surface": "authenticated",
+  "route": "/app/agents/:deploymentId",
+  "asset": "06_clara_agent_detail.png",
+  "objective": "Governar o agente implantado, competências, missões, ferramentas, incidentes e aprovações humanas.",
+  "headline": "Perfil e operação do agente",
+  "layout": {
+    "type": "app-shell",
+    "main": "profile hero + action bar + tabs + KPIs + skills/tools/missions/events/permissions",
+    "maxWidth": 1680
+  },
+  "sections": [
+    {
+      "key": "identity",
+      "fields": [
+        "displayName",
+        "roleId",
+        "deploymentId",
+        "roleVersion",
+        "commercialState",
+        "deploymentState",
+        "tenantName",
+        "ownerHuman"
+      ],
+      "policy": "Avatar ilustrativo; não fingir pessoa física real"
+    },
+    {
+      "key": "actions",
+      "items": [
+        {
+          "id": "message",
+          "label": "Conversar",
+          "guard": "somente canal autorizado"
+        },
+        {
+          "id": "mission",
+          "label": "Ver missões",
+          "guard": "tenant member"
+        },
+        {
+          "id": "pause",
+          "label": "Pausar",
+          "guard": "role operator/admin + confirmação + idempotência"
+        }
+      ]
+    },
+    {
+      "key": "tabs",
+      "items": [
+        "Visão Geral",
+        "Habilidades",
+        "Missões",
+        "Ferramentas e Canais",
+        "Resultados",
+        "Conversas",
+        "Permissões",
+        "Configurações"
+      ]
+    },
+    {
+      "key": "health",
+      "items": [
+        "Execuções",
+        "Erros e incidentes",
+        "Tempo médio de resposta",
+        "Pedidos aguardando aprovação"
+      ],
+      "warning": "Aferição e unidade explícitas"
+    },
+    {
+      "key": "skills",
+      "fields": [
+        "skillId",
+        "version",
+        "description",
+        "testStatus",
+        "allowedScopes",
+        "confidenceBound",
+        "humanFallback"
+      ]
+    },
+    {
+      "key": "tools",
+      "fields": [
+        "toolId",
+        "grantEnabled",
+        "provider",
+        "bindingStatus",
+        "scopes",
+        "lastTest",
+        "requiresApproval"
+      ],
+      "rule": "Configuração no backend; nunca tool arbitrária por prompt"
+    },
+    {
+      "key": "missions",
+      "fields": [
+        "id",
+        "taskType",
+        "status",
+        "approver",
+        "start",
+        "lastEvent"
+      ]
+    },
+    {
+      "key": "history",
+      "fields": [
+        "correlationId",
+        "eventType",
+        "timestamp",
+        "safePayloadSummary",
+        "costEstimate"
+      ]
+    },
+    {
+      "key": "approvals",
+      "fields": [
+        "requestId",
+        "action",
+        "riskTier",
+        "assignee",
+        "expiresAt",
+        "state"
+      ],
+      "actions": [
+        "Aprovar",
+        "Rejeitar",
+        "Solicitar esclarecimento"
+      ]
+    },
+    {
+      "key": "security",
+      "fields": [
+        "allowedChannels",
+        "knowledgeSources",
+        "secretRefs",
+        "retentionPolicy",
+        "killSwitch"
+      ],
+      "rule": "Nunca exibir segredos"
+    }
+  ],
+  "dataContract": {
+    "sources": [
+      "GET /v1/runs",
+      "GET /v1/approvals",
+      "GET /v1/usage",
+      "POST /v1/deployments/:id/pause"
+    ],
+    "rbac": [
+      "tenant_user",
+      "tenant_admin",
+      "atlas_operator"
+    ],
+    "errorStates": [
+      "401",
+      "403",
+      "404",
+      "409",
+      "503"
+    ]
+  },
+  "interactions": [
+    {
+      "id": "pause",
+      "event": "click",
+      "effect": "modal de confirmação → chamada autenticada → refresh estado"
+    },
+    {
+      "id": "approve",
+      "event": "click",
+      "effect": "decisão gravada com actor, razão e política"
+    },
+    {
+      "id": "changeTab",
+      "event": "click",
+      "effect": "tabs controladas com teclado"
+    }
+  ],
+  "responsive": {
+    "desktop": "hero + grid 3 columns",
+    "tablet": "2 columns",
+    "mobile": "1 column; tabs scrolláveis com focus"
+  },
+  "acceptance": [
+    "Pausar não é apenas UI; backend impede novas execuções",
+    "Tools e grants coerentes com pack real",
+    "Approval trail completa",
+    "Sem comunicação de 24/7 falsa."
+  ],
+  "implementation": {
+    "targetRepo": "atlashub-digital/App.AtlasHub.Si",
+    "framework": "Next.js App Router + React + TypeScript",
+    "reuseExisting": true,
+    "doNotOverwriteExistingMain": true,
+    "imagePolicy": "Maquete é referência editorial e de layout; reconstruir UI com componentes reais. PNG de mockup não deve substituir HTML.",
+    "assetsGuide": "../assets/README.md"
+  },
+  "legal": {
+    "logoReviewRequired": true,
+    "userConsentRequiredForLead": true,
+    "simulatedStatesClearlyLabeled": true
+  }
+}

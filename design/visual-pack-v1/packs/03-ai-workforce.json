@@ -1,0 +1,194 @@
+{
+  "version": "1.0.0",
+  "locale": "pt-BR",
+  "owner": "AtlasHub.SI",
+  "approval": "visual-concept-approved; technical-implementation-pending",
+  "brand": {
+    "logo": {
+      "source": "../assets/brand/Logo_Oficial_AtlasHub.png",
+      "mustUseOriginal": true,
+      "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
+    },
+    "colors": {
+      "navy": "#040C18",
+      "navyRaised": "#061321",
+      "panel": "#09192D",
+      "cyan": "#16D8ED",
+      "electricBlue": "#008DFF",
+      "white": "#F5F8FD",
+      "muted": "#B9C9DA",
+      "border": "#1D4564",
+      "positive": "#2AD9A0",
+      "warning": "#F0B84A",
+      "negative": "#FF6E78"
+    },
+    "typography": {
+      "family": "Inter, Arial, sans-serif",
+      "headings": "font-weight 750-850; letter-spacing -0.035em",
+      "body": "font-size 16px; line-height 1.55"
+    },
+    "responsive": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "motion": {
+      "defaultMs": 240,
+      "reducedMotion": "disable ambient parallax and nonessential transitions"
+    }
+  },
+  "guardrails": {
+    "allDataInMockupIsFictional": true,
+    "publicClaims": "Não usar desempenho, quantidades, garantias, 24/7 ou casos reais sem evidência e revisão humana.",
+    "stateBadges": "conceito, demonstração, teste, piloto e homologado são estados distintos.",
+    "actions": "CTA deve navegar para rota real ou estar explicitamente desabilitado com texto de disponibilidade.",
+    "security": "Nunca permitir ações operacionais fora de autenticação, RBAC, tenant context e policies backend."
+  },
+  "id": "03-ai-workforce",
+  "name": "Website — AI Workforce",
+  "surface": "public",
+  "route": "/solucoes/ai-workforce",
+  "asset": "03_ai_workforce.png",
+  "objective": "Apresentar serviços de colaboradores digitais geridos, por missão ou continuados, com supervisão AtlasHub.",
+  "eyebrow": "AI WORKFORCE",
+  "headline": "Reforce sua operação com colaboradores digitais geridos.",
+  "subheadline": "Perfis digitais preparados para tarefas específicas e operados pela AtlasHub, com limites, supervisão e acompanhamento definidos.",
+  "primary": {
+    "label": "Falar com a Clara",
+    "href": "#clara"
+  },
+  "secondary": {
+    "label": "Conheça os perfis",
+    "href": "#perfis"
+  },
+  "layout": {
+    "type": "marketing",
+    "hero": "human operations team + brand energy; functions as illustrative demo",
+    "maxWidth": 1440
+  },
+  "sections": [
+    {
+      "key": "hero",
+      "components": [
+        "h1",
+        "lead",
+        "cta-row",
+        "illustrated-capability-list"
+      ],
+      "badges": [
+        "Atendimento",
+        "Leads",
+        "Processos",
+        "Agenda",
+        "Relatórios"
+      ]
+    },
+    {
+      "key": "roles",
+      "label": "Perfis por função",
+      "items": [
+        {
+          "role": "Recepcionista Digital",
+          "status": "demonstração / staging — verificar readiness"
+        },
+        {
+          "role": "Assistente Comercial",
+          "status": "demo"
+        },
+        {
+          "role": "Secretária Administrativa",
+          "status": "demo"
+        },
+        {
+          "role": "Apoio a Marketing",
+          "status": "conceito"
+        },
+        {
+          "role": "Análise e Relatórios",
+          "status": "conceito"
+        }
+      ]
+    },
+    {
+      "key": "workflow",
+      "label": "Como funciona",
+      "items": [
+        "Assessment",
+        "Seleção da função e dos limites",
+        "Configuração e testes",
+        "Missão gerida",
+        "Relatório e evolução"
+      ]
+    },
+    {
+      "key": "comparison",
+      "label": "Missão ou capacidade própria?",
+      "items": [
+        "AI Workforce Managed: AtlasHub opera",
+        "Build & Transfer: cliente opera após projeto"
+      ]
+    },
+    {
+      "key": "supervision",
+      "label": "Operação responsável",
+      "items": [
+        "Permissões e escopo",
+        "Auditoria e métricas",
+        "Aprovação humana",
+        "Gestão de incidentes",
+        "Suspensão e encerramento"
+      ]
+    },
+    {
+      "key": "proof",
+      "label": "Resultados",
+      "policy": "Usar exclusivamente indicadores medidos e autorizados; remover cartões 3x/-60%/+45%/24x7 do mockup."
+    },
+    {
+      "key": "cta",
+      "headline": "Que tarefa mais consome tempo na sua empresa?",
+      "button": "Conversar com a Clara"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "filterRoles",
+      "event": "change",
+      "effect": "filtrar roles por disponibilidade real sem criar ofertas fictícias"
+    },
+    {
+      "id": "openRole",
+      "event": "click",
+      "effect": "navegar perfil com estado explícito e formulário consultivo"
+    },
+    {
+      "id": "claraIntake",
+      "event": "click",
+      "effect": "abrir diagnóstico, nunca checkout se serviço não homologado"
+    }
+  ],
+  "responsive": {
+    "desktop": "5 perfis, 3-5 colunas conforme viewport",
+    "tablet": "2 colunas",
+    "mobile": "1 coluna com cartões de altura natural"
+  },
+  "acceptance": [
+    "Não afirmar 'pronto', '24/7' nem SLA genérico.",
+    "Não mostrar métricas estimadas como reais.",
+    "Perfis limitados aos statuses reais dos packs.",
+    "Explicar serviço gerido versus integração própria."
+  ],
+  "implementation": {
+    "targetRepo": "atlashub-digital/AtlasHub.Si",
+    "framework": "Next.js App Router + React + TypeScript",
+    "reuseExisting": true,
+    "doNotOverwriteExistingMain": true,
+    "imagePolicy": "Maquete é referência editorial e de layout; reconstruir UI com componentes reais. PNG de mockup não deve substituir HTML.",
+    "assetsGuide": "../assets/README.md"
+  },
+  "legal": {
+    "logoReviewRequired": true,
+    "userConsentRequiredForLead": true,
+    "simulatedStatesClearlyLabeled": true
+  }
+}

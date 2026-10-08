@@ -1,0 +1,203 @@
+{
+  "version": "1.0.0",
+  "locale": "pt-BR",
+  "owner": "AtlasHub.SI",
+  "approval": "visual-concept-approved; technical-implementation-pending",
+  "brand": {
+    "logo": {
+      "source": "../assets/brand/Logo_Oficial_AtlasHub.png",
+      "mustUseOriginal": true,
+      "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
+    },
+    "colors": {
+      "navy": "#040C18",
+      "navyRaised": "#061321",
+      "panel": "#09192D",
+      "cyan": "#16D8ED",
+      "electricBlue": "#008DFF",
+      "white": "#F5F8FD",
+      "muted": "#B9C9DA",
+      "border": "#1D4564",
+      "positive": "#2AD9A0",
+      "warning": "#F0B84A",
+      "negative": "#FF6E78"
+    },
+    "typography": {
+      "family": "Inter, Arial, sans-serif",
+      "headings": "font-weight 750-850; letter-spacing -0.035em",
+      "body": "font-size 16px; line-height 1.55"
+    },
+    "responsive": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "motion": {
+      "defaultMs": 240,
+      "reducedMotion": "disable ambient parallax and nonessential transitions"
+    }
+  },
+  "guardrails": {
+    "allDataInMockupIsFictional": true,
+    "publicClaims": "Não usar desempenho, quantidades, garantias, 24/7 ou casos reais sem evidência e revisão humana.",
+    "stateBadges": "conceito, demonstração, teste, piloto e homologado são estados distintos.",
+    "actions": "CTA deve navegar para rota real ou estar explicitamente desabilitado com texto de disponibilidade.",
+    "security": "Nunca permitir ações operacionais fora de autenticação, RBAC, tenant context e policies backend."
+  },
+  "id": "02-enterprise-transformation",
+  "name": "Website — Enterprise Transformation",
+  "surface": "public",
+  "route": "/solucoes/enterprise-transformation",
+  "asset": "02_enterprise_transformation.png",
+  "objective": "Vender desenho, implantação própria e capacitação, sem obrigar entrada por AI Workforce.",
+  "eyebrow": "ENTERPRISE TRANSFORMATION",
+  "headline": "Construa sua própria capacidade digital.",
+  "subheadline": "Implementamos agentes e processos inteligentes no seu ecossistema, com integração, governança e capacitação da sua equipe.",
+  "primary": {
+    "label": "Agendar diagnóstico",
+    "href": "#clara"
+  },
+  "secondary": {
+    "label": "Conheça nossa abordagem",
+    "href": "#metodologia"
+  },
+  "layout": {
+    "type": "marketing",
+    "header": "shared-header",
+    "hero": "left headline, right human systems architect interacting with controlled holographic tools",
+    "maxWidth": 1440
+  },
+  "sections": [
+    {
+      "key": "hero",
+      "components": [
+        "h1",
+        "lead",
+        "cta-row",
+        "human-portrait",
+        "capability-floating-cards"
+      ],
+      "badges": [
+        "No seu ambiente",
+        "Com seu time",
+        "Governança nativa"
+      ]
+    },
+    {
+      "key": "offers",
+      "label": "Duas modalidades",
+      "items": [
+        {
+          "title": "Build & Transfer",
+          "description": "A AtlasHub desenha, implementa, testa, documenta e transfere a solução para a equipe autorizada.",
+          "deliverables": [
+            "Arquitetura",
+            "Integrações",
+            "Testes",
+            "Documentação",
+            "Handover"
+          ]
+        },
+        {
+          "title": "Co-Build & Enablement",
+          "description": "A AtlasHub desenvolve em conjunto com RH, Operações e TI para formar capacidade própria.",
+          "deliverables": [
+            "Design colaborativo",
+            "Mapa de skills",
+            "Governança",
+            "Capacitação",
+            "Evolução"
+          ]
+        }
+      ]
+    },
+    {
+      "key": "functionalDomains",
+      "label": "Áreas de transformação",
+      "items": [
+        "Processos",
+        "Operações",
+        "Pessoas & RH",
+        "TI & Integrações",
+        "Governança"
+      ]
+    },
+    {
+      "key": "method",
+      "label": "Da oportunidade à autonomia",
+      "items": [
+        "Diagnóstico",
+        "Roadmap",
+        "Arquitetura e integração",
+        "Capacitação e transferência",
+        "Escala e evolução"
+      ]
+    },
+    {
+      "key": "trust",
+      "label": "Contratos e segurança",
+      "items": [
+        "IP e licenças explícitos",
+        "DPA/LGPD",
+        "Políticas de permissão",
+        "Auditoria e rollback",
+        "Aceitação operacional"
+      ]
+    },
+    {
+      "key": "faq",
+      "items": [
+        "A solução fica na nossa infraestrutura?",
+        "Nossa equipe precisa de conhecimento técnico?",
+        "É possível internalizar uma missão AI Workforce?",
+        "Quem suporta a solução após a transferência?"
+      ]
+    },
+    {
+      "key": "cta",
+      "headline": "A inteligência deve ficar ao alcance da sua equipe.",
+      "button": "Agendar diagnóstico"
+    }
+  ],
+  "interactions": [
+    {
+      "id": "tabs",
+      "event": "click",
+      "effect": "alternar Build & Transfer e Co-Build com conteúdo acessível"
+    },
+    {
+      "id": "faq",
+      "event": "toggle",
+      "effect": "exibir respostas revisadas e contrato de expectativas"
+    },
+    {
+      "id": "assessment",
+      "event": "click",
+      "effect": "abrir Clara com intent build/co-build"
+    }
+  ],
+  "responsive": {
+    "desktop": "dois painéis equivalentes com imagens amplas",
+    "tablet": "2 colunas onde couber",
+    "mobile": "1 coluna, cards empilhados, descrições compactas"
+  },
+  "acceptance": [
+    "Transferência é contratual, não automática.",
+    "Não garantir sucesso, prazo ou autonomia sem diagnóstico.",
+    "Mostrar ambos Build e Co-Build.",
+    "Sem citar cliente/ERP sem autorização."
+  ],
+  "implementation": {
+    "targetRepo": "atlashub-digital/AtlasHub.Si",
+    "framework": "Next.js App Router + React + TypeScript",
+    "reuseExisting": true,
+    "doNotOverwriteExistingMain": true,
+    "imagePolicy": "Maquete é referência editorial e de layout; reconstruir UI com componentes reais. PNG de mockup não deve substituir HTML.",
+    "assetsGuide": "../assets/README.md"
+  },
+  "legal": {
+    "logoReviewRequired": true,
+    "userConsentRequiredForLead": true,
+    "simulatedStatesClearlyLabeled": true
+  }
+}

@@ -1,0 +1,228 @@
+{
+  "version": "1.0.0",
+  "locale": "pt-BR",
+  "owner": "AtlasHub.SI",
+  "approval": "visual-concept-approved; technical-implementation-pending",
+  "brand": {
+    "logo": {
+      "source": "../assets/brand/Logo_Oficial_AtlasHub.png",
+      "mustUseOriginal": true,
+      "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
+    },
+    "colors": {
+      "navy": "#040C18",
+      "navyRaised": "#061321",
+      "panel": "#09192D",
+      "cyan": "#16D8ED",
+      "electricBlue": "#008DFF",
+      "white": "#F5F8FD",
+      "muted": "#B9C9DA",
+      "border": "#1D4564",
+      "positive": "#2AD9A0",
+      "warning": "#F0B84A",
+      "negative": "#FF6E78"
+    },
+    "typography": {
+      "family": "Inter, Arial, sans-serif",
+      "headings": "font-weight 750-850; letter-spacing -0.035em",
+      "body": "font-size 16px; line-height 1.55"
+    },
+    "responsive": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "motion": {
+      "defaultMs": 240,
+      "reducedMotion": "disable ambient parallax and nonessential transitions"
+    }
+  },
+  "guardrails": {
+    "allDataInMockupIsFictional": true,
+    "publicClaims": "Não usar desempenho, quantidades, garantias, 24/7 ou casos reais sem evidência e revisão humana.",
+    "stateBadges": "conceito, demonstração, teste, piloto e homologado são estados distintos.",
+    "actions": "CTA deve navegar para rota real ou estar explicitamente desabilitado com texto de disponibilidade.",
+    "security": "Nunca permitir ações operacionais fora de autenticação, RBAC, tenant context e policies backend."
+  },
+  "id": "01-corporate-home",
+  "name": "Website — Homepage AtlasHub.SI",
+  "surface": "public",
+  "route": "/",
+  "asset": "01_site_home.png",
+  "objective": "Apresentar a AtlasHub.SI como empresa de transformação e operação inteligente, com equilíbrio entre AI Workforce e Enterprise Transformation.",
+  "eyebrow": "INTELIGÊNCIA EM OPERAÇÃO",
+  "headline": "Mais capacidade. Menos complexidade.",
+  "subheadline": "Ajudamos empresas a reforçar suas operações com colaboradores digitais e a construir sua própria capacidade para o futuro.",
+  "primary": {
+    "label": "Fale com a Clara",
+    "href": "#clara"
+  },
+  "secondary": {
+    "label": "Conheça as soluções",
+    "href": "#solucoes"
+  },
+  "layout": {
+    "type": "marketing",
+    "header": "logo + Soluções/Plataforma/Casos de uso/Conhecimento/Sobre + Clara",
+    "hero": "split 52/48; headline left, editorial human photo and luminous Atlas symbol right; no generated logo as brand asset",
+    "background": "midnight office photography, soft cyan holography",
+    "maxWidth": 1440,
+    "grid": 12
+  },
+  "sections": [
+    {
+      "key": "nav",
+      "label": "Navegação",
+      "components": [
+        "brand",
+        "desktop-nav",
+        "mobile-dialog",
+        "primary-cta"
+      ],
+      "copy": {
+        "items": [
+          "Soluções",
+          "Plataforma",
+          "Casos de uso",
+          "Conhecimento",
+          "Sobre"
+        ]
+      }
+    },
+    {
+      "key": "hero",
+      "label": "Hero principal",
+      "components": [
+        "eyebrow",
+        "h1",
+        "lead",
+        "cta-row",
+        "human-portrait",
+        "brand-energy-layer"
+      ],
+      "copy": {
+        "eyebrow": "INTELIGÊNCIA EM OPERAÇÃO",
+        "h1": "Mais capacidade. Menos complexidade.",
+        "lead": "A AtlasHub transforma desafios operacionais em capacidades digitais geridas ou próprias."
+      }
+    },
+    {
+      "key": "pillars",
+      "label": "Duas soluções principais",
+      "components": [
+        "offer-card",
+        "offer-card"
+      ],
+      "items": [
+        {
+          "id": "workforce",
+          "title": "AI Workforce",
+          "headline": "Contrate capacidade gerida.",
+          "description": "Colaboradores digitais por missão ou operação continuada, com supervisão da AtlasHub.",
+          "cta": "Explorar AI Workforce",
+          "href": "/solucoes/ai-workforce"
+        },
+        {
+          "id": "transformation",
+          "title": "Enterprise Transformation",
+          "headline": "Construa sua própria capacidade.",
+          "description": "Desenvolvimento, integração e capacitação no seu ecossistema.",
+          "cta": "Explorar Enterprise Transformation",
+          "href": "/solucoes/enterprise-transformation"
+        }
+      ]
+    },
+    {
+      "key": "capabilities",
+      "label": "Capacidades estruturantes",
+      "items": [
+        "Employee Factory: perfis e competências",
+        "Integração e Segurança",
+        "Gestão e Evolução",
+        "Pessoas + Agentes"
+      ]
+    },
+    {
+      "key": "verticals",
+      "label": "Aplicações por área",
+      "items": [
+        "Atendimento ao cliente",
+        "Prospecção de leads",
+        "Back-office e operações",
+        "Marketing e conteúdo"
+      ],
+      "rule": "São cenários ilustrativos, não clientes comprovados."
+    },
+    {
+      "key": "journey",
+      "label": "Da necessidade à autonomia",
+      "items": [
+        "Diagnóstico",
+        "Reforço operacional",
+        "Implantação e capacitação",
+        "Capacidade permanente"
+      ]
+    },
+    {
+      "key": "clara",
+      "label": "Clara consultora",
+      "copy": {
+        "title": "Qual capacidade sua empresa precisa desenvolver?",
+        "description": "Diagnóstico consultivo sem prometer disponibilidade de serviço não homologado."
+      },
+      "href": "#clara"
+    },
+    {
+      "key": "footer",
+      "label": "Rodapé",
+      "items": [
+        "AtlasHub.SI",
+        "People | Technology | Results",
+        "Privacidade",
+        "Termos",
+        "Contato"
+      ]
+    }
+  ],
+  "interactions": [
+    {
+      "id": "openClara",
+      "event": "click",
+      "effect": "scrollTo #clara ou rota diagnóstica autorizada"
+    },
+    {
+      "id": "twoOffers",
+      "event": "click",
+      "effect": "navegar páginas próprias das soluções"
+    },
+    {
+      "id": "mobileMenu",
+      "event": "click",
+      "effect": "abrir menu acessível com focus trap e Escape"
+    }
+  ],
+  "responsive": {
+    "desktop": "hero split, duas ofertas lado a lado, quatro aplicações",
+    "tablet": "hero texto 60/40 e cartões 2 colunas",
+    "mobile": "hero em uma coluna; texto e CTA antes da imagem; ofertas empilhadas; sem efeitos pesados"
+  },
+  "acceptance": [
+    "Ambas as ofertas recebem mesma relevância editorial.",
+    "Não mostrar números de ROI falsos nem clientes sem autorização.",
+    "Clara preserva o simulador existente e a integração de leads.",
+    "Menu, âncoras e links operam com teclado e mobile."
+  ],
+  "implementation": {
+    "targetRepo": "atlashub-digital/AtlasHub.Si",
+    "framework": "Next.js App Router + React + TypeScript",
+    "reuseExisting": true,
+    "doNotOverwriteExistingMain": true,
+    "imagePolicy": "Maquete é referência editorial e de layout; reconstruir UI com componentes reais. PNG de mockup não deve substituir HTML.",
+    "assetsGuide": "../assets/README.md"
+  },
+  "legal": {
+    "logoReviewRequired": true,
+    "userConsentRequiredForLead": true,
+    "simulatedStatesClearlyLabeled": true
+  }
+}
