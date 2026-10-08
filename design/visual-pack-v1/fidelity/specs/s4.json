@@ -1,0 +1,1043 @@
+{
+ "src": "design/visual-pack-v1/assets/screens/04_agent_library.webp",
+ "blocks": [
+  {
+   "r": [
+    79,
+    99,
+    122,
+    120
+   ],
+   "lines": [
+    "Início"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    147,
+    183,
+    171
+   ],
+   "lines": [
+    "Meus Agentes"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    197,
+    137,
+    220
+   ],
+   "lines": [
+    "Missões"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    249,
+    170,
+    273
+   ],
+   "lines": [
+    "Processos"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    298,
+    166,
+    321
+   ],
+   "lines": [
+    "Integrações"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    349,
+    162,
+    372
+   ],
+   "lines": [
+    "Resultados"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    403,
+    208,
+    424
+   ],
+   "lines": [
+    "Employee Factory"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    424,
+    218,
+    443
+   ],
+   "lines": [
+    "Biblioteca de Agentes"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    470,
+    132,
+    492
+   ],
+   "lines": [
+    "Equipe"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    79,
+    522,
+    186,
+    545
+   ],
+   "lines": [
+    "Configurações"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    38,
+    612,
+    174,
+    699
+   ],
+   "lines": [
+    "Empresas",
+    "mais humanas.",
+    "Equipes",
+    "{mais capazes.}"
+   ],
+   "w": 500,
+   "acc": "#2bd3f3",
+   "kind": "width",
+   "edge_ok": true,
+   "thr": 0.5
+  },
+  {
+   "r": [
+    338,
+    24,
+    711,
+    46
+   ],
+   "lines": [
+    "Buscar agentes, funções, habilidades ou casos de uso..."
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1508,
+    14,
+    1571,
+    34
+   ],
+   "lines": [
+    "Ana Silva"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1508,
+    35,
+    1610,
+    52
+   ],
+   "lines": [
+    "Empresa Exemplo"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    290,
+    81,
+    477,
+    99
+   ],
+   "lines": [
+    "EMPLOYEE FACTORY"
+   ],
+   "w": 600,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    290,
+    104,
+    796,
+    153
+   ],
+   "lines": [
+    "Biblioteca de Agentes"
+   ],
+   "w": 800,
+   "tag": "h1",
+   "kind": "width"
+  },
+  {
+   "r": [
+    290,
+    159,
+    869,
+    204
+   ],
+   "lines": [
+    "Perfis e pacotes de colaboradores digitais prontos para impulsionar",
+    "a sua operação com mais capacidade, velocidade e consistência."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1473,
+    109,
+    1580,
+    128
+   ],
+   "lines": [
+    "PESSOAS"
+   ],
+   "w": 400,
+   "kind": "tracked",
+   "tag": "span"
+  },
+  {
+   "r": [
+    1473,
+    130,
+    1580,
+    149
+   ],
+   "lines": [
+    "+ AGENTES"
+   ],
+   "w": 400,
+   "kind": "tracked",
+   "tag": "span"
+  },
+  {
+   "r": [
+    1473,
+    151,
+    1601,
+    170
+   ],
+   "lines": [
+    "= {OPERAÇÕES}"
+   ],
+   "w": 400,
+   "kind": "tracked",
+   "tag": "span",
+   "acc": "#3ad6f2"
+  },
+  {
+   "r": [
+    1491,
+    172,
+    1642,
+    192
+   ],
+   "lines": [
+    "EXTRAORDINÁRIAS"
+   ],
+   "w": 400,
+   "kind": "tracked",
+   "tag": "span"
+  },
+  {
+   "r": [
+    373,
+    240,
+    575,
+    259
+   ],
+   "lines": [
+    "AI WORKFORCE MANAGED"
+   ],
+   "w": 700,
+   "kind": "tracked",
+   "tag": "span",
+   "col": "#3fd8f4"
+  },
+  {
+   "r": [
+    373,
+    260,
+    622,
+    279
+   ],
+   "lines": [
+    "Agentes prontos e gerenciados pela AtlasHub"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    736,
+    240,
+    968,
+    259
+   ],
+   "lines": [
+    "ENTERPRISE TRANSFORMATION"
+   ],
+   "w": 700,
+   "kind": "tracked",
+   "tag": "span"
+  },
+  {
+   "r": [
+    736,
+    260,
+    967,
+    279
+   ],
+   "lines": [
+    "Agentes personalizados para o seu negócio"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    328,
+    312,
+    534,
+    335
+   ],
+   "lines": [
+    "Buscar na biblioteca de agentes..."
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    723,
+    313,
+    844,
+    335
+   ],
+   "lines": [
+    "Todas as categorias"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    903,
+    313,
+    1004,
+    335
+   ],
+   "lines": [
+    "Todos os níveis"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1058,
+    313,
+    1170,
+    335
+   ],
+   "lines": [
+    "Todos os ambientes"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1275,
+    313,
+    1316,
+    335
+   ],
+   "lines": [
+    "Filtros"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1500,
+    313,
+    1579,
+    335
+   ],
+   "lines": [
+    "Mais relevantes"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    278,
+    436,
+    498,
+    463
+   ],
+   "lines": [
+    "Agentes em destaque"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    278,
+    462,
+    723,
+    483
+   ],
+   "lines": [
+    "Perfis mais utilizados e recomendados para acelerar seus resultados."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1185,
+    441,
+    1319,
+    463
+   ],
+   "lines": [
+    "Ver todos os agentes"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1377,
+    377,
+    1630,
+    453
+   ],
+   "lines": [
+    "Do agente pronto",
+    "à transformação",
+    "completa da sua operação."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1377,
+    460,
+    1601,
+    494
+   ],
+   "lines": [
+    "A mesma biblioteca, dois caminhos",
+    "para o seu resultado."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    404,
+    519,
+    452,
+    542
+   ],
+   "lines": [
+    "Clara"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    404,
+    545,
+    564,
+    591
+   ],
+   "lines": [
+    "Atendimento ao cliente",
+    "com empatia e consistência",
+    "em todos os canais."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    777,
+    519,
+    830,
+    542
+   ],
+   "lines": [
+    "Rafael"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    777,
+    549,
+    945,
+    598
+   ],
+   "lines": [
+    "Prospecção ativa de leads",
+    "e qualificação de oportunidades",
+    "com inteligência."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1128,
+    521,
+    1175,
+    545
+   ],
+   "lines": [
+    "Sofia"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1128,
+    549,
+    1294,
+    598
+   ],
+   "lines": [
+    "Execução de processos",
+    "administrativos com precisão",
+    "e agilidade."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    399,
+    744,
+    469,
+    768
+   ],
+   "lines": [
+    "Mariana"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    400,
+    772,
+    545,
+    822
+   ],
+   "lines": [
+    "Organização de agenda,",
+    "reuniões e follow-ups com",
+    "inteligência e proatividade."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    763,
+    744,
+    810,
+    768
+   ],
+   "lines": [
+    "Bruno"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    763,
+    772,
+    945,
+    822
+   ],
+   "lines": [
+    "Análise de dados operacionais",
+    "e geração de insights estratégicos",
+    "em tempo real."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1128,
+    745,
+    1185,
+    770
+   ],
+   "lines": [
+    "Camila"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1128,
+    772,
+    1304,
+    822
+   ],
+   "lines": [
+    "Criação e gestão de campanhas",
+    "de marketing com foco em",
+    "resultado e crescimento."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    321,
+    674,
+    403,
+    695
+   ],
+   "lines": [
+    "Explorar perfil"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    493,
+    674,
+    559,
+    695
+   ],
+   "lines": [
+    "Criar missão"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    679,
+    674,
+    762,
+    695
+   ],
+   "lines": [
+    "Explorar perfil"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    848,
+    674,
+    913,
+    695
+   ],
+   "lines": [
+    "Criar missão"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1029,
+    674,
+    1110,
+    695
+   ],
+   "lines": [
+    "Explorar perfil"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1199,
+    674,
+    1265,
+    695
+   ],
+   "lines": [
+    "Criar missão"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    321,
+    897,
+    403,
+    918
+   ],
+   "lines": [
+    "Explorar perfil"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    493,
+    897,
+    559,
+    918
+   ],
+   "lines": [
+    "Criar missão"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    679,
+    897,
+    762,
+    918
+   ],
+   "lines": [
+    "Explorar perfil"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    858,
+    897,
+    911,
+    918
+   ],
+   "lines": [
+    "Comparar"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1036,
+    897,
+    1117,
+    918
+   ],
+   "lines": [
+    "Explorar perfil"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1218,
+    897,
+    1274,
+    918
+   ],
+   "lines": [
+    "Implantar"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1439,
+    517,
+    1575,
+    538
+   ],
+   "lines": [
+    "AI Workforce Managed"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1439,
+    537,
+    1600,
+    595
+   ],
+   "lines": [
+    "Agentes prontos, testados e",
+    "gerenciados pela AtlasHub.SI.",
+    "Implante em minutos e escale",
+    "com segurança."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1415,
+    602,
+    1547,
+    672
+   ],
+   "lines": [
+    "Perfis validados",
+    "Melhores práticas inclusas",
+    "Suporte contínuo",
+    "Atualizações automáticas"
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1439,
+    699,
+    1595,
+    720
+   ],
+   "lines": [
+    "Enterprise Transformation"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1439,
+    719,
+    1600,
+    777
+   ],
+   "lines": [
+    "Agentes personalizados para",
+    "a realidade do seu negócio.",
+    "Conectados aos seus processos,",
+    "dados e sistemas."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1415,
+    785,
+    1579,
+    854
+   ],
+   "lines": [
+    "Customização avançada",
+    "Integração com seus sistemas",
+    "Governança e segurança",
+    "Acompanhamento de resultados"
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1384,
+    875,
+    1444,
+    897
+   ],
+   "lines": [
+    "+50"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1384,
+    896,
+    1462,
+    912
+   ],
+   "lines": [
+    "agentes prontos"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1493,
+    875,
+    1517,
+    897
+   ],
+   "lines": [
+    "12"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1480,
+    896,
+    1530,
+    912
+   ],
+   "lines": [
+    "categorias"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1571,
+    875,
+    1619,
+    897
+   ],
+   "lines": [
+    "100%"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  }
+ ]
+}

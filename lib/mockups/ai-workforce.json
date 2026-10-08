@@ -1,0 +1,1171 @@
+{
+"id": "ai-workforce",
+"title": "Reforce sua operação com colaboradores digitais geridos.",
+"W": 1672,
+"H": 941,
+"bg": "/mockups/ai-workforce.webp",
+"items": [
+{
+"t": "Soluções",
+"x": 406.0,
+"y": 27.66,
+"s": 14.33,
+"w": 500,
+"f": "bsc",
+"c": "#f7fcff",
+"tag": "span"
+},
+{
+"t": "Plataforma",
+"x": 530.0,
+"y": 27.23,
+"s": 14.75,
+"w": 500,
+"f": "bsc",
+"c": "#f2f7ff",
+"tag": "span"
+},
+{
+"t": "Casos de uso",
+"x": 650.0,
+"y": 27.22,
+"s": 14.79,
+"w": 500,
+"f": "bsc",
+"c": "#f5fbff",
+"tag": "span"
+},
+{
+"t": "Conhecimento",
+"x": 782.0,
+"y": 27.18,
+"s": 14.61,
+"w": 500,
+"f": "bsc",
+"c": "#f3faff",
+"tag": "span"
+},
+{
+"t": "Sobre",
+"x": 922.0,
+"y": 27.41,
+"s": 14.35,
+"w": 500,
+"f": "bsc",
+"c": "#deeaff",
+"tag": "span"
+},
+{
+"t": "Falar com a Clara",
+"x": 1454.0,
+"y": 27.36,
+"s": 13.8,
+"w": 600,
+"f": "bsc",
+"c": "#00152a",
+"tag": "span"
+},
+{
+"t": "AI WORKFORCE",
+"x": 95.0,
+"y": 87.52,
+"s": 16.67,
+"w": 600,
+"f": "figtree",
+"c": "#52ddf3",
+"ls": 2.212
+},
+{
+"t": "Reforce sua operação",
+"x": 97.0,
+"y": 108.95,
+"s": 56.53,
+"w": 800,
+"f": "figtree",
+"c": "#feffff",
+"tag": "span"
+},
+{
+"t": "com {colaboradores}",
+"x": 96.0,
+"y": 155.77,
+"s": 57.91,
+"w": 800,
+"f": "figtree",
+"c": "#fbfcff",
+"a": "#27d5fa",
+"tag": "span"
+},
+{
+"t": "digitais geridos.",
+"x": 96.0,
+"y": 205.6,
+"s": 55.76,
+"w": 800,
+"f": "figtree",
+"c": "#32ddfe",
+"tag": "span"
+},
+{
+"t": "Uma equipe de agentes de IA, especializados por missão,",
+"x": 98.0,
+"y": 263.67,
+"s": 17.72,
+"w": 500,
+"f": "figtree",
+"c": "#eff5ff"
+},
+{
+"t": "operados e supervisionados pela {AtlasHub}, que executam",
+"x": 97.0,
+"y": 283.73,
+"s": 17.72,
+"w": 500,
+"f": "figtree",
+"c": "#f0f7ff",
+"a": "#3fd6f5"
+},
+{
+"t": "processos, atendem clientes e geram resultados reais.",
+"x": 98.0,
+"y": 302.69,
+"s": 17.72,
+"w": 500,
+"f": "figtree",
+"c": "#e6edfe"
+},
+{
+"t": "Falar com a Clara",
+"x": 165.0,
+"y": 342.91,
+"s": 16.45,
+"w": 600,
+"f": "bsc",
+"c": "#001121",
+"tag": "span"
+},
+{
+"t": "Conheça o AI Workforce",
+"x": 389.0,
+"y": 344.17,
+"s": 14.57,
+"w": 500,
+"f": "figtree",
+"c": "#fbfeff",
+"tag": "span"
+},
+{
+"t": "PESSOAS",
+"x": 1451.0,
+"y": 99.52,
+"s": 16.67,
+"w": 400,
+"f": "figtree",
+"c": "#e2edff",
+"ls": -0.75
+},
+{
+"t": "MAIS ESTRATÉGICAS.",
+"x": 1451.0,
+"y": 119.4,
+"s": 16.09,
+"w": 400,
+"f": "figtree",
+"c": "#dae5ff",
+"ls": 0.047
+},
+{
+"t": "AGENTES MAIS",
+"x": 1450.0,
+"y": 139.78,
+"s": 15.28,
+"w": 400,
+"f": "figtree",
+"c": "#e2f1ff",
+"ls": 0.65
+},
+{
+"t": "CAPAZES.",
+"x": 1450.0,
+"y": 159.52,
+"s": 16.67,
+"w": 400,
+"f": "figtree",
+"c": "#e2edff",
+"ls": -0.357
+},
+{
+"t": "Colaboradores digitais prontos para a sua operação.",
+"x": 56.0,
+"y": 395.86,
+"s": 20.78,
+"w": 700,
+"f": "figtree",
+"c": "#feffff",
+"tag": "h2"
+},
+{
+"t": "Ver todos os agentes",
+"x": 1476.0,
+"y": 400.31,
+"s": 11.95,
+"w": 500,
+"f": "figtree",
+"c": "#53bed9",
+"tag": "span"
+},
+{
+"t": "Atendimento",
+"x": 233.0,
+"y": 441.72,
+"s": 12.96,
+"w": 700,
+"f": "figtree",
+"c": "#f9ffff",
+"tag": "h3"
+},
+{
+"t": "ao Cliente",
+"x": 234.0,
+"y": 457.19,
+"s": 12.96,
+"w": 700,
+"f": "figtree",
+"c": "#fcffff",
+"tag": "span"
+},
+{
+"t": "Atende, resolve,",
+"x": 172.0,
+"y": 488.28,
+"s": 12.64,
+"w": 500,
+"f": "figtree",
+"c": "#dbe7ff"
+},
+{
+"t": "orienta e encanta",
+"x": 172.0,
+"y": 504.43,
+"s": 12.64,
+"w": 500,
+"f": "figtree",
+"c": "#dbe8fe"
+},
+{
+"t": "seus clientes 24/7.",
+"x": 172.0,
+"y": 518.75,
+"s": 12.64,
+"w": 500,
+"f": "figtree",
+"c": "#dde9fe"
+},
+{
+"t": "Ver detalhes",
+"x": 184.0,
+"y": 545.39,
+"s": 11.05,
+"w": 600,
+"f": "figtree",
+"c": "#5ad0ec",
+"tag": "span"
+},
+{
+"t": "Prospecção",
+"x": 538.0,
+"y": 441.12,
+"s": 12.52,
+"w": 700,
+"f": "figtree",
+"c": "#fbffff",
+"tag": "h3"
+},
+{
+"t": "de Leads",
+"x": 537.0,
+"y": 457.38,
+"s": 12.52,
+"w": 700,
+"f": "figtree",
+"c": "#fcffff",
+"tag": "span"
+},
+{
+"t": "Identifica, qualifica",
+"x": 489.0,
+"y": 487.58,
+"s": 12.56,
+"w": 500,
+"f": "figtree",
+"c": "#d4dff7"
+},
+{
+"t": "e agenda oportunidades",
+"x": 488.0,
+"y": 503.62,
+"s": 12.56,
+"w": 500,
+"f": "figtree",
+"c": "#d6e0fe"
+},
+{
+"t": "de negócio.",
+"x": 488.0,
+"y": 518.64,
+"s": 12.56,
+"w": 500,
+"f": "figtree",
+"c": "#ced8f2"
+},
+{
+"t": "Ver detalhes",
+"x": 501.0,
+"y": 545.46,
+"s": 11.58,
+"w": 600,
+"f": "figtree",
+"c": "#4ac9e2",
+"tag": "span"
+},
+{
+"t": "Back-office",
+"x": 869.0,
+"y": 440.59,
+"s": 12.62,
+"w": 700,
+"f": "figtree",
+"c": "#fdffff",
+"tag": "h3"
+},
+{
+"t": "Operações",
+"x": 869.0,
+"y": 457.45,
+"s": 12.62,
+"w": 700,
+"f": "figtree",
+"c": "#faffff",
+"tag": "span"
+},
+{
+"t": "Executa processos",
+"x": 815.0,
+"y": 488.1,
+"s": 12.86,
+"w": 500,
+"f": "figtree",
+"c": "#d3def6"
+},
+{
+"t": "administrativos e",
+"x": 815.0,
+"y": 503.4,
+"s": 12.86,
+"w": 500,
+"f": "figtree",
+"c": "#d8e5fe"
+},
+{
+"t": "mantém tudo em dia.",
+"x": 815.0,
+"y": 518.5,
+"s": 12.86,
+"w": 500,
+"f": "figtree",
+"c": "#d4defe"
+},
+{
+"t": "Ver detalhes",
+"x": 827.0,
+"y": 545.37,
+"s": 10.7,
+"w": 600,
+"f": "figtree",
+"c": "#5fd6f2",
+"tag": "span"
+},
+{
+"t": "Gestão",
+"x": 1166.0,
+"y": 441.43,
+"s": 12.92,
+"w": 700,
+"f": "figtree",
+"c": "#fcffff",
+"tag": "h3"
+},
+{
+"t": "de Agenda",
+"x": 1166.0,
+"y": 457.24,
+"s": 12.92,
+"w": 700,
+"f": "figtree",
+"c": "#fbffff",
+"tag": "span"
+},
+{
+"t": "Organiza, compromissos,",
+"x": 1114.0,
+"y": 488.63,
+"s": 12.44,
+"w": 500,
+"f": "figtree",
+"c": "#cbd9f5"
+},
+{
+"t": "confirma, reagenda",
+"x": 1114.0,
+"y": 503.6,
+"s": 12.44,
+"w": 500,
+"f": "figtree",
+"c": "#cbd7f1"
+},
+{
+"t": "e envia lembretes.",
+"x": 1114.0,
+"y": 518.69,
+"s": 12.44,
+"w": 500,
+"f": "figtree",
+"c": "#cdd8ef"
+},
+{
+"t": "Ver detalhes",
+"x": 1127.0,
+"y": 545.42,
+"s": 10.88,
+"w": 600,
+"f": "figtree",
+"c": "#4fcfe8",
+"tag": "span"
+},
+{
+"t": "Marketing",
+"x": 1487.0,
+"y": 441.31,
+"s": 12.96,
+"w": 700,
+"f": "figtree",
+"c": "#fdffff",
+"tag": "h3"
+},
+{
+"t": "e Conteúdo",
+"x": 1486.0,
+"y": 457.53,
+"s": 12.96,
+"w": 700,
+"f": "figtree",
+"c": "#f9ffff",
+"tag": "span"
+},
+{
+"t": "Cria campanhas,",
+"x": 1424.0,
+"y": 488.62,
+"s": 12.52,
+"w": 500,
+"f": "figtree",
+"c": "#cad8f6"
+},
+{
+"t": "produz conteúdos",
+"x": 1424.0,
+"y": 503.4,
+"s": 12.52,
+"w": 500,
+"f": "figtree",
+"c": "#cee0ff"
+},
+{
+"t": "e monitora resultados.",
+"x": 1424.0,
+"y": 518.6,
+"s": 12.52,
+"w": 500,
+"f": "figtree",
+"c": "#cde2ff"
+},
+{
+"t": "Ver detalhes",
+"x": 1437.0,
+"y": 545.42,
+"s": 10.88,
+"w": 600,
+"f": "figtree",
+"c": "#52d1ee",
+"tag": "span"
+},
+{
+"t": "Como funciona.",
+"x": 56.0,
+"y": 593.75,
+"s": 19.97,
+"w": 700,
+"f": "figtree",
+"c": "#fdffff",
+"tag": "h2"
+},
+{
+"t": "Em poucos passos, sua equipe de colaboradores",
+"x": 58.0,
+"y": 621.5,
+"s": 13.21,
+"w": 500,
+"f": "figtree",
+"c": "#d9e2f7"
+},
+{
+"t": "digitais entra em operação, gerida do início ao fim",
+"x": 57.0,
+"y": 637.24,
+"s": 13.21,
+"w": 500,
+"f": "figtree",
+"c": "#dee9ff"
+},
+{
+"t": "pela AtlasHub.",
+"x": 57.0,
+"y": 651.04,
+"s": 13.21,
+"w": 500,
+"f": "figtree",
+"c": "#d5def3"
+},
+{
+"t": "Diagnóstico",
+"x": 527.0,
+"y": 604.42,
+"s": 12.73,
+"w": 700,
+"f": "figtree",
+"c": "#f9ffff",
+"tag": "h3"
+},
+{
+"t": "Entendemos seus desafios,",
+"x": 527.0,
+"y": 626.57,
+"s": 10.71,
+"w": 500,
+"f": "figtree",
+"c": "#bcc7de"
+},
+{
+"t": "processos e objetivos.",
+"x": 527.0,
+"y": 640.67,
+"s": 10.71,
+"w": 500,
+"f": "figtree",
+"c": "#b9c5e1"
+},
+{
+"t": "Configuração",
+"x": 825.0,
+"y": 604.6,
+"s": 12.14,
+"w": 700,
+"f": "figtree",
+"c": "#f7fdff",
+"tag": "h3"
+},
+{
+"t": "Selecionamos e configuramos",
+"x": 825.0,
+"y": 623.6,
+"s": 10.67,
+"w": 500,
+"f": "figtree",
+"c": "#bfcce5"
+},
+{
+"t": "os agentes ideais para",
+"x": 825.0,
+"y": 638.67,
+"s": 10.67,
+"w": 500,
+"f": "figtree",
+"c": "#c5cee7"
+},
+{
+"t": "suas missões.",
+"x": 825.0,
+"y": 652.62,
+"s": 10.67,
+"w": 500,
+"f": "figtree",
+"c": "#c4cfe8"
+},
+{
+"t": "Operação Gerida",
+"x": 1127.0,
+"y": 603.69,
+"s": 13.06,
+"w": 700,
+"f": "figtree",
+"c": "#f9feff",
+"tag": "h3"
+},
+{
+"t": "Os agentes entram em ação,",
+"x": 1127.0,
+"y": 623.85,
+"s": 11.38,
+"w": 500,
+"f": "figtree",
+"c": "#c2d1e9"
+},
+{
+"t": "com supervisão contínua",
+"x": 1127.0,
+"y": 638.29,
+"s": 11.38,
+"w": 500,
+"f": "figtree",
+"c": "#bcc8df"
+},
+{
+"t": "da nossa equipe.",
+"x": 1127.0,
+"y": 652.74,
+"s": 11.38,
+"w": 500,
+"f": "figtree",
+"c": "#c8d5ec"
+},
+{
+"t": "Evolução Contínua",
+"x": 1456.0,
+"y": 602.33,
+"s": 12.3,
+"w": 700,
+"f": "figtree",
+"c": "#fbffff",
+"tag": "h3"
+},
+{
+"t": "Monitoramos resultados",
+"x": 1456.0,
+"y": 623.24,
+"s": 11.45,
+"w": 500,
+"f": "figtree",
+"c": "#c7d4ea"
+},
+{
+"t": "e otimizamos constantemente",
+"x": 1455.0,
+"y": 637.76,
+"s": 11.45,
+"w": 500,
+"f": "figtree",
+"c": "#cbd8f4"
+},
+{
+"t": "para mais impacto.",
+"x": 1456.0,
+"y": 651.73,
+"s": 11.45,
+"w": 500,
+"f": "figtree",
+"c": "#cad8f0"
+},
+{
+"t": "Resultados que impulsionam",
+"x": 61.0,
+"y": 687.6,
+"s": 18.78,
+"w": 700,
+"f": "figtree",
+"c": "#fdffff",
+"tag": "h2"
+},
+{
+"t": "o seu negócio.",
+"x": 60.0,
+"y": 710.01,
+"s": 18.78,
+"w": 700,
+"f": "figtree",
+"c": "#fdffff",
+"tag": "span"
+},
+{
+"t": "Colaboradores digitais que entregam",
+"x": 61.0,
+"y": 736.17,
+"s": 13.53,
+"w": 500,
+"f": "figtree",
+"c": "#d4dcf7"
+},
+{
+"t": "produtividade, escalabilidade e uma",
+"x": 61.0,
+"y": 752.27,
+"s": 13.53,
+"w": 500,
+"f": "figtree",
+"c": "#cfdaf3"
+},
+{
+"t": "operação mais eficiente.",
+"x": 61.0,
+"y": 769.01,
+"s": 13.53,
+"w": 500,
+"f": "figtree",
+"c": "#d7e3fd"
+},
+{
+"t": "3x",
+"x": 372.0,
+"y": 738.72,
+"s": 26.55,
+"w": 800,
+"f": "figtree",
+"c": "#c9fbff",
+"tag": "span"
+},
+{
+"t": "mais produtividade",
+"x": 339.0,
+"y": 770.61,
+"s": 10.78,
+"w": 500,
+"f": "figtree",
+"c": "#d3e2ff",
+"tag": "span"
+},
+{
+"t": "-60%",
+"x": 477.0,
+"y": 739.68,
+"s": 26.32,
+"w": 800,
+"f": "figtree",
+"c": "#96f9ff",
+"tag": "span"
+},
+{
+"t": "de tempo em processos",
+"x": 452.0,
+"y": 770.52,
+"s": 10.35,
+"w": 500,
+"f": "figtree",
+"c": "#cedaf5",
+"tag": "span"
+},
+{
+"t": "+45%",
+"x": 608.0,
+"y": 740.98,
+"s": 24.63,
+"w": 800,
+"f": "figtree",
+"c": "#9af4ff",
+"tag": "span"
+},
+{
+"t": "em conversões de leads",
+"x": 584.0,
+"y": 770.82,
+"s": 10.58,
+"w": 500,
+"f": "figtree",
+"c": "#d5e2ff",
+"tag": "span"
+},
+{
+"t": "24/7",
+"x": 751.0,
+"y": 738.16,
+"s": 25.89,
+"w": 800,
+"f": "figtree",
+"c": "#b0fbff",
+"tag": "span"
+},
+{
+"t": "operação contínua",
+"x": 732.0,
+"y": 770.43,
+"s": 11.3,
+"w": 500,
+"f": "figtree",
+"c": "#d7e5fe",
+"tag": "span"
+},
+{
+"t": "Supervisão humana e conformidade.",
+"x": 893.0,
+"y": 689.06,
+"s": 18.73,
+"w": 700,
+"f": "figtree",
+"c": "#fdffff",
+"tag": "h2"
+},
+{
+"t": "Todos os agentes são operados e supervisionados",
+"x": 892.0,
+"y": 714.34,
+"s": 13.47,
+"w": 500,
+"f": "figtree",
+"c": "#d8e2f8"
+},
+{
+"t": "pela {AtlasHub}, com governança, segurança e",
+"x": 893.0,
+"y": 729.03,
+"s": 13.47,
+"w": 500,
+"f": "figtree",
+"c": "#dce7ff",
+"a": "#3fd6f5"
+},
+{
+"t": "conformidade com a LGPD.",
+"x": 893.0,
+"y": 743.22,
+"s": 13.47,
+"w": 500,
+"f": "figtree",
+"c": "#c7d1e8"
+},
+{
+"t": "Supervisão especialista",
+"x": 938.0,
+"y": 766.65,
+"s": 11.03,
+"w": 500,
+"f": "figtree",
+"c": "#cdd6f1",
+"tag": "span"
+},
+{
+"t": "LGPD e segurança de dados",
+"x": 939.0,
+"y": 788.64,
+"s": 11.11,
+"w": 500,
+"f": "figtree",
+"c": "#bcc6ec",
+"tag": "span"
+},
+{
+"t": "Monitoramento em tempo real",
+"x": 1142.0,
+"y": 766.61,
+"s": 10.79,
+"w": 500,
+"f": "figtree",
+"c": "#d7e7ff",
+"tag": "span"
+},
+{
+"t": "Relatórios e auditoria",
+"x": 1142.0,
+"y": 789.6,
+"s": 10.82,
+"w": 500,
+"f": "figtree",
+"c": "#cfdbf2",
+"tag": "span"
+},
+{
+"t": "PRONTA PARA COMEÇAR?",
+"x": 74.0,
+"y": 837.61,
+"s": 10.75,
+"w": 600,
+"f": "figtree",
+"c": "#50c3dc",
+"ls": 0.273
+},
+{
+"t": "Fale com a Clara",
+"x": 74.0,
+"y": 843.6,
+"s": 38.99,
+"w": 700,
+"f": "figtree",
+"c": "#fdffff",
+"tag": "h2"
+},
+{
+"t": "e descubra como o AI Workforce",
+"x": 73.0,
+"y": 888.55,
+"s": 18.39,
+"w": 600,
+"f": "figtree",
+"c": "#42e8ff"
+},
+{
+"t": "pode transformar a sua operação.",
+"x": 73.0,
+"y": 907.53,
+"s": 18.39,
+"w": 600,
+"f": "figtree",
+"c": "#44e6ff"
+},
+{
+"t": "Analisa suas necessidades",
+"x": 847.0,
+"y": 841.78,
+"s": 10.34,
+"w": 700,
+"f": "figtree",
+"c": "#f6fbff",
+"tag": "h3"
+},
+{
+"t": "Entende seu cenário e objetivos.",
+"x": 847.0,
+"y": 857.74,
+"s": 10.06,
+"w": 500,
+"f": "figtree",
+"c": "#c3cce7"
+},
+{
+"t": "Indica os agentes ideais",
+"x": 1078.0,
+"y": 842.08,
+"s": 10.47,
+"w": 700,
+"f": "figtree",
+"c": "#f5f8ff",
+"tag": "h3"
+},
+{
+"t": "Propõe a equipe certa para suas missões.",
+"x": 1078.0,
+"y": 852.78,
+"s": 10.3,
+"w": 500,
+"f": "figtree",
+"c": "#c9d4ef"
+},
+{
+"t": "Apresenta um plano personalizado",
+"x": 1359.0,
+"y": 841.85,
+"s": 10.87,
+"w": 700,
+"f": "figtree",
+"c": "#f8fcff",
+"tag": "h3"
+},
+{
+"t": "Com escopo, prazos e resultados esperados.",
+"x": 1359.0,
+"y": 856.78,
+"s": 10.29,
+"w": 500,
+"f": "figtree",
+"c": "#cad7ef"
+},
+{
+"t": "Falar com a Clara",
+"x": 877.0,
+"y": 893.91,
+"s": 16.45,
+"w": 600,
+"f": "bsc",
+"c": "#00101f",
+"tag": "span"
+},
+{
+"t": "Ver casos de sucesso",
+"x": 1115.0,
+"y": 897.39,
+"s": 12.41,
+"w": 600,
+"f": "figtree",
+"c": "#fbfdff",
+"tag": "span"
+}
+],
+"links": [
+{
+"r": [
+93,
+10,
+300,
+60
+],
+"href": "/",
+"label": "AtlasHub.SI — início"
+},
+{
+"r": [
+400,
+20,
+480,
+50
+],
+"href": "/solucoes/enterprise-transformation",
+"label": "Soluções"
+},
+{
+"r": [
+522,
+20,
+600,
+50
+],
+"href": "https://app.atlashub.si",
+"label": "Plataforma"
+},
+{
+"r": [
+642,
+20,
+732,
+50
+],
+"href": "/solucoes/enterprise-transformation",
+"label": "Casos de uso"
+},
+{
+"r": [
+774,
+20,
+873,
+50
+],
+"href": "https://editions.atlashub.si",
+"label": "Conhecimento"
+},
+{
+"r": [
+914,
+20,
+962,
+50
+],
+"href": "https://editions.atlashub.si/livros/empresa-aumentada",
+"label": "Sobre"
+},
+{
+"r": [
+1425,
+15,
+1597,
+56
+],
+"href": "/?clara=managed#clara",
+"label": "Falar com a Clara"
+},
+{
+"r": [
+96,
+332,
+340,
+372
+],
+"href": "/?clara=managed#clara",
+"label": "Falar com a Clara"
+},
+{
+"r": [
+357,
+332,
+603,
+372
+],
+"href": "https://app.atlashub.si/biblioteca",
+"label": "Conheça o AI Workforce"
+},
+{
+"r": [
+1470,
+396,
+1620,
+420
+],
+"href": "https://app.atlashub.si/biblioteca",
+"label": "Ver todos os agentes"
+},
+{
+"r": [
+55,
+428,
+354,
+570
+],
+"href": "https://app.atlashub.si/simulador/clinic-appointment-confirmation",
+"label": "Atendimento ao Cliente — ver detalhes"
+},
+{
+"r": [
+368,
+428,
+675,
+570
+],
+"href": "https://app.atlashub.si/simulador/sales-assistant",
+"label": "Prospecção de Leads — ver detalhes"
+},
+{
+"r": [
+689,
+428,
+983,
+570
+],
+"href": "https://app.atlashub.si/simulador/administrative-secretary",
+"label": "Back-office e Operações — ver detalhes"
+},
+{
+"r": [
+997,
+428,
+1299,
+570
+],
+"href": "https://app.atlashub.si/simulador/clinic-appointment-confirmation",
+"label": "Gestão de Agenda — ver detalhes"
+},
+{
+"r": [
+1312,
+428,
+1618,
+570
+],
+"href": "https://app.atlashub.si/simulador/marketing-assistant",
+"label": "Marketing e Conteúdo — ver detalhes"
+},
+{
+"r": [
+796,
+882,
+1061,
+924
+],
+"href": "/?clara=managed#clara",
+"label": "Falar com a Clara"
+},
+{
+"r": [
+1083,
+884,
+1277,
+924
+],
+"href": "/solucoes/enterprise-transformation",
+"label": "Ver casos de sucesso"
+}
+]
+}

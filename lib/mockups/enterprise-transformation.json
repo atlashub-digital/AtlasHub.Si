@@ -1,0 +1,1280 @@
+{
+"id": "enterprise-transformation",
+"title": "Construa sua própria capacidade digital.",
+"W": 1672,
+"H": 941,
+"bg": "/mockups/enterprise-transformation.webp",
+"items": [
+{
+"t": "Soluções",
+"x": 417.0,
+"y": 25.27,
+"s": 14.89,
+"w": 500,
+"f": "bsc",
+"c": "#f3fbff",
+"tag": "span"
+},
+{
+"t": "Plataforma",
+"x": 540.0,
+"y": 25.2,
+"s": 14.52,
+"w": 500,
+"f": "bsc",
+"c": "#f6fbff",
+"tag": "span"
+},
+{
+"t": "Casos de uso",
+"x": 657.0,
+"y": 25.25,
+"s": 15.37,
+"w": 500,
+"f": "bsc",
+"c": "#eff7ff",
+"tag": "span"
+},
+{
+"t": "Conhecimento",
+"x": 789.0,
+"y": 25.26,
+"s": 15.32,
+"w": 500,
+"f": "bsc",
+"c": "#f3faff",
+"tag": "span"
+},
+{
+"t": "Sobre",
+"x": 930.0,
+"y": 25.22,
+"s": 14.78,
+"w": 500,
+"f": "bsc",
+"c": "#f0f8ff",
+"tag": "span"
+},
+{
+"t": "BR",
+"x": 1301.0,
+"y": 26.01,
+"s": 14.95,
+"w": 500,
+"f": "bsc",
+"c": "#e9efff",
+"tag": "span"
+},
+{
+"t": "Fale com um especialista",
+"x": 1396.0,
+"y": 24.13,
+"s": 16.22,
+"w": 600,
+"f": "bsc",
+"c": "#001a3d",
+"tag": "span"
+},
+{
+"t": "ENTERPRISE TRANSFORMATION",
+"x": 65.0,
+"y": 86.99,
+"s": 15.07,
+"w": 600,
+"f": "figtree",
+"c": "#4cddf6",
+"ls": 1.971
+},
+{
+"t": "Construa sua própria",
+"x": 65.0,
+"y": 110.27,
+"s": 58.54,
+"w": 700,
+"f": "figtree",
+"c": "#feffff",
+"tag": "span"
+},
+{
+"t": "capacidade digital.",
+"x": 65.0,
+"y": 163.29,
+"s": 58.41,
+"w": 700,
+"f": "figtree",
+"c": "#26e3ff",
+"tag": "span"
+},
+{
+"t": "Implantamos agentes e processos inteligentes no seu ecossistema,",
+"x": 66.0,
+"y": 230.95,
+"s": 17.47,
+"w": 500,
+"f": "figtree",
+"c": "#f0f7ff"
+},
+{
+"t": "com integração completa, transferência de conhecimento",
+"x": 66.0,
+"y": 250.48,
+"s": 17.47,
+"w": 500,
+"f": "figtree",
+"c": "#e9f2ff"
+},
+{
+"t": "e capacitação da sua equipe.",
+"x": 66.0,
+"y": 270.88,
+"s": 17.47,
+"w": 500,
+"f": "figtree",
+"c": "#ebf5ff"
+},
+{
+"t": "Agendar diagnóstico",
+"x": 132.0,
+"y": 316.19,
+"s": 16.65,
+"w": 600,
+"f": "bsc",
+"c": "#00172f",
+"tag": "span"
+},
+{
+"t": "Conheça nossa abordagem",
+"x": 369.0,
+"y": 318.07,
+"s": 13.73,
+"w": 500,
+"f": "figtree",
+"c": "#f0f6ff",
+"tag": "span"
+},
+{
+"t": "DA ESTRATÉGIA",
+"x": 1504.0,
+"y": 170.4,
+"s": 16.09,
+"w": 400,
+"f": "figtree",
+"c": "#d4e2ff",
+"ls": 0.443
+},
+{
+"t": "À AUTONOMIA.",
+"x": 1504.0,
+"y": 190.36,
+"s": 15.73,
+"w": 400,
+"f": "figtree",
+"c": "#d2e1ff",
+"ls": 0.278
+},
+{
+"t": "CAPACIDADE",
+"x": 1504.0,
+"y": 210.78,
+"s": 15.28,
+"w": 400,
+"f": "figtree",
+"c": "#d7e5ff",
+"ls": 0.356
+},
+{
+"t": "QUE FICA.",
+"x": 1504.0,
+"y": 230.58,
+"s": 17.33,
+"w": 400,
+"f": "figtree",
+"c": "#cedcff",
+"ls": -0.542
+},
+{
+"t": "No seu ambiente",
+"x": 114.0,
+"y": 372.45,
+"s": 12.99,
+"w": 600,
+"f": "figtree",
+"c": "#4ee7f7",
+"tag": "h3"
+},
+{
+"t": "Implantação segura",
+"x": 114.0,
+"y": 390.65,
+"s": 12.42,
+"w": 500,
+"f": "figtree",
+"c": "#e4eeff"
+},
+{
+"t": "e integrada",
+"x": 114.0,
+"y": 404.62,
+"s": 12.42,
+"w": 500,
+"f": "figtree",
+"c": "#e3edff"
+},
+{
+"t": "Com o seu time",
+"x": 310.0,
+"y": 373.46,
+"s": 12.94,
+"w": 600,
+"f": "figtree",
+"c": "#52e2f4",
+"tag": "h3"
+},
+{
+"t": "Transferência de",
+"x": 310.0,
+"y": 390.54,
+"s": 12.05,
+"w": 500,
+"f": "figtree",
+"c": "#d6ddee"
+},
+{
+"t": "conhecimento real",
+"x": 310.0,
+"y": 404.54,
+"s": 12.05,
+"w": 500,
+"f": "figtree",
+"c": "#e2e9fe"
+},
+{
+"t": "Resultado sustentável",
+"x": 512.0,
+"y": 372.17,
+"s": 12.71,
+"w": 600,
+"f": "figtree",
+"c": "#50e3f7",
+"tag": "h3"
+},
+{
+"t": "Autonomia e evolução",
+"x": 511.0,
+"y": 390.44,
+"s": 12.04,
+"w": 500,
+"f": "figtree",
+"c": "#dce4f7"
+},
+{
+"t": "contínua",
+"x": 511.0,
+"y": 404.22,
+"s": 12.04,
+"w": 500,
+"f": "figtree",
+"c": "#d4dcef"
+},
+{
+"t": "Governança nativa",
+"x": 727.0,
+"y": 373.63,
+"s": 12.47,
+"w": 600,
+"f": "figtree",
+"c": "#53e6f8",
+"tag": "h3"
+},
+{
+"t": "Segurança e",
+"x": 727.0,
+"y": 390.45,
+"s": 12.11,
+"w": 500,
+"f": "figtree",
+"c": "#d1daee"
+},
+{
+"t": "conformidade desde o início",
+"x": 726.0,
+"y": 404.44,
+"s": 12.11,
+"w": 500,
+"f": "figtree",
+"c": "#e0eaff"
+},
+{
+"t": "Build {& Transfer}",
+"x": 61.0,
+"y": 446.43,
+"s": 31.35,
+"w": 700,
+"f": "figtree",
+"c": "#fcffff",
+"a": "#2adff4",
+"tag": "h2"
+},
+{
+"t": "Implantação completa dos agentes e processos",
+"x": 61.0,
+"y": 490.26,
+"s": 12.84,
+"w": 500,
+"f": "figtree",
+"c": "#eef4ff"
+},
+{
+"t": "no seu ambiente, com transferência de conhecimento",
+"x": 61.0,
+"y": 506.28,
+"s": 12.84,
+"w": 500,
+"f": "figtree",
+"c": "#eaf1fe"
+},
+{
+"t": "para garantir autonomia.",
+"x": 61.0,
+"y": 524.4,
+"s": 12.84,
+"w": 500,
+"f": "figtree",
+"c": "#edf4fe"
+},
+{
+"t": "Saiba mais",
+"x": 95.0,
+"y": 565.32,
+"s": 12.37,
+"w": 600,
+"f": "figtree",
+"c": "#58dcef",
+"tag": "span"
+},
+{
+"t": "Implantação no seu ecossistema",
+"x": 658.0,
+"y": 461.83,
+"s": 9.89,
+"w": 500,
+"f": "figtree",
+"c": "#cad5ea"
+},
+{
+"t": "Integração com seus sistemas",
+"x": 661.0,
+"y": 486.76,
+"s": 9.89,
+"w": 500,
+"f": "figtree",
+"c": "#e1e9fe"
+},
+{
+"t": "Transferência de conhecimento",
+"x": 661.0,
+"y": 510.42,
+"s": 9.89,
+"w": 500,
+"f": "figtree",
+"c": "#ced9f1"
+},
+{
+"t": "Documentação completa",
+"x": 661.0,
+"y": 534.61,
+"s": 9.89,
+"w": 500,
+"f": "figtree",
+"c": "#c9d4ea"
+},
+{
+"t": "Autonomia da sua equipe",
+"x": 661.0,
+"y": 559.83,
+"s": 9.89,
+"w": 500,
+"f": "figtree",
+"c": "#d3dff7"
+},
+{
+"t": "Co-Build {& Enablement}",
+"x": 877.0,
+"y": 446.53,
+"s": 30.28,
+"w": 700,
+"f": "figtree",
+"c": "#fdffff",
+"a": "#24dff6",
+"tag": "h2"
+},
+{
+"t": "Construção colaborativa com o seu time,",
+"x": 877.0,
+"y": 489.52,
+"s": 12.89,
+"w": 500,
+"f": "figtree",
+"c": "#ebf1ff"
+},
+{
+"t": "capacitando pessoas, ajustando processos",
+"x": 877.0,
+"y": 506.37,
+"s": 12.89,
+"w": 500,
+"f": "figtree",
+"c": "#ecf3fe"
+},
+{
+"t": "e acelerando a adoção para gerar valor",
+"x": 877.0,
+"y": 524.49,
+"s": 12.89,
+"w": 500,
+"f": "figtree",
+"c": "#eaf2fe"
+},
+{
+"t": "contínuo.",
+"x": 877.0,
+"y": 541.06,
+"s": 12.89,
+"w": 500,
+"f": "figtree",
+"c": "#e8eefe"
+},
+{
+"t": "Saiba mais",
+"x": 920.0,
+"y": 567.32,
+"s": 12.37,
+"w": 600,
+"f": "figtree",
+"c": "#5bdff0",
+"tag": "span"
+},
+{
+"t": "Cocriação de soluções",
+"x": 1516.0,
+"y": 461.96,
+"s": 9.86,
+"w": 500,
+"f": "figtree",
+"c": "#bbc3d6"
+},
+{
+"t": "Capacitação hands-on",
+"x": 1519.0,
+"y": 486.69,
+"s": 9.86,
+"w": 500,
+"f": "figtree",
+"c": "#d5def2"
+},
+{
+"t": "Ajuste de processos",
+"x": 1519.0,
+"y": 510.45,
+"s": 9.86,
+"w": 500,
+"f": "figtree",
+"c": "#cbd6ee"
+},
+{
+"t": "Adoção assistida",
+"x": 1519.0,
+"y": 534.7,
+"s": 9.86,
+"w": 500,
+"f": "figtree",
+"c": "#cdd8ed"
+},
+{
+"t": "Evolução contínua",
+"x": 1520.0,
+"y": 559.63,
+"s": 9.86,
+"w": 500,
+"f": "figtree",
+"c": "#ccd7ee"
+},
+{
+"t": "Transformação em toda a sua operação.",
+"x": 45.0,
+"y": 612.06,
+"s": 28.75,
+"w": 700,
+"f": "figtree",
+"c": "#ffffff",
+"tag": "h2"
+},
+{
+"t": "Agentes e processos inteligentes para as áreas que fazem o seu negócio acontecer.",
+"x": 46.0,
+"y": 643.44,
+"s": 13.08,
+"w": 500,
+"f": "figtree",
+"c": "#e6eeff"
+},
+{
+"t": "Ver todos os casos de uso",
+"x": 1463.0,
+"y": 627.46,
+"s": 11.59,
+"w": 500,
+"f": "figtree",
+"c": "#54c9ea",
+"tag": "span"
+},
+{
+"t": "Processos",
+"x": 99.0,
+"y": 687.97,
+"s": 13.36,
+"w": 700,
+"f": "figtree",
+"c": "#fbffff",
+"tag": "h3"
+},
+{
+"t": "Automação e otimização",
+"x": 46.0,
+"y": 719.64,
+"s": 10.92,
+"w": 500,
+"f": "figtree",
+"c": "#e6edfe"
+},
+{
+"t": "de processos ponta a ponta.",
+"x": 46.0,
+"y": 732.43,
+"s": 10.92,
+"w": 500,
+"f": "figtree",
+"c": "#dfe7f9"
+},
+{
+"t": "Operação eficiente",
+"x": 70.0,
+"y": 757.62,
+"s": 9.66,
+"w": 500,
+"f": "figtree",
+"c": "#c6d1e2"
+},
+{
+"t": "Menos retrabalho",
+"x": 71.0,
+"y": 774.48,
+"s": 9.66,
+"w": 500,
+"f": "figtree",
+"c": "#c3cedf"
+},
+{
+"t": "Mais velocidade",
+"x": 71.0,
+"y": 792.12,
+"s": 9.66,
+"w": 500,
+"f": "figtree",
+"c": "#d0e0f2"
+},
+{
+"t": "Operações",
+"x": 423.0,
+"y": 688.35,
+"s": 14.0,
+"w": 700,
+"f": "figtree",
+"c": "#f9ffff",
+"tag": "h3"
+},
+{
+"t": "Agentes que executam, monitoram",
+"x": 376.0,
+"y": 719.97,
+"s": 10.7,
+"w": 500,
+"f": "figtree",
+"c": "#e3eafe"
+},
+{
+"t": "e geram insights em tempo real.",
+"x": 376.0,
+"y": 733.45,
+"s": 10.7,
+"w": 500,
+"f": "figtree",
+"c": "#dbe3f8"
+},
+{
+"t": "Produtividade aumentada",
+"x": 402.0,
+"y": 757.45,
+"s": 9.84,
+"w": 500,
+"f": "figtree",
+"c": "#cad3e8"
+},
+{
+"t": "Decisões mais rápidas",
+"x": 403.0,
+"y": 774.88,
+"s": 9.84,
+"w": 500,
+"f": "figtree",
+"c": "#d2dff2"
+},
+{
+"t": "Qualidade e consistência",
+"x": 402.0,
+"y": 791.41,
+"s": 9.84,
+"w": 500,
+"f": "figtree",
+"c": "#c6d0e4"
+},
+{
+"t": "Pessoas & RH",
+"x": 753.0,
+"y": 688.36,
+"s": 13.92,
+"w": 700,
+"f": "figtree",
+"c": "#fcffff",
+"tag": "h3"
+},
+{
+"t": "Agentes que apoiam recrutamento,",
+"x": 699.0,
+"y": 715.74,
+"s": 11.45,
+"w": 500,
+"f": "figtree",
+"c": "#e3ebfe"
+},
+{
+"t": "desenvolvimento e experiência do colaborador.",
+"x": 699.0,
+"y": 732.48,
+"s": 11.45,
+"w": 500,
+"f": "figtree",
+"c": "#dee8fa"
+},
+{
+"t": "Experiência do colaborador",
+"x": 726.0,
+"y": 757.45,
+"s": 9.84,
+"w": 500,
+"f": "figtree",
+"c": "#d5def2"
+},
+{
+"t": "Desenvolvimento contínuo",
+"x": 726.0,
+"y": 774.34,
+"s": 9.84,
+"w": 500,
+"f": "figtree",
+"c": "#cbd4e7"
+},
+{
+"t": "Mais tempo para o que importa",
+"x": 726.0,
+"y": 791.88,
+"s": 9.84,
+"w": 500,
+"f": "figtree",
+"c": "#d8e3f9"
+},
+{
+"t": "TI & Integrações",
+"x": 1073.0,
+"y": 690.29,
+"s": 13.4,
+"w": 700,
+"f": "figtree",
+"c": "#faffff",
+"tag": "h3"
+},
+{
+"t": "Conectamos com os seus sistemas",
+"x": 1021.0,
+"y": 713.75,
+"s": 11.87,
+"w": 500,
+"f": "figtree",
+"c": "#dbe3f7"
+},
+{
+"t": "e ambientes de forma segura.",
+"x": 1021.0,
+"y": 734.25,
+"s": 11.87,
+"w": 500,
+"f": "figtree",
+"c": "#e3ebff"
+},
+{
+"t": "Integração com sistemas",
+"x": 1047.0,
+"y": 757.79,
+"s": 9.91,
+"w": 500,
+"f": "figtree",
+"c": "#cdd8ec"
+},
+{
+"t": "Arquitetura escalável",
+"x": 1047.0,
+"y": 774.38,
+"s": 9.91,
+"w": 500,
+"f": "figtree",
+"c": "#d0daeb"
+},
+{
+"t": "Operação no seu ambiente",
+"x": 1047.0,
+"y": 791.76,
+"s": 9.91,
+"w": 500,
+"f": "figtree",
+"c": "#ccd7ea"
+},
+{
+"t": "Governança",
+"x": 1402.0,
+"y": 688.29,
+"s": 13.41,
+"w": 700,
+"f": "figtree",
+"c": "#f7ffff",
+"tag": "h3"
+},
+{
+"t": "Controles, compliance e transparência",
+"x": 1349.0,
+"y": 714.45,
+"s": 11.18,
+"w": 500,
+"f": "figtree",
+"c": "#d0defe"
+},
+{
+"t": "em toda a jornada.",
+"x": 1349.0,
+"y": 733.45,
+"s": 11.18,
+"w": 500,
+"f": "figtree",
+"c": "#dee8fb"
+},
+{
+"t": "Conformidade regulatória",
+"x": 1377.0,
+"y": 757.76,
+"s": 9.99,
+"w": 500,
+"f": "figtree",
+"c": "#ccd8ee"
+},
+{
+"t": "Auditoria e rastreabilidade",
+"x": 1378.0,
+"y": 774.67,
+"s": 9.99,
+"w": 500,
+"f": "figtree",
+"c": "#d3def6"
+},
+{
+"t": "Uso responsável da IA",
+"x": 1378.0,
+"y": 791.75,
+"s": 9.99,
+"w": 500,
+"f": "figtree",
+"c": "#cbd8f0"
+},
+{
+"t": "Da oportunidade",
+"x": 41.0,
+"y": 835.18,
+"s": 24.45,
+"w": 700,
+"f": "figtree",
+"c": "#ffffff",
+"tag": "h2"
+},
+{
+"t": "à sua {autonomia.}",
+"x": 41.0,
+"y": 860.61,
+"s": 25.16,
+"w": 700,
+"f": "figtree",
+"c": "#faffff",
+"a": "#3fe2f3",
+"tag": "span"
+},
+{
+"t": "Uma jornada clara, colaborativa",
+"x": 41.0,
+"y": 889.77,
+"s": 12.29,
+"w": 500,
+"f": "figtree",
+"c": "#c5d6f1"
+},
+{
+"t": "e orientada a resultados.",
+"x": 41.0,
+"y": 904.4,
+"s": 12.29,
+"w": 500,
+"f": "figtree",
+"c": "#c5d8f4"
+},
+{
+"t": "01",
+"x": 326.0,
+"y": 844.44,
+"s": 13.08,
+"w": 700,
+"f": "figtree",
+"c": "#39d7fe",
+"tag": "span"
+},
+{
+"t": "Diagnóstico",
+"x": 354.0,
+"y": 844.97,
+"s": 9.64,
+"w": 700,
+"f": "figtree",
+"c": "#f4fbff",
+"tag": "h3"
+},
+{
+"t": "Entendemos seus desafios,",
+"x": 327.0,
+"y": 869.33,
+"s": 10.84,
+"w": 500,
+"f": "figtree",
+"c": "#b3cced"
+},
+{
+"t": "processos e oportunidades",
+"x": 327.0,
+"y": 885.6,
+"s": 10.84,
+"w": 500,
+"f": "figtree",
+"c": "#a5bcdd"
+},
+{
+"t": "de automação.",
+"x": 327.0,
+"y": 900.7,
+"s": 10.84,
+"w": 500,
+"f": "figtree",
+"c": "#93aed5"
+},
+{
+"t": "02",
+"x": 565.0,
+"y": 845.34,
+"s": 12.2,
+"w": 700,
+"f": "figtree",
+"c": "#40d9fe",
+"tag": "span"
+},
+{
+"t": "Roadmap",
+"x": 593.0,
+"y": 845.44,
+"s": 9.86,
+"w": 700,
+"f": "figtree",
+"c": "#f7fdff",
+"tag": "h3"
+},
+{
+"t": "Desenhamos a jornada de",
+"x": 568.0,
+"y": 870.62,
+"s": 10.73,
+"w": 500,
+"f": "figtree",
+"c": "#adc1e1"
+},
+{
+"t": "transformação com casos",
+"x": 568.0,
+"y": 885.57,
+"s": 10.73,
+"w": 500,
+"f": "figtree",
+"c": "#aec1e2"
+},
+{
+"t": "de uso priorizados.",
+"x": 569.0,
+"y": 901.65,
+"s": 10.73,
+"w": 500,
+"f": "figtree",
+"c": "#a4b9db"
+},
+{
+"t": "03",
+"x": 794.0,
+"y": 845.62,
+"s": 12.5,
+"w": 700,
+"f": "figtree",
+"c": "#47dbfd",
+"tag": "span"
+},
+{
+"t": "Arquitetura e Integração",
+"x": 821.0,
+"y": 846.18,
+"s": 9.43,
+"w": 700,
+"f": "figtree",
+"c": "#f4faff",
+"tag": "h3"
+},
+{
+"t": "Implantamos no seu ambiente,",
+"x": 796.0,
+"y": 870.8,
+"s": 10.18,
+"w": 500,
+"f": "figtree",
+"c": "#9ab9df"
+},
+{
+"t": "integrando com seus sistemas",
+"x": 796.0,
+"y": 886.6,
+"s": 10.18,
+"w": 500,
+"f": "figtree",
+"c": "#a1bde9"
+},
+{
+"t": "e dados.",
+"x": 796.0,
+"y": 902.8,
+"s": 10.18,
+"w": 500,
+"f": "figtree",
+"c": "#a0bae7"
+},
+{
+"t": "04",
+"x": 1029.0,
+"y": 845.52,
+"s": 11.72,
+"w": 700,
+"f": "figtree",
+"c": "#43dfff",
+"tag": "span"
+},
+{
+"t": "Capacitação e Transferência",
+"x": 1056.0,
+"y": 845.18,
+"s": 9.4,
+"w": 700,
+"f": "figtree",
+"c": "#f3fbff",
+"tag": "h3"
+},
+{
+"t": "Capacitamos sua equipe e",
+"x": 1031.0,
+"y": 871.62,
+"s": 10.66,
+"w": 500,
+"f": "figtree",
+"c": "#bcd5fd"
+},
+{
+"t": "transferimos o conhecimento",
+"x": 1032.0,
+"y": 887.96,
+"s": 10.66,
+"w": 500,
+"f": "figtree",
+"c": "#b5ccf5"
+},
+{
+"t": "de forma prática.",
+"x": 1032.0,
+"y": 903.66,
+"s": 10.66,
+"w": 500,
+"f": "figtree",
+"c": "#acc5f5"
+},
+{
+"t": "05",
+"x": 1285.0,
+"y": 848.74,
+"s": 11.38,
+"w": 700,
+"f": "figtree",
+"c": "#44def6",
+"tag": "span"
+},
+{
+"t": "Escala e Evolução",
+"x": 1311.0,
+"y": 848.8,
+"s": 8.87,
+"w": 700,
+"f": "figtree",
+"c": "#eef4ff",
+"tag": "h3"
+},
+{
+"t": "Acompanhamos resultados,",
+"x": 1285.0,
+"y": 870.61,
+"s": 9.25,
+"w": 500,
+"f": "figtree",
+"c": "#8aa3c7"
+},
+{
+"t": "expandimos para novas áreas",
+"x": 1285.0,
+"y": 885.83,
+"s": 9.25,
+"w": 500,
+"f": "figtree",
+"c": "#879ec4"
+},
+{
+"t": "e evoluímos continuamente.",
+"x": 1285.0,
+"y": 901.64,
+"s": 9.25,
+"w": 500,
+"f": "figtree",
+"c": "#8fa5cd"
+},
+{
+"t": "Sua equipe.",
+"x": 1526.0,
+"y": 853.56,
+"s": 10.51,
+"w": 500,
+"f": "figtree",
+"c": "#e8eeff"
+},
+{
+"t": "Mais capacidade.",
+"x": 1526.0,
+"y": 869.64,
+"s": 10.51,
+"w": 500,
+"f": "figtree",
+"c": "#dfe6fe"
+},
+{
+"t": "Resultados duradouros.",
+"x": 1526.0,
+"y": 884.57,
+"s": 10.51,
+"w": 500,
+"f": "figtree",
+"c": "#dae5fe"
+}
+],
+"links": [
+{
+"r": [
+62,
+8,
+290,
+62
+],
+"href": "/",
+"label": "AtlasHub.SI — início"
+},
+{
+"r": [
+405,
+20,
+495,
+50
+],
+"href": "/solucoes/ai-workforce",
+"label": "Soluções"
+},
+{
+"r": [
+528,
+20,
+612,
+50
+],
+"href": "https://app.atlashub.si",
+"label": "Plataforma"
+},
+{
+"r": [
+645,
+20,
+745,
+50
+],
+"href": "/solucoes/enterprise-transformation",
+"label": "Casos de uso"
+},
+{
+"r": [
+778,
+20,
+886,
+50
+],
+"href": "https://editions.atlashub.si",
+"label": "Conhecimento"
+},
+{
+"r": [
+918,
+20,
+972,
+50
+],
+"href": "https://editions.atlashub.si/livros/empresa-aumentada",
+"label": "Sobre"
+},
+{
+"r": [
+1372,
+12,
+1610,
+55
+],
+"href": "/?clara=build#clara",
+"label": "Fale com um especialista"
+},
+{
+"r": [
+66,
+306,
+328,
+347
+],
+"href": "/?clara=build#clara",
+"label": "Agendar diagnóstico"
+},
+{
+"r": [
+344,
+306,
+592,
+347
+],
+"href": "https://editions.atlashub.si/livros/empresa-aumentada",
+"label": "Conheça nossa abordagem"
+},
+{
+"r": [
+61,
+557,
+215,
+587
+],
+"href": "/?clara=build#clara",
+"label": "Saiba mais sobre Build & Transfer"
+},
+{
+"r": [
+878,
+559,
+1038,
+589
+],
+"href": "/?clara=cobuild#clara",
+"label": "Saiba mais sobre Co-Build & Enablement"
+},
+{
+"r": [
+1455,
+620,
+1632,
+648
+],
+"href": "https://app.atlashub.si/packs",
+"label": "Ver todos os casos de uso"
+},
+{
+"r": [
+25,
+666,
+345,
+822
+],
+"href": "https://app.atlashub.si/simulador/administrative-secretary",
+"label": "Processos — abrir simulação"
+},
+{
+"r": [
+356,
+666,
+670,
+822
+],
+"href": "https://app.atlashub.si/simulador/finance-assistant",
+"label": "Operações — abrir simulação"
+},
+{
+"r": [
+681,
+666,
+990,
+822
+],
+"href": "https://app.atlashub.si/simulador/hr-assistant",
+"label": "Pessoas & RH — abrir simulação"
+},
+{
+"r": [
+1002,
+666,
+1315,
+822
+],
+"href": "/?clara=build#clara",
+"label": "TI & Integrações — falar com a Clara"
+},
+{
+"r": [
+1328,
+666,
+1646,
+822
+],
+"href": "/?clara=build#clara",
+"label": "Governança — falar com a Clara"
+}
+]
+}

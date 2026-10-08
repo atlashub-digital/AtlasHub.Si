@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import localFont from "next/font/local";
 import "./globals.css";
 import "./tokens.css";
+import "./mockup.css";
 
-const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
+// Self-hosted (OFL, public/fonts/LICENSE-Inter-OFL.txt): the build does not depend on fonts.googleapis.com.
+const inter = localFont({ src: "./inter-latin-wght-normal.woff2", weight: "100 900", variable: "--font-inter", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://atlashub.si"),

@@ -1,0 +1,1426 @@
+{
+ "src": "design/visual-pack-v1/assets/screens/05_app_dashboard.webp",
+ "blocks": [
+  {
+   "r": [
+    90,
+    128,
+    140,
+    152
+   ],
+   "lines": [
+    "Início"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    90,
+    181,
+    205,
+    208
+   ],
+   "lines": [
+    "Meus Agentes"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    90,
+    234,
+    158,
+    259
+   ],
+   "lines": [
+    "Missões"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    90,
+    286,
+    172,
+    312
+   ],
+   "lines": [
+    "Processos"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    90,
+    338,
+    186,
+    365
+   ],
+   "lines": [
+    "Integrações"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    90,
+    390,
+    180,
+    416
+   ],
+   "lines": [
+    "Resultados"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    90,
+    442,
+    150,
+    468
+   ],
+   "lines": [
+    "Equipe"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    90,
+    494,
+    206,
+    520
+   ],
+   "lines": [
+    "Configurações"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    50,
+    612,
+    196,
+    712
+   ],
+   "lines": [
+    "Empresas",
+    "mais humanas.",
+    "Equipas",
+    "{mais capazes.}"
+   ],
+   "w": 500,
+   "acc": "#2bd3f3",
+   "kind": "width",
+   "edge_ok": true,
+   "thr": 0.5
+  },
+  {
+   "r": [
+    355,
+    26,
+    685,
+    48
+   ],
+   "lines": [
+    "Buscar agentes, processos, missões ou integrações..."
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1475,
+    17,
+    1540,
+    38
+   ],
+   "lines": [
+    "Ana Silva"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1475,
+    38,
+    1576,
+    56
+   ],
+   "lines": [
+    "Empresa Exemplo"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    316,
+    84,
+    602,
+    125
+   ],
+   "lines": [
+    "Bem-vinda, Ana"
+   ],
+   "w": 700,
+   "tag": "h1",
+   "kind": "width"
+  },
+  {
+   "r": [
+    316,
+    128,
+    672,
+    152
+   ],
+   "lines": [
+    "Aqui está o estado da sua equipa aumentada."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1086,
+    107,
+    1190,
+    131
+   ],
+   "lines": [
+    "Últimos 30 dias"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    391,
+    184,
+    525,
+    207
+   ],
+   "lines": [
+    "Agentes em operação"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    391,
+    212,
+    416,
+    245
+   ],
+   "lines": [
+    "5"
+   ],
+   "w": 700,
+   "tag": "span"
+  },
+  {
+   "r": [
+    407,
+    251,
+    476,
+    270
+   ],
+   "lines": [
+    "+1 este mês"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    638,
+    184,
+    776,
+    207
+   ],
+   "lines": [
+    "Tarefas executadas"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    638,
+    210,
+    730,
+    245
+   ],
+   "lines": [
+    "12.480"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width",
+   "mixed": true
+  },
+  {
+   "r": [
+    651,
+    251,
+    692,
+    270
+   ],
+   "lines": [
+    "+24%"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    885,
+    184,
+    989,
+    207
+   ],
+   "lines": [
+    "Tempo poupado"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    885,
+    210,
+    958,
+    245
+   ],
+   "lines": [
+    "320h"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    898,
+    251,
+    939,
+    270
+   ],
+   "lines": [
+    "+27%"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1114,
+    184,
+    1182,
+    207
+   ],
+   "lines": [
+    "Satisfação"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1114,
+    210,
+    1177,
+    245
+   ],
+   "lines": [
+    "96%"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1127,
+    251,
+    1164,
+    270
+   ],
+   "lines": [
+    "+4%"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1276,
+    147,
+    1470,
+    203
+   ],
+   "lines": [
+    "Mais capacidade",
+    "para {o seu negócio.}"
+   ],
+   "w": 700,
+   "acc": "#2fc8f2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1276,
+    208,
+    1431,
+    256
+   ],
+   "lines": [
+    "O futuro do trabalho",
+    "já começou."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    335,
+    305,
+    516,
+    333
+   ],
+   "lines": [
+    "Equipa de Agentes"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    335,
+    332,
+    583,
+    352
+   ],
+   "lines": [
+    "Os seus agentes digitais em operação."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1543,
+    318,
+    1611,
+    340
+   ],
+   "lines": [
+    "Ver todos"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    457,
+    379,
+    501,
+    402
+   ],
+   "lines": [
+    "Clara"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    475,
+    405,
+    519,
+    425
+   ],
+   "lines": [
+    "Online"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    457,
+    431,
+    626,
+    454
+   ],
+   "lines": [
+    "Atendimento ao Cliente"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    481,
+    458,
+    559,
+    479
+   ],
+   "lines": [
+    "2.340 tarefas"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    774,
+    379,
+    826,
+    402
+   ],
+   "lines": [
+    "Rafael"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    792,
+    405,
+    837,
+    425
+   ],
+   "lines": [
+    "Online"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    774,
+    431,
+    906,
+    454
+   ],
+   "lines": [
+    "Prospecção de Leads"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    798,
+    458,
+    877,
+    479
+   ],
+   "lines": [
+    "1.980 tarefas"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1097,
+    379,
+    1145,
+    402
+   ],
+   "lines": [
+    "Sofia"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1115,
+    405,
+    1161,
+    425
+   ],
+   "lines": [
+    "Online"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1097,
+    431,
+    1222,
+    454
+   ],
+   "lines": [
+    "Gestão de Agenda"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1122,
+    458,
+    1200,
+    479
+   ],
+   "lines": [
+    "1.640 tarefas"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1431,
+    379,
+    1490,
+    402
+   ],
+   "lines": [
+    "Miguel"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1449,
+    405,
+    1531,
+    425
+   ],
+   "lines": [
+    "Em execução"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1431,
+    431,
+    1548,
+    454
+   ],
+   "lines": [
+    "Análise de Dados"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1455,
+    458,
+    1522,
+    479
+   ],
+   "lines": [
+    "980 tarefas"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    335,
+    525,
+    466,
+    553
+   ],
+   "lines": [
+    "Missões Ativas"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    335,
+    551,
+    618,
+    570
+   ],
+   "lines": [
+    "Acompanhe o progresso das suas iniciativas."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    904,
+    536,
+    962,
+    556
+   ],
+   "lines": [
+    "Ver todas"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    396,
+    580,
+    542,
+    600
+   ],
+   "lines": [
+    "Campanha de Lançamento"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    396,
+    600,
+    520,
+    616
+   ],
+   "lines": [
+    "Marketing e Conteúdo"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    396,
+    629,
+    521,
+    649
+   ],
+   "lines": [
+    "Qualificação de Leads"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    396,
+    649,
+    456,
+    665
+   ],
+   "lines": [
+    "Comercial"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    396,
+    679,
+    506,
+    699
+   ],
+   "lines": [
+    "Suporte ao Cliente"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    396,
+    699,
+    471,
+    715
+   ],
+   "lines": [
+    "Atendimento"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    396,
+    729,
+    534,
+    749
+   ],
+   "lines": [
+    "Relatórios Operacionais"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    396,
+    749,
+    465,
+    765
+   ],
+   "lines": [
+    "Back-office"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    795,
+    587,
+    826,
+    607
+   ],
+   "lines": [
+    "75%"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    795,
+    637,
+    826,
+    657
+   ],
+   "lines": [
+    "60%"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    795,
+    687,
+    826,
+    707
+   ],
+   "lines": [
+    "90%"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    795,
+    737,
+    826,
+    757
+   ],
+   "lines": [
+    "45%"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    872,
+    581,
+    917,
+    616
+   ],
+   "lines": [
+    "Prazo",
+    "20 Out"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    872,
+    630,
+    917,
+    665
+   ],
+   "lines": [
+    "Prazo",
+    "25 Out"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    872,
+    680,
+    917,
+    715
+   ],
+   "lines": [
+    "Prazo",
+    "18 Out"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    872,
+    730,
+    917,
+    765
+   ],
+   "lines": [
+    "Prazo",
+    "30 Out"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1036,
+    528,
+    1131,
+    553
+   ],
+   "lines": [
+    "Resultados"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1036,
+    552,
+    1213,
+    571
+   ],
+   "lines": [
+    "Evolução das suas operações."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1540,
+    536,
+    1613,
+    556
+   ],
+   "lines": [
+    "Ver detalhes"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1400,
+    557,
+    1512,
+    605
+   ],
+   "lines": [
+    "12.480",
+    "tarefas executadas",
+    "+24%"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width",
+   "mixed": true
+  },
+  {
+   "r": [
+    1036,
+    583,
+    1066,
+    601
+   ],
+   "lines": [
+    "15K"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1036,
+    612,
+    1066,
+    630
+   ],
+   "lines": [
+    "10K"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1042,
+    641,
+    1066,
+    659
+   ],
+   "lines": [
+    "5K"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1050,
+    670,
+    1066,
+    688
+   ],
+   "lines": [
+    "0"
+   ],
+   "w": 400,
+   "tag": "span"
+  },
+  {
+   "r": [
+    1068,
+    682,
+    1106,
+    699
+   ],
+   "lines": [
+    "1 Out"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1151,
+    682,
+    1189,
+    699
+   ],
+   "lines": [
+    "5 Out"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1228,
+    682,
+    1272,
+    699
+   ],
+   "lines": [
+    "10 Out"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1317,
+    682,
+    1362,
+    699
+   ],
+   "lines": [
+    "15 Out"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1408,
+    682,
+    1452,
+    699
+   ],
+   "lines": [
+    "20 Out"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1496,
+    682,
+    1541,
+    699
+   ],
+   "lines": [
+    "25 Out"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1586,
+    682,
+    1631,
+    699
+   ],
+   "lines": [
+    "30 Out"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1038,
+    705,
+    1135,
+    725
+   ],
+   "lines": [
+    "Uso por área"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1237,
+    710,
+    1313,
+    728
+   ],
+   "lines": [
+    "Atendimento"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1237,
+    728,
+    1299,
+    746
+   ],
+   "lines": [
+    "Comercial"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1237,
+    746,
+    1303,
+    764
+   ],
+   "lines": [
+    "Operações"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1237,
+    764,
+    1299,
+    782
+   ],
+   "lines": [
+    "Marketing"
+   ],
+   "w": 400,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1592,
+    710,
+    1623,
+    728
+   ],
+   "lines": [
+    "35%"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1592,
+    728,
+    1623,
+    746
+   ],
+   "lines": [
+    "28%"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1592,
+    746,
+    1623,
+    764
+   ],
+   "lines": [
+    "22%"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1592,
+    764,
+    1623,
+    782
+   ],
+   "lines": [
+    "15%"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    335,
+    803,
+    442,
+    829
+   ],
+   "lines": [
+    "Integrações"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    335,
+    828,
+    498,
+    846
+   ],
+   "lines": [
+    "Conecte os seus sistemas."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    646,
+    814,
+    705,
+    834
+   ],
+   "lines": [
+    "Ver todas"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    770,
+    803,
+    945,
+    829
+   ],
+   "lines": [
+    "Biblioteca de Agentes"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    770,
+    828,
+    928,
+    846
+   ],
+   "lines": [
+    "Explore perfis e soluções."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1006,
+    814,
+    1057,
+    834
+   ],
+   "lines": [
+    "Explorar"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1127,
+    805,
+    1179,
+    829
+   ],
+   "lines": [
+    "Clara"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1127,
+    828,
+    1303,
+    846
+   ],
+   "lines": [
+    "Sua consultora de soluções."
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1127,
+    845,
+    1406,
+    878
+   ],
+   "lines": [
+    "Precisa reforçar uma equipa, implementar um agente",
+    "ou falar sobre um projeto?"
+   ],
+   "w": 400,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1173,
+    893,
+    1316,
+    913
+   ],
+   "lines": [
+    "Conversar com a Clara"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  }
+ ]
+}

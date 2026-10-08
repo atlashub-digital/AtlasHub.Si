@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import MockupCanvas, { type MockScreen } from "../../../components/MockupCanvas";
+import screen from "../../../lib/mockups/ai-workforce.json";
 import RoleLibrary from "../../../components/RoleLibrary";
 import { workforceSteps, supervision } from "../../../lib/site";
 
@@ -13,11 +15,18 @@ export const metadata: Metadata = {
 };
 
 // P03 — AI Workforce (managed digital employees). States come from the real role registry.
+// Desktop (≥ 900 px) renders the approved Visual Pack V1 mockup 1:1; narrow screens keep the sections below.
 export default function AiWorkforce() {
   return (
     <>
+      <div id="conteudo">
+        <main className="mk-desktop">
+          <h1 className="mk-sr">AI Workforce — Reforce sua operação com colaboradores digitais geridos.</h1>
+          <MockupCanvas screen={screen as MockScreen} />
+        </main>
+        <div className="mk-mobile">
       <Header current="/solucoes/ai-workforce" />
-      <main id="conteudo">
+      <main>
         <section className="vp-hero" aria-labelledby="aiw-title">
           <div className="vp-wrap" style={{ gridTemplateColumns: "1fr", minHeight: 0, paddingTop: 96, paddingBottom: 96 }}>
             <div>
@@ -75,6 +84,8 @@ export default function AiWorkforce() {
           </div></div>
         </section>
       </main>
+        </div>
+      </div>
       <Footer />
     </>
   );

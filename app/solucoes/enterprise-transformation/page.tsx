@@ -2,6 +2,8 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
+import MockupCanvas, { type MockScreen } from "../../../components/MockupCanvas";
+import screen from "../../../lib/mockups/enterprise-transformation.json";
 import OfferTabs from "../../../components/OfferTabs";
 import { transformationDomains, transformationMethod, transformationTrust, transformationFaq } from "../../../lib/site";
 
@@ -13,11 +15,18 @@ export const metadata: Metadata = {
 };
 
 // P02 — Enterprise Transformation (Build & Transfer / Co-Build & Enablement).
+// Desktop (≥ 900 px) renders the approved Visual Pack V1 mockup 1:1; narrow screens keep the sections below.
 export default function EnterpriseTransformation() {
   return (
     <>
+      <div id="conteudo">
+        <main className="mk-desktop">
+          <h1 className="mk-sr">Enterprise Transformation — Construa sua própria capacidade digital.</h1>
+          <MockupCanvas screen={screen as MockScreen} />
+        </main>
+        <div className="mk-mobile">
       <Header current="/solucoes/enterprise-transformation" />
-      <main id="conteudo">
+      <main>
         <section className="vp-hero" aria-labelledby="et-title">
           <div className="vp-wrap" style={{ gridTemplateColumns: "1fr", minHeight: 0, paddingTop: 96, paddingBottom: 96 }}>
             <div>
@@ -70,6 +79,8 @@ export default function EnterpriseTransformation() {
           </div></div>
         </section>
       </main>
+        </div>
+      </div>
       <Footer />
     </>
   );

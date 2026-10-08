@@ -1,0 +1,18 @@
+[
+{"r":[100,8,330,62],"href":"/","label":"AtlasHub.SI — início"},
+{"r":[430,22,515,54],"href":"/solucoes/ai-workforce","label":"Soluções"},
+{"r":[550,22,630,54],"href":"https://app.atlashub.si","label":"Plataforma"},
+{"r":[665,22,757,54],"href":"/solucoes/enterprise-transformation","label":"Casos de uso"},
+{"r":[790,22,890,54],"href":"https://editions.atlashub.si","label":"Conhecimento"},
+{"r":[920,22,975,54],"href":"https://editions.atlashub.si/livros/empresa-aumentada","label":"Sobre"},
+{"r":[1408,17,1570,58],"href":"#clara","label":"Fale com a Clara"},
+{"r":[106,328,348,371],"href":"#clara","label":"Fale com a Clara"},
+{"r":[365,328,585,371],"href":"/solucoes/ai-workforce","label":"Conheça as soluções"},
+{"r":[107,553,316,586],"href":"/solucoes/ai-workforce","label":"Explorar AI Workforce"},
+{"r":[887,553,1176,586],"href":"/solucoes/enterprise-transformation","label":"Explorar Enterprise Transformation"},
+{"r":[1437,697,1612,721],"href":"/solucoes/enterprise-transformation","label":"Ver todos os casos de uso"},
+{"r":[53,730,433,829],"href":"https://app.atlashub.si/simulador/clinic-appointment-confirmation","label":"Atendimento ao Cliente — abrir simulação"},
+{"r":[456,730,828,829],"href":"https://app.atlashub.si/simulador/sales-assistant","label":"Prospecção de Leads — abrir simulação"},
+{"r":[848,730,1219,829],"href":"https://app.atlashub.si/simulador/administrative-secretary","label":"Back-office e Operações — abrir simulação"},
+{"r":[1240,730,1619,829],"href":"https://app.atlashub.si/simulador/marketing-assistant","label":"Marketing e Conteúdo — abrir simulação"}
+]

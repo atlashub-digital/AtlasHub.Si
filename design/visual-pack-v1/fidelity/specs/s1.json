@@ -1,0 +1,713 @@
+{
+ "src": "design/visual-pack-v1/assets/screens/01_site_home.webp",
+ "blocks": [
+  {
+   "r": [
+    436,
+    26,
+    494,
+    48
+   ],
+   "lines": [
+    "Soluções"
+   ],
+   "w": 500,
+   "tag": "span",
+   "f": "bsc",
+   "kind": "width"
+  },
+  {
+   "r": [
+    555,
+    26,
+    625,
+    48
+   ],
+   "lines": [
+    "Plataforma"
+   ],
+   "w": 500,
+   "tag": "span",
+   "href": "/solucoes/ai-workforce",
+   "f": "bsc",
+   "kind": "width"
+  },
+  {
+   "r": [
+    670,
+    26,
+    752,
+    48
+   ],
+   "lines": [
+    "Casos de uso"
+   ],
+   "w": 500,
+   "tag": "span",
+   "href": "#casos",
+   "f": "bsc",
+   "kind": "width"
+  },
+  {
+   "r": [
+    795,
+    26,
+    884,
+    48
+   ],
+   "lines": [
+    "Conhecimento"
+   ],
+   "w": 500,
+   "tag": "span",
+   "href": "https://editions.atlashub.si",
+   "f": "bsc",
+   "kind": "width"
+  },
+  {
+   "r": [
+    927,
+    26,
+    968,
+    48
+   ],
+   "lines": [
+    "Sobre"
+   ],
+   "w": 500,
+   "tag": "span",
+   "href": "#sobre",
+   "f": "bsc",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1428,
+    26,
+    1530,
+    50
+   ],
+   "lines": [
+    "Fale com a Clara"
+   ],
+   "w": 600,
+   "dark": true,
+   "tag": "span",
+   "f": "bsc",
+   "kind": "width"
+  },
+  {
+   "r": [
+    104,
+    93,
+    360,
+    111
+   ],
+   "lines": [
+    "INTELIGÊNCIA EM OPERAÇÃO"
+   ],
+   "w": 600,
+   "kind": "tracked",
+   "tag": "p"
+  },
+  {
+   "r": [
+    102,
+    122,
+    615,
+    184
+   ],
+   "lines": [
+    "Mais capacidade."
+   ],
+   "w": 700,
+   "tag": "h1",
+   "kind": "width"
+  },
+  {
+   "r": [
+    102,
+    184,
+    692,
+    248
+   ],
+   "lines": [
+    "Menos complexidade."
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    102,
+    247,
+    515,
+    312
+   ],
+   "lines": [
+    "Ajudamos empresas a reforçar suas operações com",
+    "colaboradores digitais e a construir sua própria",
+    "capacidade para o futuro."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    168,
+    338,
+    292,
+    362
+   ],
+   "lines": [
+    "Fale com a Clara"
+   ],
+   "w": 600,
+   "dark": true,
+   "tag": "span",
+   "f": "bsc",
+   "kind": "width"
+  },
+  {
+   "r": [
+    386,
+    338,
+    534,
+    362
+   ],
+   "lines": [
+    "Conheça as soluções"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1498,
+    150,
+    1627,
+    216
+   ],
+   "lines": [
+    "O FUTURO",
+    "DO TRABALHO",
+    "JÁ COMEÇOU."
+   ],
+   "w": 400,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    104,
+    409,
+    225,
+    427
+   ],
+   "lines": [
+    "AI WORKFORCE"
+   ],
+   "w": 600,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    104,
+    431,
+    325,
+    490
+   ],
+   "lines": [
+    "Contrate",
+    "capacidade gerida."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    104,
+    490,
+    352,
+    544
+   ],
+   "lines": [
+    "Colaboradores digitais preparados,",
+    "operados pela AtlasHub, por missão",
+    "ou contrato contínuo."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    127,
+    559,
+    272,
+    582
+   ],
+   "lines": [
+    "Explorar AI Workforce"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    884,
+    409,
+    1132,
+    427
+   ],
+   "lines": [
+    "ENTERPRISE TRANSFORMATION"
+   ],
+   "w": 600,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    884,
+    431,
+    1115,
+    490
+   ],
+   "lines": [
+    "Construa a sua",
+    "capacidade própria."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    884,
+    490,
+    1135,
+    544
+   ],
+   "lines": [
+    "Implementamos agentes e processos",
+    "no seu ecossistema e capacitamos",
+    "a sua equipa."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    906,
+    559,
+    1131,
+    582
+   ],
+   "lines": [
+    "Explorar Enterprise Transformation"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    178,
+    621,
+    300,
+    641
+   ],
+   "lines": [
+    "Employee Factory"
+   ],
+   "w": 500,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    178,
+    642,
+    377,
+    678
+   ],
+   "lines": [
+    "Perfis, competências e execução",
+    "sob demanda."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    590,
+    621,
+    750,
+    641
+   ],
+   "lines": [
+    "Integração e Segurança"
+   ],
+   "w": 500,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    590,
+    642,
+    737,
+    678
+   ],
+   "lines": [
+    "No seu ecossistema ou",
+    "em ambiente gerido."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    988,
+    621,
+    1112,
+    641
+   ],
+   "lines": [
+    "Gestão e Evolução"
+   ],
+   "w": 500,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    988,
+    642,
+    1122,
+    678
+   ],
+   "lines": [
+    "Supervisão, métricas",
+    "e melhoria contínua."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1389,
+    621,
+    1515,
+    641
+   ],
+   "lines": [
+    "Pessoas + Agentes"
+   ],
+   "w": 500,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1389,
+    642,
+    1522,
+    678
+   ],
+   "lines": [
+    "Equipas aumentadas",
+    "com impacto real."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    57,
+    693,
+    372,
+    722
+   ],
+   "lines": [
+    "Soluções para desafios reais."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1440,
+    699,
+    1592,
+    719
+   ],
+   "lines": [
+    "Ver todos os casos de uso"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    238,
+    741,
+    330,
+    776
+   ],
+   "lines": [
+    "Atendimento",
+    "ao Cliente"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    194,
+    782,
+    374,
+    820
+   ],
+   "lines": [
+    "Resposta rápida e consistente",
+    "em todos os canais."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    656,
+    741,
+    740,
+    776
+   ],
+   "lines": [
+    "Prospecção",
+    "de Leads"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    613,
+    782,
+    742,
+    820
+   ],
+   "lines": [
+    "Mais oportunidades",
+    "de negócio."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1031,
+    741,
+    1118,
+    776
+   ],
+   "lines": [
+    "Back-office",
+    "e Operações"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    985,
+    782,
+    1152,
+    820
+   ],
+   "lines": [
+    "Processos mais eficientes",
+    "e maior produtividade."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1435,
+    741,
+    1518,
+    776
+   ],
+   "lines": [
+    "Marketing",
+    "e Conteúdo"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1389,
+    782,
+    1570,
+    820
+   ],
+   "lines": [
+    "Campanhas com mais alcance",
+    "e melhor performance."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    57,
+    845,
+    264,
+    890
+   ],
+   "lines": [
+    "Da necessidade",
+    "ao resultado contínuo."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    57,
+    890,
+    282,
+    921
+   ],
+   "lines": [
+    "Um caminho claro para reforçar hoje",
+    "e construir amanhã."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    468,
+    853,
+    545,
+    873
+   ],
+   "lines": [
+    "Diagnóstico"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    468,
+    875,
+    632,
+    910
+   ],
+   "lines": [
+    "Entendemos os seus desafios,",
+    "processos e oportunidades."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    770,
+    853,
+    880,
+    873
+   ],
+   "lines": [
+    "Reforço imediato"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    770,
+    875,
+    926,
+    910
+   ],
+   "lines": [
+    "Colaboradores digitais em",
+    "operação, gerando resultados."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1083,
+    853,
+    1265,
+    873
+   ],
+   "lines": [
+    "Implementação e capacitação"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1083,
+    875,
+    1281,
+    910
+   ],
+   "lines": [
+    "Agentes e processos no seu ambiente,",
+    "com transferência de conhecimento."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1437,
+    853,
+    1579,
+    873
+   ],
+   "lines": [
+    "Capacidade permanente"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1437,
+    875,
+    1622,
+    910
+   ],
+   "lines": [
+    "A sua equipa mais capaz,",
+    "autónoma e preparada para o futuro."
+   ],
+   "w": 500,
+   "kind": "width"
+  }
+ ]
+}

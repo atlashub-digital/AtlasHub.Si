@@ -1,0 +1,996 @@
+{
+ "src": "design/visual-pack-v1/assets/screens/03_ai_workforce.webp",
+ "blocks": [
+  {
+   "r": [
+    403,
+    25,
+    465,
+    47
+   ],
+   "lines": [
+    "Soluções"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    526,
+    25,
+    597,
+    47
+   ],
+   "lines": [
+    "Plataforma"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    646,
+    25,
+    728,
+    47
+   ],
+   "lines": [
+    "Casos de uso"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    778,
+    25,
+    869,
+    47
+   ],
+   "lines": [
+    "Conhecimento"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    918,
+    25,
+    958,
+    47
+   ],
+   "lines": [
+    "Sobre"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1450,
+    25,
+    1551,
+    47
+   ],
+   "lines": [
+    "Falar com a Clara"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    93,
+    86,
+    250,
+    105
+   ],
+   "lines": [
+    "AI WORKFORCE"
+   ],
+   "w": 600,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    93,
+    110,
+    670,
+    157
+   ],
+   "lines": [
+    "Reforce sua operação"
+   ],
+   "w": 800,
+   "tag": "h1",
+   "kind": "width",
+   "anchor": "base"
+  },
+  {
+   "r": [
+    93,
+    159,
+    615,
+    205
+   ],
+   "lines": [
+    "com {colaboradores}"
+   ],
+   "w": 800,
+   "tag": "span",
+   "anchor": "base",
+   "kind": "width"
+  },
+  {
+   "r": [
+    93,
+    206,
+    520,
+    253
+   ],
+   "lines": [
+    "digitais geridos."
+   ],
+   "w": 800,
+   "tag": "span",
+   "kind": "width",
+   "anchor": "base"
+  },
+  {
+   "r": [
+    93,
+    265,
+    558,
+    322
+   ],
+   "lines": [
+    "Uma equipe de agentes de IA, especializados por missão,",
+    "operados e supervisionados pela {AtlasHub}, que executam",
+    "processos, atendem clientes e geram resultados reais."
+   ],
+   "w": 500,
+   "kind": "width",
+   "acc": "#3fd6f5"
+  },
+  {
+   "r": [
+    160,
+    341,
+    281,
+    365
+   ],
+   "lines": [
+    "Falar com a Clara"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    385,
+    341,
+    554,
+    365
+   ],
+   "lines": [
+    "Conheça o AI Workforce"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1447,
+    98,
+    1617,
+    177
+   ],
+   "lines": [
+    "PESSOAS",
+    "MAIS ESTRATÉGICAS.",
+    "AGENTES MAIS",
+    "CAPAZES."
+   ],
+   "w": 400,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    53,
+    395,
+    555,
+    422
+   ],
+   "lines": [
+    "Colaboradores digitais prontos para a sua operação."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1473,
+    397,
+    1598,
+    418
+   ],
+   "lines": [
+    "Ver todos os agentes"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    230,
+    437,
+    316,
+    473
+   ],
+   "lines": [
+    "Atendimento",
+    "ao Cliente"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    169,
+    485,
+    291,
+    529
+   ],
+   "lines": [
+    "Atende, resolve,",
+    "orienta e encanta",
+    "seus clientes 24/7."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    180,
+    543,
+    251,
+    562
+   ],
+   "lines": [
+    "Ver detalhes"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    534,
+    437,
+    607,
+    473
+   ],
+   "lines": [
+    "Prospecção",
+    "de Leads"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    484,
+    485,
+    629,
+    529
+   ],
+   "lines": [
+    "Identifica, qualifica",
+    "e agenda oportunidades",
+    "de negócio."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    497,
+    543,
+    571,
+    562
+   ],
+   "lines": [
+    "Ver detalhes"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    864,
+    437,
+    941,
+    473
+   ],
+   "lines": [
+    "Back-office",
+    "Operações"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    810,
+    485,
+    942,
+    529
+   ],
+   "lines": [
+    "Executa processos",
+    "administrativos e",
+    "mantém tudo em dia."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    822,
+    543,
+    893,
+    562
+   ],
+   "lines": [
+    "Ver detalhes"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1162,
+    437,
+    1235,
+    473
+   ],
+   "lines": [
+    "Gestão",
+    "de Agenda"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1109,
+    485,
+    1261,
+    529
+   ],
+   "lines": [
+    "Organiza, compromissos,",
+    "confirma, reagenda",
+    "e envia lembretes."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1123,
+    543,
+    1194,
+    562
+   ],
+   "lines": [
+    "Ver detalhes"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1483,
+    437,
+    1559,
+    473
+   ],
+   "lines": [
+    "Marketing",
+    "e Conteúdo"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1419,
+    485,
+    1552,
+    529
+   ],
+   "lines": [
+    "Cria campanhas,",
+    "produz conteúdos",
+    "e monitora resultados."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1434,
+    543,
+    1504,
+    562
+   ],
+   "lines": [
+    "Ver detalhes"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    53,
+    594,
+    204,
+    618
+   ],
+   "lines": [
+    "Como funciona."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    53,
+    619,
+    360,
+    668
+   ],
+   "lines": [
+    "Em poucos passos, sua equipe de colaboradores",
+    "digitais entra em operação, gerida do início ao fim",
+    "pela AtlasHub."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    524,
+    602,
+    602,
+    620
+   ],
+   "lines": [
+    "Diagnóstico"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    524,
+    624,
+    661,
+    656
+   ],
+   "lines": [
+    "Entendemos seus desafios,",
+    "processos e objetivos."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    822,
+    601,
+    902,
+    620
+   ],
+   "lines": [
+    "Configuração"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    821,
+    621,
+    958,
+    669
+   ],
+   "lines": [
+    "Selecionamos e configuramos",
+    "os agentes ideais para",
+    "suas missões."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1123,
+    601,
+    1233,
+    620
+   ],
+   "lines": [
+    "Operação Gerida"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1123,
+    621,
+    1280,
+    669
+   ],
+   "lines": [
+    "Os agentes entram em ação,",
+    "com supervisão contínua",
+    "da nossa equipe."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1451,
+    601,
+    1566,
+    620
+   ],
+   "lines": [
+    "Evolução Contínua"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1451,
+    621,
+    1616,
+    669
+   ],
+   "lines": [
+    "Monitoramos resultados",
+    "e otimizamos constantemente",
+    "para mais impacto."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    57,
+    686,
+    310,
+    738
+   ],
+   "lines": [
+    "Resultados que impulsionam",
+    "o seu negócio."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    57,
+    735,
+    293,
+    785
+   ],
+   "lines": [
+    "Colaboradores digitais que entregam",
+    "produtividade, escalabilidade e uma",
+    "operação mais eficiente."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    367,
+    738,
+    405,
+    769
+   ],
+   "lines": [
+    "3x"
+   ],
+   "w": 800,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    335,
+    769,
+    436,
+    787
+   ],
+   "lines": [
+    "mais produtividade"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    473,
+    738,
+    546,
+    769
+   ],
+   "lines": [
+    "-60%"
+   ],
+   "w": 800,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    449,
+    769,
+    567,
+    787
+   ],
+   "lines": [
+    "de tempo em processos"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    603,
+    738,
+    678,
+    769
+   ],
+   "lines": [
+    "+45%"
+   ],
+   "w": 800,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    581,
+    769,
+    701,
+    787
+   ],
+   "lines": [
+    "em conversões de leads"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    748,
+    738,
+    810,
+    769
+   ],
+   "lines": [
+    "24/7"
+   ],
+   "w": 800,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    729,
+    769,
+    831,
+    787
+   ],
+   "lines": [
+    "operação contínua"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    889,
+    690,
+    1211,
+    713
+   ],
+   "lines": [
+    "Supervisão humana e conformidade."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    889,
+    712,
+    1207,
+    760
+   ],
+   "lines": [
+    "Todos os agentes são operados e supervisionados",
+    "pela {AtlasHub}, com governança, segurança e",
+    "conformidade com a LGPD."
+   ],
+   "w": 500,
+   "kind": "width",
+   "acc": "#3fd6f5"
+  },
+  {
+   "r": [
+    935,
+    765,
+    1059,
+    782
+   ],
+   "lines": [
+    "Supervisão especialista"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    935,
+    786,
+    1083,
+    805
+   ],
+   "lines": [
+    "LGPD e segurança de dados"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1138,
+    765,
+    1295,
+    782
+   ],
+   "lines": [
+    "Monitoramento em tempo real"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1138,
+    786,
+    1250,
+    805
+   ],
+   "lines": [
+    "Relatórios e auditoria"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    70,
+    834,
+    218,
+    851
+   ],
+   "lines": [
+    "PRONTA PARA COMEÇAR?"
+   ],
+   "w": 600,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    70,
+    849,
+    361,
+    888
+   ],
+   "lines": [
+    "Fale com a Clara"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    69,
+    888,
+    357,
+    930
+   ],
+   "lines": [
+    "e descubra como o AI Workforce",
+    "pode transformar a sua operação."
+   ],
+   "w": 600,
+   "kind": "width"
+  },
+  {
+   "r": [
+    843,
+    839,
+    975,
+    856
+   ],
+   "lines": [
+    "Analisa suas necessidades"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    843,
+    854,
+    997,
+    870
+   ],
+   "lines": [
+    "Entende seu cenário e objetivos."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1074,
+    839,
+    1196,
+    856
+   ],
+   "lines": [
+    "Indica os agentes ideais"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1074,
+    854,
+    1272,
+    870
+   ],
+   "lines": [
+    "Propõe a equipe certa para suas missões."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1355,
+    839,
+    1535,
+    856
+   ],
+   "lines": [
+    "Apresenta um plano personalizado"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1355,
+    854,
+    1569,
+    870
+   ],
+   "lines": [
+    "Com escopo, prazos e resultados esperados."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    873,
+    892,
+    993,
+    915
+   ],
+   "lines": [
+    "Falar com a Clara"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1111,
+    892,
+    1239,
+    915
+   ],
+   "lines": [
+    "Ver casos de sucesso"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  }
+ ],
+ "erase": [
+  [
+   93,
+   150,
+   670,
+   265
+  ]
+ ]
+}

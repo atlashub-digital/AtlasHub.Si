@@ -1,0 +1,975 @@
+{
+ "src": "design/visual-pack-v1/assets/screens/02_enterprise_transformation.webp",
+ "blocks": [
+  {
+   "r": [
+    413,
+    24,
+    472,
+    46
+   ],
+   "lines": [
+    "Soluções"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    535,
+    24,
+    606,
+    46
+   ],
+   "lines": [
+    "Plataforma"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    653,
+    24,
+    738,
+    46
+   ],
+   "lines": [
+    "Casos de uso"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    785,
+    24,
+    879,
+    46
+   ],
+   "lines": [
+    "Conhecimento"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    926,
+    24,
+    966,
+    46
+   ],
+   "lines": [
+    "Sobre"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1298,
+    24,
+    1322,
+    46
+   ],
+   "lines": [
+    "BR"
+   ],
+   "w": 500,
+   "f": "bsc",
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1392,
+    23,
+    1560,
+    46
+   ],
+   "lines": [
+    "Fale com um especialista"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    62,
+    86,
+    348,
+    104
+   ],
+   "lines": [
+    "ENTERPRISE TRANSFORMATION"
+   ],
+   "w": 600,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    62,
+    114,
+    632,
+    170
+   ],
+   "lines": [
+    "Construa sua própria"
+   ],
+   "w": 700,
+   "tag": "h1",
+   "kind": "width"
+  },
+  {
+   "r": [
+    62,
+    170,
+    580,
+    226
+   ],
+   "lines": [
+    "capacidade digital."
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    62,
+    229,
+    600,
+    292
+   ],
+   "lines": [
+    "Implantamos agentes e processos inteligentes no seu ecossistema,",
+    "com integração completa, transferência de conhecimento",
+    "e capacitação da sua equipe."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    128,
+    313,
+    270,
+    338
+   ],
+   "lines": [
+    "Agendar diagnóstico"
+   ],
+   "w": 600,
+   "f": "bsc",
+   "dark": true,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    366,
+    313,
+    540,
+    338
+   ],
+   "lines": [
+    "Conheça nossa abordagem"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1500,
+    168,
+    1634,
+    247
+   ],
+   "lines": [
+    "DA ESTRATÉGIA",
+    "À AUTONOMIA.",
+    "CAPACIDADE",
+    "QUE FICA."
+   ],
+   "w": 400,
+   "kind": "tracked"
+  },
+  {
+   "r": [
+    111,
+    372,
+    218,
+    389
+   ],
+   "lines": [
+    "No seu ambiente"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    111,
+    389,
+    228,
+    421
+   ],
+   "lines": [
+    "Implantação segura",
+    "e integrada"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    307,
+    372,
+    404,
+    389
+   ],
+   "lines": [
+    "Com o seu time"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    307,
+    389,
+    414,
+    421
+   ],
+   "lines": [
+    "Transferência de",
+    "conhecimento real"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    508,
+    372,
+    643,
+    389
+   ],
+   "lines": [
+    "Resultado sustentável"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    508,
+    389,
+    624,
+    421
+   ],
+   "lines": [
+    "Autonomia e evolução",
+    "contínua"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    723,
+    372,
+    836,
+    389
+   ],
+   "lines": [
+    "Governança nativa"
+   ],
+   "w": 600,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    723,
+    389,
+    886,
+    421
+   ],
+   "lines": [
+    "Segurança e",
+    "conformidade desde o início"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    57,
+    446,
+    290,
+    481
+   ],
+   "lines": [
+    "Build {& Transfer}"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    57,
+    486,
+    365,
+    541
+   ],
+   "lines": [
+    "Implantação completa dos agentes e processos",
+    "no seu ambiente, com transferência de conhecimento",
+    "para garantir autonomia."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    92,
+    563,
+    158,
+    581
+   ],
+   "lines": [
+    "Saiba mais"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    655,
+    458,
+    812,
+    574
+   ],
+   "lines": [
+    "Implantação no seu ecossistema",
+    "Integração com seus sistemas",
+    "Transferência de conhecimento",
+    "Documentação completa",
+    "Autonomia da sua equipe"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    874,
+    446,
+    1201,
+    481
+   ],
+   "lines": [
+    "Co-Build {& Enablement}"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    873,
+    484,
+    1127,
+    559
+   ],
+   "lines": [
+    "Construção colaborativa com o seu time,",
+    "capacitando pessoas, ajustando processos",
+    "e acelerando a adoção para gerar valor",
+    "contínuo."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    916,
+    563,
+    983,
+    581
+   ],
+   "lines": [
+    "Saiba mais"
+   ],
+   "w": 600,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1512,
+    458,
+    1645,
+    574
+   ],
+   "lines": [
+    "Cocriação de soluções",
+    "Capacitação hands-on",
+    "Ajuste de processos",
+    "Adoção assistida",
+    "Evolução contínua"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    42,
+    611,
+    572,
+    645
+   ],
+   "lines": [
+    "Transformação em toda a sua operação."
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    42,
+    644,
+    540,
+    663
+   ],
+   "lines": [
+    "Agentes e processos inteligentes para as áreas que fazem o seu negócio acontecer."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1460,
+    625,
+    1601,
+    644
+   ],
+   "lines": [
+    "Ver todos os casos de uso"
+   ],
+   "w": 500,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    96,
+    686,
+    162,
+    705
+   ],
+   "lines": [
+    "Processos"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    43,
+    716,
+    188,
+    749
+   ],
+   "lines": [
+    "Automação e otimização",
+    "de processos ponta a ponta."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    68,
+    754,
+    155,
+    800
+   ],
+   "lines": [
+    "Operação eficiente",
+    "Menos retrabalho",
+    "Mais velocidade"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    421,
+    686,
+    494,
+    705
+   ],
+   "lines": [
+    "Operações"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    374,
+    716,
+    551,
+    749
+   ],
+   "lines": [
+    "Agentes que executam, monitoram",
+    "e geram insights em tempo real."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    400,
+    754,
+    512,
+    800
+   ],
+   "lines": [
+    "Produtividade aumentada",
+    "Decisões mais rápidas",
+    "Qualidade e consistência"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    750,
+    686,
+    842,
+    705
+   ],
+   "lines": [
+    "Pessoas & RH"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    697,
+    716,
+    912,
+    749
+   ],
+   "lines": [
+    "Agentes que apoiam recrutamento,",
+    "desenvolvimento e experiência do colaborador."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    724,
+    754,
+    885,
+    800
+   ],
+   "lines": [
+    "Experiência do colaborador",
+    "Desenvolvimento contínuo",
+    "Mais tempo para o que importa"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1070,
+    686,
+    1177,
+    705
+   ],
+   "lines": [
+    "TI & Integrações"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1019,
+    716,
+    1193,
+    749
+   ],
+   "lines": [
+    "Conectamos com os seus sistemas",
+    "e ambientes de forma segura."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1044,
+    754,
+    1170,
+    800
+   ],
+   "lines": [
+    "Integração com sistemas",
+    "Arquitetura escalável",
+    "Operação no seu ambiente"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1399,
+    686,
+    1480,
+    705
+   ],
+   "lines": [
+    "Governança"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1347,
+    716,
+    1545,
+    749
+   ],
+   "lines": [
+    "Controles, compliance e transparência",
+    "em toda a jornada."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1374,
+    754,
+    1497,
+    800
+   ],
+   "lines": [
+    "Conformidade regulatória",
+    "Auditoria e rastreabilidade",
+    "Uso responsável da IA"
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    37,
+    836,
+    238,
+    858
+   ],
+   "lines": [
+    "Da oportunidade"
+   ],
+   "w": 700,
+   "tag": "h2",
+   "kind": "width"
+  },
+  {
+   "r": [
+    37,
+    862,
+    238,
+    884
+   ],
+   "lines": [
+    "à sua {autonomia.}"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width",
+   "anchor": "base"
+  },
+  {
+   "r": [
+    37,
+    885,
+    220,
+    920
+   ],
+   "lines": [
+    "Uma jornada clara, colaborativa",
+    "e orientada a resultados."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    323,
+    845,
+    343,
+    861
+   ],
+   "lines": [
+    "01"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    352,
+    845,
+    411,
+    861
+   ],
+   "lines": [
+    "Diagnóstico"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    324,
+    866,
+    463,
+    916
+   ],
+   "lines": [
+    "Entendemos seus desafios,",
+    "processos e oportunidades",
+    "de automação."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    564,
+    845,
+    584,
+    861
+   ],
+   "lines": [
+    "02"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    590,
+    845,
+    636,
+    861
+   ],
+   "lines": [
+    "Roadmap"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    566,
+    866,
+    713,
+    916
+   ],
+   "lines": [
+    "Desenhamos a jornada de",
+    "transformação com casos",
+    "de uso priorizados."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    792,
+    845,
+    812,
+    861
+   ],
+   "lines": [
+    "03"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    818,
+    845,
+    933,
+    861
+   ],
+   "lines": [
+    "Arquitetura e Integração"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    793,
+    866,
+    939,
+    916
+   ],
+   "lines": [
+    "Implantamos no seu ambiente,",
+    "integrando com seus sistemas",
+    "e dados."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1027,
+    845,
+    1047,
+    861
+   ],
+   "lines": [
+    "04"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1053,
+    845,
+    1182,
+    861
+   ],
+   "lines": [
+    "Capacitação e Transferência"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1028,
+    866,
+    1181,
+    916
+   ],
+   "lines": [
+    "Capacitamos sua equipe e",
+    "transferimos o conhecimento",
+    "de forma prática."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1282,
+    845,
+    1302,
+    861
+   ],
+   "lines": [
+    "05"
+   ],
+   "w": 700,
+   "tag": "span",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1308,
+    845,
+    1387,
+    861
+   ],
+   "lines": [
+    "Escala e Evolução"
+   ],
+   "w": 700,
+   "tag": "h3",
+   "kind": "width"
+  },
+  {
+   "r": [
+    1282,
+    866,
+    1412,
+    916
+   ],
+   "lines": [
+    "Acompanhamos resultados,",
+    "expandimos para novas áreas",
+    "e evoluímos continuamente."
+   ],
+   "w": 500,
+   "kind": "width"
+  },
+  {
+   "r": [
+    1521,
+    850,
+    1641,
+    899
+   ],
+   "lines": [
+    "Sua equipe.",
+    "Mais capacidade.",
+    "Resultados duradouros."
+   ],
+   "w": 500,
+   "kind": "width"
+  }
+ ]
+}

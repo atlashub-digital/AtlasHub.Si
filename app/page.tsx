@@ -10,24 +10,37 @@ import Editions from "../components/Editions";
 import Closing from "../components/Closing";
 import Footer from "../components/Footer";
 import SiteInteractions from "../components/SiteInteractions";
+import MockupCanvas, { type MockScreen } from "../components/MockupCanvas";
+import home from "../lib/mockups/home.json";
 
-// P01 — Homepage (Visual Pack V1). Existing sections are preserved: application areas, cases,
-// Clara with the operations lab and lead flow, ecosystem and Editions.
+// P01 — Homepage. Desktop (≥ 900 px) renders the approved Visual Pack V1 mockup 1:1
+// (components/MockupCanvas); narrow screens keep the responsive sections. Clara, with the
+// operations lab and the lead flow, and the footer are shared by both.
 export default function Home() {
   return (
     <>
-      <Header />
-      <main id="conteudo">
-        <Hero />
-        <Offers />
-        <Areas />
-        <Method />
-        <Cases />
+      <div id="conteudo">
+        <main className="mk-desktop">
+          <h1 className="mk-sr">AtlasHub.SI — Mais capacidade. Menos complexidade.</h1>
+          <MockupCanvas screen={home as MockScreen} />
+        </main>
+        <div className="mk-mobile">
+          <Header />
+          <main>
+            <Hero />
+            <Offers />
+            <Areas />
+            <Method />
+            <Cases />
+          </main>
+        </div>
         <Clara leadsEnabled={Boolean(process.env.LEAD_WEBHOOK_URL && process.env.LEAD_WEBHOOK_TOKEN)} />
-        <Ecosystem />
-        <Editions />
-        <Closing />
-      </main>
+        <div className="mk-mobile">
+          <Ecosystem />
+          <Editions />
+          <Closing />
+        </div>
+      </div>
       <Footer />
       <SiteInteractions />
     </>
