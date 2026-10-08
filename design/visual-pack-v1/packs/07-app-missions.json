@@ -1,0 +1,215 @@
+{
+  "version": "1.0.0",
+  "locale": "pt-BR",
+  "owner": "AtlasHub.SI",
+  "approval": "visual-concept-approved; technical-implementation-pending",
+  "brand": {
+    "logo": {
+      "source": "../../assets/brand/Logo_Oficial_AtlasHub.png",
+      "mustUseOriginal": true,
+      "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
+    },
+    "colors": {
+      "navy": "#040C18",
+      "navyRaised": "#061321",
+      "panel": "#09192D",
+      "cyan": "#16D8ED",
+      "electricBlue": "#008DFF",
+      "white": "#F5F8FD",
+      "muted": "#B9C9DA",
+      "border": "#1D4564",
+      "positive": "#2AD9A0",
+      "warning": "#F0B84A",
+      "negative": "#FF6E78"
+    },
+    "typography": {
+      "family": "Inter, Arial, sans-serif",
+      "headings": "font-weight 750-850; letter-spacing -0.035em",
+      "body": "font-size 16px; line-height 1.55"
+    },
+    "responsive": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "motion": {
+      "defaultMs": 240,
+      "reducedMotion": "disable ambient parallax and nonessential transitions"
+    }
+  },
+  "guardrails": {
+    "allDataInMockupIsFictional": true,
+    "publicClaims": "Não usar desempenho, quantidades, garantias, 24/7 ou casos reais sem evidência e revisão humana.",
+    "stateBadges": "conceito, demonstração, teste, piloto e homologado são estados distintos.",
+    "actions": "CTA deve navegar para rota real ou estar explicitamente desabilitado com texto de disponibilidade.",
+    "security": "Nunca permitir ações operacionais fora de autenticação, RBAC, tenant context e policies backend."
+  },
+  "id": "07-app-missions",
+  "name": "App — Missões, aprovações e operações",
+  "surface": "authenticated",
+  "route": "/app/missions",
+  "asset": "07_missions_operations.png",
+  "objective": "Centro de comando de tarefas digitais com SLAs contratados, estados, falhas e supervisão humana.",
+  "headline": "Missões e Operações",
+  "layout": {
+    "type": "app-shell",
+    "main": "status navigation + operational KPI + search filters + table + mission detail",
+    "maxWidth": 1680
+  },
+  "sections": [
+    {
+      "key": "metrics",
+      "items": [
+        "Em execução",
+        "Aguardando aprovação",
+        "Concluídas",
+        "Incidentes",
+        "Dentro do SLA"
+      ],
+      "rule": "SLA só quando acordado e calculado com fonte real"
+    },
+    {
+      "key": "filter",
+      "controls": [
+        "busca",
+        "estado",
+        "função",
+        "prioridade",
+        "período",
+        "tenant implícito"
+      ],
+      "action": "limpar"
+    },
+    {
+      "key": "views",
+      "items": [
+        "Lista",
+        "Kanban",
+        "Linha do tempo"
+      ],
+      "default": "Lista"
+    },
+    {
+      "key": "table",
+      "columns": [
+        "Seleção",
+        "Missão",
+        "Categoria",
+        "Estado",
+        "Responsável",
+        "Início",
+        "Prazo",
+        "Aprovação",
+        "Ações"
+      ]
+    },
+    {
+      "key": "detailsDrawer",
+      "fields": [
+        "id",
+        "objectives",
+        "description",
+        "assignedRole",
+        "progressEvidence",
+        "events",
+        "approvals",
+        "risks",
+        "relatedRunIds"
+      ],
+      "actions": [
+        "Acompanhar",
+        "Encaminhar a humano",
+        "Pausar quando autorizado"
+      ]
+    },
+    {
+      "key": "approvalQueue",
+      "fields": [
+        "reason",
+        "requester",
+        "riskTier",
+        "expiresAt",
+        "assignee",
+        "decision"
+      ],
+      "priority": "Destacar pendências sem autoaprovação"
+    },
+    {
+      "key": "incidents",
+      "fields": [
+        "severity",
+        "openedAt",
+        "responsible",
+        "fallback",
+        "escalation"
+      ]
+    },
+    {
+      "key": "history",
+      "label": "Auditoria",
+      "fields": [
+        "who",
+        "when",
+        "what",
+        "correlationId",
+        "sanitizedResult"
+      ]
+    }
+  ],
+  "dataContract": {
+    "sources": [
+      "GET /v1/runs",
+      "GET /v1/approvals",
+      "GET /v1/ops/incidents"
+    ],
+    "pagination": "server-side cursor and stable sort",
+    "tenantIsolation": "required"
+  },
+  "interactions": [
+    {
+      "id": "filters",
+      "event": "change",
+      "effect": "query state URL + backend filter"
+    },
+    {
+      "id": "tableRow",
+      "event": "click",
+      "effect": "abrir drawer sem perder busca"
+    },
+    {
+      "id": "approve",
+      "event": "click",
+      "effect": "autorização explícita + ação auditável"
+    },
+    {
+      "id": "retry",
+      "event": "click",
+      "effect": "idempotente, apenas por operador autorizado"
+    }
+  ],
+  "responsive": {
+    "desktop": "tabela + drawer 360px",
+    "tablet": "tabela scroll horizontal + drawer overlay",
+    "mobile": "cards por missão + drawer full-screen"
+  },
+  "acceptance": [
+    "Sem falsas missões/contagens em produção",
+    "Audit logs redigidos",
+    "Estados refletem worker real",
+    "Retries nunca duplicam alteração externa",
+    "Validação manual para decisões de risco"
+  ],
+  "implementation": {
+    "targetRepo": "atlashub-digital/App.AtlasHub.Si",
+    "framework": "Next.js App Router + React + TypeScript",
+    "reuseExisting": true,
+    "doNotOverwriteExistingMain": true,
+    "imagePolicy": "Maquete é referência editorial e de layout; reconstruir UI com componentes reais. PNG de mockup não deve substituir HTML.",
+    "assetsGuide": "../assets/README.md"
+  },
+  "legal": {
+    "logoReviewRequired": true,
+    "userConsentRequiredForLead": true,
+    "simulatedStatesClearlyLabeled": true
+  }
+}
