@@ -1,0 +1,214 @@
+{
+  "version": "1.0.0",
+  "locale": "pt-BR",
+  "owner": "AtlasHub.SI",
+  "approval": "visual-concept-approved; technical-implementation-pending",
+  "brand": {
+    "logo": {
+      "source": "../../assets/brand/Logo_Oficial_AtlasHub.png",
+      "mustUseOriginal": true,
+      "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
+    },
+    "colors": {
+      "navy": "#040C18",
+      "navyRaised": "#061321",
+      "panel": "#09192D",
+      "cyan": "#16D8ED",
+      "electricBlue": "#008DFF",
+      "white": "#F5F8FD",
+      "muted": "#B9C9DA",
+      "border": "#1D4564",
+      "positive": "#2AD9A0",
+      "warning": "#F0B84A",
+      "negative": "#FF6E78"
+    },
+    "typography": {
+      "family": "Inter, Arial, sans-serif",
+      "headings": "font-weight 750-850; letter-spacing -0.035em",
+      "body": "font-size 16px; line-height 1.55"
+    },
+    "responsive": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "motion": {
+      "defaultMs": 240,
+      "reducedMotion": "disable ambient parallax and nonessential transitions"
+    }
+  },
+  "guardrails": {
+    "allDataInMockupIsFictional": true,
+    "publicClaims": "Não usar desempenho, quantidades, garantias, 24/7 ou casos reais sem evidência e revisão humana.",
+    "stateBadges": "conceito, demonstração, teste, piloto e homologado são estados distintos.",
+    "actions": "CTA deve navegar para rota real ou estar explicitamente desabilitado com texto de disponibilidade.",
+    "security": "Nunca permitir ações operacionais fora de autenticação, RBAC, tenant context e policies backend."
+  },
+  "id": "04-agent-library",
+  "name": "App — Biblioteca Employee Factory",
+  "surface": "authenticated",
+  "route": "/app/employee-factory",
+  "asset": "04_agent_library.png",
+  "objective": "Permitir comparar roles, skills, requisitos, estados e modalidades managed/build, sem execução arbitrária.",
+  "headline": "Biblioteca de Agentes",
+  "layout": {
+    "type": "app-shell",
+    "sidebar": [
+      "Início",
+      "Meus Agentes",
+      "Missões",
+      "Processos",
+      "Integrações",
+      "Resultados",
+      "Employee Factory",
+      "Equipe",
+      "Configurações"
+    ],
+    "main": "hero + two modes + full filters + role cards + services rail",
+    "maxWidth": 1680
+  },
+  "sections": [
+    {
+      "key": "hero",
+      "headline": "Biblioteca de Agentes",
+      "subtitle": "Perfis e pacotes de capacidades para processos empresariais."
+    },
+    {
+      "key": "modes",
+      "items": [
+        {
+          "id": "managed",
+          "title": "AI Workforce Managed",
+          "hint": "Serviço gerido AtlasHub"
+        },
+        {
+          "id": "build",
+          "title": "Enterprise Transformation",
+          "hint": "Implantação com governança e transferência"
+        }
+      ]
+    },
+    {
+      "key": "search",
+      "controls": [
+        "text",
+        "categoria",
+        "competência",
+        "estado",
+        "modalidade",
+        "ambiente"
+      ],
+      "behavior": "filtragem client-side no catálogo ou API com RBAC, sem misturar tenants"
+    },
+    {
+      "key": "taxonomy",
+      "items": [
+        "Atendimento",
+        "Comercial",
+        "Back-office",
+        "Agenda",
+        "Analytics",
+        "Marketing",
+        "RH",
+        "Financeiro"
+      ],
+      "warning": "Contagens ilustrativas na maquete devem vir do endpoint real, não hardcode."
+    },
+    {
+      "key": "catalog",
+      "cardFields": [
+        "roleName",
+        "version",
+        "summary",
+        "skills",
+        "allowedChannels",
+        "tools",
+        "deploymentMode",
+        "commercialState",
+        "technicalReadiness",
+        "riskTier",
+        "approvalRequirements"
+      ],
+      "actions": [
+        "Ver perfil",
+        "Solicitar avaliação"
+      ]
+    },
+    {
+      "key": "serviceMode",
+      "items": [
+        "Operação gerida",
+        "Implementação própria",
+        "Coconstrução"
+      ],
+      "policy": "Não chamar 'Criar missão' antes de validar autorizacão e disponibilidade real."
+    },
+    {
+      "key": "emptyState",
+      "headline": "Nenhum perfil disponível com esses filtros",
+      "action": "Limpar filtros"
+    },
+    {
+      "key": "errorState",
+      "headline": "Não foi possível carregar os perfis",
+      "action": "Tentar novamente"
+    }
+  ],
+  "dataContract": {
+    "source": "packages/contracts ou API AI-WaaS: GET /v1/roles",
+    "fields": [
+      "id",
+      "displayName",
+      "description",
+      "packVersion",
+      "roleState",
+      "capabilities",
+      "riskTier",
+      "availability",
+      "modes"
+    ],
+    "isDemo": "renderizar destaque visual SIMULAÇÃO quando catálogo é mock",
+    "tenancy": "tenant derivado da sessão"
+  },
+  "interactions": [
+    {
+      "id": "switchMode",
+      "event": "change",
+      "effect": "filtrar sem perder busca"
+    },
+    {
+      "id": "roleDetail",
+      "event": "click",
+      "effect": "abrir ficha técnica real"
+    },
+    {
+      "id": "newMission",
+      "event": "click",
+      "effect": "exigir autenticação, plano e approver, nunca deploy automático"
+    }
+  ],
+  "responsive": {
+    "desktop": "sidebar 250px + 3 cards + rail",
+    "tablet": "sidebar recolhida + 2 cards",
+    "mobile": "bottom-nav ou drawer + cards empilhados"
+  },
+  "acceptance": [
+    "Catálogo reflecte apenas packs reais e states diferenciados.",
+    "Empty/loading/error implementados.",
+    "Sem dados de outro tenant.",
+    "Nenhum botão inicia deploy sem permissão."
+  ],
+  "implementation": {
+    "targetRepo": "atlashub-digital/App.AtlasHub.Si",
+    "framework": "Next.js App Router + React + TypeScript",
+    "reuseExisting": true,
+    "doNotOverwriteExistingMain": true,
+    "imagePolicy": "Maquete é referência editorial e de layout; reconstruir UI com componentes reais. PNG de mockup não deve substituir HTML.",
+    "assetsGuide": "../assets/README.md"
+  },
+  "legal": {
+    "logoReviewRequired": true,
+    "userConsentRequiredForLead": true,
+    "simulatedStatesClearlyLabeled": true
+  }
+}
