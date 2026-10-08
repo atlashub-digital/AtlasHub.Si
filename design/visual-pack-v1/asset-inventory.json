@@ -1,0 +1,71 @@
+{
+  "version": "1.0.0",
+  "repositoryPlacement": "design/visual-pack-v1/assets",
+  "images": [
+    {
+      "name": "01_site_home.png",
+      "source": "atlashub_ai_workforce_hero_page.png",
+      "role": "homepage mockup"
+    },
+    {
+      "name": "02_enterprise_transformation.png",
+      "source": "atlashub.si_capacidade_digital_inteligente.png",
+      "role": "enterprise transformation mockup"
+    },
+    {
+      "name": "03_ai_workforce.png",
+      "source": "atlashub_ai_workforce_landing_page.png",
+      "role": "AI Workforce mockup"
+    },
+    {
+      "name": "04_agent_library.png",
+      "source": "atlashub_ai_agent_library_dashboard.png",
+      "role": "app catalog mockup"
+    },
+    {
+      "name": "05_app_dashboard.png",
+      "source": "painel_atlashub_equipa_digital_em_ação.png",
+      "role": "authenticated app dashboard mockup"
+    },
+    {
+      "name": "06_clara_agent_detail.png",
+      "source": "clara_ai_agent_dashboard.png",
+      "role": "agent detail mockup"
+    },
+    {
+      "name": "07_missions_operations.png",
+      "source": "painel_de_missões_e_operações.png",
+      "role": "missions mockup"
+    },
+    {
+      "name": "08_editions_knowledge.png",
+      "source": "atlashub_conhecimento_para_evoluir.png",
+      "role": "editions mockup"
+    }
+  ],
+  "brand": [
+    {
+      "name": "Logo_Oficial_AtlasHub.png",
+      "source": "Logo_Oficial_AtlasHub.png",
+      "role": "official logo; source exact; check approved wordmark separately"
+    }
+  ],
+  "additionalConcepts": [
+    {
+      "name": "AtlasHub_SI_Homepage_Conceito.png",
+      "source": "AtlasHub_Maquetes_Visuais/AtlasHub_SI_Homepage_Conceito.png"
+    },
+    {
+      "name": "App_AtlasHub_SI_Dashboard_Conceito.png",
+      "source": "AtlasHub_Maquetes_Visuais/App_AtlasHub_SI_Dashboard_Conceito.png"
+    }
+  ],
+  "assetRules": [
+    "Images are concept references, not app screenshots nor production metrics",
+    "Generated text may contain typos; implement from JSON instead",
+    "Generated logo must be replaced by official logo file",
+    "Generated people are characters/illustrations, not real staff",
+    "Copy assets must be licensed/approved before production"
+  ],
+  "binaryUpload": "Not automatically committed by this docs-only PR; use the downloadable visual-assets ZIP and upload with approved Git credentials. Do not claim assets are in repository until committed."
+}
