@@ -1,0 +1,221 @@
+{
+  "version": "1.0.0",
+  "locale": "pt-BR",
+  "owner": "AtlasHub.SI",
+  "approval": "visual-concept-approved; technical-implementation-pending",
+  "brand": {
+    "logo": {
+      "source": "../../assets/brand/Logo_Oficial_AtlasHub.png",
+      "mustUseOriginal": true,
+      "rule": "Nunca rasterizar o logo da screenshot, redesenhar o símbolo ou esticar. Usar SVG/WebP oficial apenas se geometricamente idêntico."
+    },
+    "colors": {
+      "navy": "#040C18",
+      "navyRaised": "#061321",
+      "panel": "#09192D",
+      "cyan": "#16D8ED",
+      "electricBlue": "#008DFF",
+      "white": "#F5F8FD",
+      "muted": "#B9C9DA",
+      "border": "#1D4564",
+      "positive": "#2AD9A0",
+      "warning": "#F0B84A",
+      "negative": "#FF6E78"
+    },
+    "typography": {
+      "family": "Inter, Arial, sans-serif",
+      "headings": "font-weight 750-850; letter-spacing -0.035em",
+      "body": "font-size 16px; line-height 1.55"
+    },
+    "responsive": {
+      "desktop": 1440,
+      "tablet": 768,
+      "mobile": 390
+    },
+    "motion": {
+      "defaultMs": 240,
+      "reducedMotion": "disable ambient parallax and nonessential transitions"
+    }
+  },
+  "guardrails": {
+    "allDataInMockupIsFictional": true,
+    "publicClaims": "Não usar desempenho, quantidades, garantias, 24/7 ou casos reais sem evidência e revisão humana.",
+    "stateBadges": "conceito, demonstração, teste, piloto e homologado são estados distintos.",
+    "actions": "CTA deve navegar para rota real ou estar explicitamente desabilitado com texto de disponibilidade.",
+    "security": "Nunca permitir ações operacionais fora de autenticação, RBAC, tenant context e policies backend."
+  },
+  "id": "05-app-dashboard",
+  "name": "App — Painel da operação",
+  "surface": "authenticated",
+  "route": "/app",
+  "asset": "05_app_dashboard.png",
+  "objective": "Visão governável de colaboradores digitais, missões e resultados da empresa autenticada.",
+  "headline": "Bem-vinda, [nome]",
+  "layout": {
+    "type": "app-shell",
+    "sidebar": [
+      "Início",
+      "Meus Agentes",
+      "Missões",
+      "Processos",
+      "Integrações",
+      "Resultados",
+      "Equipe",
+      "Configurações"
+    ],
+    "main": "KPI cards, staff cards, missions, chart, integrations, Clara assistant",
+    "maxWidth": 1680
+  },
+  "sections": [
+    {
+      "key": "header",
+      "controls": [
+        "tenant switcher com autorização",
+        "período",
+        "notificações",
+        "acessibilidade",
+        "perfil"
+      ]
+    },
+    {
+      "key": "kpis",
+      "items": [
+        {
+          "id": "activeDeployments",
+          "label": "Agentes em operação",
+          "unit": "quantidade",
+          "source": "deployments.active"
+        },
+        {
+          "id": "tasksCompleted",
+          "label": "Tarefas concluídas",
+          "unit": "quantidade",
+          "source": "task_runs.completed"
+        },
+        {
+          "id": "timeSaved",
+          "label": "Tempo economizado",
+          "unit": "horas",
+          "source": "validated_measurement",
+          "fallback": "Não aferido"
+        },
+        {
+          "id": "satisfaction",
+          "label": "Satisfação",
+          "unit": "%",
+          "source": "survey",
+          "fallback": "Não aferida"
+        }
+      ]
+    },
+    {
+      "key": "people",
+      "label": "Sua equipe digital",
+      "fields": [
+        "role",
+        "avatarFlagAsIllustration",
+        "status",
+        "currentMission",
+        "lastActivity",
+        "incidents"
+      ],
+      "action": "Ver perfis"
+    },
+    {
+      "key": "missions",
+      "label": "Missões ativas",
+      "fields": [
+        "name",
+        "owner",
+        "state",
+        "dueDate",
+        "progressWithSource"
+      ],
+      "action": "Acompanhar missão"
+    },
+    {
+      "key": "results",
+      "label": "Resultados",
+      "chart": "Série temporal de execuções confirmadas por tenant",
+      "fallback": "Nenhum dado disponível"
+    },
+    {
+      "key": "integrations",
+      "label": "Integrações",
+      "fields": [
+        "provider",
+        "status",
+        "lastSync"
+      ],
+      "warning": "Não declarar conectores ativos por imagem"
+    },
+    {
+      "key": "clara",
+      "label": "Clara — sua consultora",
+      "cta": "Conversar sobre um projeto"
+    },
+    {
+      "key": "alerts",
+      "label": "Aprovações e incidentes",
+      "priority": "Visível antes de gráficos quando crítico"
+    }
+  ],
+  "dataContract": {
+    "sources": [
+      "GET /v1/deployments",
+      "GET /v1/runs",
+      "GET /v1/usage",
+      "GET /v1/approvals",
+      "GET /v1/ops/incidents"
+    ],
+    "scope": "JWT + membership + tenant-context backend",
+    "emptyNumericPolicy": "Usar '—' para não medido, jamais métricas fictícias"
+  },
+  "interactions": [
+    {
+      "id": "period",
+      "event": "change",
+      "effect": "refetch autorizado dos KPIs e charts"
+    },
+    {
+      "id": "tenant",
+      "event": "change",
+      "effect": "trocar tenant com autorização validada pelo backend"
+    },
+    {
+      "id": "drilldown",
+      "event": "click",
+      "effect": "abrir missões/agentes filtrados"
+    },
+    {
+      "id": "alerts",
+      "event": "click",
+      "effect": "abrir approvals/incidents"
+    }
+  ],
+  "responsive": {
+    "desktop": "sidebar + 4 KPI + 2 colunas",
+    "tablet": "2 KPIs por linha",
+    "mobile": "sidebar drawer, 1-2 KPI por linha, missões vertical"
+  },
+  "acceptance": [
+    "KPIs não hardcoded",
+    "Zero cross-tenant",
+    "No-data e falha de API visíveis",
+    "Clara rotula simulação quando aplicável",
+    "Períodos funcionais"
+  ],
+  "implementation": {
+    "targetRepo": "atlashub-digital/App.AtlasHub.Si",
+    "framework": "Next.js App Router + React + TypeScript",
+    "reuseExisting": true,
+    "doNotOverwriteExistingMain": true,
+    "imagePolicy": "Maquete é referência editorial e de layout; reconstruir UI com componentes reais. PNG de mockup não deve substituir HTML.",
+    "assetsGuide": "../assets/README.md"
+  },
+  "legal": {
+    "logoReviewRequired": true,
+    "userConsentRequiredForLead": true,
+    "simulatedStatesClearlyLabeled": true
+  }
+}
