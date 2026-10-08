@@ -18,18 +18,22 @@ export default function Ecosystem() {
             </p>
             <strong>Explorar publicações →</strong>
           </a>
-          <article>
+          <a
+            href={"https://wa.me/5562991903462?text=" + encodeURIComponent("Olá, equipa AtlasHub. Gostaria de saber mais sobre a Academy.")}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <span className="eyebrow">02 · CAPACIDADE</span>
-            <h3>Academy</h3>
+            <h3>Academy ↗</h3>
             <p>Aprendizagem e desenvolvimento de competências.</p>
-            <small>Em preparação</small>
-          </article>
-          <article>
+            <small>Em preparação · falar no WhatsApp</small>
+          </a>
+          <a href="https://app.atlashub.si">
             <span className="eyebrow">03 · OPERAÇÃO</span>
-            <h3>App</h3>
+            <h3>App ↗</h3>
             <p>Inteligência operacional no contexto da empresa.</p>
-            <small>Em preparação</small>
-          </article>
+            <strong>Abrir a demonstração →</strong>
+          </a>
         </div>
       </div>
     </section>

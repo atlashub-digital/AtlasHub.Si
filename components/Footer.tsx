@@ -9,7 +9,7 @@ export default function Footer() {
         <div>
           <Link className="vp-brand" href="/" aria-label="AtlasHub.SI — início">
             <Image src="/assets/atlashub-logo.webp" width={36} height={36} alt="" />
-            <span>Atlas<b>Hub</b></span>
+            <span className="vp-wordmark"><strong>ATLASHUB<b>.SI</b></strong><small>AI WORKFORCE</small></span>
           </Link>
           <p>People | Technology | Results</p>
           <p>Colaboradores digitais geridos e transformação empresarial, com pessoas no controle.</p>

@@ -13,6 +13,10 @@ npm run dev
 
 Qualidade: `npm run typecheck`, `npm run lint`, `npm test` e `npm run build`. Produção local: `npm start`.
 
+## Linguagem visual nas restantes páginas
+
+Tudo o que não é ecrã 1:1 (versão móvel < 900 px, Clara, laboratório, rodapé) segue a linguagem das maquetes através de `app/theme.css` (carregado depois de `globals.css` e `tokens.css`; nunca toca nas classes `.mk-*`): Figtree no texto, Barlow Semi Condensed na navegação e nos botões, botões em pílula ciano `#16D8ED` com texto escuro, pílulas com contorno ciano, cartões com borda fina e brilho azul, eyebrows em maiúsculas espaçadas, números de etapa em círculos com brilho e entradas em fade/rise (respeitam `prefers-reduced-motion`). Destinos ainda sem página própria vão para o WhatsApp oficial (+55 62 99190-3462).
+
 ## Visual Pack V1 — ecrãs 1:1 com as maquetes
 
 Em ecrãs com pelo menos 900 px de largura, a home (`/`), `/solucoes/enterprise-transformation` e `/solucoes/ai-workforce` mostram as maquetes aprovadas reproduzidas 1:1:

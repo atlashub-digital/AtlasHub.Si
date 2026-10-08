@@ -10,8 +10,9 @@ function Brand() {
   return (
     <Link className="vp-brand" href="/" aria-label="AtlasHub.SI — início">
       <Image src="/assets/atlashub-logo.webp" width={40} height={40} alt="" priority />
-      <span>
-        Atlas<b>Hub</b>
+      <span className="vp-wordmark">
+        <strong>ATLASHUB<b>.SI</b></strong>
+        <small>AI WORKFORCE</small>
       </span>
     </Link>
   );
