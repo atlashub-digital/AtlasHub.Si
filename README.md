@@ -1,5 +1,10 @@
 # AtlasHub.Si
 
+## Documentação técnica (backend, DB, infra)
+
+Ver [`docs/`](docs/README.md): arquitetura, integração com o AtlasHub-AI-WaaS, dados e privacidade, ambientes e backlog técnico.
+
+
 Site institucional AtlasHub, com áreas de atuação, casos de aplicação e o diagnóstico guiado Clara.
 
 ## Tecnologia e desenvolvimento
