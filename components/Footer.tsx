@@ -19,6 +19,7 @@ export default function Footer() {
           <ul>
             <li><Link href="/solucoes/ai-workforce">AI Workforce</Link></li>
             <li><Link href="/solucoes/enterprise-transformation">Enterprise Transformation</Link></li>
+            <li><Link href="/workshops">Workshops</Link></li>
             <li><a href={APP_URL}>Plataforma ↗</a></li>
             <li><a href={EDITIONS_URL}>Editions ↗</a></li>
           </ul>
