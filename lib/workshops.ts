@@ -6,8 +6,8 @@
 // - pré-lançamento: local, preço final e abertura de inscrições só depois da aprovação do Sérgio;
 // - nenhum preço aparece na página enquanto `pricing` for "pending" (os valores propostos ficam em
 //   docs/WORKSHOPS.md para decisão, nunca aqui);
-// - a cobrança futura passa pelo ARO (Atlas Revenue Operations), identificada por `aroOfferId`:
-//   este site nunca cria checkout próprio;
+// - a cobrança futura passa pelo ARO (Atlas Revenue Operations): `aroProduct` é o código do produto no
+//   catálogo (aro.project.yaml; ofertas por lote ficam lá, em draft). Este site nunca cria checkout próprio;
 // - o CTA atual é a lista de interesse pelo WhatsApp oficial, com código de campanha na mensagem.
 
 export const WHATSAPP_NUMBER = "5562991903462";
@@ -17,7 +17,7 @@ export type WorkshopSlug = "empresa-aumentada-2027-2030" | "enterprise-lab-ecomm
 export type Workshop = {
   slug: WorkshopSlug;
   code: "W01" | "EL01";
-  aroOfferId: "workshop-01-empresa-aumentada" | "enterprise-lab-01-ecommerce";
+  aroProduct: "workshop-01-empresa-aumentada" | "enterprise-lab-01-ecommerce";
   kicker: string;
   title: string;
   headline: string;
@@ -46,7 +46,7 @@ export const workshops: Workshop[] = [
   {
     slug: "empresa-aumentada-2027-2030",
     code: "W01",
-    aroOfferId: "workshop-01-empresa-aumentada",
+    aroProduct: "workshop-01-empresa-aumentada",
     kicker: "Workshop 01 · Enterprise Transformation",
     title: "Empresa Aumentada 2027–2030",
     headline: "O futuro das operações começa hoje.",
@@ -102,7 +102,7 @@ export const workshops: Workshop[] = [
   {
     slug: "enterprise-lab-ecommerce",
     code: "EL01",
-    aroOfferId: "enterprise-lab-01-ecommerce",
+    aroProduct: "enterprise-lab-01-ecommerce",
     kicker: "Enterprise Lab 01 · Enterprise Transformation",
     title: "E-commerce e Operações Vivas",
     headline: "Do marketplace à operação aumentada.",

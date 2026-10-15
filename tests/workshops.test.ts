@@ -25,7 +25,11 @@ test("pré-lançamento: sem preço, vagas, garantias nem inscrições abertas", 
 });
 
 test("cobrança futura identificada para o ARO, sem checkout neste site", () => {
-  assert.deepEqual(workshops.map((w) => w.aroOfferId), ["workshop-01-empresa-aumentada", "enterprise-lab-01-ecommerce"]);
+  assert.deepEqual(workshops.map((w) => w.aroProduct), ["workshop-01-empresa-aumentada", "enterprise-lab-01-ecommerce"]);
+  // Manifesto ARO em rascunho: nenhuma oferta ativa antes da aprovação comercial.
+  const manifest = readFileSync("aro.project.yaml", "utf8");
+  assert.doesNotMatch(manifest, /status:\s*active/);
+  for (const w of workshops) assert.match(manifest, new RegExp(`code: ${w.aroProduct}\\n`));
   for (const f of ["components/WorkshopDetail.tsx", "components/Workshops.tsx"]) {
     assert.doesNotMatch(readFileSync(f, "utf8"), /checkout|stripe|pix|mercadopago|<form/i);
   }

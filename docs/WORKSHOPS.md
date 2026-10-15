@@ -13,28 +13,27 @@
 | Cidade | Anápolis/GO (local a confirmar) | Anápolis/GO (local a confirmar) |
 | Público | decisores PME, gestores, comerciantes, profissionais liberais | sellers Mercado Livre/Shopee/loja própria, gestores operacionais |
 | Unidade de venda | bilhete individual | inscrição por empresa (1 representante) |
-| `aroOfferId` | `workshop-01-empresa-aumentada` | `enterprise-lab-01-ecommerce` |
+| Produto ARO (`aroProduct`) | `workshop-01-empresa-aumentada` | `enterprise-lab-01-ecommerce` |
 | Código de captação | `W01-SITE` | `EL01-SITE` |
 
 O programa hora a hora, entregáveis, exclusões e FAQ estão em `lib/workshops.ts` (fonte única das páginas).
 
-## 2. Condições comerciais — **propostas, não publicadas**
-Valores das fichas de 13/10/2026, **não homologados**; ficam aqui para decisão e nunca em `lib/workshops.ts` até aprovação (o teste `tests/workshops.test.ts` recusa `R$` nas páginas).
+## 2. Condições comerciais — base de planeamento (Sérgio, 15/10/2026), **não publicadas**
+Base para planeamento, ainda sujeita a aprovação comercial final. Fica aqui e no rascunho `aro.project.yaml` (ofertas `draft`); **nunca** em `lib/workshops.ts` até à aprovação (o teste `tests/workshops.test.ts` recusa `R$` nas páginas e qualquer oferta `active` no manifesto).
 
 | | Workshop 01 | Enterprise Lab 01 |
 |---|---|---|
-| Lote inicial proposto | R$ 297 (15 bilhetes) | R$ 990 por empresa (4 primeiras) |
-| Regular proposto | R$ 347 | R$ 1.290 por empresa |
-| Capacidade-alvo | meta 40, lotação 45–50 (depende do local) | 10–12 empresas |
-| Mínimo para realizar | definido pelo orçamento do local | ≥ 8 empresas pagantes |
-| Go/no-go | a fixar (sugestão: 07/11) | quinta 19/11 (aditamento v0.2) |
+| Antecipado | R$ 297 (oferta ARO `workshop-01-empresa-aumentada-antecipado`) | R$ 990 por empresa (`enterprise-lab-01-ecommerce-antecipado`) |
+| Regular | R$ 347 (`…-regular`) | R$ 1.290 por empresa, 1 representante (`…-regular`) |
+| Capacidade sugerida | 20–25 pessoas | 8–12 empresas |
+| Ponto de decisão comercial | **20/10/2026** | go/no-go 19/11 (≥ 8 empresas pagantes, aditamento v0.2) |
 
-**A decidir pelo Sérgio antes da publicação comercial:** preço final e lotes; local e capacidade reais; política de cancelamento, reembolso e transferência (CDC art. 49 para compra à distância); condições de grupo / segundo representante; emissão de recibo/nota fiscal (entidade BR); certificado de participação.
+**A apurar (Helena/equipa) antes da decisão:** espaço e custos; capacidade efetiva; tamanho e prazo do lote antecipado; política de cancelamento, reembolso e transferência (CDC art. 49); condições de grupo / segundo representante; recibo/nota fiscal (entidade BR); certificado de participação. Até lá: **apenas pré-lançamento e manifestação de interesse.**
 
 ## 3. Inscrição
 - **Agora (pré-lançamento):** lista de interesse pelo WhatsApp oficial com mensagem pré-preenchida e código (`W01-SITE`, `EL01-SITE`). A mensagem só sai quando a pessoa toca em enviar; nenhum dado é recolhido pelo site. A equipe regista o contacto e o código no CRM com consentimento explícito para receber a abertura.
 - **Depois da aprovação:** formulário de inscrição com os campos da ficha (nome, empresa/atividade, função, cidade, e-mail, telefone opcional, segmento, principal dificuldade operacional) e três consentimentos separados (comunicações do evento; marketing facultativo; grupo WhatsApp). Marketing nunca é condição para comprar.
-- **Pagamento:** pedido criado no ARO a partir do `aroOfferId`; o site só mostra o estado devolvido pelo ARO. Acesso à Clínica e à comunidade de 30 dias é um direito (`WORKSHOP_TICKET`) emitido pelo ARO após pagamento confirmado por webhook.
+- **Pagamento (futuro):** pelo ARO real (`atlashub-digital/atlashub-finance`: `openapi/aro-v1.yaml`, `docs/35_PROJECT_INTEGRATION_CONTRACT_V1.md`, kit `docs/developer/`). O site cria a sessão `POST /v1/checkout-sessions` com o código da oferta do lote ativo, mostra o estado devolvido e concede o bilhete só com o direito `atlashub-si:workshop:…` em `ACTIVE` (`POST /v1/entitlements/resolve`); webhook verificado com `X-ARO-Signature`. Projeto `atlashub-si` a registar no ARO.
 
 ## 4. Materiais a produzir (checklist)
 - [ ] Apresentação W01 (30–40 telas) e roteiro do facilitador
@@ -48,7 +47,7 @@ Valores das fichas de 13/10/2026, **não homologados**; ficam aqui para decisão
 ## 5. Gates de publicação comercial (todos)
 1. Local contratado/reservado e orçamento aprovado.
 2. Preço, lotes, capacidade e política de cancelamento aprovados pelo Sérgio.
-3. Oferta registada no ARO e piloto financeiro EspelhoMeu homologado; teste ponta a ponta em sandbox.
+3. Projeto `atlashub-si` registado no ARO, `aro.project.yaml` revisto e sincronizado, fluxo ARO homologado no EspelhoMeu; pagamento controlado de teste.
 4. Atendimento (WhatsApp/e-mail) com responsável e horário definidos; aviso de privacidade publicado.
 5. Facilitador, equipa e materiais prontos.
 6. Go/no-go formal. Só então: retirar `noindex`, acrescentar ao `public/sitemap.xml`, publicar preço e trocar o CTA para inscrição.

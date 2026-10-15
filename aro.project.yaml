@@ -1,0 +1,69 @@
+# Configuração comercial desejada dos workshops AtlasHub.SI para o ARO (Atlas Revenue Operations).
+# Formato: atlashub-digital/atlashub-finance schemas/project-commerce-manifest.schema.json
+# Estado: RASCUNHO. Projeto `atlashub-si` ainda por registar no ARO. Todas as ofertas em `draft`:
+# valores = base de planeamento do Sérgio (15/10/2026), sujeitos a aprovação comercial final
+# (decisão W01 a 20/10/2026). Não sincronizar sem homologação do fluxo ARO no EspelhoMeu.
+# Nenhum destes valores é mostrado nas páginas enquanto `pricing` for "pending" (lib/workshops.ts).
+version: "1"
+
+project:
+  slug: atlashub-si
+  name: AtlasHub.SI — Enterprise Transformation
+  default_market: BR
+  default_currency: BRL
+
+products:
+  - code: workshop-01-empresa-aumentada
+    name: Workshop 01 — Empresa Aumentada 2027–2030 (14/11/2026, Anápolis)
+    type: other
+  - code: enterprise-lab-01-ecommerce
+    name: Enterprise Lab 01 — E-commerce e Operações Vivas (28/11/2026, Anápolis)
+    type: other
+
+offers:
+  - code: workshop-01-empresa-aumentada-antecipado
+    name: Workshop 01 — lote antecipado (bilhete individual)
+    products: [workshop-01-empresa-aumentada]
+    market: BR
+    currency: BRL
+    amount_minor: 29700
+    cadence: once
+    payment_methods: [PIX]
+    entitlements: [atlashub-si:workshop:w01-2026-11-14]
+    status: draft
+  - code: workshop-01-empresa-aumentada-regular
+    name: Workshop 01 — regular (bilhete individual)
+    products: [workshop-01-empresa-aumentada]
+    market: BR
+    currency: BRL
+    amount_minor: 34700
+    cadence: once
+    payment_methods: [PIX]
+    entitlements: [atlashub-si:workshop:w01-2026-11-14]
+    status: draft
+  - code: enterprise-lab-01-ecommerce-antecipado
+    name: Enterprise Lab 01 — lote antecipado (por empresa, 1 representante)
+    products: [enterprise-lab-01-ecommerce]
+    market: BR
+    currency: BRL
+    amount_minor: 99000
+    cadence: once
+    payment_methods: [PIX]
+    entitlements: [atlashub-si:workshop:el01-2026-11-28]
+    status: draft
+  - code: enterprise-lab-01-ecommerce-regular
+    name: Enterprise Lab 01 — regular (por empresa, 1 representante)
+    products: [enterprise-lab-01-ecommerce]
+    market: BR
+    currency: BRL
+    amount_minor: 129000
+    cadence: once
+    payment_methods: [PIX]
+    entitlements: [atlashub-si:workshop:el01-2026-11-28]
+    status: draft
+
+fulfillment:
+  - entitlement: atlashub-si:workshop:w01-2026-11-14
+    type: none
+  - entitlement: atlashub-si:workshop:el01-2026-11-28
+    type: none
