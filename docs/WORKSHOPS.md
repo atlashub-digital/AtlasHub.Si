@@ -23,8 +23,8 @@ Base para planeamento, ainda sujeita a aprovação comercial final. Fica aqui e 
 
 | | Workshop 01 | Enterprise Lab 01 |
 |---|---|---|
-| Antecipado | R$ 297 (oferta ARO `workshop-01-empresa-aumentada-antecipado`) | R$ 990 por empresa (`enterprise-lab-01-ecommerce-antecipado`) |
-| Regular | R$ 347 (`…-regular`) | R$ 1.290 por empresa, 1 representante (`…-regular`) |
+| Antecipado | R$ 297 (oferta ARO `workshop-01-empresa-aumentada-antecipado-br`) | R$ 990 por empresa (`enterprise-lab-01-ecommerce-antecipado-br`) |
+| Regular | R$ 347 (`…-regular-br`) | R$ 1.290 por empresa, 1 representante (`…-regular-br`) |
 | Capacidade sugerida | 20–25 pessoas | 8–12 empresas |
 | Ponto de decisão comercial | **20/10/2026** | go/no-go 19/11 (≥ 8 empresas pagantes, aditamento v0.2) |
 
@@ -33,7 +33,7 @@ Base para planeamento, ainda sujeita a aprovação comercial final. Fica aqui e 
 ## 3. Inscrição
 - **Agora (pré-lançamento):** lista de interesse pelo WhatsApp oficial com mensagem pré-preenchida e código (`W01-SITE`, `EL01-SITE`). A mensagem só sai quando a pessoa toca em enviar; nenhum dado é recolhido pelo site. A equipe regista o contacto e o código no CRM com consentimento explícito para receber a abertura.
 - **Depois da aprovação:** formulário de inscrição com os campos da ficha (nome, empresa/atividade, função, cidade, e-mail, telefone opcional, segmento, principal dificuldade operacional) e três consentimentos separados (comunicações do evento; marketing facultativo; grupo WhatsApp). Marketing nunca é condição para comprar.
-- **Pagamento (futuro):** pelo ARO real (`atlashub-digital/atlashub-finance`: `openapi/aro-v1.yaml`, `docs/35_PROJECT_INTEGRATION_CONTRACT_V1.md`, kit `docs/developer/`). O site cria a sessão `POST /v1/checkout-sessions` com o código da oferta do lote ativo, mostra o estado devolvido e concede o bilhete só com o direito `atlashub-si:workshop:…` em `ACTIVE` (`POST /v1/entitlements/resolve`); webhook verificado com `X-ARO-Signature`. Projeto `atlashub-si` a registar no ARO.
+- **Pagamento (futuro):** pelo ARO real (`atlashub-digital/atlashub-finance`: `openapi/aro-v1.yaml`, `docs/35_PROJECT_INTEGRATION_CONTRACT_V1.md`, kit `docs/developer/`). O site cria a sessão `POST /v1/checkout-sessions` com o código da oferta do lote ativo, mostra o estado devolvido e concede o bilhete só com o direito `atlashub-si:workshop:<produto>` em `ACTIVE` (`POST /v1/entitlements/resolve`); webhook verificado com `X-ARO-Signature`. Projeto `atlashub-si` a registar no ARO.
 
 ## 4. Materiais a produzir (checklist)
 - [ ] Apresentação W01 (30–40 telas) e roteiro do facilitador

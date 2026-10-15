@@ -21,7 +21,7 @@ products:
     type: other
 
 offers:
-  - code: workshop-01-empresa-aumentada-antecipado
+  - code: workshop-01-empresa-aumentada-antecipado-br
     name: Workshop 01 — lote antecipado (bilhete individual)
     products: [workshop-01-empresa-aumentada]
     market: BR
@@ -29,9 +29,9 @@ offers:
     amount_minor: 29700
     cadence: once
     payment_methods: [PIX]
-    entitlements: [atlashub-si:workshop:w01-2026-11-14]
+    entitlements: [atlashub-si:workshop:workshop-01-empresa-aumentada]
     status: draft
-  - code: workshop-01-empresa-aumentada-regular
+  - code: workshop-01-empresa-aumentada-regular-br
     name: Workshop 01 — regular (bilhete individual)
     products: [workshop-01-empresa-aumentada]
     market: BR
@@ -39,9 +39,9 @@ offers:
     amount_minor: 34700
     cadence: once
     payment_methods: [PIX]
-    entitlements: [atlashub-si:workshop:w01-2026-11-14]
+    entitlements: [atlashub-si:workshop:workshop-01-empresa-aumentada]
     status: draft
-  - code: enterprise-lab-01-ecommerce-antecipado
+  - code: enterprise-lab-01-ecommerce-antecipado-br
     name: Enterprise Lab 01 — lote antecipado (por empresa, 1 representante)
     products: [enterprise-lab-01-ecommerce]
     market: BR
@@ -49,9 +49,9 @@ offers:
     amount_minor: 99000
     cadence: once
     payment_methods: [PIX]
-    entitlements: [atlashub-si:workshop:el01-2026-11-28]
+    entitlements: [atlashub-si:workshop:enterprise-lab-01-ecommerce]
     status: draft
-  - code: enterprise-lab-01-ecommerce-regular
+  - code: enterprise-lab-01-ecommerce-regular-br
     name: Enterprise Lab 01 — regular (por empresa, 1 representante)
     products: [enterprise-lab-01-ecommerce]
     market: BR
@@ -59,11 +59,11 @@ offers:
     amount_minor: 129000
     cadence: once
     payment_methods: [PIX]
-    entitlements: [atlashub-si:workshop:el01-2026-11-28]
+    entitlements: [atlashub-si:workshop:enterprise-lab-01-ecommerce]
     status: draft
 
 fulfillment:
-  - entitlement: atlashub-si:workshop:w01-2026-11-14
+  - entitlement: atlashub-si:workshop:workshop-01-empresa-aumentada
     type: none
-  - entitlement: atlashub-si:workshop:el01-2026-11-28
+  - entitlement: atlashub-si:workshop:enterprise-lab-01-ecommerce
     type: none
