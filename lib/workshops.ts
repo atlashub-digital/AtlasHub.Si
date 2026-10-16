@@ -18,6 +18,9 @@ export type Workshop = {
   slug: WorkshopSlug;
   code: "W01" | "EL01";
   aroProduct: "workshop-01-empresa-aumentada" | "enterprise-lab-01-ecommerce";
+  /** Códigos de oferta e direito no catálogo ARO (`aro.project.yaml`, todos `draft`). Nunca mostrados na página. */
+  aroOffers: { antecipado: string; regular: string };
+  aroEntitlement: string;
   kicker: string;
   title: string;
   headline: string;
@@ -47,6 +50,8 @@ export const workshops: Workshop[] = [
     slug: "empresa-aumentada-2027-2030",
     code: "W01",
     aroProduct: "workshop-01-empresa-aumentada",
+    aroOffers: { antecipado: "workshop-01-empresa-aumentada-antecipado-br", regular: "workshop-01-empresa-aumentada-regular-br" },
+    aroEntitlement: "atlashub-si:workshop:workshop-01-empresa-aumentada",
     kicker: "Workshop 01 · Enterprise Transformation",
     title: "Empresa Aumentada 2027–2030",
     headline: "O futuro das operações começa hoje.",
@@ -103,6 +108,8 @@ export const workshops: Workshop[] = [
     slug: "enterprise-lab-ecommerce",
     code: "EL01",
     aroProduct: "enterprise-lab-01-ecommerce",
+    aroOffers: { antecipado: "enterprise-lab-01-ecommerce-antecipado-br", regular: "enterprise-lab-01-ecommerce-regular-br" },
+    aroEntitlement: "atlashub-si:workshop:enterprise-lab-01-ecommerce",
     kicker: "Enterprise Lab 01 · Enterprise Transformation",
     title: "E-commerce e Operações Vivas",
     headline: "Do marketplace à operação aumentada.",
