@@ -49,3 +49,16 @@ test("páginas fora do índice e do sitemap durante o pré-lançamento", () => {
     assert.match(readFileSync(p, "utf8"), /robots: \{ index: false/);
   assert.doesNotMatch(readFileSync("public/sitemap.xml", "utf8"), /workshops/);
 });
+
+test("ofertas e direitos ARO de cada workshop = catálogo (aro.project.yaml), todas em draft", () => {
+  const manifest = readFileSync("aro.project.yaml", "utf8");
+  for (const w of workshops) {
+    for (const offer of [w.aroOffers.antecipado, w.aroOffers.regular]) {
+      const block = manifest.split("  - code: ").find((b) => b.startsWith(`${offer}\n`));
+      assert.ok(block, `oferta ${offer} em falta no manifesto`);
+      assert.match(block, new RegExp(`products: \\[${w.aroProduct}\\]`));
+      assert.match(block, new RegExp(`entitlements: \\[${w.aroEntitlement}\\]`));
+      assert.match(block, /status: draft/);
+    }
+  }
+});
