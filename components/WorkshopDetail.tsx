@@ -1,9 +1,11 @@
 import Link from "next/link";
 import Header from "./Header";
 import Footer from "./Footer";
-import { waInterestUrl, workshops, workshopStatus, type Workshop } from "../lib/workshops";
+import { formatBRL, waInterestUrl, workshops, workshopStatus, type Workshop } from "../lib/workshops";
+import { conditions, earlyUntil, venueNotice } from "../lib/commerce/policy";
+import WorkshopSignup, { SignupCta } from "./WorkshopSignup";
 
-// Página comercial de um workshop (pré-lançamento). Sem maquete 1:1 aprovada para estas rotas:
+// Página comercial de um workshop: programa, preço, condições e inscrição paga (PIX via ARO). Sem maquete 1:1 aprovada para estas rotas:
 // usa a linguagem responsiva do Visual Pack V1 (app/theme.css) em todas as larguras.
 export default function WorkshopDetail({ w }: { w: Workshop }) {
   const wa = waInterestUrl(w);
@@ -20,13 +22,11 @@ export default function WorkshopDetail({ w }: { w: Workshop }) {
                 <h1 className="vp-h1" id="ws-title">{w.title}<br /><em>{w.headline}</em></h1>
                 <p className="vp-lead">{w.summary}</p>
                 <div className="vp-hero-chips">
-                  {[w.date, w.time, w.city, w.format].map((c) => <span className="vp-chip" key={c}>{c}</span>)}
+                  {[w.date, w.time, venueNotice, w.format].map((c) => <span className="vp-chip" key={c}>{c}</span>)}
                 </div>
                 <div className="vp-actions">
-                  <a className="vp-btn vp-btn-primary" href={wa} target="_blank" rel="noopener noreferrer">Quero ser avisado da abertura <span aria-hidden="true">→</span></a>
-                  <a className="vp-btn vp-btn-secondary" href="#programa">Ver programa</a>
+                  <SignupCta w={w} waUrl={wa} />
                 </div>
-                <p className="vp-note"><span className="vp-chip">{workshopStatus.label}</span> {workshopStatus.note}</p>
               </div>
             </div>
           </section>
@@ -53,18 +53,25 @@ export default function WorkshopDetail({ w }: { w: Workshop }) {
             </div>
           </section>
 
-          <section className="vp-section" aria-labelledby="condicoes-title">
+          <section className="vp-section" id="condicoes" aria-labelledby="condicoes-title">
             <div className="vp-wrap">
-              <div className="vp-intro"><p className="vp-eyebrow">Condições</p><h2 className="vp-h2" id="condicoes-title">Inscrição em preparação.</h2></div>
+              <div className="vp-intro"><p className="vp-eyebrow">Investimento e condições</p><h2 className="vp-h2" id="condicoes-title">Antes de se inscrever.</h2></div>
               <div className="vp-grid vp-grid-3">
-                <article className="vp-card"><h3>Local</h3><p>{w.city} · {w.venue}.</p></article>
+                <article className="vp-card"><h3>Investimento</h3><p><strong>{formatBRL(w.pricing.antecipado)}</strong> no lote antecipado, até {earlyUntil(w.code).toLocaleDateString("pt-BR", { timeZone: "America/Sao_Paulo" })} ou enquanto o lote estiver ativo.</p><p><strong>{formatBRL(w.pricing.regular)}</strong> no valor regular.</p><p>{w.priceUnit[0].toUpperCase() + w.priceUnit.slice(1)}, pagamento por PIX.</p></article>
                 <article className="vp-card"><h3>Capacidade</h3><p>{w.capacity}</p></article>
-                <article className="vp-card"><h3>Investimento</h3><p>{w.priceLabel}, com a política de cancelamento, reembolso e transferência.</p></article>
+                {conditions.map((c) => <article className="vp-card" key={c.title}><h3>{c.title}</h3><p>{c.text}</p></article>)}
               </div>
             </div>
           </section>
 
-          <section className="vp-section vp-band" aria-labelledby="faq-title">
+          <section className="vp-section vp-band" id="inscricao" aria-labelledby="inscricao-title">
+            <div className="vp-wrap">
+              <div className="vp-intro"><p className="vp-eyebrow">Inscrição</p><h2 className="vp-h2" id="inscricao-title">Garanta a sua participação.</h2><p>{workshopStatus.note}</p></div>
+              <WorkshopSignup w={w} waUrl={wa} />
+            </div>
+          </section>
+
+          <section className="vp-section" aria-labelledby="faq-title">
             <div className="vp-wrap">
               <div className="vp-intro"><p className="vp-eyebrow">Perguntas frequentes</p><h2 className="vp-h2" id="faq-title">Antes de se inscrever.</h2></div>
               <div className="vp-faq">
@@ -76,9 +83,10 @@ export default function WorkshopDetail({ w }: { w: Workshop }) {
           <section className="vp-section" aria-labelledby="cta-ws">
             <div className="vp-wrap"><div className="vp-cta">
               <h2 className="vp-h2" id="cta-ws">Pare de adicionar tecnologia a processos antigos.</h2>
-              <p>Entre na lista de interesse e receba primeiro o local, o investimento e a abertura das inscrições.</p>
+              <p>Dúvidas sobre o programa ou a inscrição? Fale com a equipe pelo WhatsApp.</p>
               <div className="vp-actions">
-                <a className="vp-btn vp-btn-primary" href={wa} target="_blank" rel="noopener noreferrer">Entrar na lista pelo WhatsApp <span aria-hidden="true">→</span></a>
+                <a className="vp-btn vp-btn-primary" href="#inscricao">Ir para a inscrição <span aria-hidden="true">→</span></a>
+                <a className="vp-btn vp-btn-secondary" href={wa} target="_blank" rel="noopener noreferrer">Falar pelo WhatsApp</a>
                 {other && <Link className="vp-btn vp-btn-secondary" href={`/workshops/${other.slug}`}>Ver {other.title}</Link>}
               </div>
               <p className="vp-note">{workshopStatus.waNote}</p>

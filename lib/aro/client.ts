@@ -45,7 +45,7 @@ export type CheckoutSession = {
 
 export type CreateCheckoutInput = {
   offer: string;
-  payer: { name: string; email: string };
+  payer: { name: string; email: string; document?: string; phone?: string };
   paymentMethod?: "PIX" | "CARD";
   /** Repetir a mesma chave para repetir o mesmo pedido (ex.: id da intenção no Club). */
   idempotencyKey?: string;

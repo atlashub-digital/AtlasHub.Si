@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { workshops, workshopStatus } from "../lib/workshops";
+import { formatBRL, workshops, workshopStatus } from "../lib/workshops";
 
 // Secção Workshops da homepage. Fica fora do ecrã 1:1 do Visual Pack V1 (que não é alterado): no desktop
 // aparece por baixo da maquete, no telemóvel depois dos casos, com a linguagem de app/theme.css.
@@ -22,8 +22,8 @@ export default function Workshops({ headingLevel = 2 }: { headingLevel?: 1 | 2 }
               <p>{w.headline} {w.summary}</p>
               <ul>
                 <li>{w.format}</li>
-                <li>{w.venue}</li>
-                <li>{w.priceLabel}</li>
+                <li>Anápolis — {w.venue}</li>
+                <li>{formatBRL(w.pricing.antecipado)} antecipado · {formatBRL(w.pricing.regular)} regular, {w.priceUnit}</li>
               </ul>
               <Link className="vp-card-link" href={`/workshops/${w.slug}`}>Ver programa <span aria-hidden="true">→</span></Link>
             </article>

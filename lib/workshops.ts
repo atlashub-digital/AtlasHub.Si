@@ -3,12 +3,11 @@
 // LANDING_PAGINAS_VENDA, ALTERACAO_DATAS_v0.2), adaptado para PT-BR.
 //
 // Regras (tests/workshops.test.ts):
-// - pré-lançamento: local, preço final e abertura de inscrições só depois da aprovação do Sérgio;
-// - nenhum preço aparece na página enquanto `pricing` for "pending" (os valores propostos ficam em
-//   docs/WORKSHOPS.md para decisão, nunca aqui);
-// - a cobrança futura passa pelo ARO (Atlas Revenue Operations): `aroProduct` é o código do produto no
-//   catálogo (aro.project.yaml; ofertas por lote ficam lá, em draft). Este site nunca cria checkout próprio;
-// - o CTA atual é a lista de interesse pelo WhatsApp oficial, com código de campanha na mensagem.
+// - preços definitivos aprovados pelo Sérgio (16/10/2026, AtlasHub.Si#9). `pricing` é só exibição e
+//   espelho do catálogo ARO (aro.project.yaml): o valor cobrado vem sempre do ARO e o servidor recusa
+//   sessões cujo valor não bata com este espelho (lib/commerce/checkout.ts);
+// - local: "Anápolis — local a divulgar"; nunca endereço nem espaço reservado;
+// - inscrição paga só com vendas abertas (ARO + base + flag comercial); senão, lista de interesse no WhatsApp.
 
 export const WHATSAPP_NUMBER = "5562991903462";
 
@@ -34,16 +33,17 @@ export type Workshop = {
   extras: string[];
   audience: string;
   capacity: string;
-  pricing: "pending";
-  priceLabel: string;
+  /** Lugares vendáveis (igual a `si_workshops.workshops.capacity`). */
+  seats: number;
+  /** Centavos BRL por unidade de venda; espelho das ofertas ARO. */
+  pricing: { antecipado: number; regular: number };
+  priceUnit: string;
   agenda: { time: string; topic: string; activity: string }[];
   deliverables: string[];
   notIncluded: string[];
   faq: { q: string; a: string }[];
   waMessage: string;
 };
-
-const pendingPrice = "Investimento a confirmar antes da abertura das inscrições";
 
 export const workshops: Workshop[] = [
   {
@@ -61,7 +61,7 @@ export const workshops: Workshop[] = [
     dateIso: "2026-11-14",
     time: "14h–17h",
     city: "Anápolis/GO",
-    venue: "Local a confirmar",
+    venue: "local a divulgar",
     format: "Presencial",
     extras: [
       "Clínica de Ideias a distância na segunda-feira, 16/11, das 16h às 18h",
@@ -70,9 +70,10 @@ export const workshops: Workshop[] = [
     ],
     audience:
       "Empresários, gestores, comerciantes, profissionais liberais, diretores de operações, responsáveis de tecnologia e quem participa da evolução de empresas. Não é preciso saber programar.",
-    capacity: "Turma presencial com capacidade definida pelo local, confirmada antes da abertura das inscrições.",
-    pricing: "pending",
-    priceLabel: pendingPrice,
+    capacity: "Turma presencial de até 25 participantes.",
+    seats: 25,
+    pricing: { antecipado: 29700, regular: 34700 },
+    priceUnit: "por pessoa",
     agenda: [
       { time: "14h00", topic: "Abertura", activity: "Quem somos, expectativas e pergunta inicial" },
       { time: "14h15", topic: "Duas revoluções ao mesmo tempo", activity: "Industrial, digital e agentic; ritmos diferentes por setor e região" },
@@ -96,8 +97,8 @@ export const workshops: Workshop[] = [
     faq: [
       { q: "Não sou da área técnica. Posso participar?", a: "Sim. A primeira edição é voltada à organização da empresa, não a código." },
       { q: "É uma palestra de vendas?", a: "Não. É um workshop de formação e debate. Se houver opções de continuidade, elas são apresentadas à parte do programa." },
-      { q: "Qual é o local?", a: "Em Anápolis, com endereço divulgado somente depois da reserva confirmada." },
-      { q: "Quanto custa e como pago?", a: "O investimento e a política de cancelamento, reembolso e transferência são publicados antes da abertura das inscrições. Nenhuma cobrança acontece nesta fase." },
+      { q: "Qual é o local?", a: "Anápolis — local a divulgar. O endereço é comunicado por e-mail e WhatsApp até 7 dias antes do evento." },
+      { q: "Quanto custa e como pago?", a: "R$ 297 no lote antecipado ou R$ 347 no regular, por pessoa, por PIX. A inscrição só fica confirmada depois de o pagamento ser aprovado." },
       { q: "Há certificado?", a: "Está previsto um certificado simples de participação, se for viável operacionalmente. Não é uma certificação profissional." },
       { q: "Posso levar minha equipe?", a: "Cada inscrição é individual. Condições para grupos de uma mesma empresa ainda estão em definição." },
     ],
@@ -119,14 +120,15 @@ export const workshops: Workshop[] = [
     dateIso: "2026-11-28",
     time: "14h–19h",
     city: "Anápolis/GO",
-    venue: "Local a confirmar",
+    venue: "local a divulgar",
     format: "Presencial · laboratório prático",
     extras: ["Mercado Livre · Shopee · loja própria · ERP · pagamentos · logística · atendimento", "Demonstração com dados sintéticos"],
     audience:
       "Vendedores em Mercado Livre, Shopee e loja própria, gestores operacionais, profissionais de marketing e parceiros logísticos. Inscrição por empresa, com um representante.",
-    capacity: "Grupo reduzido de empresas para preservar o acompanhamento; capacidade confirmada antes da abertura das inscrições.",
-    pricing: "pending",
-    priceLabel: pendingPrice,
+    capacity: "Até 12 empresas, com um representante cada, para preservar o acompanhamento.",
+    seats: 12,
+    pricing: { antecipado: 99000, regular: 129000 },
+    priceUnit: "por empresa (1 representante)",
     agenda: [
       { time: "14h00", topic: "Do clique ao resultado", activity: "Fluxo do pedido e da margem" },
       { time: "14h25", topic: "Marketplaces x loja própria", activity: "Sistemas, regras, estoque, prazos e conciliação" },
@@ -151,9 +153,9 @@ export const workshops: Workshop[] = [
     faq: [
       { q: "Preciso levar dados da minha loja?", a: "Não. Os exercícios usam casos didáticos e dados sintéticos. Nunca pedimos senhas nem acesso às suas contas." },
       { q: "Quantas pessoas por empresa?", a: "A inscrição inclui um representante. Condições para um segundo participante ainda estão em definição." },
-      { q: "Qual é o local?", a: "Em Anápolis, com endereço divulgado somente depois da reserva confirmada." },
-      { q: "Quanto custa e como pago?", a: "O investimento e a política de cancelamento, reembolso e transferência são publicados antes da abertura das inscrições. Nenhuma cobrança acontece nesta fase." },
-      { q: "A data pode mudar?", a: "A realização depende de uma decisão de go/no-go prévia. Se houver mudança, quem estiver na lista de interesse é avisado por escrito." },
+      { q: "Qual é o local?", a: "Anápolis — local a divulgar. O endereço é comunicado por e-mail e WhatsApp até 7 dias antes do evento." },
+      { q: "Quanto custa e como pago?", a: "R$ 990 no lote antecipado ou R$ 1.290 no regular, por empresa com um representante, por PIX. A inscrição só fica confirmada depois de o pagamento ser aprovado." },
+      { q: "A data pode mudar?", a: "A realização depende de uma decisão de go/no-go prévia. Se houver adiamento ou cancelamento, você escolhe entre a nova data e o reembolso integral." },
     ],
     waMessage:
       "Olá! Quero receber a abertura das inscrições do Enterprise Lab 01 — E-commerce e Operações Vivas (28/11, Anápolis). Código: EL01-SITE",
@@ -168,9 +170,13 @@ export function waInterestUrl(w: Workshop): string {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(w.waMessage)}`;
 }
 
-/** Estado comercial comum (até à aprovação: local, preço final, política de cancelamento e ARO homologado). */
+/** "R$ 297" / "R$ 1.290". */
+export function formatBRL(minor: number): string {
+  return "R$ " + (minor / 100).toLocaleString("pt-BR", { minimumFractionDigits: 0, maximumFractionDigits: 2 });
+}
+
 export const workshopStatus = {
-  label: "Pré-lançamento",
-  note: "Datas previstas. Local, investimento e abertura das inscrições são confirmados antes de qualquer cobrança. A lista de interesse não reserva lugar nem cria obrigação de compra.",
-  waNote: "A mensagem só é enviada quando você tocar em enviar no WhatsApp. Não envie documentos nem dados de clientes.",
+  label: "Inscrições",
+  note: "A inscrição só fica confirmada depois de o pagamento PIX ser aprovado. A lista de interesse não reserva lugar nem cria obrigação de compra.",
+  waNote: "A mensagem só é enviada quando você tocar em enviar no WhatsApp. Não envie documentos, comprovantes nem dados de clientes.",
 };

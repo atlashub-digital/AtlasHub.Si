@@ -3,8 +3,8 @@ import assert from "node:assert/strict";
 import { readFileSync } from "node:fs";
 import { workshops, waInterestUrl, workshopBySlug } from "../lib/workshops";
 
-// Guardrails dos workshops em pré-lançamento: datas aprovadas, nenhum preço nem promessa
-// publicados antes da aprovação, cobrança só via ARO e captação rastreável.
+// Guardrails dos workshops: datas e preços aprovados (AtlasHub.Si#9), local a divulgar, sem urgência
+// artificial, cobrança só via ARO e captação rastreável.
 const text = JSON.stringify(workshops);
 
 test("datas e cidade aprovadas (14/11 e 28/11, Anápolis); 21/11 revogado", () => {
@@ -15,24 +15,36 @@ test("datas e cidade aprovadas (14/11 e 28/11, Anápolis); 21/11 revogado", () =
   assert.doesNotMatch(text, /21\/11|21 de novembro/);
 });
 
-test("pré-lançamento: sem preço, vagas, garantias nem inscrições abertas", () => {
-  for (const banned of [/R\$\s?\d/, /\d+\s?%/, /garant/i, /vagas? (abertas|limitadas|restantes)/i, /inscrições abertas/i, /últim[ao]s? (lugares|vagas)/i, /\bSLA\b/])
+test("preços aprovados = catálogo ARO; local a divulgar; sem urgência nem garantias", () => {
+  assert.deepEqual(workshops.map((w) => [w.code, w.pricing.antecipado, w.pricing.regular, w.seats]), [
+    ["W01", 29700, 34700, 25],
+    ["EL01", 99000, 129000, 12],
+  ]);
+  const manifest = readFileSync("aro.project.yaml", "utf8");
+  for (const w of workshops)
+    for (const lot of ["antecipado", "regular"] as const) {
+      const block = manifest.split("  - code: ").find((b) => b.startsWith(`${w.aroOffers[lot]}\n`))!;
+      assert.match(block, new RegExp(`amount_minor: ${w.pricing[lot]}\n`), `${w.aroOffers[lot]} diverge do manifesto`);
+    }
+  // Só os quatro valores aprovados aparecem em texto; nada de vagas a esgotar, percentagens ou garantias.
+  const prices = [...text.matchAll(/R\$ ?[\d.]+/g)].map((m) => m[0].replace(" ", " "));
+  for (const p of prices) assert.ok(["R$ 297", "R$ 347", "R$ 990", "R$ 1.290"].includes(p), p);
+  for (const banned of [/\d+\s?%/, /garant(?!a a sua)/i, /vagas? (limitadas|restantes)/i, /últim[ao]s? (lugares|vagas)/i, /\bSLA\b/, /espaço reservado|local reservado/i])
     assert.doesNotMatch(text, banned);
-  for (const w of workshops) {
-    assert.equal(w.pricing, "pending");
-    assert.match(w.venue, /a confirmar/);
-  }
+  for (const w of workshops) assert.equal(w.venue, "local a divulgar");
 });
 
-test("cobrança futura identificada para o ARO, sem checkout neste site", () => {
+test("cobrança só pelo ARO: nenhum provedor direto nem valor vindo do browser", () => {
   assert.deepEqual(workshops.map((w) => w.aroProduct), ["workshop-01-empresa-aumentada", "enterprise-lab-01-ecommerce"]);
-  // Manifesto ARO em rascunho: nenhuma oferta ativa antes da aprovação comercial.
   const manifest = readFileSync("aro.project.yaml", "utf8");
-  assert.doesNotMatch(manifest, /status:\s*active/);
   for (const w of workshops) assert.match(manifest, new RegExp(`code: ${w.aroProduct}\\n`));
-  for (const f of ["components/WorkshopDetail.tsx", "components/Workshops.tsx"]) {
-    assert.doesNotMatch(readFileSync(f, "utf8"), /checkout|stripe|pix|mercadopago|<form/i);
+  for (const f of ["components/WorkshopDetail.tsx", "components/Workshops.tsx", "components/WorkshopSignup.tsx", "components/CheckoutView.tsx", "lib/commerce/checkout.ts", "app/api/workshops/checkout/route.ts"]) {
+    const src = readFileSync(f, "utf8");
+    assert.doesNotMatch(src, /stripe|pixgo|misticpay|mercadopago/i, f);
   }
+  // O formulário nunca envia preço, oferta nem valor.
+  const body = readFileSync("components/WorkshopSignup.tsx", "utf8").split("JSON.stringify({")[1].split("}),")[0];
+  assert.doesNotMatch(body, /amount|price|offer/i);
 });
 
 test("lista de interesse pelo WhatsApp oficial com código de campanha", () => {
