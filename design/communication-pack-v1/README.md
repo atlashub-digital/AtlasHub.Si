@@ -19,3 +19,5 @@ Dois packs separados, **W01 — Empresa Aumentada** e **EL01 — Enterprise Lab 
 - **Fontes editáveis:** `content.mjs` (todos os textos) e `sources/**.html` (uma página por peça, abre em qualquer browser). Para regenerar os PNG: `PLAYWRIGHT=<pacote playwright> node build.mjs`.
 - **PNG finais:** `exports/<PACK>/<VARIANTE>/ATLASHUB_SI_<CÓDIGO>_<PEÇA>_<VARIANTE>_V1.png` e `exports/MANIFEST.json` (pasta versionada; `out/` é ignorada pelo .gitignore do projeto).
 - **Publicação:** nada é publicado nem impulsionado automaticamente; revisão final do fundador antes de qualquer uso.
+
+- **Lote regular:** as artes `02_COMERCIAL` mostram o lote antecipado. A partir de 07/11 (W01) e 21/11 (EL01), não usar essas artes; gerar a variante regular com `LOT=regular OUT=/tmp/regular node build.mjs`, que escreve `03_COMERCIAL_REGULAR/` (R$ 347 / R$ 1.290).

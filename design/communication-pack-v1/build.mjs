@@ -10,6 +10,9 @@ const here = dirname(fileURLToPath(import.meta.url));
 const tokens = JSON.parse(readFileSync(join(here, "../visual-pack-v1/tokens.json"), "utf8")).foundations.palette;
 const T = { bg: tokens.background, surface: tokens.surface, border: tokens.border, cyan: tokens.cyan, cyanSoft: tokens.cyanSoft, blue: tokens.electricBlue, white: tokens.white, muted: tokens.muted };
 const OUT = resolve(process.env.OUT || join(here, "exports"));
+// LOT=regular: variante comercial com o valor regular (W01 depois de 06/11, EL01 depois de 20/11).
+const LOT = process.env.LOT === "regular" ? "regular" : "antecipado";
+if (LOT === "regular") for (const p of Object.values(packs)) p.price = p.priceRegular;
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>");
 
@@ -171,11 +174,11 @@ for (const [code, p] of Object.entries(packs)) {
     for (const [id, make] of Object.entries(pieces)) {
       const piece = make(p, v);
       if (!piece) continue;
-      const rel = join("sources", p.name, v, `${code}_${id}.html`);
+      const rel = join(LOT === "regular" ? "sources-regular" : "sources", p.name, v, `${code}_${id}.html`);
       const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><title>${code} ${id}</title><style>${css(piece.w, piece.h)}</style></head><body><div class="art">${piece.body}</div></body></html>`;
       mkdirSync(dirname(join(here, rel)), { recursive: true });
       writeFileSync(join(here, rel), html);
-      const png = join(OUT, p.name, v === "pre" ? "01_PRE_LANCAMENTO" : "02_COMERCIAL", `ATLASHUB_SI_${code}_${id}_${v.toUpperCase()}_V1.png`);
+      const png = join(OUT, p.name, v === "pre" ? "01_PRE_LANCAMENTO" : LOT === "regular" ? "03_COMERCIAL_REGULAR" : "02_COMERCIAL", `ATLASHUB_SI_${code}_${id}_${v.toUpperCase()}${v !== "pre" && LOT === "regular" ? "_REGULAR" : ""}_V1.png`);
       mkdirSync(dirname(png), { recursive: true });
       const page = await browser.newPage({ viewport: { width: piece.w, height: piece.h } });
       await page.goto(pathToFileURL(join(here, rel)).href);
