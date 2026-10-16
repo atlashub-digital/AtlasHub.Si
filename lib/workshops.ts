@@ -2,13 +2,13 @@
 // Fonte: Drive EMPRESA_AUMENTADA_2027-2030_WORKSHOPS (FICHA_E_PROGRAMA, FICHA_PRODUTO_E_PROGRAMA,
 // LANDING_PAGINAS_VENDA, ALTERACAO_DATAS_v0.2), adaptado para PT-BR.
 //
-// Regras (tests/workshops.test.ts):
-// - pré-lançamento: local, preço final e abertura de inscrições só depois da aprovação do Sérgio;
-// - nenhum preço aparece na página enquanto `pricing` for "pending" (os valores propostos ficam em
-//   docs/WORKSHOPS.md para decisão, nunca aqui);
-// - a cobrança futura passa pelo ARO (Atlas Revenue Operations): `aroProduct` é o código do produto no
-//   catálogo (aro.project.yaml; ofertas por lote ficam lá, em draft). Este site nunca cria checkout próprio;
-// - o CTA atual é a lista de interesse pelo WhatsApp oficial, com código de campanha na mensagem.
+// Regras (tests/workshops.test.ts, issue #9):
+// - inscrições abertas via ARO: preços SEMPRE do catálogo ARO (lib/workshop-commerce.ts), nunca
+//   definidos no browser nem no site — o valor cobrado é o devolvido pela sessão de checkout do ARO;
+// - local exato ainda não escolhido: 'Anápolis — local a divulgar', sem afirmar espaço reservado;
+// - condições comerciais (adiamento/cancelamento/reembolso) visíveis ANTES de pagar
+//   (workshopPolicies, na página de inscrição);
+// - fallback: a lista de interesse pelo WhatsApp oficial permanece, com código de campanha.
 
 export const WHATSAPP_NUMBER = "5562991903462";
 
@@ -34,8 +34,10 @@ export type Workshop = {
   extras: string[];
   audience: string;
   capacity: string;
-  pricing: "pending";
+  pricing: "pending" | "open";
   priceLabel: string;
+  /** Página do formulário de inscrição (BFF /api/workshops/checkout → ARO). */
+  inscricaoHref: string;
   agenda: { time: string; topic: string; activity: string }[];
   deliverables: string[];
   notIncluded: string[];
@@ -43,7 +45,6 @@ export type Workshop = {
   waMessage: string;
 };
 
-const pendingPrice = "Investimento a confirmar antes da abertura das inscrições";
 
 export const workshops: Workshop[] = [
   {
@@ -51,7 +52,7 @@ export const workshops: Workshop[] = [
     code: "W01",
     aroProduct: "workshop-01-empresa-aumentada",
     aroOffers: { antecipado: "workshop-01-empresa-aumentada-antecipado-br", regular: "workshop-01-empresa-aumentada-regular-br" },
-    aroEntitlement: "atlashub-si:workshop:workshop-01-empresa-aumentada",
+    aroEntitlement: "atlashub-si:w01",
     kicker: "Workshop 01 · Enterprise Transformation",
     title: "Empresa Aumentada 2027–2030",
     headline: "O futuro das operações começa hoje.",
@@ -61,7 +62,7 @@ export const workshops: Workshop[] = [
     dateIso: "2026-11-14",
     time: "14h–17h",
     city: "Anápolis/GO",
-    venue: "Local a confirmar",
+    venue: "Anápolis — local a divulgar",
     format: "Presencial",
     extras: [
       "Clínica de Ideias a distância na segunda-feira, 16/11, das 16h às 18h",
@@ -70,9 +71,10 @@ export const workshops: Workshop[] = [
     ],
     audience:
       "Empresários, gestores, comerciantes, profissionais liberais, diretores de operações, responsáveis de tecnologia e quem participa da evolução de empresas. Não é preciso saber programar.",
-    capacity: "Turma presencial com capacidade definida pelo local, confirmada antes da abertura das inscrições.",
-    pricing: "pending",
-    priceLabel: pendingPrice,
+    capacity: "Turma presencial com capacidade definida pelo local. As inscrições são limitadas; a confirmação do bilhete é automática após o pagamento.",
+    pricing: "open",
+    priceLabel: "Lote antecipado R$ 297 · lote regular R$ 347, por pessoa, via PIX",
+    inscricaoHref: "/workshops/inscricao/empresa-aumentada-2027-2030",
     agenda: [
       { time: "14h00", topic: "Abertura", activity: "Quem somos, expectativas e pergunta inicial" },
       { time: "14h15", topic: "Duas revoluções ao mesmo tempo", activity: "Industrial, digital e agentic; ritmos diferentes por setor e região" },
@@ -96,8 +98,8 @@ export const workshops: Workshop[] = [
     faq: [
       { q: "Não sou da área técnica. Posso participar?", a: "Sim. A primeira edição é voltada à organização da empresa, não a código." },
       { q: "É uma palestra de vendas?", a: "Não. É um workshop de formação e debate. Se houver opções de continuidade, elas são apresentadas à parte do programa." },
-      { q: "Qual é o local?", a: "Em Anápolis, com endereço divulgado somente depois da reserva confirmada." },
-      { q: "Quanto custa e como pago?", a: "O investimento e a política de cancelamento, reembolso e transferência são publicados antes da abertura das inscrições. Nenhuma cobrança acontece nesta fase." },
+      { q: "Qual é o local?", a: "Em Anápolis, em local a divulgar: o endereço exato é comunicado por e-mail a todos os inscritos com, no mínimo, 5 dias úteis de antecedência." },
+      { q: "Quanto custa e como pago?", a: "O lote antecipado é R$ 297 e o regular R$ 347, por pessoa, pagos via PIX na inscrição. As condições de cancelamento, reembolso e transferência estão na página de inscrição, antes de pagar." },
       { q: "Há certificado?", a: "Está previsto um certificado simples de participação, se for viável operacionalmente. Não é uma certificação profissional." },
       { q: "Posso levar minha equipe?", a: "Cada inscrição é individual. Condições para grupos de uma mesma empresa ainda estão em definição." },
     ],
@@ -109,7 +111,7 @@ export const workshops: Workshop[] = [
     code: "EL01",
     aroProduct: "enterprise-lab-01-ecommerce",
     aroOffers: { antecipado: "enterprise-lab-01-ecommerce-antecipado-br", regular: "enterprise-lab-01-ecommerce-regular-br" },
-    aroEntitlement: "atlashub-si:workshop:enterprise-lab-01-ecommerce",
+    aroEntitlement: "atlashub-si:el01",
     kicker: "Enterprise Lab 01 · Enterprise Transformation",
     title: "E-commerce e Operações Vivas",
     headline: "Do marketplace à operação aumentada.",
@@ -119,14 +121,15 @@ export const workshops: Workshop[] = [
     dateIso: "2026-11-28",
     time: "14h–19h",
     city: "Anápolis/GO",
-    venue: "Local a confirmar",
+    venue: "Anápolis — local a divulgar",
     format: "Presencial · laboratório prático",
     extras: ["Mercado Livre · Shopee · loja própria · ERP · pagamentos · logística · atendimento", "Demonstração com dados sintéticos"],
     audience:
       "Vendedores em Mercado Livre, Shopee e loja própria, gestores operacionais, profissionais de marketing e parceiros logísticos. Inscrição por empresa, com um representante.",
-    capacity: "Grupo reduzido de empresas para preservar o acompanhamento; capacidade confirmada antes da abertura das inscrições.",
-    pricing: "pending",
-    priceLabel: pendingPrice,
+    capacity: "Grupo reduzido de empresas para preservar o acompanhamento, com um representante por inscrição. A confirmação do bilhete é automática após o pagamento.",
+    pricing: "open",
+    priceLabel: "Lote antecipado R$ 990 · lote regular R$ 1.290, por empresa, via PIX",
+    inscricaoHref: "/workshops/inscricao/enterprise-lab-ecommerce",
     agenda: [
       { time: "14h00", topic: "Do clique ao resultado", activity: "Fluxo do pedido e da margem" },
       { time: "14h25", topic: "Marketplaces x loja própria", activity: "Sistemas, regras, estoque, prazos e conciliação" },
@@ -151,8 +154,8 @@ export const workshops: Workshop[] = [
     faq: [
       { q: "Preciso levar dados da minha loja?", a: "Não. Os exercícios usam casos didáticos e dados sintéticos. Nunca pedimos senhas nem acesso às suas contas." },
       { q: "Quantas pessoas por empresa?", a: "A inscrição inclui um representante. Condições para um segundo participante ainda estão em definição." },
-      { q: "Qual é o local?", a: "Em Anápolis, com endereço divulgado somente depois da reserva confirmada." },
-      { q: "Quanto custa e como pago?", a: "O investimento e a política de cancelamento, reembolso e transferência são publicados antes da abertura das inscrições. Nenhuma cobrança acontece nesta fase." },
+      { q: "Qual é o local?", a: "Em Anápolis, em local a divulgar: o endereço exato é comunicado por e-mail a todos os inscritos com, no mínimo, 5 dias úteis de antecedência." },
+      { q: "Quanto custa e como pago?", a: "O lote antecipado é R$ 990 e o regular R$ 1.290, por empresa, pagos via PIX na inscrição. As condições de cancelamento, reembolso e transferência estão na página de inscrição, antes de pagar." },
       { q: "A data pode mudar?", a: "A realização depende de uma decisão de go/no-go prévia. Se houver mudança, quem estiver na lista de interesse é avisado por escrito." },
     ],
     waMessage:
@@ -170,7 +173,7 @@ export function waInterestUrl(w: Workshop): string {
 
 /** Estado comercial comum (até à aprovação: local, preço final, política de cancelamento e ARO homologado). */
 export const workshopStatus = {
-  label: "Pré-lançamento",
-  note: "Datas previstas. Local, investimento e abertura das inscrições são confirmados antes de qualquer cobrança. A lista de interesse não reserva lugar nem cria obrigação de compra.",
-  waNote: "A mensagem só é enviada quando você tocar em enviar no WhatsApp. Não envie documentos nem dados de clientes.",
+  label: "Inscrições abertas",
+  note: "Anápolis — local a divulgar: o endereço é comunicado por e-mail com, no mínimo, 5 dias úteis de antecedência, e a inscrição pode ser reembolsada se o local não for confirmado. Condições completas na página de inscrição, antes de pagar.",
+  waNote: "A lista de interesse não reserva lugar nem cria obrigação de compra. A mensagem só é enviada quando você tocar em enviar no WhatsApp.",
 };

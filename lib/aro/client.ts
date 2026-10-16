@@ -45,7 +45,8 @@ export type CheckoutSession = {
 
 export type CreateCheckoutInput = {
   offer: string;
-  payer: { name: string; email: string };
+  /** `document` (CPF 11 dígitos / CNPJ 14) é exigido pelo ARO para PIX. */
+  payer: { name: string; email: string; document?: string };
   paymentMethod?: "PIX" | "CARD";
   /** Repetir a mesma chave para repetir o mesmo pedido (ex.: id da intenção no Club). */
   idempotencyKey?: string;
@@ -98,7 +99,9 @@ export async function createCheckoutSession(cfg: AroConfig | null, input: Create
         market: "BR",
         currency: "BRL",
         payment_method: input.paymentMethod ?? "PIX",
-        payer: input.payer,
+        payer: input.payer.document
+          ? { name: input.payer.name, email: input.payer.email, document: input.payer.document }
+          : { name: input.payer.name, email: input.payer.email },
         ...(input.metadata ? { metadata: input.metadata } : {}),
         ...(input.attribution ? { attribution: input.attribution } : {}),
       }),

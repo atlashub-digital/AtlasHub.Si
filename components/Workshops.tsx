@@ -25,7 +25,10 @@ export default function Workshops({ headingLevel = 2 }: { headingLevel?: 1 | 2 }
                 <li>{w.venue}</li>
                 <li>{w.priceLabel}</li>
               </ul>
-              <Link className="vp-card-link" href={`/workshops/${w.slug}`}>Ver programa <span aria-hidden="true">→</span></Link>
+              <p style={{ display: "flex", gap: 16, flexWrap: "wrap" }}>
+                <Link className="vp-card-link" href={w.inscricaoHref}>Inscrever-me <span aria-hidden="true">→</span></Link>
+                <Link className="vp-card-link" href={`/workshops/${w.slug}`}>Ver programa <span aria-hidden="true">→</span></Link>
+              </p>
             </article>
           ))}
         </div>

@@ -23,8 +23,8 @@ export default function WorkshopDetail({ w }: { w: Workshop }) {
                   {[w.date, w.time, w.city, w.format].map((c) => <span className="vp-chip" key={c}>{c}</span>)}
                 </div>
                 <div className="vp-actions">
-                  <a className="vp-btn vp-btn-primary" href={wa} target="_blank" rel="noopener noreferrer">Quero ser avisado da abertura <span aria-hidden="true">→</span></a>
-                  <a className="vp-btn vp-btn-secondary" href="#programa">Ver programa</a>
+                  <Link className="vp-btn vp-btn-primary" href={w.inscricaoHref}>Inscrever-me <span aria-hidden="true">→</span></Link>
+                  <a className="vp-btn vp-btn-secondary" href={wa} target="_blank" rel="noopener noreferrer">Entrar na lista de interesse</a>
                 </div>
                 <p className="vp-note"><span className="vp-chip">{workshopStatus.label}</span> {workshopStatus.note}</p>
               </div>
@@ -55,11 +55,11 @@ export default function WorkshopDetail({ w }: { w: Workshop }) {
 
           <section className="vp-section" aria-labelledby="condicoes-title">
             <div className="vp-wrap">
-              <div className="vp-intro"><p className="vp-eyebrow">Condições</p><h2 className="vp-h2" id="condicoes-title">Inscrição em preparação.</h2></div>
+              <div className="vp-intro"><p className="vp-eyebrow">Condições</p><h2 className="vp-h2" id="condicoes-title">Antes de pagar, as regras claras.</h2></div>
               <div className="vp-grid vp-grid-3">
-                <article className="vp-card"><h3>Local</h3><p>{w.city} · {w.venue}.</p></article>
+                <article className="vp-card"><h3>Local</h3><p>{w.city} · {w.venue}. Nenhum espaço fica reservado pela inscrição nesta fase de divulgação.</p></article>
                 <article className="vp-card"><h3>Capacidade</h3><p>{w.capacity}</p></article>
-                <article className="vp-card"><h3>Investimento</h3><p>{w.priceLabel}, com a política de cancelamento, reembolso e transferência.</p></article>
+                <article className="vp-card"><h3>Investimento</h3><p>{w.priceLabel}. Condições de adiamento, cancelamento e reembolso exibidas na página de inscrição, antes do pagamento.</p></article>
               </div>
             </div>
           </section>
@@ -76,9 +76,10 @@ export default function WorkshopDetail({ w }: { w: Workshop }) {
           <section className="vp-section" aria-labelledby="cta-ws">
             <div className="vp-wrap"><div className="vp-cta">
               <h2 className="vp-h2" id="cta-ws">Pare de adicionar tecnologia a processos antigos.</h2>
-              <p>Entre na lista de interesse e receba primeiro o local, o investimento e a abertura das inscrições.</p>
+              <p>Garanta a sua participação: inscrição via PIX, bilhete automático após a confirmação do pagamento.</p>
               <div className="vp-actions">
-                <a className="vp-btn vp-btn-primary" href={wa} target="_blank" rel="noopener noreferrer">Entrar na lista pelo WhatsApp <span aria-hidden="true">→</span></a>
+                <Link className="vp-btn vp-btn-primary" href={w.inscricaoHref}>Garantir participação <span aria-hidden="true">→</span></Link>
+                <a className="vp-btn vp-btn-secondary" href={wa} target="_blank" rel="noopener noreferrer">Lista de interesse pelo WhatsApp</a>
                 {other && <Link className="vp-btn vp-btn-secondary" href={`/workshops/${other.slug}`}>Ver {other.title}</Link>}
               </div>
               <p className="vp-note">{workshopStatus.waNote}</p>
