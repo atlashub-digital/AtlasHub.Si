@@ -69,7 +69,7 @@ export class AroError extends Error {
 
 type Fetch = typeof fetch;
 
-async function call<T>(url: string, init: RequestInit, fetchImpl: Fetch, timeoutMs = 10_000): Promise<T> {
+async function call<T>(url: string, init: RequestInit, fetchImpl: Fetch, timeoutMs = 20_000): Promise<T> {
   let res: Response;
   try {
     res = await fetchImpl(url, { ...init, signal: AbortSignal.timeout(timeoutMs), cache: "no-store" });
