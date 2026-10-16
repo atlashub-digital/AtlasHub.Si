@@ -1,9 +1,8 @@
 # Configuração comercial desejada dos workshops AtlasHub.SI para o ARO (Atlas Revenue Operations).
 # Formato: atlashub-digital/atlashub-finance schemas/project-commerce-manifest.schema.json
-# Estado: RASCUNHO. Projeto `atlashub-si` ainda por registar no ARO. Todas as ofertas em `draft`:
-# valores = base de planeamento do Sérgio (15/10/2026), sujeitos a aprovação comercial final
-# (decisão W01 a 20/10/2026). Não sincronizar sem homologação do fluxo ARO no EspelhoMeu.
-# Nenhum destes valores é mostrado nas páginas enquanto `pricing` for "pending" (lib/workshops.ts).
+# Valores DEFINITIVOS aprovados pelo Sérgio (16/10/2026, AtlasHub.Si#9). As ofertas ficam `draft` no
+# repositório; a Helena sincroniza e ativa no ARO depois do E7 (projeto `atlashub-si` registado).
+# `lib/workshops.ts` espelha estes valores e o servidor recusa sessões ARO com valor diferente.
 version: "1"
 
 project:

@@ -8,6 +8,15 @@
 | `LEAD_WEBHOOK_TOKEN` | servidor | idem | Bearer enviado ao webhook. Nunca em `NEXT_PUBLIC_*` nem em `public/` | ❌ não definida |
 | `PUBLIC_ORIGIN` | servidor | não | Origem aceite em `/api/lead` (defeito `https://atlashub.si`). Num preview, pôr a origem exata do preview | ❌ (usa defeito) |
 
+| `ARO_API_URL`, `ARO_PROJECT_SLUG` (`atlashub-si`), `ARO_PUBLIC_KEY`, `ARO_SERVER_KEY`, `ARO_WEBHOOK_SECRET` | servidor | para vendas | Cliente ARO (checkout, estado, direitos) e verificação do webhook `/api/aro/webhook` | ❌ |
+| `ARO_PAYMENTS_ENABLED` | servidor | para vendas | `yes` só depois do E7 e do PASS de §4 | ❌ |
+| `WORKSHOPS_SALES_OPEN` | servidor | para vendas | Lista de workshops à venda (`W01,EL01`). Segundo interruptor: também `si_workshops.workshops.sales_open` | ❌ |
+| `SI_DATABASE_URL` | servidor | para vendas | Postgres com o schema `si_workshops` (`db/si_workshops/001_registrations.sql`), utilizador membro de `si_workshops_app`, via pooler | ❌ |
+| `WORKSHOP_CRM_WEBHOOK_URL` / `WORKSHOP_CRM_WEBHOOK_TOKEN` | servidor | recomendado | CRM/Atendimento.Center: eventos `workshop.registration.confirmed` / `revoked` com origem da campanha | ❌ |
+| `WORKSHOP_IP_SALT` | servidor | recomendado | Sal do hash de IP do limite de tentativas | ❌ |
+| `WORKSHOP_EARLY_UNTIL_W01` / `_EL01` | servidor | não | Fim do lote antecipado (ISO); por defeito 06/11 e 20/11, 23h59 BRT | — |
+| `WORKSHOP_PAYER_DOCUMENT` | servidor | não | `required` se o provedor exigir CPF/CNPJ do pagador | — |
+
 Modelo: [`../.env.example`](../.env.example). `public/clara-config.json` é público — só configuração não sensível (endpoint relativo, WhatsApp).
 
 Depois de definir as variáveis na Vercel: **novo deploy** (o formulário depende do build).

@@ -1,6 +1,6 @@
 # Workshops empresariais — dossiê comercial (pré-lançamento)
 
-**Estado:** páginas em pré-lançamento, com `noindex` e fora do sitemap. **Sem inscrição paga, sem checkout, sem local publicado.**
+**Estado (16/10/2026):** preços definitivos publicados nas páginas; inscrição paga por PIX implementada e **desligada** até ao PASS de §7 (AtlasHub.Si#9). Local: "Anápolis — local a divulgar".
 **Dono da decisão:** Sérgio Monteiro. **Cobrança:** exclusivamente pelo ARO (Atlas Revenue Operations), depois de homologado o piloto financeiro EspelhoMeu.
 **Fonte:** Drive `EMPRESA_AUMENTADA_2027-2030_WORKSHOPS` (fichas de produto, programa, landing candidata e aditamento de datas v0.2), adaptado para PT-BR.
 
@@ -18,14 +18,14 @@
 
 O programa hora a hora, entregáveis, exclusões e FAQ estão em `lib/workshops.ts` (fonte única das páginas).
 
-## 2. Condições comerciais — base de planeamento (Sérgio, 15/10/2026), **não publicadas**
-Base para planeamento, ainda sujeita a aprovação comercial final. Fica aqui e no rascunho `aro.project.yaml` (ofertas `draft`); **nunca** em `lib/workshops.ts` até à aprovação (o teste `tests/workshops.test.ts` recusa `R$` nas páginas e qualquer oferta `active` no manifesto).
+## 2. Condições comerciais — **definitivas** (Sérgio, 16/10/2026)
+Publicadas nas páginas (`lib/workshops.ts`) e espelhadas em `aro.project.yaml`; o teste recusa divergências. Condições de venda em `lib/commerce/policy.ts` (versão `termsVersion`, aceite gravado em cada inscrição).
 
 | | Workshop 01 | Enterprise Lab 01 |
 |---|---|---|
 | Antecipado | R$ 297 (oferta ARO `workshop-01-empresa-aumentada-antecipado-br`) | R$ 990 por empresa (`enterprise-lab-01-ecommerce-antecipado-br`) |
 | Regular | R$ 347 (`…-regular-br`) | R$ 1.290 por empresa, 1 representante (`…-regular-br`) |
-| Capacidade-alvo (Si#7, 15/10) | 25 pessoas | 12 empresas (1 representante cada) |
+| Capacidade (vendável) | 25 pessoas | 12 empresas (1 representante cada) |
 | Ponto de decisão comercial | **20/10/2026** | go/no-go 19/11 (≥ 8 empresas pagantes, aditamento v0.2) |
 
 **Local (Si#7):** não escolher, orçamentar nem anunciar o local exato agora; decide-se conforme o volume de adesões. Nunca afirmar espaço reservado. **Condição de venda:** antes de abrir pagamento, publicar "local a divulgar", o prazo em que o local será comunicado e as regras de adiamento, cancelamento e reembolso.
@@ -57,3 +57,15 @@ Base para planeamento, ainda sujeita a aprovação comercial final. Fica aqui e 
 
 ## 6. Reversão
 Reverter o PR: a homepage volta ao estado anterior (a maquete 1:1 do Visual Pack V1 não foi alterada).
+
+## 7. Checkout real (AtlasHub.Si#9)
+**Percurso:** página → `POST /api/workshops/checkout` (valida, reserva lugar em `si_workshops`, escolhe a oferta do lote no servidor, cria a sessão ARO com `Idempotency-Key` = inscrição+oferta, recusa se o valor devolvido não bater com o catálogo) → `/workshops/checkout/<id>` (QR + Copia e Cola; segredo da sessão só em cookie httpOnly) → polling `GET /api/workshops/checkout/<id>` → **bilhete só com ARO `APPROVED` + direito `atlashub-si:workshop:<produto>` ACTIVE** → CRM. Webhook assinado confirma mesmo com a página fechada; reembolso/estorno/revogação libertam o lugar.
+**Proteções:** uma inscrição viva por e-mail e workshop (retoma o mesmo PIX; depois de pago, 409); capacidade contada sob bloqueio (confirmados + reservas vivas de 30 min / expiração do PIX); aprovação tardia confirma e marca `over_capacity` para a equipa decidir; webhooks registados e idempotentes; limite de tentativas por IP; origem verificada; preço nunca vem do browser.
+**Testes:** `npm test` (fluxo com ARO simulado), `scripts/test-sql.sh` (base: capacidade, duplicados, aprovação tardia, reembolso, permissões) e `scripts/e2e/` (rotas reais + Postgres + ARO simulado).
+
+### Ativação (Helena) — ordem
+1. Base: aplicar `db/si_workshops/001_registrations.sql` (reexecutável) numa base dedicada ou no schema isolado; criar o utilizador de login membro de `si_workshops_app`; `SI_DATABASE_URL` no Vercel (Production + Preview).
+2. ARO: registar `atlashub-si`, sincronizar `aro.project.yaml`, emitir chaves, webhook `https://www.atlashub.si/api/aro/webhook`; variáveis `ARO_*` no Vercel.
+3. Preview: `ARO_PAYMENTS_ENABLED=yes`, `WORKSHOPS_SALES_OPEN=W01`, `update si_workshops.workshops set sales_open = true where code = 'W01'`; PIX real controlado de valor de teste (oferta de teste no ARO) → bilhete → reembolso → lugar libertado.
+4. Produção: mesmas variáveis após PASS e viabilidade presencial confirmada; smoke desktop/mobile.
+**Reversão imediata:** `WORKSHOPS_SALES_OPEN=` (vazio) ou `update si_workshops.workshops set sales_open = false` — a página volta a "Conheça o programa" + lista de interesse; inscrições e bilhetes existentes mantêm-se.
