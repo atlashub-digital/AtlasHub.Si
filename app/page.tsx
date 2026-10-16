@@ -4,6 +4,7 @@ import Offers from "../components/Offers";
 import Areas from "../components/Areas";
 import Cases from "../components/Cases";
 import Clara from "../components/Clara";
+import Workshops from "../components/Workshops";
 import Method from "../components/Method";
 import Ecosystem from "../components/Ecosystem";
 import Editions from "../components/Editions";
@@ -14,8 +15,8 @@ import MockupCanvas, { type MockScreen } from "../components/MockupCanvas";
 import home from "../lib/mockups/home.json";
 
 // P01 — Homepage. Desktop (≥ 900 px) renders the approved Visual Pack V1 mockup 1:1
-// (components/MockupCanvas); narrow screens keep the responsive sections. Clara, with the
-// operations lab and the lead flow, and the footer are shared by both.
+// (components/MockupCanvas); narrow screens keep the responsive sections. Workshops, Clara (with the
+// operations lab and the lead flow) and the footer are shared by both.
 export default function Home() {
   return (
     <>
@@ -34,6 +35,8 @@ export default function Home() {
             <Cases />
           </main>
         </div>
+        {/* Partilhada pelas duas versões, fora da maquete 1:1 (que não muda). */}
+        <Workshops />
         <Clara leadsEnabled={Boolean(process.env.LEAD_WEBHOOK_URL && process.env.LEAD_WEBHOOK_TOKEN)} />
         <div className="mk-mobile">
           <Ecosystem />
