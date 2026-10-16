@@ -1,0 +1,466 @@
+[
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "01_KEY_VISUAL_16X9",
+    "size": "1920x1080",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_01_KEY_VISUAL_16X9.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_01_KEY_VISUAL_16X9_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "02_FEED_POST_A_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_02_FEED_POST_A_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_02_FEED_POST_A_4X5_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "03_FEED_POST_B_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_03_FEED_POST_B_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_03_FEED_POST_B_4X5_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_01_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_04_CARROSSEL_01_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_04_CARROSSEL_01_4X5_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_02_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_04_CARROSSEL_02_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_04_CARROSSEL_02_4X5_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_03_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_04_CARROSSEL_03_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_04_CARROSSEL_03_4X5_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_04_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_04_CARROSSEL_04_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_04_CARROSSEL_04_4X5_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_05_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_04_CARROSSEL_05_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_04_CARROSSEL_05_4X5_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "05_STORY_01_9X16",
+    "size": "1080x1920",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_05_STORY_01_9X16.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_05_STORY_01_9X16_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "05_STORY_02_9X16",
+    "size": "1080x1920",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_05_STORY_02_9X16.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_05_STORY_02_9X16_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "05_STORY_03_9X16",
+    "size": "1080x1920",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_05_STORY_03_9X16.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_05_STORY_03_9X16_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "06_BANNER_HORIZONTAL_1920X600",
+    "size": "1920x600",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_06_BANNER_HORIZONTAL_1920X600.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_06_BANNER_HORIZONTAL_1920X600_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "07_BANNER_LINKEDIN_1584X396",
+    "size": "1584x396",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_07_BANNER_LINKEDIN_1584X396.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_07_BANNER_LINKEDIN_1584X396_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "pre",
+    "piece": "08_CAPA_VIDEO_REELS_9X16",
+    "size": "1080x1920",
+    "source": "sources/W01_EMPRESA_AUMENTADA/pre/W01_08_CAPA_VIDEO_REELS_9X16.html",
+    "png": "W01_EMPRESA_AUMENTADA/01_PRE_LANCAMENTO/ATLASHUB_SI_W01_08_CAPA_VIDEO_REELS_9X16_PRE_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "01_KEY_VISUAL_16X9",
+    "size": "1920x1080",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_01_KEY_VISUAL_16X9.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_01_KEY_VISUAL_16X9_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "02_FEED_POST_A_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_02_FEED_POST_A_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_02_FEED_POST_A_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "03_FEED_POST_B_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_03_FEED_POST_B_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_03_FEED_POST_B_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_01_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_04_CARROSSEL_01_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_04_CARROSSEL_01_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_02_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_04_CARROSSEL_02_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_04_CARROSSEL_02_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_03_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_04_CARROSSEL_03_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_04_CARROSSEL_03_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_04_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_04_CARROSSEL_04_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_04_CARROSSEL_04_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_05_4X5",
+    "size": "1080x1350",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_04_CARROSSEL_05_4X5.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_04_CARROSSEL_05_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "05_STORY_01_9X16",
+    "size": "1080x1920",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_05_STORY_01_9X16.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_05_STORY_01_9X16_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "05_STORY_02_9X16",
+    "size": "1080x1920",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_05_STORY_02_9X16.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_05_STORY_02_9X16_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "05_STORY_03_9X16",
+    "size": "1080x1920",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_05_STORY_03_9X16.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_05_STORY_03_9X16_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "06_BANNER_HORIZONTAL_1920X600",
+    "size": "1920x600",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_06_BANNER_HORIZONTAL_1920X600.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_06_BANNER_HORIZONTAL_1920X600_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "07_BANNER_LINKEDIN_1584X396",
+    "size": "1584x396",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_07_BANNER_LINKEDIN_1584X396.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_07_BANNER_LINKEDIN_1584X396_COMERCIAL_V1.png"
+  },
+  {
+    "code": "W01",
+    "variant": "comercial",
+    "piece": "08_CAPA_VIDEO_REELS_9X16",
+    "size": "1080x1920",
+    "source": "sources/W01_EMPRESA_AUMENTADA/comercial/W01_08_CAPA_VIDEO_REELS_9X16.html",
+    "png": "W01_EMPRESA_AUMENTADA/02_COMERCIAL/ATLASHUB_SI_W01_08_CAPA_VIDEO_REELS_9X16_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "01_KEY_VISUAL_16X9",
+    "size": "1920x1080",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_01_KEY_VISUAL_16X9.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_01_KEY_VISUAL_16X9_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "02_FEED_POST_A_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_02_FEED_POST_A_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_02_FEED_POST_A_4X5_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "03_FEED_POST_B_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_03_FEED_POST_B_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_03_FEED_POST_B_4X5_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_01_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_04_CARROSSEL_01_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_04_CARROSSEL_01_4X5_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_02_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_04_CARROSSEL_02_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_04_CARROSSEL_02_4X5_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_03_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_04_CARROSSEL_03_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_04_CARROSSEL_03_4X5_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_04_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_04_CARROSSEL_04_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_04_CARROSSEL_04_4X5_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_05_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_04_CARROSSEL_05_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_04_CARROSSEL_05_4X5_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "04_CARROSSEL_06_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_04_CARROSSEL_06_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_04_CARROSSEL_06_4X5_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "05_STORY_01_9X16",
+    "size": "1080x1920",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_05_STORY_01_9X16.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_05_STORY_01_9X16_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "05_STORY_02_9X16",
+    "size": "1080x1920",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_05_STORY_02_9X16.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_05_STORY_02_9X16_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "05_STORY_03_9X16",
+    "size": "1080x1920",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_05_STORY_03_9X16.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_05_STORY_03_9X16_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "06_BANNER_HORIZONTAL_1920X600",
+    "size": "1920x600",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_06_BANNER_HORIZONTAL_1920X600.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_06_BANNER_HORIZONTAL_1920X600_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "07_BANNER_LINKEDIN_1584X396",
+    "size": "1584x396",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_07_BANNER_LINKEDIN_1584X396.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_07_BANNER_LINKEDIN_1584X396_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "pre",
+    "piece": "08_CAPA_VIDEO_REELS_9X16",
+    "size": "1080x1920",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/pre/EL01_08_CAPA_VIDEO_REELS_9X16.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/01_PRE_LANCAMENTO/ATLASHUB_SI_EL01_08_CAPA_VIDEO_REELS_9X16_PRE_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "01_KEY_VISUAL_16X9",
+    "size": "1920x1080",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_01_KEY_VISUAL_16X9.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_01_KEY_VISUAL_16X9_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "02_FEED_POST_A_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_02_FEED_POST_A_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_02_FEED_POST_A_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "03_FEED_POST_B_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_03_FEED_POST_B_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_03_FEED_POST_B_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_01_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_04_CARROSSEL_01_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_04_CARROSSEL_01_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_02_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_04_CARROSSEL_02_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_04_CARROSSEL_02_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_03_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_04_CARROSSEL_03_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_04_CARROSSEL_03_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_04_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_04_CARROSSEL_04_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_04_CARROSSEL_04_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_05_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_04_CARROSSEL_05_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_04_CARROSSEL_05_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "04_CARROSSEL_06_4X5",
+    "size": "1080x1350",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_04_CARROSSEL_06_4X5.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_04_CARROSSEL_06_4X5_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "05_STORY_01_9X16",
+    "size": "1080x1920",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_05_STORY_01_9X16.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_05_STORY_01_9X16_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "05_STORY_02_9X16",
+    "size": "1080x1920",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_05_STORY_02_9X16.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_05_STORY_02_9X16_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "05_STORY_03_9X16",
+    "size": "1080x1920",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_05_STORY_03_9X16.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_05_STORY_03_9X16_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "06_BANNER_HORIZONTAL_1920X600",
+    "size": "1920x600",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_06_BANNER_HORIZONTAL_1920X600.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_06_BANNER_HORIZONTAL_1920X600_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "07_BANNER_LINKEDIN_1584X396",
+    "size": "1584x396",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_07_BANNER_LINKEDIN_1584X396.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_07_BANNER_LINKEDIN_1584X396_COMERCIAL_V1.png"
+  },
+  {
+    "code": "EL01",
+    "variant": "comercial",
+    "piece": "08_CAPA_VIDEO_REELS_9X16",
+    "size": "1080x1920",
+    "source": "sources/EL01_ENTERPRISE_LAB_ECOMMERCE/comercial/EL01_08_CAPA_VIDEO_REELS_9X16.html",
+    "png": "EL01_ENTERPRISE_LAB_ECOMMERCE/02_COMERCIAL/ATLASHUB_SI_EL01_08_CAPA_VIDEO_REELS_9X16_COMERCIAL_V1.png"
+  }
+]

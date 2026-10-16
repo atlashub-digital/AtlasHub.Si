@@ -1,4 +1,4 @@
-// Gera as fontes HTML editáveis (sources/) e os PNG finais (OUT, por defeito ./out) do Communication Pack V1.
+// Gera as fontes HTML editáveis (sources/) e os PNG finais (OUT, por defeito ./exports) do Communication Pack V1.
 // Uso: PLAYWRIGHT=<caminho do pacote playwright> OUT=<pasta> node build.mjs
 // Identidade: tokens de design/visual-pack-v1/tokens.json; logótipo oficial (assets/Logo_Oficial_AtlasHub.png).
 import { mkdirSync, writeFileSync, readFileSync } from "node:fs";
@@ -9,7 +9,7 @@ import { packs, variants } from "./content.mjs";
 const here = dirname(fileURLToPath(import.meta.url));
 const tokens = JSON.parse(readFileSync(join(here, "../visual-pack-v1/tokens.json"), "utf8")).foundations.palette;
 const T = { bg: tokens.background, surface: tokens.surface, border: tokens.border, cyan: tokens.cyan, cyanSoft: tokens.cyanSoft, blue: tokens.electricBlue, white: tokens.white, muted: tokens.muted };
-const OUT = resolve(process.env.OUT || join(here, "out"));
+const OUT = resolve(process.env.OUT || join(here, "exports"));
 
 const esc = (s) => String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/\n/g, "<br>");
 
