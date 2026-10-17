@@ -2,10 +2,11 @@
 // Só servidor. Sem `SI_DATABASE_URL` não há vendas (fail-closed).
 import postgres from "postgres";
 
-export type Code = "W01" | "EL01" | "LL01";
+export type Code = "W01" | "EL01";
+export type RegistrationCode = Code | "LL01";
 export type Registration = {
   id: string;
-  workshop: Code;
+  workshop: RegistrationCode;
   status: "pending" | "confirmed" | "released" | "revoked";
   email: string;
   name: string;
