@@ -7,3 +7,8 @@ createdb "$db"; trap 'dropdb --if-exists "$db"' EXIT
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/001_registrations.sql
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/001_registrations.sql   # reexecutável
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/001_registrations_test.sql | tail -3
+
+# Migração LL01 é idempotente e testada apenas nesta DB descartável.
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/002_ll01_sales.sql
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/002_ll01_sales.sql
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/002_ll01_sales_test.sql | tail -3
