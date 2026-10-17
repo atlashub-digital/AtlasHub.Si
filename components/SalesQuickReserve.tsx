@@ -37,6 +37,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
   const price = availability?.pricing ?? first;
   const promoActive = open && seconds !== null && seconds > 0 && availability?.promo?.quoteId;
   const effectivePrice = promoActive ? price.promoMinor : price.earlyMinor;
+  const remaining = seconds ?? 0;
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!open) { setStatus("A abertura dos pagamentos ainda não foi confirmada. Reserve interesse pelo WhatsApp."); return; }
@@ -76,7 +77,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
       </div>
       <p className={styles.terms}>Valor antecipado {BRL(price.earlyMinor)} · regular {BRL(price.regularMinor)}. O valor final é confirmado no checkout ARO.</p>
       <div className={styles.promo} role="status">
-        {promoActive ? <>Reserva promocional de 10% válida por <strong className={styles.timer}>{String(Math.floor(seconds / 60)).padStart(2, "0")}:{String(seconds % 60).padStart(2, "0")}</strong>. O valor emitido no PIX mantém-se durante a validade desse pagamento.</> :
+        {promoActive ? <>Reserva promocional de 10% válida por <strong className={styles.timer}>{String(Math.floor(remaining / 60)).padStart(2, "0")}:{String(remaining % 60).padStart(2, "0")}</strong>. O valor emitido no PIX mantém-se durante a validade desse pagamento.</> :
           <>{open ? "Caso elegível, o desconto extra de 10% é ativado por uma reserva real de 5 minutos no servidor." : "Oferta antecipada aprovada. O checkout e o desconto temporário serão disponibilizados quando a integração financeira do LL01 for homologada."}</>}
       </div>
       {open ? (
