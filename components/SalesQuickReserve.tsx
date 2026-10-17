@@ -13,7 +13,7 @@ const first = { earlyMinor: 39700, regularMinor: 49700, promoMinor: 35730 };
 
 export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
   const [availability, setAvailability] = useState<Availability | null>(null);
-  const [seconds, setSeconds] = useState<number | null>(null);
+  const [now, setNow] = useState(() => Date.now());
   const [pending, setPending] = useState(false);
   const [status, setStatus] = useState("");
   useEffect(() => {
@@ -24,15 +24,14 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
     return () => { live = false; };
   }, []);
   useEffect(() => {
-    if (!availability?.promo?.expiresAt) { setSeconds(null); return; }
+    if (!availability?.promo?.expiresAt) return;
     // O relógio reflete uma reserva existente no servidor. Não cria nem renova promoções.
-    const expiry = new Date(availability.promo.expiresAt).getTime();
-    const tick = () => setSeconds(Math.max(0, Math.ceil((expiry - Date.now()) / 1000)));
-    tick();
-    const timer = setInterval(tick, 1000);
+    const timer = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(timer);
   }, [availability?.promo?.expiresAt]);
 
+  const expiresAt = availability?.promo?.expiresAt;
+  const seconds = expiresAt ? Math.max(0, Math.ceil((new Date(expiresAt).getTime() - now) / 1000)) : null;
   const open = availability?.open === true;
   const price = availability?.pricing ?? first;
   const promoActive = open && seconds !== null && seconds > 0 && availability?.promo?.quoteId;
