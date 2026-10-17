@@ -120,8 +120,8 @@ export async function startCheckout(
 export type StatusView =
   | { state: "PENDING"; workshop: RegistrationCode; offer: string | null; amountMinor: number | null; payment: { copyPaste: string; qrSvg: string; expiresAt: string } | null }
   | { state: "PROCESSING"; workshop: RegistrationCode }
-  | { state: "CONFIRMED"; workshop: Code; ticket: string | null }
-  | { state: "FAILED" | "EXPIRED" | "CANCELED" | "RELEASED" | "REVOKED"; workshop: Code };
+  | { state: "CONFIRMED"; workshop: RegistrationCode; ticket: string | null }
+  | { state: "FAILED" | "EXPIRED" | "CANCELED" | "RELEASED" | "REVOKED"; workshop: RegistrationCode };
 
 /** Concede o bilhete só com direito ACTIVE no ARO. Idempotente; avisa o CRM uma vez. */
 export async function finalize(reg: Registration, d: Deps): Promise<{ ticket: string } | null> {
