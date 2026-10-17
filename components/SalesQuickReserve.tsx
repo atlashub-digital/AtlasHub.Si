@@ -43,45 +43,71 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
   const promoActive = open && quote?.promoEligible === true && seconds !== null && seconds > 0;
   const effectivePrice = promoActive ? price.promoMinor : quote?.currentPrice ?? price.earlyMinor;
   const remaining = seconds ?? 0;
+  async function generatePix(reservationId: string, buyerDocument: string) {
+    const response = await fetch("/api/sales/ll01/checkout", {
+      method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ id: reservationId, document: buyerDocument }),
+    });
+    const result = await response.json().catch(() => ({}));
+    if (response.status === 201 && typeof result.id === "string") {
+      setCheckoutId(result.id);
+      setSheetOpen(true);
+      return;
+    }
+    if (response.status === 409 && result.error === "already_pending" && typeof result.next === "string") {
+      setCheckoutId(reservationId);
+      setSheetOpen(true);
+      return;
+    }
+    throw Error("pix_unavailable");
+  }
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!open) { setStatus("Reservas pagas ainda não estão abertas. Contacte a AtlasHub pelo WhatsApp."); return; }
+    if (!open) { setStatus("Inscrições ainda não abertas. Contacte a equipa pelo WhatsApp."); return; }
     const data = new FormData(event.currentTarget);
     setPending(true); setStatus("");
-    const doc=String(data.get("document")||""); setDocument(doc);
+    const doc = String(data.get("document") || "");
+    setDocument(doc);
     try {
       const query = new URLSearchParams(window.location.search);
-      const res=await fetch("/api/sales/ll01/reserve", {
-        method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({
-          name:data.get("name"),phone:data.get("phone"),document:doc,email:data.get("email"),
-          acceptTerms:data.get("acceptTerms")==="on", termsVersion:"ll01-2026-10-v1",
-          marketing:data.get("marketing")==="on",
-          campaign:(query.get("origem")||"LL01-SITE").toUpperCase(),website:data.get("website")
-        })
+      const res = await fetch("/api/sales/ll01/reserve", {
+        method: "POST", credentials: "same-origin", headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: data.get("name"), phone: data.get("phone"), document: doc, email: data.get("email"),
+          acceptTerms: data.get("acceptTerms") === "on", termsVersion: "ll01-2026-10-v1",
+          marketing: data.get("marketing") === "on",
+          campaign: (query.get("origem") || "LL01-SITE").toUpperCase(), website: data.get("website"),
+        }),
       });
-      const b=await res.json().catch(()=>({}));
-      if(res.status===201 && typeof b.id==="string") {
-        setQuote({id:b.id,expiresAt:b.expiresAt,promoEligible:b.promoEligible===true,currentPrice:b.currentPrice||39700});
-        setStatus("Reserva recebida. Confira o valor e gere o PIX para concluir a inscrição.");
-      } else {setStatus(b.error==="already_registered"?"Já existe uma inscrição confirmada para este documento/e-mail.":"Não foi possível reservar neste momento. Contacte a AtlasHub.");}
-    }catch{setStatus("Erro de ligação. Nenhum pagamento foi efetuado.");}
-    finally{setPending(false);}
+      const body = await res.json().catch(() => ({}));
+      if (res.status !== 201 || typeof body.id !== "string") {
+        setStatus(body.error === "already_registered"
+          ? "Já existe uma inscrição confirmada para este documento ou e-mail."
+          : "Não foi possível concluir a reserva. Pode falar com a equipa pelo WhatsApp.");
+        return;
+      }
+      setQuote({
+        id: body.id, expiresAt: body.expiresAt,
+        promoEligible: body.promoEligible === true, currentPrice: body.currentPrice || 39700,
+      });
+      // O comprador clica UMA vez. A reserva promocional existe no servidor antes da sessão ARO.
+      try {
+        await generatePix(body.id, doc);
+      } catch {
+        setStatus("A reserva foi criada, mas não foi possível abrir o PIX agora. Pode tentar novamente sem preencher os dados.");
+      }
+    } catch {
+      setStatus("Falha de ligação. Nenhum pagamento foi confirmado.");
+    } finally {
+      setPending(false);
+    }
   }
   async function pay() {
-    if(!quote)return;
-    setPending(true);setStatus("");
-    try {
-      const res=await fetch("/api/sales/ll01/checkout",{
-        method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},
-        body:JSON.stringify({id:quote.id,document})
-      });
-      const b=await res.json().catch(()=>({}));
-      if(res.status===201 && typeof b.id==="string"){ setCheckoutId(b.id); setSheetOpen(true); }
-      else if(res.status===409 && b.error==="already_pending" && typeof b.next==="string"){ setCheckoutId(quote.id); setSheetOpen(true); }
-      else setStatus("O PIX ainda não pôde ser emitido. Nenhum pagamento foi efetuado. Pode falar com a equipa pelo WhatsApp.");
-    }catch{setStatus("Falha de ligação ao pagamento. Tente novamente.");}
-    finally{setPending(false);}
+    if (!quote) return;
+    setPending(true); setStatus("");
+    try { await generatePix(quote.id, document); }
+    catch { setStatus("Não foi possível abrir o PIX. A reserva permanece registada; pode tentar novamente."); }
+    finally { setPending(false); }
   }
   const onConfirmed=useCallback(() => { setPaid(true); setSheetOpen(false); }, []);
   if(paid) return <div className={styles.card} id="inscricao" role="status" aria-live="polite">
@@ -110,7 +136,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
       ) : open && quote ? (
         <div className={styles.form}>
           <p className={styles.note}>Dados guardados na reserva. O PIX será emitido pelo ARO e a inscrição só é confirmada depois de aprovado.</p>
-          <button className={styles.cta} type="button" onClick={pay} disabled={pending}>{pending ? "Preparando PIX…" : "Confirmar valor e gerar PIX →"}</button>
+          <button className={styles.cta} type="button" onClick={pay} disabled={pending}>{pending ? "Preparando Pix…" : "Abrir pagamento Pix novamente →"}</button>
           <button className={styles.secondary} type="button" onClick={()=>setQuote(null)}>Alterar dados da reserva</button>
         </div>
       ) : open ? (
@@ -127,7 +153,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
           <input name="website" type="text" style={{ position: "absolute", width: 1, height: 1, opacity: 0 }} tabIndex={-1} autoComplete="off" aria-hidden="true"/>
           <label className={styles.check}><input type="checkbox" name="acceptTerms" required/><span>Li e aceito os termos comerciais e o tratamento de dados necessário para inscrição e pagamento. <a href="#condicoes" style={{ color: "#6ee6fb" }}>Ver condições</a>.</span></label>
           <label className={styles.check}><input type="checkbox" name="marketing"/><span>Quero receber outros conteúdos da AtlasHub (opcional).</span></label>
-          <button type="submit" className={styles.cta} disabled={pending}>{pending ? "Criando reserva…" : "Reservar agora · confirmar PIX depois →"}</button>
+          <button type="submit" className={styles.cta} disabled={pending}>{pending ? "Preparando seu Pix…" : "Pagar com Pix →"}</button>
         </form>
       ) : (
         <a className={styles.cta} href={waUrl} target="_blank" rel="noopener noreferrer">Reservar interesse pelo WhatsApp →</a>
