@@ -2,6 +2,7 @@
 "use client";
 import { useEffect, useState, type FormEvent } from "react";
 import styles from "./SalesQuickReserve.module.css";
+import CheckoutView from "./CheckoutView";
 
 type Availability = {
   open: boolean;
@@ -15,6 +16,9 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
   const [availability, setAvailability] = useState<Availability | null>(null);
   const [now, setNow] = useState(() => Date.now());
   const [pending, setPending] = useState(false);
+  const [quote, setQuote] = useState<{ id: string; expiresAt: string | null; promoEligible: boolean; currentPrice: number } | null>(null);
+  const [document, setDocument] = useState("");
+  const [checkoutId, setCheckoutId] = useState<string | null>(null);
   const [status, setStatus] = useState("");
   useEffect(() => {
     let live = true;
@@ -24,49 +28,60 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
     return () => { live = false; };
   }, []);
   useEffect(() => {
-    if (!availability?.promo?.expiresAt) return;
+    if (!quote?.expiresAt) return;
     // O relógio reflete uma reserva existente no servidor. Não cria nem renova promoções.
     const timer = setInterval(() => setNow(Date.now()), 1000);
     return () => clearInterval(timer);
   }, [availability?.promo?.expiresAt]);
 
-  const expiresAt = availability?.promo?.expiresAt;
+  const expiresAt = quote?.expiresAt ?? null;
   const seconds = expiresAt ? Math.max(0, Math.ceil((new Date(expiresAt).getTime() - now) / 1000)) : null;
   const open = availability?.open === true;
   const price = availability?.pricing ?? first;
-  const promoActive = open && seconds !== null && seconds > 0 && availability?.promo?.quoteId;
-  const effectivePrice = promoActive ? price.promoMinor : price.earlyMinor;
+  const promoActive = open && quote?.promoEligible === true && seconds !== null && seconds > 0;
+  const effectivePrice = promoActive ? price.promoMinor : quote?.currentPrice ?? price.earlyMinor;
   const remaining = seconds ?? 0;
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    if (!open) { setStatus("A abertura dos pagamentos ainda não foi confirmada. Reserve interesse pelo WhatsApp."); return; }
+    if (!open) { setStatus("Reservas pagas ainda não estão abertas. Contacte a AtlasHub pelo WhatsApp."); return; }
     const data = new FormData(event.currentTarget);
     setPending(true); setStatus("");
+    const doc=String(data.get("document")||""); setDocument(doc);
     try {
       const query = new URLSearchParams(window.location.search);
-      const r = await fetch("/api/sales/ll01/checkout", {
-        method: "POST", credentials: "same-origin",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: data.get("name"), phone: data.get("phone"),
-          document: data.get("document"), email: data.get("email"),
-          company: data.get("company"), acceptTerms: data.get("acceptTerms") === "on",
-          marketing: data.get("marketing") === "on",
-          quoteId: promoActive ? availability?.promo?.quoteId : null,
-          campaign: (query.get("origem") ?? "LL01-SITE").toUpperCase(),
-          website: data.get("website"),
-        }),
+      const res=await fetch("/api/sales/ll01/reserve", {
+        method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({
+          name:data.get("name"),phone:data.get("phone"),document:doc,email:data.get("email"),
+          acceptTerms:data.get("acceptTerms")==="on", termsVersion:"ll01-2026-10-v1",
+          marketing:data.get("marketing")==="on",
+          campaign:(query.get("origem")||"LL01-SITE").toUpperCase(),website:data.get("website")
+        })
       });
-      const body = await r.json().catch(() => ({}));
-      if (r.status === 201 && typeof body.next === "string" && body.next.startsWith("/")) {
-        window.location.assign(body.next); return;
-      }
-      setStatus(body.error === "email_required_by_provider"
-        ? "Informe um e-mail válido para receber a confirmação da inscrição."
-        : "Não foi possível iniciar o PIX. Nenhum pagamento foi efetuado. Pode falar com a equipa pelo WhatsApp.");
-    } catch { setStatus("Falha de ligação. Nenhum pagamento foi efetuado."); }
-    finally { setPending(false); }
+      const b=await res.json().catch(()=>({}));
+      if(res.status===201 && typeof b.id==="string") {
+        setQuote({id:b.id,expiresAt:b.expiresAt,promoEligible:b.promoEligible===true,currentPrice:b.currentPrice||39700});
+        setStatus("Reserva recebida. Confira o valor e gere o PIX para concluir a inscrição.");
+      } else {setStatus(b.error==="already_registered"?"Já existe uma inscrição confirmada para este documento/e-mail.":"Não foi possível reservar neste momento. Contacte a AtlasHub.");}
+    }catch{setStatus("Erro de ligação. Nenhum pagamento foi efetuado.");}
+    finally{setPending(false);}
   }
+  async function pay() {
+    if(!quote)return;
+    setPending(true);setStatus("");
+    try {
+      const res=await fetch("/api/sales/ll01/checkout",{
+        method:"POST",credentials:"same-origin",headers:{"Content-Type":"application/json"},
+        body:JSON.stringify({id:quote.id,document})
+      });
+      const b=await res.json().catch(()=>({}));
+      if(res.status===201 && typeof b.id==="string")setCheckoutId(b.id);
+      else if(res.status===409 && b.error==="already_pending" && typeof b.next==="string")setCheckoutId(quote.id);
+      else setStatus("O PIX ainda não pôde ser emitido. Nenhum pagamento foi efetuado. Pode falar com a equipa pelo WhatsApp.");
+    }catch{setStatus("Falha de ligação ao pagamento. Tente novamente.");}
+    finally{setPending(false);}
+  }
+  if(checkoutId) return <div id="inscricao" aria-live="polite"><CheckoutView id={checkoutId}/></div>;
   return (
     <aside className={styles.card} id="inscricao" aria-label="Reserva do Live Lab">
       <div className={styles.eyebrow}>Inscrição · 4 lives online · 8 horas</div>
@@ -77,9 +92,15 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
       <p className={styles.terms}>Valor antecipado {BRL(price.earlyMinor)} · regular {BRL(price.regularMinor)}. O valor final é confirmado no checkout ARO.</p>
       <div className={styles.promo} role="status">
         {promoActive ? <>Reserva promocional de 10% válida por <strong className={styles.timer}>{String(Math.floor(remaining / 60)).padStart(2, "0")}:{String(remaining % 60).padStart(2, "0")}</strong>. O valor emitido no PIX mantém-se durante a validade desse pagamento.</> :
-          <>{open ? "Caso elegível, o desconto extra de 10% é ativado por uma reserva real de 5 minutos no servidor." : "Oferta antecipada aprovada. O checkout e o desconto temporário serão disponibilizados quando a integração financeira do LL01 for homologada."}</>}
+          <>{open ? (quote ? "A janela do desconto de 10% terminou. Será aplicado o preço vigente antes de emitir o PIX." : "Reserve primeiro para iniciar uma janela promocional real de 5 minutos, quando disponível.") : "Oferta antecipada aprovada. O checkout e o desconto temporário serão disponibilizados quando a integração financeira do LL01 for homologada."}</>}
       </div>
-      {open ? (
+      {open && quote ? (
+        <div className={styles.form}>
+          <p className={styles.note}>Dados guardados na reserva. O PIX será emitido pelo ARO e a inscrição só é confirmada depois de aprovado.</p>
+          <button className={styles.cta} type="button" onClick={pay} disabled={pending}>{pending ? "Preparando PIX…" : "Confirmar valor e gerar PIX →"}</button>
+          <button className={styles.secondary} type="button" onClick={()=>setQuote(null)}>Alterar dados da reserva</button>
+        </div>
+      ) : open ? (
         <form className={styles.form} onSubmit={submit}>
           <label className={styles.label}>Nome completo<input className={styles.input} name="name" autoComplete="name" required minLength={2} maxLength={160} placeholder="Como devemos chamar você?" /></label>
           <div className={styles.two}>
@@ -93,7 +114,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
           <input name="website" type="text" style={{ position: "absolute", width: 1, height: 1, opacity: 0 }} tabIndex={-1} autoComplete="off" aria-hidden="true"/>
           <label className={styles.check}><input type="checkbox" name="acceptTerms" required/><span>Li e aceito os termos comerciais e o tratamento de dados necessário para inscrição e pagamento. <a href="#condicoes" style={{ color: "#6ee6fb" }}>Ver condições</a>.</span></label>
           <label className={styles.check}><input type="checkbox" name="marketing"/><span>Quero receber outros conteúdos da AtlasHub (opcional).</span></label>
-          <button type="submit" className={styles.cta} disabled={pending}>{pending ? "Preparando seu PIX…" : "Reservar e pagar com PIX →"}</button>
+          <button type="submit" className={styles.cta} disabled={pending}>{pending ? "Criando reserva…" : "Reservar agora · confirmar PIX depois →"}</button>
         </form>
       ) : (
         <a className={styles.cta} href={waUrl} target="_blank" rel="noopener noreferrer">Reservar interesse pelo WhatsApp →</a>
