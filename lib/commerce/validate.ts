@@ -18,12 +18,12 @@ export type SignupInput = {
 const slugToCode: Record<string, Code> = { "empresa-aumentada-2027-2030": "W01", "enterprise-lab-ecommerce": "EL01" };
 export const codeForSlug = (slug: string): Code | undefined => slugToCode[slug];
 
-function cpfOk(d: string) {
+export function cpfOk(d: string) {
   if (!/^\d{11}$/.test(d) || /^(\d)\1+$/.test(d)) return false;
   const dv = (n: number) => { let s = 0; for (let i = 0; i < n; i++) s += +d[i] * (n + 1 - i); const r = (s * 10) % 11; return r === 10 ? 0 : r; };
   return dv(9) === +d[9] && dv(10) === +d[10];
 }
-function cnpjOk(d: string) {
+export function cnpjOk(d: string) {
   if (!/^\d{14}$/.test(d) || /^(\d)\1+$/.test(d)) return false;
   const calc = (n: number) => { const w = n === 12 ? [5,4,3,2,9,8,7,6,5,4,3,2] : [6,5,4,3,2,9,8,7,6,5,4,3,2]; let s = 0; for (let i = 0; i < n; i++) s += +d[i] * w[i]; const r = s % 11; return r < 2 ? 0 : 11 - r; };
   return calc(12) === +d[12] && calc(13) === +d[13];
