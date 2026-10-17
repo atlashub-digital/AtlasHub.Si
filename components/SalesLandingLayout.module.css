@@ -1,0 +1,10 @@
+.heroGrid{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(330px,.86fr);gap:clamp(28px,4vw,62px);align-items:center;padding-top:clamp(72px,8vw,112px);padding-bottom:clamp(55px,7vw,96px);min-height:660px}
+.heroCopy{max-width:750px;animation:rise .55s ease both}.formCol{justify-self:end;width:100%;max-width:480px;animation:rise .65s .12s ease both}
+.fact{display:inline-flex;align-items:center;gap:10px;padding:10px 14px;border:1px solid rgba(53,205,239,.34);background:rgba(9,33,58,.75);border-radius:999px;color:#b5f6ff;font-size:13px;margin:8px 0 16px}
+.fact span{height:8px;width:8px;background:#20e5f4;border-radius:50%;box-shadow:0 0 14px #20ddf4}
+.miniFlow{display:flex;align-items:center;justify-content:flex-start;gap:14px;flex-wrap:wrap;margin-top:28px;color:#b4d9e9;font-size:12px}
+.miniFlow strong{color:#eafcff}
+@keyframes rise{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@media(max-width:850px){.heroGrid{grid-template-columns:1fr;min-height:0}.formCol{justify-self:stretch;max-width:600px}.heroCopy{max-width:800px}}
+@media(max-width:530px){.heroGrid{padding-top:70px;gap:26px}.fact{font-size:11px}.miniFlow{gap:7px}}
+@media(prefers-reduced-motion:reduce){.heroCopy,.formCol{animation:none}}

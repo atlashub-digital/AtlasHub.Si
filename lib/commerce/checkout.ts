@@ -10,7 +10,7 @@ import {
 import { workshops, type Workshop } from "../workshops";
 import { notifyCrm } from "./crm";
 import { earlyUntil, termsVersion } from "./policy";
-import { storeErrorCode, type Code, type Registration, type Store } from "./store";
+import { storeErrorCode, type Code, type Registration, type RegistrationCode, type Store } from "./store";
 import type { SignupInput } from "./validate";
 import type { AroEvent } from "../aro/webhook";
 
@@ -22,7 +22,16 @@ export type Deps = {
   now: () => Date;
 };
 
-export const byCode = (code: Code): Workshop => workshops.find((w) => w.code === code)!;
+/** LL01 integra a confirmação ARO/CRM do mesmo motor, sem alterar os 2 workshops presenciais. */
+export const byCode = (code: RegistrationCode): Pick<Workshop,"code" | "aroOffers" | "aroEntitlement" | "pricing"> => {
+  if (code === "LL01") return {
+    code: "LL01" as never,
+    aroOffers: { antecipado: "ll01-antecipado-br", regular: "ll01-regular-br" },
+    aroEntitlement: "atlashub-si:workshop:ll01",
+    pricing: { antecipado: 39700, regular: 49700 },
+  };
+  return workshops.find((w) => w.code === code)!;
+};
 
 export function salesOpen(code: Code, d: Pick<Deps, "aro" | "store" | "env">): boolean {
   const flags = (d.env.WORKSHOPS_SALES_OPEN || "").split(",").map((s) => s.trim());
@@ -109,10 +118,10 @@ export async function startCheckout(
 }
 
 export type StatusView =
-  | { state: "PENDING"; workshop: Code; offer: string | null; amountMinor: number | null; payment: { copyPaste: string; qrSvg: string; expiresAt: string } | null }
-  | { state: "PROCESSING"; workshop: Code }
-  | { state: "CONFIRMED"; workshop: Code; ticket: string | null }
-  | { state: "FAILED" | "EXPIRED" | "CANCELED" | "RELEASED" | "REVOKED"; workshop: Code };
+  | { state: "PENDING"; workshop: RegistrationCode; offer: string | null; amountMinor: number | null; payment: { copyPaste: string; qrSvg: string; expiresAt: string } | null }
+  | { state: "PROCESSING"; workshop: RegistrationCode }
+  | { state: "CONFIRMED"; workshop: RegistrationCode; ticket: string | null }
+  | { state: "FAILED" | "EXPIRED" | "CANCELED" | "RELEASED" | "REVOKED"; workshop: RegistrationCode };
 
 /** Concede o bilhete só com direito ACTIVE no ARO. Idempotente; avisa o CRM uma vez. */
 export async function finalize(reg: Registration, d: Deps): Promise<{ ticket: string } | null> {
