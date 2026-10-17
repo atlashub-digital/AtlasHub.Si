@@ -11,11 +11,12 @@ type View =
 
 const back: Record<string, string> = { W01: "/workshops/empresa-aumentada-2027-2030", EL01: "/workshops/enterprise-lab-ecommerce", LL01: "/workshops/automacao-pessoas-no-centro" };
 
-export default function CheckoutView({ id }: { id: string }) {
+export default function CheckoutView({ id, onConfirmed }: { id: string; onConfirmed?: () => void }) {
   const [v, setV] = useState<View | null>(null);
   const [err, setErr] = useState("");
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const confirmedOnce = useRef(false);
 
   useEffect(() => {
     let alive = true;
@@ -26,6 +27,10 @@ export default function CheckoutView({ id }: { id: string }) {
         const d = (await r.json()) as View;
         if (!alive) return;
         setV(d); setErr("");
+        if (d.state === "CONFIRMED" && !confirmedOnce.current) {
+          confirmedOnce.current = true;
+          onConfirmed?.();
+        }
         if (d.state === "PENDING" || d.state === "PROCESSING") timer.current = setTimeout(poll, 4000);
       } catch {
         if (alive) { setErr("Sem conexão; tentando de novo…"); timer.current = setTimeout(poll, 8000); }
@@ -33,7 +38,7 @@ export default function CheckoutView({ id }: { id: string }) {
     };
     poll();
     return () => { alive = false; if (timer.current) clearTimeout(timer.current); };
-  }, [id]);
+  }, [id, onConfirmed]);
 
   if (err && !v) return <p className="form-status" role="status">{err}</p>;
   if (!v) return <p role="status">Carregando o pagamento…</p>;
