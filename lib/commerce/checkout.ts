@@ -22,7 +22,16 @@ export type Deps = {
   now: () => Date;
 };
 
-export const byCode = (code: Code): Workshop => workshops.find((w) => w.code === code)!;
+/** LL01 integra a confirmação ARO/CRM do mesmo motor, sem alterar os 2 workshops presenciais. */
+export const byCode = (code: Code): Pick<Workshop,"code" | "aroOffers" | "aroEntitlement" | "pricing"> => {
+  if (code === "LL01") return {
+    code: "LL01" as never,
+    aroOffers: { antecipado: "ll01-antecipado-br", regular: "ll01-regular-br" },
+    aroEntitlement: "atlashub-si:workshop:ll01",
+    pricing: { antecipado: 39700, regular: 49700 },
+  };
+  return workshops.find((w) => w.code === code)!;
+};
 
 export function salesOpen(code: Code, d: Pick<Deps, "aro" | "store" | "env">): boolean {
   const flags = (d.env.WORKSHOPS_SALES_OPEN || "").split(",").map((s) => s.trim());
