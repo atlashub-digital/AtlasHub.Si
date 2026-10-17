@@ -92,7 +92,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
   </div>;
   return (
     <>
-      {checkoutId && <AroCheckoutSheet checkoutId={checkoutId} open={sheetOpen} onClose={() => setSheetOpen(false)} onConfirmed={onConfirmed}/>}
+      {checkoutId && <AroCheckoutSheet checkoutId={checkoutId} open={sheetOpen} productName="Live Lab 01 — Automação com Pessoas no Centro" onClose={() => setSheetOpen(false)} onConfirmed={onConfirmed}/>}
       <aside className={styles.card} id="inscricao" aria-label="Reserva do Live Lab">
       <div className={styles.eyebrow}>Inscrição · 4 lives online · 8 horas</div>
       {!checkoutId ? <><div className={styles.offer}>
