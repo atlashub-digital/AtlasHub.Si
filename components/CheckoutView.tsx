@@ -11,11 +11,12 @@ type View =
 
 const back: Record<string, string> = { W01: "/workshops/empresa-aumentada-2027-2030", EL01: "/workshops/enterprise-lab-ecommerce", LL01: "/workshops/automacao-pessoas-no-centro" };
 
-export default function CheckoutView({ id }: { id: string }) {
+export default function CheckoutView({ id, onConfirmed }: { id: string; onConfirmed?: () => void }) {
   const [v, setV] = useState<View | null>(null);
   const [err, setErr] = useState("");
   const [copied, setCopied] = useState(false);
   const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const confirmedOnce = useRef(false);
 
   useEffect(() => {
     let alive = true;
@@ -26,6 +27,10 @@ export default function CheckoutView({ id }: { id: string }) {
         const d = (await r.json()) as View;
         if (!alive) return;
         setV(d); setErr("");
+        if (d.state === "CONFIRMED" && !confirmedOnce.current) {
+          confirmedOnce.current = true;
+          onConfirmed?.();
+        }
         if (d.state === "PENDING" || d.state === "PROCESSING") timer.current = setTimeout(poll, 4000);
       } catch {
         if (alive) { setErr("Sem conexão; tentando de novo…"); timer.current = setTimeout(poll, 8000); }
@@ -33,7 +38,7 @@ export default function CheckoutView({ id }: { id: string }) {
     };
     poll();
     return () => { alive = false; if (timer.current) clearTimeout(timer.current); };
-  }, [id]);
+  }, [id, onConfirmed]);
 
   if (err && !v) return <p className="form-status" role="status">{err}</p>;
   if (!v) return <p role="status">Carregando o pagamento…</p>;
@@ -63,7 +68,7 @@ export default function CheckoutView({ id }: { id: string }) {
   return (
     <div className="vp-grid vp-grid-2">
       <div className="vp-card">
-        <p className="vp-eyebrow">Pagamento PIX</p>
+        <p className="vp-eyebrow" style={{display:"flex", alignItems:"center", gap:8}}><span aria-label="Pix, sistema de pagamentos instantâneos" style={{border:"1px solid #31cab4", borderRadius:8, padding:"3px 10px", color:"#84f5e2", background:"#0d383b", fontWeight:800, fontSize:15}}>Pix</span> Pagamento instantâneo</p>
         <h2 className="vp-h2">{v.amountMinor ? formatBRL(v.amountMinor) : "PIX"}</h2>
         {v.payment ? (
           <>
