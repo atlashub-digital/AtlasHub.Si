@@ -68,7 +68,7 @@ export default function CheckoutView({ id, onConfirmed }: { id: string; onConfir
   return (
     <div className="vp-grid vp-grid-2">
       <div className="vp-card">
-        <p className="vp-eyebrow">Pagamento PIX</p>
+        <p className="vp-eyebrow" style={{display:"flex", alignItems:"center", gap:8}}><span aria-label="Pix, sistema de pagamentos instantâneos" style={{border:"1px solid #31cab4", borderRadius:8, padding:"3px 10px", color:"#84f5e2", background:"#0d383b", fontWeight:800, fontSize:15}}>Pix</span> Pagamento instantâneo</p>
         <h2 className="vp-h2">{v.amountMinor ? formatBRL(v.amountMinor) : "PIX"}</h2>
         {v.payment ? (
           <>
