@@ -1,17 +1,19 @@
 import Header from "./Header";
 import Footer from "./Footer";
 import type { SalesPageConfig } from "../lib/sales/pages";
+import SalesQuickReserve from "./SalesQuickReserve";
+import layout from "./SalesLandingLayout.module.css";
 
 /** Landing comercial replicável, mobile-first, sem dependência de CMS ou provider de pagamento. */
 export default function SalesLanding({ offer, whatsapp }: { offer: SalesPageConfig; whatsapp: string }) {
-  const cta = "Reservar meu interesse";
+  const cta = "Quero participar";
   return (
     <>
       <Header current="/workshops" />
       <main id="conteudo">
         <section className="vp-hero" aria-labelledby="sales-title" style={{ backgroundImage: "linear-gradient(105deg, rgba(2, 13, 30, .96), rgba(2, 13, 30, .87) 54%, rgba(2, 13, 30, .42)), url('/assets/hero-office.jpg')", backgroundSize: "cover", backgroundPosition: "center" }}>
-          <div className="vp-wrap" style={{ gridTemplateColumns: "1fr", minHeight: 0, paddingTop: 96, paddingBottom: 96 }}>
-            <div style={{ maxWidth: 900 }}>
+          <div className={"vp-wrap " + layout.heroGrid}>
+            <div className={layout.heroCopy}>
               <p className="vp-eyebrow">{offer.eyebrow}</p>
               <h1 className="vp-h1" id="sales-title">{offer.titleStart}<br /><em>{offer.titleAccent}</em></h1>
               <p className="vp-lead" style={{ fontWeight: 600 }}>{offer.subtitle}</p>
@@ -21,12 +23,14 @@ export default function SalesLanding({ offer, whatsapp }: { offer: SalesPageConf
                 <span className="vp-chip">8 horas · 100% online</span>
                 <span className="vp-chip">{offer.dateLabel}</span>
               </div>
-              <div className="vp-actions" style={{ marginTop: 26 }}>
-                <a className="vp-btn vp-btn-primary" href={whatsapp} target="_blank" rel="noopener noreferrer">{cta} <span aria-hidden="true">→</span></a>
+              <div className={layout.fact}><span aria-hidden="true" /> LIVE ONLINE · 22 E 29/NOV + 05 E 12/DEZ · 18H–20H</div>
+              <div className="vp-actions" style={{ marginTop: 20 }}>
+                <a className="vp-btn vp-btn-primary" href="#inscricao">{cta} <span aria-hidden="true">→</span></a>
                 <a className="vp-btn vp-btn-secondary" href="#programa">Conhecer o programa</a>
               </div>
-              <p className="vp-note" style={{ color: "#c9dff4", marginTop: 12 }}>Interesse gratuito, sem cobrança ou confirmação automática de vaga. Inscrições pagas serão anunciadas após aprovação da oferta.</p>
+              <div className={layout.miniFlow}><strong>01. Reserve</strong><span>→</span><strong>02. Pague pelo ARO</strong><span>→</span><strong>03. Receba confirmação</strong></div>
             </div>
+            <div className={layout.formCol}><SalesQuickReserve waUrl={whatsapp} /></div>
           </div>
         </section>
 
@@ -62,6 +66,8 @@ export default function SalesLanding({ offer, whatsapp }: { offer: SalesPageConf
             </div>
           </div>
         </section>
+
+        <section className="vp-section" id="condicoes" aria-labelledby="termos-ll01"><div className="vp-wrap"><div className="vp-intro"><p className="vp-eyebrow">Condições comerciais</p><h2 className="vp-h2" id="termos-ll01">Informação antes da inscrição.</h2><p>Os preços de R$397 antecipado e R$497 regular estão aprovados. O desconto adicional de 10% aplica-se somente a uma reserva elegível comprovada pelo servidor, quando essa promoção estiver ativa. As condições completas de pagamento, cancelamento e reembolso serão apresentadas para aceitação antes de qualquer cobrança.</p></div></div></section>
 
         <section className="vp-section vp-band" aria-labelledby="faq-ll01">
           <div className="vp-wrap"><div className="vp-intro"><p className="vp-eyebrow">Dúvidas frequentes</p><h2 className="vp-h2" id="faq-ll01">Antes de participar.</h2></div>
