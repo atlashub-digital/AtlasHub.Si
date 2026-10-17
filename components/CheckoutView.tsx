@@ -9,7 +9,7 @@ type View =
   | { state: "CONFIRMED"; workshop: string; ticket: string | null }
   | { state: "FAILED" | "EXPIRED" | "CANCELED" | "RELEASED" | "REVOKED"; workshop: string };
 
-const back: Record<string, string> = { W01: "/workshops/empresa-aumentada-2027-2030", EL01: "/workshops/enterprise-lab-ecommerce" };
+const back: Record<string, string> = { W01: "/workshops/empresa-aumentada-2027-2030", EL01: "/workshops/enterprise-lab-ecommerce", LL01: "/workshops/automacao-pessoas-no-centro" };
 
 export default function CheckoutView({ id }: { id: string }) {
   const [v, setV] = useState<View | null>(null);
@@ -45,7 +45,7 @@ export default function CheckoutView({ id }: { id: string }) {
         <p className="vp-eyebrow">Pagamento aprovado</p>
         <h2 className="vp-h2">Inscrição confirmada.</h2>
         {v.ticket ? <p>Bilhete: <strong style={{ fontSize: 28, letterSpacing: ".08em" }}>{v.ticket}</strong></p> : <p>O bilhete foi enviado para o seu e-mail e WhatsApp.</p>}
-        <p>Guarde este código. O local em Anápolis é comunicado por e-mail e WhatsApp até 7 dias antes do evento.</p>
+        <p>Guarde este código. {v.workshop === "LL01" ? "Os detalhes de acesso às quatro lives online serão comunicados pela AtlasHub pelos canais autorizados." : "O local em Anápolis é comunicado por e-mail e WhatsApp até 7 dias antes do evento."}</p>
         <Link className="vp-btn vp-btn-secondary" href={link}>Voltar ao programa</Link>
       </div>
     );
