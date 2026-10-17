@@ -62,7 +62,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
         window.location.assign(body.next); return;
       }
       setStatus(body.error === "email_required_by_provider"
-        ? "O operador de pagamento exige e-mail neste momento. Preencha o e-mail e tente novamente."
+        ? "Informe um e-mail válido para receber a confirmação da inscrição."
         : "Não foi possível iniciar o PIX. Nenhum pagamento foi efetuado. Pode falar com a equipa pelo WhatsApp.");
     } catch { setStatus("Falha de ligação. Nenhum pagamento foi efetuado."); }
     finally { setPending(false); }
@@ -87,7 +87,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
             <label className={styles.label}>CPF ou CNPJ<input className={styles.input} name="document" inputMode="numeric" required placeholder="Somente números" maxLength={18} /></label>
           </div>
           <div className={styles.two}>
-            <label className={styles.label}>E-mail (opcional)<input className={styles.input} type="email" name="email" autoComplete="email" placeholder="Para receber detalhes" maxLength={160}/></label>
+            <label className={styles.label}>E-mail para confirmação<input className={styles.input} type="email" name="email" autoComplete="email" required placeholder="voce@empresa.com.br" maxLength={160}/></label>
             <label className={styles.label}>Empresa (opcional)<input className={styles.input} name="company" autoComplete="organization" placeholder="Nome do negócio" maxLength={160} /></label>
           </div>
           <input name="website" type="text" style={{ position: "absolute", width: 1, height: 1, opacity: 0 }} tabIndex={-1} autoComplete="off" aria-hidden="true"/>
@@ -99,7 +99,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
         <a className={styles.cta} href={waUrl} target="_blank" rel="noopener noreferrer">Reservar interesse pelo WhatsApp →</a>
       )}
       <div className={styles.flow} aria-label="Fluxo da inscrição"><span><i className={styles.dot}/> Reserva</span><span>→</span><span><i className={styles.dot}/> PIX ARO</span><span>→</span><span><i className={styles.dot}/> Confirmação</span></div>
-      <p className={styles.note}>Depois do pagamento: formulário complementar e confirmação por canais autorizados. Inscrição validada apenas com pagamento aprovado.</p>
+      <p className={styles.note}>Dados complementares depois do pagamento. Confirmação por e-mail e WhatsApp quando o envio estiver configurado e autorizado.</p>
       <p className={styles.status} aria-live="polite">{status}</p>
       <a className={styles.secondary} href={waUrl} target="_blank" rel="noopener noreferrer">Dúvidas? Fale com a AtlasHub · +55 62 99190-3462</a>
     </aside>
