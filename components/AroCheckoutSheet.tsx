@@ -10,9 +10,10 @@ import styles from "./AroCheckoutSheet.module.css";
  * Fechar este diálogo NUNCA cancela a sessão financeira.
  */
 export default function AroCheckoutSheet({
-  checkoutId, open, onClose, onConfirmed,
+  checkoutId, open, onClose, onConfirmed, productName,
 }: {
   checkoutId: string;
+  productName: string;
   open: boolean;
   onClose: () => void;
   onConfirmed: () => void;
@@ -55,8 +56,10 @@ export default function AroCheckoutSheet({
           </div>
           <button ref={closeRef} type="button" className={styles.close} onClick={onClose} aria-label="Fechar janela de pagamento">×</button>
         </div>
+        <p className={styles.product}><span>Produto / serviço:</span> <strong>{productName}</strong></p>
         <p className={styles.hint}>Pode fechar e voltar a esta janela sem cancelar o PIX. Não envie comprovantes por WhatsApp.</p>
         <div className={styles.content}><CheckoutView id={checkoutId} onConfirmed={onConfirmed}/></div>
+        <footer className={styles.secure}><span aria-hidden="true">🔒</span> Pagamento em ambiente seguro · ARO Systems</footer>
       </div>
     </div>
   );
