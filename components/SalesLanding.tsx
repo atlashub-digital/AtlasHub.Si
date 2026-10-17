@@ -67,7 +67,14 @@ export default function SalesLanding({ offer, whatsapp }: { offer: SalesPageConf
           </div>
         </section>
 
-        <section className="vp-section" id="condicoes" aria-labelledby="termos-ll01"><div className="vp-wrap"><div className="vp-intro"><p className="vp-eyebrow">Condições comerciais</p><h2 className="vp-h2" id="termos-ll01">Informação antes da inscrição.</h2><p>Os preços de R$397 antecipado e R$497 regular estão aprovados. O desconto adicional de 10% aplica-se somente a uma reserva elegível comprovada pelo servidor, quando essa promoção estiver ativa. As condições completas de pagamento, cancelamento e reembolso serão apresentadas para aceitação antes de qualquer cobrança.</p></div></div></section>
+        <section className="vp-section" id="condicoes" aria-labelledby="termos-ll01"><div className="vp-wrap"><div className="vp-intro"><p className="vp-eyebrow">Condições comerciais</p><h2 className="vp-h2" id="termos-ll01">Informação antes da inscrição.</h2><p>Os preços de R$397 antecipado e R$497 regular estão aprovados. O desconto adicional de 10% aplica-se somente a uma reserva elegível comprovada pelo servidor, quando essa promoção estiver ativa.</p></div><div className="vp-grid vp-grid-3">
+          <article className="vp-card"><h3>Pagamento</h3><p>PIX pelo sistema de pagamentos da AtlasHub (ARO). A inscrição só fica confirmada, com bilhete, depois de o pagamento ser aprovado. Não aceitamos comprovantes por WhatsApp como confirmação.</p></article>
+          <article className="vp-card"><h3>Desistência</h3><p>Reembolso integral se pedir em até 7 dias depois do pagamento (direito de arrependimento, CDC art. 49).</p></article>
+          <article className="vp-card"><h3>Transferência</h3><p>Depois desse prazo, a inscrição pode ser transferida para outra pessoa da sua empresa, sem custo, até 48 horas antes do primeiro encontro.</p></article>
+          <article className="vp-card"><h3>Adiamento ou cancelamento pela AtlasHub</h3><p>Você escolhe entre a nova data e o reembolso integral, sem custos.</p></article>
+          <article className="vp-card"><h3>Reserva promocional</h3><p>A reserva de 10% vale 5 minutos e é única por CPF/CNPJ (recarregar não reinicia o prazo). O valor cobrado é sempre o confirmado na tela de pagamento.</p></article>
+          <article className="vp-card"><h3>Privacidade</h3><p>Dados usados só para a inscrição, bilhete e comunicação do evento. Documento armazenado apenas como código de verificação, nunca em texto legível.</p></article>
+        </div></div></section>
 
         <section className="vp-section vp-band" aria-labelledby="faq-ll01">
           <div className="vp-wrap"><div className="vp-intro"><p className="vp-eyebrow">Dúvidas frequentes</p><h2 className="vp-h2" id="faq-ll01">Antes de participar.</h2></div>
