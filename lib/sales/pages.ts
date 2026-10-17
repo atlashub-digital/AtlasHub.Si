@@ -59,7 +59,7 @@ export const ll01: SalesPageConfig = {
     { q: "Preciso saber programar?", a: "Não. O programa foca o desenho de processos e a construção assistida. Algumas demonstrações são técnicas, mas têm explicação acessível." },
     { q: "Vou sair com uma automação pronta?", a: "O objetivo é um mapa de oportunidades, um protótipo ou blueprint inicial e um plano. Não inclui implementação produtiva personalizada." },
     { q: "São aulas gravadas?", a: "Os quatro encontros são ao vivo e online. Gravações e eventuais condições de acesso ainda serão informadas." },
-    { q: "Qual o valor e como faço a inscrição?", a: "As condições comerciais e a abertura do checkout serão anunciadas após homologação. Pode reservar interesse gratuitamente pelo WhatsApp." },
+    { q: "Qual o valor e como faço a inscrição?", a: "Lote antecipado aprovado: R$397. Regular: R$497. Uma promoção adicional de 10% (R$357,30 sobre R$397) só vale se for ativada por reserva válida no servidor. Enquanto o checkout não abrir, manifeste interesse pelo WhatsApp." },
     { q: "Sou estudante ou trabalho sozinho. Faz sentido?", a: "Sim. A metodologia pode ser aplicada desde processos pessoais e pequenas operações até empresas com várias equipas." },
   ],
   contactPhone: "5562991903462",
