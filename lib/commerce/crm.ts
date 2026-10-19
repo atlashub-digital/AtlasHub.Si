@@ -24,6 +24,7 @@ export async function notifyCrm(
         registrationId: r.id,
         workshop: r.workshop,
         ticket: r.ticket,
+        ...(r.workshop === "LL01" ? { eventDetails: { title: "Automação com Pessoas no Centro", modality: "100% ONLINE · AO VIVO", dates: ["2026-10-27", "2026-10-29"], sessions: 2 } } : {}),
         campaign: r.campaign,
         offer: r.offer,
         amountMinor: r.amount_minor,

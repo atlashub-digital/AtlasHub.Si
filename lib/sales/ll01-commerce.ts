@@ -9,11 +9,7 @@ import { ipHash, secretCookie } from "../commerce/runtime";
 import { cpfOk, cnpjOk } from "../commerce/validate";
 import { getStore } from "../commerce/store";
 
-const CODES = {
-  promotional: { code: "ll01-reserva10-br", amount: 35730 },
-  early: { code: "ll01-antecipado-br", amount: 39700 },
-  regular: { code: "ll01-regular-br", amount: 49700 },
-} as const;
+import { ll01Offer } from "./ll01-offer";
 const json = (status: number, body: unknown, headers: Record<string,string> = {}) =>
   Response.json(body, { status, headers: { "Cache-Control": "no-store", ...headers } });
 type Input = { name: string; phone: string; email: string; document: string; marketing: boolean; campaign: string };
@@ -54,26 +50,23 @@ function clean(body: unknown): Input {
   return { name, email, phone: phone.length <= 11 ? "+55" + phone : "+" + phone, document,
     marketing: b.marketing === true, campaign };
 }
-function isRegular(now = new Date()) {
-  const raw = process.env.LL01_REGULAR_FROM;
-  const dt = raw ? new Date(raw) : null;
-  return Boolean(dt && !Number.isNaN(dt.getTime()) && now >= dt);
-}
 export function salesReady() {
   const aro = aroConfig();
-  return process.env.LL01_SALES_OPEN === "yes" && Boolean(aro?.paymentsEnabled && aro.project === "atlashub-si"
+  return process.env.LL01_SALES_OPEN === "yes" && process.env.LL01_RELEASE_V3_VERIFIED === "yes" && ll01Offer().approved && Boolean(aro?.paymentsEnabled && aro.project === "atlashub-si"
     && process.env.SI_DATABASE_URL && process.env.LL01_DOCUMENT_HASH_KEY && process.env.LL01_RESERVATION_SECRET);
 }
 export async function statusAvailability() {
-  const price = { earlyMinor: 39700, regularMinor: 49700, promoMinor: 35730 };
-  if (!salesReady()) return { open:false, pricing:price, promo:null, reason:"not_ready" };
+  const campaign = ll01Offer();
+  const price = { earlyMinor: campaign.amount, regularMinor: 49700, promoMinor: 24900, currentMinor: campaign.amount };
+  const promo = campaign.promotional ? { expiresAt: campaign.deadline, serverNow: campaign.serverNow } : null;
+  if (!salesReady()) return { open:false, pricing:price, promo, reason:"not_ready" };
   try {
     const rows = await sql()<Array<{sales_open:boolean;capacity:number;taken:number}>>`
       select sales_open,capacity,si_workshops.seats_taken('LL01') as taken
       from si_workshops.workshops where code='LL01'`;
-    const w = rows[0]; return {open:Boolean(w?.sales_open && w.taken < w.capacity), pricing: price, promo:null,
+    const w = rows[0]; return {open:Boolean(w?.sales_open && w.taken < w.capacity), pricing: price, promo,
       reason: w?.sales_open ? (w.taken >= w.capacity ? "full" : null) : "closed"};
-  } catch {return {open:false,pricing:price,promo:null,reason:"unavailable"};}
+  } catch {return {open:false,pricing:price,promo,reason:"unavailable"};}
 }
 export async function reserve(req: Request, body: unknown): Promise<Response> {
   if (!salesReady()) return json(503,{error:"sales_closed"});
@@ -86,9 +79,9 @@ export async function reserve(req: Request, body: unknown): Promise<Response> {
     const q = r[0]; if (!q) return json(503,{error:"unavailable"});
     if (q.outcome==="already_confirmed") return json(409,{error:"already_registered"});
     const cookie = `ll01_q=${encodeURIComponent(q.id+"."+cookieSignature(q.id))}; HttpOnly; Secure; SameSite=Lax; Path=/api/sales/ll01; Max-Age=7200`;
-    return json(201,{id:q.id,expiresAt:q.promo_expires_at?.toISOString()||null,
-      promoEligible:process.env.LL01_PROMO_ENABLED==="yes" && new Date(q.promo_expires_at)>new Date(),
-      currentPrice:isRegular()?49700:39700}, {"Set-Cookie":cookie});
+    return json(201,{id:q.id,expiresAt:ll01Offer().deadline,
+      promoEligible:ll01Offer().promotional,
+      currentPrice:ll01Offer().amount}, {"Set-Cookie":cookie});
   } catch { return json(503,{error:"unavailable"}); }
 }
 export async function checkout(req: Request, body: unknown): Promise<Response> {
@@ -108,11 +101,10 @@ export async function checkout(req: Request, body: unknown): Promise<Response> {
     const r=rows[0];
     if (!r || r.identity_hash!==hashedDoc(digits) || r.status!=="pending") return json(409,{error:"reservation_invalid"});
     if (r.aro_session_id) return json(409,{error:"already_pending",next:`/workshops/checkout/${id}`});
-    const offer = process.env.LL01_PROMO_ENABLED==="yes" && new Date(r.promo_expires_at)>new Date()
-      ? CODES.promotional : isRegular()?CODES.regular:CODES.early;
+    const offer = ll01Offer();
     const session=await createCheckoutSession(aro,{
       offer:offer.code,payer:{name:r.name,email:r.email,phone:r.phone,document:digits},
-      idempotencyKey:`si:LL01:${id}:${offer.code}`,
+      idempotencyKey:`si:LL01:${id}`,
       metadata:{registration_id:id,workshop:"LL01"},attribution:{utm_campaign:"LL01-SITE"},
     });
     if (session.project!==aro.project || session.offer!==offer.code
