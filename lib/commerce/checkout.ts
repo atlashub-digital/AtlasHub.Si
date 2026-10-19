@@ -28,7 +28,7 @@ export const byCode = (code: RegistrationCode): Pick<Workshop,"code" | "aroOffer
   if (code === "LL01") return {
     code: "LL01" as never,
     aroOffers: { antecipado: "ll01-promocional-br", regular: "ll01-regular-br" },
-    aroEntitlement: "atlashub-si:workshop:ll01",
+    aroEntitlement: "atlashub-si:ll01",
     pricing: { antecipado: 24900, regular: 49700 },
   };
   return workshops.find((w) => w.code === code)!;
