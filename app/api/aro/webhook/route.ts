@@ -32,7 +32,7 @@ export async function POST(request: Request) {
   const deps = runtimeDeps();
   if (!deps.store) {
     console.info(JSON.stringify({ aro_event: result.event.type, id: result.event.id, processed: false }));
-    return Response.json({ received: true });
+    return Response.json({ error: "store_unavailable" }, { status: 503 });
   }
   try {
     const outcome = await handleEvent(result.event, deps);
@@ -43,3 +43,4 @@ export async function POST(request: Request) {
     return Response.json({ error: "processing_failed" }, { status: 500 });
   }
 }
+

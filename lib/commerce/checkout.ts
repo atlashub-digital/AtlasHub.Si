@@ -9,6 +9,7 @@ import {
 } from "../aro/client";
 import { workshops, type Workshop } from "../workshops";
 import { notifyCrm } from "./crm";
+import { verifyLl01Purchase } from "./ll01-confirmation";
 import { earlyUntil, termsVersion } from "./policy";
 import { storeErrorCode, type Code, type Registration, type RegistrationCode, type Store } from "./store";
 import type { SignupInput } from "./validate";
@@ -127,12 +128,16 @@ export type StatusView =
 export async function finalize(reg: Registration, d: Deps): Promise<{ ticket: string } | null> {
   const w = byCode(reg.workshop);
   if (!reg.aro_order_id) return null;
-  const active = await hasActiveEntitlement(d.aro, { email: reg.email }, w.aroEntitlement, d.fetch, d.now());
+  const active = reg.workshop === "LL01"
+    ? await verifyLl01Purchase(reg, d.aro, d.fetch, d.now())
+    : await hasActiveEntitlement(d.aro, { email: reg.email }, w.aroEntitlement, d.fetch, d.now());
   if (!active) return null;
   const c = await d.store!.confirm(reg.id, reg.aro_order_id);
   const fresh = await d.store!.get(reg.id);
-  if (fresh && !fresh.crm_notified_at && (await notifyCrm("workshop.registration.confirmed", fresh, d.env, d.fetch))) {
-    await d.store!.markCrmNotified(reg.id);
+  if (fresh && !fresh.crm_notified_at) {
+    const notified = await notifyCrm("workshop.registration.confirmed", fresh, d.env, d.fetch);
+    if (notified) await d.store!.markCrmNotified(reg.id);
+    else if (reg.workshop === "LL01") throw Error("ll01_crm_retry_required");
   }
   return { ticket: c.ticket };
 }
@@ -142,7 +147,19 @@ export async function getStatus(id: string, secret: string | null, d: Deps): Pro
   const reg = await d.store.get(id);
   if (!reg) return null;
   const workshop = reg.workshop;
-  if (reg.status === "confirmed") return { state: "CONFIRMED", workshop, ticket: secret ? reg.ticket : null };
+  if (reg.status === "confirmed") {
+    if (workshop !== "LL01") return { state: "CONFIRMED", workshop, ticket: secret ? reg.ticket : null };
+    // An arbitrary cookie is not proof of checkout possession.
+    if (!secret || !d.aro || !reg.aro_session_id) return { state: "CONFIRMED", workshop, ticket: null };
+    const session = await getCheckoutSession(d.aro, reg.aro_session_id, secret, d.fetch);
+    if (session.id !== reg.aro_session_id || session.order_id !== reg.aro_order_id || session.project !== d.aro.project) return null;
+    if (session.state === "REFUNDED" || session.state === "CHARGEBACK") {
+      await d.store.revoke(reg.aro_order_id!, `aro_${session.state.toLowerCase()}`);
+      return { state: "REVOKED", workshop };
+    }
+    if (session.state !== "APPROVED" || !await verifyLl01Purchase(reg, d.aro, d.fetch, d.now())) return { state: "PROCESSING", workshop };
+    return { state: "CONFIRMED", workshop, ticket: reg.ticket };
+  }
   if (reg.status === "released") return { state: "RELEASED", workshop };
   if (reg.status === "revoked") return { state: "REVOKED", workshop };
   if (!secret || !d.aro || !reg.aro_session_id) return { state: "PENDING", workshop, offer: reg.offer, amountMinor: reg.amount_minor, payment: null };
@@ -183,14 +200,23 @@ export async function handleEvent(event: AroEvent, d: Deps): Promise<"processed"
   if (reg) {
     result = "processed";
     switch (event.type) {
-      case "payment.approved": case "order.approved": case "entitlement.granted":
-        await finalize(reg, d); break;
+      case "payment.approved": case "order.approved": case "entitlement.granted": {
+        if (reg.workshop === "LL01" && reg.status === "revoked") break;
+        const done = await finalize(reg, d);
+        // Do not acknowledge a notification before its canonical entitlement is visible.
+        if (reg.workshop === "LL01" && !done) throw Error("ll01_confirmation_pending");
+        break;
+      }
       case "payment.failed":
         await store.release(reg.id, "aro_payment_failed"); break;
       case "payment.refunded": case "payment.chargeback": case "entitlement.revoked": {
-        if ((await store.revoke(orderId!, event.type)) > 0) {
+        const revoked = await store.revoke(orderId!, event.type);
+        if (revoked > 0 || reg.workshop === "LL01") {
           const fresh = await store.get(reg.id);
-          if (fresh) await notifyCrm("workshop.registration.revoked", fresh, d.env, d.fetch);
+          if (fresh) {
+            const sent = await notifyCrm("workshop.registration.revoked", fresh, d.env, d.fetch);
+            if (!sent && reg.workshop === "LL01") throw Error("ll01_crm_retry_required");
+          }
         }
         break;
       }
@@ -200,3 +226,4 @@ export async function handleEvent(event: AroEvent, d: Deps): Promise<"processed"
   const fresh = await store.recordEvent(event.id, event.type);
   return fresh ? result : "duplicate";
 }
+
