@@ -26,9 +26,9 @@ export type Deps = {
 export const byCode = (code: RegistrationCode): Pick<Workshop,"code" | "aroOffers" | "aroEntitlement" | "pricing"> => {
   if (code === "LL01") return {
     code: "LL01" as never,
-    aroOffers: { antecipado: "ll01-antecipado-br", regular: "ll01-regular-br" },
+    aroOffers: { antecipado: "ll01-promocional-br", regular: "ll01-regular-br" },
     aroEntitlement: "atlashub-si:workshop:ll01",
-    pricing: { antecipado: 39700, regular: 49700 },
+    pricing: { antecipado: 24900, regular: 49700 },
   };
   return workshops.find((w) => w.code === code)!;
 };

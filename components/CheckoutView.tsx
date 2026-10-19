@@ -49,8 +49,8 @@ export default function CheckoutView({ id, onConfirmed }: { id: string; onConfir
       <div className="vp-card" role="status">
         <p className="vp-eyebrow">Pagamento aprovado</p>
         <h2 className="vp-h2">Inscrição confirmada.</h2>
-        {v.ticket ? <p>Bilhete: <strong style={{ fontSize: 28, letterSpacing: ".08em" }}>{v.ticket}</strong></p> : <p>O bilhete foi enviado para o seu e-mail e WhatsApp.</p>}
-        <p>Guarde este código. {v.workshop === "LL01" ? "Os detalhes de acesso às quatro lives online serão comunicados pela AtlasHub pelos canais autorizados." : "O local em Anápolis é comunicado por e-mail e WhatsApp até 7 dias antes do evento."}</p>
+        {v.ticket ? <p>Bilhete: <strong style={{ fontSize: 28, letterSpacing: ".08em" }}>{v.ticket}</strong></p> : <p>Consulte o bilhete no navegador onde iniciou a compra ou contacte a equipa.</p>}
+        <p>Guarde este código. {v.workshop === "LL01" ? "Automação com Pessoas no Centro — 100% ONLINE · AO VIVO · 27 e 29 de outubro de 2026 · 2 encontros. Consulte a equipa para as instruções de acesso." : "O local em Anápolis é comunicado por e-mail e WhatsApp até 7 dias antes do evento."}</p>
         <Link className="vp-btn vp-btn-secondary" href={link}>Voltar ao programa</Link>
       </div>
     );
@@ -60,7 +60,7 @@ export default function CheckoutView({ id, onConfirmed }: { id: string; onConfir
     return (
       <div className="vp-card" role="status">
         <h2 className="vp-h2">{v.state === "REVOKED" ? "Inscrição cancelada." : "O pagamento não foi concluído."}</h2>
-        <p>{v.state === "REVOKED" ? "O pagamento foi reembolsado ou estornado e o bilhete deixou de valer." : "Nenhum valor foi cobrado por esta tentativa. Pode iniciar uma nova inscrição."}</p>
+        <p>{v.state === "REVOKED" ? "O pagamento foi reembolsado ou estornado e o bilhete deixou de valer." : "Esta tentativa não está confirmada. Se pagou, contacte a equipa antes de tentar novamente."}</p>
         <Link className="vp-btn vp-btn-primary" href={`${link}#inscricao`}>Tentar de novo</Link>
       </div>
     );

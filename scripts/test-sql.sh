@@ -12,3 +12,8 @@ psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/001_registrations_test.sql | tai
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/002_ll01_sales.sql
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/002_ll01_sales.sql
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/002_ll01_sales_test.sql | tail -3
+
+# V3: preserva histórico e remove a janela individual de desconto.
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/003_ll01_campaign.sql
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/003_ll01_campaign.sql
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/003_ll01_campaign_test.sql

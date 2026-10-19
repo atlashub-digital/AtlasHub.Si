@@ -6,14 +6,15 @@ import AroCheckoutSheet from "./AroCheckoutSheet";
 
 type Availability = {
   open: boolean;
-  pricing: { earlyMinor: number; regularMinor: number; promoMinor: number };
-  promo?: { quoteId: string; expiresAt: string } | null;
+  pricing: { earlyMinor: number; regularMinor: number; promoMinor: number; currentMinor: number };
+  promo?: { serverNow: string; expiresAt: string } | null;
 };
 const BRL = (minor: number) => (minor / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-const first = { earlyMinor: 39700, regularMinor: 49700, promoMinor: 35730 };
+const first = { earlyMinor: 24900, regularMinor: 49700, promoMinor: 24900, currentMinor: 24900 };
 
 export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
   const [availability, setAvailability] = useState<Availability | null>(null);
+  const [clockOffset, setClockOffset] = useState(0);
   const [now, setNow] = useState(() => Date.now());
   const [pending, setPending] = useState(false);
   const [quote, setQuote] = useState<{ id: string; expiresAt: string | null; promoEligible: boolean; currentPrice: number } | null>(null);
@@ -25,23 +26,23 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
   useEffect(() => {
     let live = true;
     fetch("/api/sales/ll01/availability", { cache: "no-store" })
-      .then(r => r.json()).then((d: Availability) => { if (live) setAvailability(d); })
+      .then(r => r.json()).then((d: Availability) => { if (live) { try { const saved = sessionStorage.getItem("ll01-checkout"); if (saved && /^[0-9a-f-]{36}$/i.test(saved)) setCheckoutId(saved); } catch {} setAvailability(d); if (d.promo?.serverNow) setClockOffset(new Date(d.promo.serverNow).getTime() - Date.now()); } })
       .catch(() => { if (live) setStatus("Atendimento disponível pelo WhatsApp."); });
     return () => { live = false; };
   }, []);
   useEffect(() => {
-    if (!quote?.expiresAt) return;
+    if (!availability?.promo?.expiresAt) return;
     // O relógio reflete uma reserva existente no servidor. Não cria nem renova promoções.
-    const timer = setInterval(() => setNow(Date.now()), 1000);
+    const timer = setInterval(() => setNow(Date.now() + clockOffset), 1000);
     return () => clearInterval(timer);
-  }, [quote?.expiresAt]);
+  }, [availability?.promo?.expiresAt, clockOffset]);
 
-  const expiresAt = quote?.expiresAt ?? null;
+  const expiresAt = availability?.promo?.expiresAt ?? null;
   const seconds = expiresAt ? Math.max(0, Math.ceil((new Date(expiresAt).getTime() - now) / 1000)) : null;
   const open = availability?.open === true;
   const price = availability?.pricing ?? first;
-  const promoActive = open && quote?.promoEligible === true && seconds !== null && seconds > 0;
-  const effectivePrice = promoActive ? price.promoMinor : quote?.currentPrice ?? price.earlyMinor;
+  const promoActive = open && seconds !== null && seconds > 0;
+  const effectivePrice = open ? (promoActive ? price.promoMinor : price.regularMinor) : price.promoMinor;
   const remaining = seconds ?? 0;
   async function generatePix(reservationId: string, buyerDocument: string) {
     const response = await fetch("/api/sales/ll01/checkout", {
@@ -50,6 +51,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
     });
     const result = await response.json().catch(() => ({}));
     if (response.status === 201 && typeof result.id === "string") {
+      try { sessionStorage.setItem("ll01-checkout", result.id); } catch {}
       setCheckoutId(result.id);
       setSheetOpen(true);
       return;
@@ -88,7 +90,7 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
       }
       setQuote({
         id: body.id, expiresAt: body.expiresAt,
-        promoEligible: body.promoEligible === true, currentPrice: body.currentPrice || 39700,
+        promoEligible: body.promoEligible === true, currentPrice: body.currentPrice || 49700,
       });
       // O comprador clica UMA vez. A reserva promocional existe no servidor antes da sessão ARO.
       try {
@@ -109,30 +111,24 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
     catch { setStatus("Não foi possível abrir o PIX. A reserva permanece registada; pode tentar novamente."); }
     finally { setPending(false); }
   }
-  const onConfirmed=useCallback(() => { setPaid(true); setSheetOpen(false); }, []);
-  if(paid) return <div className={styles.card} id="inscricao" role="status" aria-live="polite">
-    <p className={styles.eyebrow}>LL01 · Inscrição confirmada</p>
-    <h2>Pagamento confirmado!</h2>
-    <p>Obrigado pela inscrição. As informações das quatro sessões LIVE ONLINE serão encaminhadas pelos canais informados, conforme a configuração de notificações da AtlasHub.</p>
-    <a className={styles.secondary} href={waUrl} target="_blank" rel="noopener noreferrer">Precisa de ajuda? Fale com a nossa equipa</a>
-  </div>;
+  const onConfirmed=useCallback(() => { setPaid(true); }, []);
   return (
     <>
-      {checkoutId && <AroCheckoutSheet checkoutId={checkoutId} open={sheetOpen} productName="Live Lab 01 — Automação com Pessoas no Centro" onClose={() => setSheetOpen(false)} onConfirmed={onConfirmed}/>}
+      {checkoutId && <AroCheckoutSheet checkoutId={checkoutId} open={sheetOpen} productName="Automação com Pessoas no Centro · 100% ONLINE · AO VIVO · 27 e 29/10/2026 · 2 encontros" onClose={() => setSheetOpen(false)} onConfirmed={onConfirmed}/>}
       <aside className={styles.card} id="inscricao" aria-label="Reserva do Live Lab">
-      <div className={styles.eyebrow}>Inscrição · 4 lives online · 8 horas</div>
+      <div className={styles.eyebrow}>100% ONLINE · AO VIVO · 27 e 29/10 · 2 encontros</div>
       {!checkoutId ? <><div className={styles.offer}>
         <strong className={styles.price}>{BRL(effectivePrice)}</strong>
         <span className={styles.strike}>{BRL(price.regularMinor)}</span>
       </div>
-      <p className={styles.terms}>Valor antecipado {BRL(price.earlyMinor)} · regular {BRL(price.regularMinor)}. O valor final é confirmado no checkout ARO.</p>
+      <p className={styles.terms}>Promocional {BRL(price.promoMinor)} · regular {BRL(price.regularMinor)}. O valor final é confirmado no checkout ARO.</p>
       <div className={styles.promo} role="status">
-        {promoActive ? <>Reserva promocional de 10% válida por <strong className={styles.timer}>{String(Math.floor(remaining / 60)).padStart(2, "0")}:{String(remaining % 60).padStart(2, "0")}</strong>. O valor emitido no PIX mantém-se durante a validade desse pagamento.</> :
-          <>{open ? (quote ? "A janela do desconto de 10% terminou. Será aplicado o preço vigente antes de emitir o PIX." : "Reserve primeiro para iniciar uma janela promocional real de 5 minutos, quando disponível.") : "Oferta antecipada aprovada. O checkout e o desconto temporário serão disponibilizados quando a integração financeira do LL01 for homologada."}</>}
+        {promoActive ? <>Oferta termina em <strong className={styles.timer}>{Math.floor(remaining / 86400)}d {String(Math.floor(remaining % 86400 / 3600)).padStart(2, "0")}h {String(Math.floor(remaining % 3600 / 60)).padStart(2, "0")}m {String(remaining % 60).padStart(2, "0")}s</strong>. Prazo: {new Date(expiresAt!).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })} (Brasília).</> : <>{open ? "Inscrição disponível pelo valor regular. O valor do Pix é validado antes da emissão." : "Compras temporariamente indisponíveis. Registe o seu interesse com a equipa; não há cobrança nem garantia de vaga."}</>}
+
       </div>
       </> : <p className={styles.promo}>PIX emitido. Pode fechar e reabrir a janela a qualquer momento enquanto conclui o pagamento.</p>}
       {checkoutId ? (
-        <div className={styles.form}><button className={styles.cta} type="button" onClick={() => setSheetOpen(true)}>Abrir meu PIX →</button></div>
+        <div className={styles.form}><button className={styles.cta} type="button" onClick={() => setSheetOpen(true)}>{paid ? "Consultar o meu bilhete →" : "Retomar meu Pix →"}</button></div>
       ) : open && quote ? (
         <div className={styles.form}>
           <p className={styles.note}>Dados guardados na reserva. O PIX será emitido pelo ARO e a inscrição só é confirmada depois de aprovado.</p>
@@ -153,13 +149,25 @@ export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
           <input name="website" type="text" style={{ position: "absolute", width: 1, height: 1, opacity: 0 }} tabIndex={-1} autoComplete="off" aria-hidden="true"/>
           <label className={styles.check}><input type="checkbox" name="acceptTerms" required/><span>Li e aceito os termos comerciais e o tratamento de dados necessário para inscrição e pagamento. <a href="#condicoes" style={{ color: "#6ee6fb" }}>Ver condições</a>.</span></label>
           <label className={styles.check}><input type="checkbox" name="marketing"/><span>Quero receber outros conteúdos da AtlasHub (opcional).</span></label>
-          <button type="submit" className={styles.cta} disabled={pending}>{pending ? "Preparando seu Pix…" : "Pagar com Pix →"}</button>
+          <button type="submit" className={styles.cta} disabled={pending}>{pending ? "Preparando seu Pix…" : `RESERVAR AGORA — ${BRL(effectivePrice)}`}</button>
         </form>
       ) : (
-        <a className={styles.cta} href={waUrl} target="_blank" rel="noopener noreferrer">Reservar interesse pelo WhatsApp →</a>
+        <form className={styles.form} onSubmit={event => {
+          event.preventDefault();
+          const data = new FormData(event.currentTarget);
+          const url = new URL(waUrl);
+          url.searchParams.set("text", (url.searchParams.get("text") || "") + "\nNome: " + data.get("name") + "\nE-mail: " + data.get("email"));
+          window.location.assign(url.toString());
+        }}>
+          <label className={styles.label}>Nome<input className={styles.input} name="name" autoComplete="name" required minLength={2} maxLength={160} placeholder="Como devemos chamar você?" /></label>
+          <label className={styles.label}>E-mail<input className={styles.input} name="email" type="email" autoComplete="email" required maxLength={160} placeholder="voce@empresa.com.br" /></label>
+          <label className={styles.check}><input type="checkbox" required /><span>Autorizo partilhar estes dados com a equipa para receber informações deste evento.</span></label>
+          <button className={styles.cta} type="submit">Registar interesse pelo WhatsApp →</button>
+          <p className={styles.note}>Abre uma mensagem para você rever e enviar. Os dados só chegam à equipa após o envio no WhatsApp.</p>
+        </form>
       )}
       <div className={styles.flow} aria-label="Fluxo da inscrição"><span><i className={styles.dot}/> Reserva</span><span>→</span><span><i className={styles.dot}/> PIX ARO</span><span>→</span><span><i className={styles.dot}/> Confirmação</span></div>
-      <p className={styles.note}>Dados complementares depois do pagamento. Confirmação por e-mail e WhatsApp quando o envio estiver configurado e autorizado.</p>
+      <p className={styles.note}>A inscrição só fica confirmada após pagamento aprovado. Guarde o bilhete apresentado nesta página. Contacte a equipa para instruções de acesso.</p>
       <p className={styles.status} aria-live="polite">{status}</p>
       <a className={styles.secondary} href={waUrl} target="_blank" rel="noopener noreferrer">Dúvidas? Fale com a AtlasHub · +55 62 99190-3462</a>
       </aside>
