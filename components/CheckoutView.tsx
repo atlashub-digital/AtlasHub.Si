@@ -23,8 +23,11 @@ export default function CheckoutView({ id, onConfirmed }: { id: string; onConfir
     const poll = async () => {
       try {
         const r = await fetch(`/api/workshops/checkout/${id}`, { credentials: "same-origin", cache: "no-store" });
-        if (r.status === 404) { setErr("Inscrição não encontrada."); return; }
+        if (!alive) return;
+        if (r.status === 404) { setErr("Inscrição não encontrada. Contacte a equipa AtlasHub."); return; }
+        if (!r.ok) throw Error("status_unavailable");
         const d = (await r.json()) as View;
+        if (!["PENDING", "PROCESSING", "CONFIRMED", "FAILED", "EXPIRED", "CANCELED", "RELEASED", "REVOKED"].includes(d?.state)) throw Error("invalid_status");
         if (!alive) return;
         setV(d); setErr("");
         if (d.state === "CONFIRMED" && !confirmedOnce.current) {
@@ -33,7 +36,7 @@ export default function CheckoutView({ id, onConfirmed }: { id: string; onConfir
         }
         if (d.state === "PENDING" || d.state === "PROCESSING") timer.current = setTimeout(poll, 4000);
       } catch {
-        if (alive) { setErr("Sem conexão; tentando de novo…"); timer.current = setTimeout(poll, 8000); }
+        if (alive) { setErr("Não foi possível atualizar o pagamento; tentando de novo… A sua reserva permanece registada."); timer.current = setTimeout(poll, 8000); }
       }
     };
     poll();
@@ -55,7 +58,7 @@ export default function CheckoutView({ id, onConfirmed }: { id: string; onConfir
       </div>
     );
   if (v.state === "PROCESSING")
-    return <div className="vp-card" role="status"><h2 className="vp-h2">Pagamento recebido.</h2><p>Confirmando a inscrição… Esta página atualiza sozinha.</p></div>;
+    return <div className="vp-card" role="status"><h2 className="vp-h2">Pagamento recebido.</h2><p>Confirmando a inscrição… Esta página atualiza sozinha.</p>{err && <p>{err}</p>}</div>;
   if (v.state !== "PENDING")
     return (
       <div className="vp-card" role="status">
@@ -70,6 +73,7 @@ export default function CheckoutView({ id, onConfirmed }: { id: string; onConfir
       <div className="vp-card">
         <p className="vp-eyebrow" style={{display:"flex", alignItems:"center", gap:8}}><span aria-label="Pix, sistema de pagamentos instantâneos" style={{border:"1px solid #31cab4", borderRadius:8, padding:"3px 10px", color:"#84f5e2", background:"#0d383b", fontWeight:800, fontSize:15}}>Pix</span> Pagamento instantâneo</p>
         <h2 className="vp-h2">{v.amountMinor ? formatBRL(v.amountMinor) : "PIX"}</h2>
+        {v.workshop === "LL01" && <p>Automação com Pessoas no Centro · 100% ONLINE · AO VIVO · 27 e 29/10/2026 · 2 encontros</p>}
         {v.payment ? (
           <>
             <div aria-label="QR Code PIX" role="img" style={{ background: "#fff", borderRadius: 12, padding: 12, maxWidth: 280 }} dangerouslySetInnerHTML={{ __html: v.payment.qrSvg }} />
@@ -93,3 +97,4 @@ export default function CheckoutView({ id, onConfirmed }: { id: string; onConfir
     </div>
   );
 }
+

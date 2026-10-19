@@ -55,6 +55,14 @@ export type CreateCheckoutInput = {
 
 export type Entitlement = { key: string; status: "ACTIVE" | "REVOKED" | "EXPIRED"; source_order_id?: string; starts_at: string; expires_at?: string };
 
+export type Order = {
+  id: string; project: string;
+  status: "CREATED" | "PENDING" | "APPROVED" | "CANCELED" | "REFUNDED" | "CHARGEBACK";
+  amount: { amount_minor: number; currency: string };
+  items: { offer: string; quantity: number; unit_amount: { amount_minor: number; currency: string } }[];
+  customer_id?: string;
+};
+
 export type AroErrorCode = "not_configured" | "payments_disabled" | "http_error" | "network_error";
 
 export class AroError extends Error {
@@ -133,6 +141,13 @@ export async function resolveEntitlements(
   return res.entitlements;
 }
 
+/** Canonical order read using the existing project-scoped server credential. */
+export async function getOrder(cfg: AroConfig | null, id: string, fetchImpl: Fetch = fetch): Promise<Order> {
+  if (!cfg) throw new AroError("not_configured");
+  return call<Order>(`${cfg.apiUrl}/v1/orders/${encodeURIComponent(id)}`,
+    { method: "GET", headers: { Authorization: `Bearer ${cfg.serverKey}` } }, fetchImpl);
+}
+
 /** Regra de acesso do contrato ARO: só `ACTIVE` (e não expirado) desbloqueia; qualquer erro nega. */
 export async function hasActiveEntitlement(
   cfg: AroConfig | null,
@@ -148,3 +163,4 @@ export async function hasActiveEntitlement(
     return false;
   }
 }
+

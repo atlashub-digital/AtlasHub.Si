@@ -86,7 +86,9 @@ test("rota /api/aro/webhook: 503 sem ARO configurado; com segredo, só aceita as
   const nowTs = String(Math.floor(Date.now() / 1000));
   const headers = (sig: string) => ({ "x-aro-event-id": event.id, "x-aro-timestamp": nowTs, "x-aro-signature": sig });
   assert.equal((await POST(new Request("http://x", { method: "POST", body, headers: headers("v1=00") }))).status, 401);
-  assert.equal((await POST(new Request("http://x", { method: "POST", body, headers: headers(signAroPayload(secret, nowTs, body)) }))).status, 200);
+  // A valid event without storage must be retried by ARO, not acknowledged and lost.
+  assert.equal((await POST(new Request("http://x", { method: "POST", body, headers: headers(signAroPayload(secret, nowTs, body)) }))).status, 503);
   if (saved.s === undefined) delete process.env.ARO_WEBHOOK_SECRET; else process.env.ARO_WEBHOOK_SECRET = saved.s;
   if (saved.p === undefined) delete process.env.ARO_PROJECT_SLUG; else process.env.ARO_PROJECT_SLUG = saved.p;
 });
+
