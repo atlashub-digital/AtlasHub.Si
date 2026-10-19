@@ -14,7 +14,7 @@ function fixture() {
   const order: Order = { id: "order-1", project: "atlashub-si", status: "APPROVED", customer_id: "customer-1",
     amount: { amount_minor: 24900, currency: "BRL" },
     items: [{ offer: "ll01-promocional-br", quantity: 1, unit_amount: { amount_minor: 24900, currency: "BRL" } }] };
-  const entitlement: Entitlement = { key: "atlashub-si:workshop:ll01", status: "ACTIVE", source_order_id: "order-1", starts_at: "2026-10-19T00:00:00Z" };
+  const entitlement: Entitlement = { key: "atlashub-si:ll01", status: "ACTIVE", source_order_id: "order-1", starts_at: "2026-10-19T00:00:00Z" };
   const env = { ARO_API_URL: "https://aro.example", ARO_PROJECT_SLUG: "atlashub-si", ARO_PUBLIC_KEY: "pk", ARO_SERVER_KEY: "sk",
     WORKSHOP_CRM_WEBHOOK_URL: "https://crm.example/hook", WORKSHOP_CRM_WEBHOOK_TOKEN: "token" };
   const calls: { url: string; body: unknown; headers: Record<string, string> }[] = [];

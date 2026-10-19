@@ -16,7 +16,7 @@ export async function verifyLl01Purchase(
     || order.items[0].unit_amount?.amount_minor !== reg.amount_minor) return false;
   const entitlements = await resolveEntitlements(aro,
     order.customer_id ? { customerId: order.customer_id } : { email: reg.email }, fetchImpl);
-  return entitlements.some(e => e.key === "atlashub-si:workshop:ll01" && e.status === "ACTIVE"
+  return entitlements.some(e => e.key === "atlashub-si:ll01" && e.status === "ACTIVE"
     && e.source_order_id === order.id && new Date(e.starts_at).getTime() <= now.getTime()
     && (!e.expires_at || new Date(e.expires_at).getTime() > now.getTime()));
 }
