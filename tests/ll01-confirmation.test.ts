@@ -35,7 +35,14 @@ function fixture() {
     throw Error("unexpected request");
   }) as typeof fetch;
   const unused = async (): Promise<never> => { throw Error("unexpected store operation"); };
+  const channels = new Map<string, string>();
   const store: Store = {
+    communicationEvent: async () => {},
+    communicationClaim: async (_id, channel) => {
+      if (channels.has(channel) && channels.get(channel) !== "failed") return false;
+      channels.set(channel, "sending"); return true;
+    },
+    communicationResult: async (_id, channel, status) => { channels.set(channel, status); },
     markTicketEmailed: async () => { reg.ticket_emailed_at = now; },
     availability: unused, reserve: unused, attachCheckout: unused, release: unused,
     get: async () => reg, findByOrder: async id => id === reg.aro_order_id ? reg : null,
@@ -51,7 +58,7 @@ function fixture() {
   };
   const d: Deps = { aro: aroConfig(env), store, env, fetch: fetchImpl, now: () => now };
   const event = { id: "event-1", type: "entitlement.granted" as const, project: "atlashub-si", created_at: now.toISOString(), data: { order_id: "order-1" } };
-  return { reg, order, entitlement, calls, events, d, event, confirms: () => confirms,
+  return { reg, order, entitlement, calls, events, channels, d, event, confirms: () => confirms,
     setCrm: (ok: boolean) => { crmOk = ok; }, setAro: (ok: boolean) => { aroOk = ok; } };
 }
 
@@ -224,4 +231,53 @@ test('LL01: missing credentials, Resend errors and malformed replies do not fail
     assert.equal(f.reg.status, 'confirmed');
     assert.equal(f.reg.ticket_emailed_at, undefined);
   }
+});
+
+test('omnichannel: WhatsApp uses existing Evolution adapter once and never blocks email', async () => {
+  for (const outcome of ['success', 'http', 'timeout', 'malformed']) {
+    const f = ticketDeliveryFixture();
+    f.reg.phone = '+55 (62) 99999-0000';
+    Object.assign(f.d.env, { LL01_WA_CONFIRM: 'live', ATENDIMENTO_EVOLUTION_KEY: 'private-key' });
+    const base = f.d.fetch;
+    const wa: RequestInit[] = [];
+    f.d.fetch = (async (url, init) => {
+      if (!String(url).includes('evo-relay.lia.doctor')) return base(url, init);
+      assert.equal(String(url), 'https://evo-relay.lia.doctor/message/sendText/atlashub-wa');
+      wa.push(init!);
+      if (outcome === 'timeout') throw Error('timeout');
+      if (outcome === 'http') return Response.json({}, { status: 503 });
+      return Response.json(outcome === 'success' ? { key: { id: 'wa-1' } } : {});
+    }) as typeof fetch;
+    await handleEvent(f.event, f.d);
+    await handleEvent(f.event, f.d);
+    assert.equal(f.emails.length, 1);
+    assert.equal(wa.length, 1);
+    assert.equal(f.channels.get('whatsapp'), outcome === 'success' ? 'sent' : 'uncertain');
+    assert.equal((wa[0].headers as Record<string,string>).apikey, 'private-key');
+    const body = JSON.parse(String(wa[0].body));
+    assert.equal(body.number, '5562999990000');
+    assert.ok(body.text.includes('Pagamento confirmado'));
+    assert.ok(body.text.includes('a enviar em breve'));
+  }
+});
+
+test('omnichannel: WhatsApp default off, missing credentials retryable; email failure independent', async () => {
+  const f = ticketDeliveryFixture();
+  f.reg.phone = '+5562999990000';
+  f.fail(true);
+  await handleEvent(f.event, f.d);
+  assert.equal(f.channels.has('whatsapp'), false);
+  f.d.env.LL01_WA_CONFIRM = 'live';
+  await handleEvent(f.event, f.d);
+  assert.equal(f.channels.get('whatsapp'), 'failed');
+  f.d.env.ATENDIMENTO_EVOLUTION_KEY = 'private-key';
+  const base = f.d.fetch;
+  f.d.fetch = (async (url, init) => String(url).includes('evo-relay')
+    ? Response.json({ key: { id: 'wa-1' } }) : base(url, init)) as typeof fetch;
+  await handleEvent(f.event, f.d);
+  assert.equal(f.channels.get('whatsapp'), 'sent');
+  assert.equal(f.channels.get('email'), 'failed');
+  f.fail(false);
+  await handleEvent(f.event, f.d);
+  assert.equal(f.channels.get('email'), 'sent');
 });

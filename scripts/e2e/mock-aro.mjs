@@ -1,7 +1,7 @@
 // ARO simulado para o E2E local (nunca usar em produção). Implementa só o contrato usado pelo site.
 import { createServer } from "node:http";
 import { randomUUID } from "node:crypto";
-const prices = { "workshop-01-empresa-aumentada-antecipado-br": 29700, "workshop-01-empresa-aumentada-regular-br": 34700,
+const prices = { "ll01-e2e-test-br": 500, "workshop-01-empresa-aumentada-antecipado-br": 29700, "workshop-01-empresa-aumentada-regular-br": 34700,
   "enterprise-lab-01-ecommerce-antecipado-br": 99000, "enterprise-lab-01-ecommerce-regular-br": 129000 };
 const sessions = new Map(), byIdem = new Map(), entitled = new Set();
 const view = (id, secret) => { const s = sessions.get(id); return { id, order_id: s.order, project: "atlashub-si", offer: s.offer, state: s.state,
@@ -20,14 +20,21 @@ createServer(async (req, res) => {
   }
   let m = req.url.match(/^\/v1\/checkout-sessions\/([^/]+)$/);
   if (m) return sessions.get(m[1])?.secret === req.headers["x-aro-checkout-secret"] ? send(200, view(m[1], false)) : send(401, {});
+  m = req.url.match(/^\/v1\/orders\/([^/]+)$/);
+  if (m) {
+    const s = [...sessions.values()].find(s => s.order === m[1]);
+    return s ? send(200, { id: s.order, project: "atlashub-si", status: s.state,
+      amount: { amount_minor: prices[s.offer], currency: "BRL" },
+      items: [{ offer: s.offer, quantity: 1, unit_amount: { amount_minor: prices[s.offer], currency: "BRL" } }] }) : send(404, {});
+  }
   if (req.url === "/v1/entitlements/resolve") {
     if (req.headers.authorization !== "Bearer sk_test") return send(401, {});
     const e = body.identity?.email;
-    return send(200, { project: "atlashub-si", entitlements: [...entitled].filter((k) => k.startsWith(e + "|")).map((k) => ({ key: k.split("|")[1], status: "ACTIVE", starts_at: new Date().toISOString() })) });
+    return send(200, { project: "atlashub-si", entitlements: [...entitled].filter((k) => k.startsWith(e + "|")).map((k) => ({ key: k.split("|")[1], status: "ACTIVE", source_order_id: [...sessions.values()].find(s => s.email === e && s.state === "APPROVED")?.order, starts_at: new Date().toISOString() })) });
   }
   // Controlo do teste
   m = req.url.match(/^\/_test\/approve\/(.+)$/);
-  if (m) { for (const [, s] of sessions) if (s.order === m[1]) { s.state = "APPROVED"; entitled.add(`${s.email}|atlashub-si:workshop:workshop-01-empresa-aumentada`); entitled.add(`${s.email}|atlashub-si:workshop:enterprise-lab-01-ecommerce`); } return send(200, {}); }
+  if (m) { for (const [, s] of sessions) if (s.order === m[1]) { s.state = "APPROVED"; entitled.add(`${s.email}|atlashub-si:ll01`); entitled.add(`${s.email}|atlashub-si:workshop:workshop-01-empresa-aumentada`); entitled.add(`${s.email}|atlashub-si:workshop:enterprise-lab-01-ecommerce`); } return send(200, {}); }
   if (req.url === "/_test/sessions") return send(200, [...sessions.entries()].map(([id, s]) => ({ id, order: s.order, state: s.state })));
   send(404, {});
 }).listen(Number(process.env.MOCK_ARO_PORT || 4010));

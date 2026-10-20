@@ -22,3 +22,7 @@ psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/003_ll01_campaign_test.sql
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/004_ll01_ticket_email.sql
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/004_ll01_ticket_email.sql
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/004_ll01_ticket_email_test.sql
+
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/005_registration_communications.sql
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/005_registration_communications.sql
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/005_registration_communications_test.sql
