@@ -12,8 +12,8 @@ type Availability = {
 const BRL = (minor: number) => (minor / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const first = { earlyMinor: 24900, regularMinor: 49700, promoMinor: 24900, currentMinor: 24900 };
 
-export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
-  const [availability, setAvailability] = useState<Availability | null>(null);
+export default function SalesQuickReserve({ waUrl, initialAvailability }: { waUrl: string; initialAvailability?: Availability | null }) {
+  const [availability, setAvailability] = useState<Availability | null>(initialAvailability ?? null);
   const [clockOffset, setClockOffset] = useState(0);
   const [now, setNow] = useState(() => Date.now());
   const [pending, setPending] = useState(false);
