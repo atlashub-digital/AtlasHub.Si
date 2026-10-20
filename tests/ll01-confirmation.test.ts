@@ -186,8 +186,9 @@ test('LL01: all approval events deliver one durable ticket email; R$5 is marked 
   const body = JSON.parse(String(f.emails[0].body));
   assert.deepEqual(body.to, [f.reg.email]);
   assert.equal(body.subject, 'Bilhete LL01 — Automação com Pessoas no Centro');
-  for (const line of ['LL01-TICKET', '100% ONLINE · ao vivo', '27 e 29 de outubro de 2026',
+  for (const line of ['LL01-TICKET', '100% ONLINE · AO VIVO', '27 e 29 de outubro de 2026',
     'BILHETE DE TESTE — não vale como inscrição comercial']) assert.ok(body.text.includes(line));
+  assert.ok(typeof body.html === 'string' && body.html.includes('atlashub-logo-welcome.jpg'));
 });
 
 test('LL01: email failure never blocks confirmation and replay retries with same key', async () => {
@@ -256,8 +257,8 @@ test('omnichannel: WhatsApp uses existing Evolution adapter once and never block
     assert.equal((wa[0].headers as Record<string,string>).apikey, 'private-key');
     const body = JSON.parse(String(wa[0].body));
     assert.equal(body.number, '5562999990000');
-    assert.ok(body.text.includes('Pagamento confirmado'));
-    assert.ok(body.text.includes('a enviar em breve'));
+    assert.ok(body.text.includes('inscrição está garantida'));
+    assert.ok(body.text.includes('em breve'));
   }
 });
 
