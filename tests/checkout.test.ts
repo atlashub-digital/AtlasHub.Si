@@ -13,6 +13,7 @@ function memStore(capacity = { W01: 25, EL01: 12 }) {
   const events = new Set<string>();
   const live = (r: Registration) => r.status === "confirmed" || r.status === "pending";
   const store: Store = {
+    markTicketEmailed: async () => {},
     async availability() { return { W01: { open: true, capacity: capacity.W01, taken: rows.filter((r) => r.workshop === "W01" && live(r)).length }, EL01: { open: true, capacity: capacity.EL01, taken: rows.filter((r) => r.workshop === "EL01" && live(r)).length } }; },
     async reserve(i) {
       const ex = rows.find((r) => r.workshop === i.workshop && r.email === i.email && live(r));

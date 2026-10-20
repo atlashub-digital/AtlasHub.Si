@@ -17,3 +17,8 @@ psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/002_ll01_sales_test.sql | tail -
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/003_ll01_campaign.sql
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/003_ll01_campaign.sql
 psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/003_ll01_campaign_test.sql
+
+# Durable ticket delivery marker; repeatable and callable by the application role.
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/004_ll01_ticket_email.sql
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/si_workshops/004_ll01_ticket_email.sql
+psql -q -v ON_ERROR_STOP=1 -d "$db" -f db/tests/004_ll01_ticket_email_test.sql

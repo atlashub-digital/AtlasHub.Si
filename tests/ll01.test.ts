@@ -17,3 +17,14 @@ test('LL01 never invents an unapproved, invalid or timezone-free deadline', () =
 test('LL01 cannot open sales with legacy flags alone', async () => {
   assert.equal((await statusAvailability()).open, false);
 });
+test('LL01 test override requires both envs and cannot override verified sales', () => {
+  const now = new Date('2026-10-20T00:00:00Z');
+  const settings = { ...env, LL01_E2E_TEST_OFFER: 'yes', LL01_E2E_TEST_CODE: 'll01-e2e-test-br' };
+  assert.deepEqual(ll01Offer(settings, now), { approved: true, promotional: false,
+    code: 'll01-e2e-test-br', amount: 500, deadline: null, serverNow: now.toISOString() });
+  for (const safe of [{ ...settings, LL01_E2E_TEST_OFFER: 'no' },
+    { ...settings, LL01_E2E_TEST_CODE: '' }, { ...settings, LL01_E2E_TEST_CODE: '  ' },
+    { ...settings, LL01_RELEASE_V3_VERIFIED: 'yes' }]) {
+    assert.deepEqual(ll01Offer(safe, now), ll01Offer(env, now));
+  }
+});
