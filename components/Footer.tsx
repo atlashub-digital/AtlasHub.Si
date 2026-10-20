@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { APP_URL, EDITIONS_URL } from "../lib/site";
 
-export default function Footer() {
+export default function Footer({ conditionsHref = "/workshops/automacao-pessoas-no-centro#condicoes" }: { conditionsHref?: string }) {
   return (
     <footer className="vp-footer">
       <div className="vp-wrap">
@@ -33,7 +33,7 @@ export default function Footer() {
         </nav>
         <div className="vp-footer-legal">
           <span>© AtlasHub.SI · ATLAS GLOBAL TECH LTD (UK) · AtlasHub - ME (Brasil)</span>
-          <span>Privacidade e termos: em revisão jurídica</span>
+          <Link href={conditionsHref}>Condições de inscrição e uso dos dados</Link>
         </div>
       </div>
     </footer>

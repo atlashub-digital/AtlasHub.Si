@@ -1,5 +1,5 @@
-import { ll01Offer } from "../lib/sales/ll01-offer";
 import { statusAvailability } from "../lib/sales/ll01-commerce";
+import LiveLabCta from "./LiveLabCta";
 import Image from "next/image";
 import Header from "./Header";
 import Footer from "./Footer";
@@ -9,11 +9,9 @@ import layout from "./SalesLandingLayout.module.css";
 
 /** Landing comercial replicável, mobile-first, sem dependência de CMS ou provider de pagamento. */
 export default async function SalesLanding({ offer, whatsapp }: { offer: SalesPageConfig; whatsapp: string }) {
-  const campaign = ll01Offer();
   // Render the live server-authoritative checkout state in the initial HTML.
   // Hydration then revalidates in the browser; checkout still validates price and gates server-side.
   const initialAvailability = await statusAvailability();
-  const cta = `RESERVAR AGORA — R$${campaign.approved ? campaign.amount / 100 : 249}`;
   return (
     <>
       <Header current="/workshops" />
@@ -22,7 +20,7 @@ export default async function SalesLanding({ offer, whatsapp }: { offer: SalesPa
           <div className={"vp-wrap " + layout.heroGrid}>
             <div className={layout.heroCopy}>
               <p className="vp-eyebrow">{offer.eyebrow}</p>
-              <h1 className="vp-h1" id="sales-title">{offer.titleStart}<br /><em>{offer.titleAccent}</em></h1>
+              <h1 className="vp-h1" id="sales-title">Pare de colecionar ferramentas.<br /><em>Crie o seu próprio agente de IA.</em></h1>
               <p className="vp-lead" style={{ fontWeight: 600 }}>{offer.subtitle}</p>
               <p style={{ maxWidth: 730, fontSize: "1.1rem", lineHeight: 1.6, color: "#e3f0ff" }}>{offer.promise}</p>
               <div className="vp-hero-chips">
@@ -32,7 +30,7 @@ export default async function SalesLanding({ offer, whatsapp }: { offer: SalesPa
               </div>
               <div className={layout.fact}><span aria-hidden="true" /> 100% ONLINE · 27 E 29 DE OUTUBRO DE 2026</div>
               <div className="vp-actions" style={{ marginTop: 20 }}>
-                <a className="vp-btn vp-btn-primary" href="#inscricao">{cta} <span aria-hidden="true">→</span></a>
+                <LiveLabCta initialAvailability={initialAvailability} />
                 <a className="vp-btn vp-btn-secondary" href="#programa">Conhecer o programa</a>
               </div>
               <div className={layout.presenter}><Image src="/assets/workshops/ll01/retrato-executivo-em-pe.webp" width={90} height={104} alt="Sérgio Monteiro, formador do Live Lab Automação com Pessoas no Centro" /><p>Com Sérgio Monteiro<br /><span>AtlasHub Editions</span></p></div>
@@ -77,7 +75,7 @@ export default async function SalesLanding({ offer, whatsapp }: { offer: SalesPa
 
         <section className="vp-section vp-band" aria-labelledby="livro"><div className={"vp-wrap " + layout.book}>
           <Image src="/assets/workshops/ll01/empresa-aumentada-capa-usuario.webp" width={747} height={756} alt="Empresa Aumentada — Da Inteligência Artificial à Organização Inteligente, de Sérgio Monteiro, AtlasHub Editions" />
-          <div><p className="vp-eyebrow">AtlasHub Editions · Sérgio Monteiro</p><h2 className="vp-h2" id="livro">Empresa Aumentada</h2><p>Da Inteligência Artificial à Organização Inteligente. Uma leitura complementar sobre pessoas, processos, dados e agentes.</p><p>A leitura digital já é gratuita na AtlasHub Editions.</p><div className="vp-actions"><a className="vp-btn vp-btn-secondary" href="https://editions.atlashub.si/livros/empresa-aumentada">Ler na AtlasHub Editions</a><a className="vp-btn vp-btn-primary" href="#inscricao">{cta}</a></div></div>
+          <div><p className="vp-eyebrow">AtlasHub Editions · Sérgio Monteiro</p><h2 className="vp-h2" id="livro">Empresa Aumentada</h2><p>Da Inteligência Artificial à Organização Inteligente. Uma leitura complementar sobre pessoas, processos, dados e agentes.</p><p>A leitura digital já é gratuita na AtlasHub Editions. O envio do livro aos inscritos está previsto em mensagem posterior de boas-vindas.</p><div className="vp-actions"><a className="vp-btn vp-btn-secondary" href="https://editions.atlashub.si/livros/empresa-aumentada">Ler na AtlasHub Editions</a><LiveLabCta initialAvailability={initialAvailability} /></div></div>
         </div></section>
         <section className="vp-section" id="condicoes" aria-labelledby="termos-ll01"><div className="vp-wrap"><div className="vp-intro"><p className="vp-eyebrow">Condições comerciais</p><h2 className="vp-h2" id="termos-ll01">Informação antes da inscrição.</h2><p>R$249 promocional · R$497 regular. O preço vigente e as condições são apresentados antes de emitir o Pix. Horários, plataforma e instruções de acesso serão enviados aos participantes antes dos encontros.</p></div><div className="vp-grid vp-grid-3">
           <article className="vp-card"><h3>Pagamento</h3><p>PIX pelo sistema de pagamentos da AtlasHub (ARO). A inscrição só fica confirmada, com bilhete, depois de o pagamento ser aprovado. Não aceitamos comprovantes por WhatsApp como confirmação.</p></article>
@@ -101,15 +99,15 @@ export default async function SalesLanding({ offer, whatsapp }: { offer: SalesPa
               <h2 className="vp-h2" id="reserva-ll01">Quer colocar a IA a trabalhar na sua operação?</h2>
               <p>{offer.dateLabel}. {initialAvailability.open ? "Inscrições abertas. Garanta a sua vaga com Pix e receba a confirmação após o pagamento ser aprovado." : "As vendas estão temporariamente indisponíveis. Fale com a nossa equipa pelo WhatsApp para mais informações."}</p>
               <div className="vp-actions">
-                <a className="vp-btn vp-btn-primary" href="#inscricao">{cta} <span aria-hidden="true">→</span></a>
+                <LiveLabCta initialAvailability={initialAvailability} />
               </div>
               <p className="vp-note">A inscrição só é confirmada após a aprovação do Pix ARO. Receba o bilhete e as boas-vindas por e-mail e WhatsApp. Dúvidas: +55 62 99190-3462.</p>
             </div>
           </div>
         </section>
       </main>
-      <a className={layout.sticky} href="#inscricao">100% ONLINE · {cta}</a>
-      <Footer />
+      <div className={layout.sticky}><LiveLabCta initialAvailability={initialAvailability} /></div>
+      <Footer conditionsHref="#condicoes" />
     </>
   );
 }
