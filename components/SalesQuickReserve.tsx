@@ -15,7 +15,8 @@ const first = { earlyMinor: 24900, regularMinor: 49700, promoMinor: 24900, curre
 export default function SalesQuickReserve({ waUrl, initialAvailability }: { waUrl: string; initialAvailability?: Availability | null }) {
   const [availability, setAvailability] = useState<Availability | null>(initialAvailability ?? null);
   const [clockOffset, setClockOffset] = useState(0);
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState(() => initialAvailability?.promo?.serverNow
+    ? new Date(initialAvailability.promo.serverNow).getTime() : Date.now());
   const [pending, setPending] = useState(false);
   const [quote, setQuote] = useState<{ id: string; expiresAt: string | null; promoEligible: boolean; currentPrice: number } | null>(null);
   const [document, setDocument] = useState("");
