@@ -43,7 +43,7 @@ export const ll01: SalesPageConfig = {
   audiences: ["PMEs e comércio", "E-commerce e serviços", "Profissionais independentes", "Marketing e criadores", "Estudantes"],
   deliverables: ["Mapa de oportunidades", "Missão inicial do agente", "Protótipo ou blueprint demonstrativo", "Próximos passos para uma implementação supervisionada"],
   faq: [
-    { q: "É online?", a: "Sim. 100% ONLINE e ao vivo, em 27 e 29 de outubro de 2026. Horários e plataforma serão informados antes da abertura das compras." },
+    { q: "É online?", a: "Sim. 100% ONLINE e ao vivo, em 27 e 29 de outubro de 2026. Os horários, a plataforma e as instruções de acesso serão comunicados aos inscritos antes dos encontros." },
     { q: "Preciso saber programar?", a: "Não. A construção é guiada e acessível a não-programadores. Alguns exemplos técnicos podem exigir apoio." },
     { q: "Vamos criar um agente?", a: "Sim, passo a passo no segundo encontro, num ambiente controlado. A implementação na sua empresa exige integrações, permissões e testes próprios. APIs podem ter custos adicionais." },
     { q: "Recebo gravações?", a: "A oferta é de dois encontros ao vivo. Não inclui promessa de gravações." },

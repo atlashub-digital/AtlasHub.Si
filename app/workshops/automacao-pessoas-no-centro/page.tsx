@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Automação com Pessoas no Centro — Live Lab 01 | AtlasHub.SI",
   description: "Crie o seu próprio agente de IA. 100% ONLINE, ao vivo, 27 e 29 de outubro de 2026. Automação com Pessoas no Centro — A Nova Era da IA 2027–2030.",
   openGraph: { title: "Crie o seu próprio agente de IA | AtlasHub.SI", description: "100% ONLINE · 27 e 29 de outubro de 2026 · 2 encontros ao vivo", images: ["/assets/workshops/ll01/retrato-executivo-sentado.webp"] },
-  robots: { index: false, follow: false }, // levantar após homologação comercial e editorial
+  robots: { index: true, follow: true }, // vendas homologadas; página comercial ativa
 };
 
 type Props = { searchParams: Promise<{ origem?: string }> };

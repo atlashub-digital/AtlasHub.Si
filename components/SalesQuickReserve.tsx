@@ -7,15 +7,16 @@ import AroCheckoutSheet from "./AroCheckoutSheet";
 type Availability = {
   open: boolean;
   pricing: { earlyMinor: number; regularMinor: number; promoMinor: number; currentMinor: number };
-  promo?: { serverNow: string; expiresAt: string } | null;
+  promo?: { serverNow: string; expiresAt: string | null } | null;
 };
 const BRL = (minor: number) => (minor / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const first = { earlyMinor: 24900, regularMinor: 49700, promoMinor: 24900, currentMinor: 24900 };
 
-export default function SalesQuickReserve({ waUrl }: { waUrl: string }) {
-  const [availability, setAvailability] = useState<Availability | null>(null);
+export default function SalesQuickReserve({ waUrl, initialAvailability }: { waUrl: string; initialAvailability?: Availability | null }) {
+  const [availability, setAvailability] = useState<Availability | null>(initialAvailability ?? null);
   const [clockOffset, setClockOffset] = useState(0);
-  const [now, setNow] = useState(() => Date.now());
+  const [now, setNow] = useState(() => initialAvailability?.promo?.serverNow
+    ? new Date(initialAvailability.promo.serverNow).getTime() : Date.now());
   const [pending, setPending] = useState(false);
   const [quote, setQuote] = useState<{ id: string; expiresAt: string | null; promoEligible: boolean; currentPrice: number } | null>(null);
   const [document, setDocument] = useState("");
