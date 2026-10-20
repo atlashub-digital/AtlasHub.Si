@@ -8,6 +8,7 @@ import {
   type AroConfig, type CheckoutSession,
 } from "../aro/client";
 import { workshops, type Workshop } from "../workshops";
+import { sendLl01Ticket } from "./ll01-ticket-email";
 import { notifyCrm } from "./crm";
 import { verifyLl01Purchase } from "./ll01-confirmation";
 import { earlyUntil, termsVersion } from "./policy";
@@ -203,6 +204,17 @@ export async function handleEvent(event: AroEvent, d: Deps): Promise<"processed"
       case "payment.approved": case "order.approved": case "entitlement.granted": {
         if (reg.workshop === "LL01" && reg.status === "revoked") break;
         const done = await finalize(reg, d);
+        if (done && reg.workshop === "LL01") {
+          // Replayed events also retry delivery; transport failures never fail confirmation.
+          try {
+            const fresh = await store.get(reg.id);
+            if (fresh && !fresh.ticket_emailed_at && await sendLl01Ticket(fresh, done.ticket, d.env, d.fetch)) {
+              await store.markTicketEmailed(reg.id);
+            }
+          } catch {
+            console.error("ll01_ticket_email_failed", { registrationId: reg.id });
+          }
+        }
         // Do not acknowledge a notification before its canonical entitlement is visible.
         if (reg.workshop === "LL01" && !done) throw Error("ll01_confirmation_pending");
         break;

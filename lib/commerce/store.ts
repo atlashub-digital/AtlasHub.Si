@@ -22,6 +22,7 @@ export type Registration = {
   ticket: string | null;
   over_capacity: boolean;
   crm_notified_at: Date | null;
+  ticket_emailed_at?: Date | null;
 };
 export type ReserveInput = {
   workshop: Code; email: string; name: string; phone: string; company: string; role: string; document: string;
@@ -40,6 +41,7 @@ export interface Store {
   revoke(orderId: string, reason: string): Promise<number>;
   recordEvent(eventId: string, type: string): Promise<boolean>;
   markCrmNotified(id: string): Promise<void>;
+  markTicketEmailed(id: string): Promise<void>;
 }
 
 /** Erros de negócio levantados pelas funções SQL (`raise exception '<código>'`). */
@@ -95,6 +97,9 @@ export function pgStore(url: string): Store {
     async recordEvent(eventId, type) {
       const r = await one(sql<{ fresh: boolean }[]>`select si_workshops.record_event(${eventId}, ${type}) as fresh`);
       return Boolean(r?.fresh);
+    },
+    async markTicketEmailed(id) {
+      await sql`select si_workshops.mark_ticket_emailed(${id})`;
     },
     async markCrmNotified(id) { await sql`select si_workshops.mark_crm_notified(${id})`; },
   };

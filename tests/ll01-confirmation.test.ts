@@ -36,6 +36,7 @@ function fixture() {
   }) as typeof fetch;
   const unused = async (): Promise<never> => { throw Error("unexpected store operation"); };
   const store: Store = {
+    markTicketEmailed: async () => { reg.ticket_emailed_at = now; },
     availability: unused, reserve: unused, attachCheckout: unused, release: unused,
     get: async () => reg, findByOrder: async id => id === reg.aro_order_id ? reg : null,
     confirm: async () => {
@@ -147,4 +148,80 @@ test("LL01: confirmed ticket requires valid checkout possession, not any cookie"
   assert.deepEqual(await getStatus(f.reg.id, "valid-secret", f.d), { state: "CONFIRMED", workshop: "LL01", ticket: "LL01-TICKET" });
   f.order.status = "REFUNDED";
   assert.deepEqual(await getStatus(f.reg.id, "valid-secret", f.d), { state: "REVOKED", workshop: "LL01" });
+});
+
+function ticketDeliveryFixture() {
+  const f = fixture();
+  Object.assign(f.d.env, { NODE_ENV: 'production', LL01_TICKET_EMAIL: 'live',
+    RESEND_API_KEY: 'test-key', RESEND_FROM: 'tickets@example.test' });
+  const baseFetch = f.d.fetch;
+  const emails: RequestInit[] = [];
+  let fail = false;
+  f.d.fetch = (async (input, init) => {
+    if (String(input) !== 'https://api.resend.com/emails') return baseFetch(input, init);
+    emails.push(init!);
+    if (fail) throw Error('network failure');
+    return Response.json({ id: 'email-1' });
+  }) as typeof fetch;
+  return { ...f, emails, fail: (value: boolean) => { fail = value; } };
+}
+
+test('LL01: all approval events deliver one durable ticket email; R$5 is marked as test', async () => {
+  const f = ticketDeliveryFixture();
+  f.reg.amount_minor = f.order.amount.amount_minor = f.order.items[0].unit_amount.amount_minor = 500;
+  f.reg.offer = f.order.items[0].offer = 'll01-e2e-test-br';
+  for (const type of ['payment.approved', 'order.approved', 'entitlement.granted'] as const) {
+    await handleEvent({ ...f.event, id: type, type }, f.d);
+  }
+  await handleEvent(f.event, f.d);
+  assert.equal(f.emails.length, 1);
+  assert.ok(f.reg.ticket_emailed_at);
+  const body = JSON.parse(String(f.emails[0].body));
+  assert.deepEqual(body.to, [f.reg.email]);
+  assert.equal(body.subject, 'Bilhete LL01 — Automação com Pessoas no Centro');
+  for (const line of ['LL01-TICKET', '100% ONLINE · ao vivo', '27 e 29 de outubro de 2026',
+    'BILHETE DE TESTE — não vale como inscrição comercial']) assert.ok(body.text.includes(line));
+});
+
+test('LL01: email failure never blocks confirmation and replay retries with same key', async () => {
+  const f = ticketDeliveryFixture(); f.fail(true);
+  assert.equal(await handleEvent(f.event, f.d), 'processed');
+  assert.equal(f.reg.status, 'confirmed');
+  assert.equal(f.reg.ticket_emailed_at, undefined);
+  f.fail(false);
+  assert.equal(await handleEvent(f.event, f.d), 'duplicate');
+  assert.equal(f.emails.length, 2);
+  assert.equal((f.emails[0].headers as Record<string,string>)['Idempotency-Key'],
+    (f.emails[1].headers as Record<string,string>)['Idempotency-Key']);
+  assert.ok(!JSON.parse(String(f.emails[1].body)).text.includes('BILHETE DE TESTE'));
+});
+
+test('LL01: email gates fail closed outside production/live and before entitlement confirmation', async () => {
+  for (const settings of [{ NODE_ENV: 'test' }, { LL01_TICKET_EMAIL: 'off' }, { LL01_TICKET_EMAIL: '' }]) {
+    const f = ticketDeliveryFixture(); Object.assign(f.d.env, settings);
+    await handleEvent(f.event, f.d);
+    assert.equal(f.emails.length, 0);
+    assert.equal(f.reg.ticket_emailed_at, undefined);
+  }
+  const f = ticketDeliveryFixture(); f.entitlement.status = 'REVOKED';
+  await assert.rejects(handleEvent(f.event, f.d));
+  assert.equal(f.emails.length, 0);
+});
+
+test('LL01: missing credentials, Resend errors and malformed replies do not fail webhook', async () => {
+  for (const mode of ['missing-key', 'missing-from', 'http-error', 'missing-id', 'invalid-json']) {
+    const f = ticketDeliveryFixture();
+    if (mode === 'missing-key') delete f.d.env.RESEND_API_KEY;
+    if (mode === 'missing-from') delete f.d.env.RESEND_FROM;
+    const fetchImpl = f.d.fetch;
+    f.d.fetch = (async (input, init) => {
+      if (String(input) !== 'https://api.resend.com/emails') return fetchImpl(input, init);
+      if (mode === 'http-error') return Response.json({}, { status: 503 });
+      if (mode === 'invalid-json') return new Response('invalid');
+      return Response.json({});
+    }) as typeof fetch;
+    assert.equal(await handleEvent(f.event, f.d), 'processed');
+    assert.equal(f.reg.status, 'confirmed');
+    assert.equal(f.reg.ticket_emailed_at, undefined);
+  }
 });
