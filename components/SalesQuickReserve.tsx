@@ -10,7 +10,6 @@ type Availability = {
   promo?: { serverNow: string; expiresAt: string | null } | null;
 };
 const BRL = (minor: number) => (minor / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
-const first = { earlyMinor: 24900, regularMinor: 49700, promoMinor: 24900, currentMinor: 24900 };
 
 export default function SalesQuickReserve({ waUrl, initialAvailability }: { waUrl: string; initialAvailability?: Availability | null }) {
   const [availability, setAvailability] = useState<Availability | null>(initialAvailability ?? null);
@@ -41,9 +40,9 @@ export default function SalesQuickReserve({ waUrl, initialAvailability }: { waUr
   const expiresAt = availability?.promo?.expiresAt ?? null;
   const seconds = expiresAt ? Math.max(0, Math.ceil((new Date(expiresAt).getTime() - now) / 1000)) : null;
   const open = availability?.open === true;
-  const price = availability?.pricing ?? first;
+  const price = availability?.pricing;
   const promoActive = open && seconds !== null && seconds > 0;
-  const effectivePrice = open ? (promoActive ? price.promoMinor : price.regularMinor) : price.promoMinor;
+  const effectivePrice = price ? (promoActive ? price.currentMinor : price.regularMinor) : null;
   const remaining = seconds ?? 0;
   async function generatePix(reservationId: string, buyerDocument: string) {
     const response = await fetch("/api/sales/ll01/checkout", {
@@ -119,10 +118,10 @@ export default function SalesQuickReserve({ waUrl, initialAvailability }: { waUr
       <aside className={styles.card} id="inscricao" aria-label="Reserva do Live Lab">
       <div className={styles.eyebrow}>100% ONLINE · AO VIVO · 27 e 29/10 · 2 encontros</div>
       {!checkoutId ? <><div className={styles.offer}>
-        <strong className={styles.price}>{BRL(effectivePrice)}</strong>
-        <span className={styles.strike}>{BRL(price.regularMinor)}</span>
+        <strong className={styles.price}>{effectivePrice === null ? "Consultando preço…" : BRL(effectivePrice)}</strong>
+        <span className={styles.strike}>{price && BRL(price.regularMinor)}</span>
       </div>
-      <p className={styles.terms}>Promocional {BRL(price.promoMinor)} · regular {BRL(price.regularMinor)}. O valor final é confirmado no checkout ARO.</p>
+      <p className={styles.terms}>Promocional {price && BRL(price.promoMinor)} · regular {price && BRL(price.regularMinor)}. O valor final é confirmado no checkout ARO.</p>
       <div className={styles.promo} role="status">
         {promoActive ? <>Oferta termina em <strong className={styles.timer}>{Math.floor(remaining / 86400)}d {String(Math.floor(remaining % 86400 / 3600)).padStart(2, "0")}h {String(Math.floor(remaining % 3600 / 60)).padStart(2, "0")}m {String(remaining % 60).padStart(2, "0")}s</strong>. Prazo: {new Date(expiresAt!).toLocaleString("pt-BR", { timeZone: "America/Sao_Paulo" })} (Brasília).</> : <>{open ? "Inscrição disponível pelo valor regular. O valor do Pix é validado antes da emissão." : "Compras temporariamente indisponíveis. Registe o seu interesse com a equipa; não há cobrança nem garantia de vaga."}</>}
 
@@ -150,7 +149,7 @@ export default function SalesQuickReserve({ waUrl, initialAvailability }: { waUr
           <input name="website" type="text" style={{ position: "absolute", width: 1, height: 1, opacity: 0 }} tabIndex={-1} autoComplete="off" aria-hidden="true"/>
           <label className={styles.check}><input type="checkbox" name="acceptTerms" required/><span>Li e aceito os termos comerciais e o tratamento de dados necessário para inscrição e pagamento. <a href="#condicoes" style={{ color: "#6ee6fb" }}>Ver condições</a>.</span></label>
           <label className={styles.check}><input type="checkbox" name="marketing"/><span>Quero receber outros conteúdos da AtlasHub (opcional).</span></label>
-          <button type="submit" className={styles.cta} disabled={pending}>{pending ? "Preparando seu Pix…" : `RESERVAR AGORA — ${BRL(effectivePrice)}`}</button>
+          <button type="submit" className={styles.cta} disabled={pending}>{pending ? "Preparando seu Pix…" : `RESERVAR AGORA — ${effectivePrice === null ? "Consultando preço…" : BRL(effectivePrice)}`}</button>
         </form>
       ) : (
         <form className={styles.form} onSubmit={event => {
@@ -167,6 +166,7 @@ export default function SalesQuickReserve({ waUrl, initialAvailability }: { waUr
           <p className={styles.note}>Abre uma mensagem para você rever e enviar. Os dados só chegam à equipa após o envio no WhatsApp.</p>
         </form>
       )}
+      <ul className="cro-included"><li>27/10 — visão, oportunidades e arquitetura</li><li>29/10 — construção guiada de um agente</li><li>Pix · confirmação por WhatsApp e e-mail · bilhete digital</li></ul>
       <div className={styles.flow} aria-label="Fluxo da inscrição"><span><i className={styles.dot}/> Reserva</span><span>→</span><span><i className={styles.dot}/> PIX ARO</span><span>→</span><span><i className={styles.dot}/> Confirmação</span></div>
       <p className={styles.note}>A inscrição só fica confirmada após pagamento aprovado. Guarde o bilhete apresentado nesta página. Contacte a equipa para instruções de acesso.</p>
       <p className={styles.status} aria-live="polite">{status}</p>

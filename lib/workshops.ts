@@ -103,7 +103,7 @@ export const workshops: Workshop[] = [
       { q: "Posso levar minha equipe?", a: "Cada inscrição é individual. Condições para grupos de uma mesma empresa ainda estão em definição." },
     ],
     waMessage:
-      "Olá! Quero receber a abertura das inscrições do Workshop 01 — Empresa Aumentada 2027–2030 (14/11, Anápolis). Código: W01-SITE",
+      "Olá! Tenho dúvidas sobre a inscrição do Workshop 01 — Empresa Aumentada 2027–2030 (14/11, Anápolis). Código: W01-SITE",
   },
   {
     slug: "enterprise-lab-ecommerce",
@@ -158,7 +158,7 @@ export const workshops: Workshop[] = [
       { q: "A data pode mudar?", a: "A realização depende de uma decisão de go/no-go prévia. Se houver adiamento ou cancelamento, você escolhe entre a nova data e o reembolso integral." },
     ],
     waMessage:
-      "Olá! Quero receber a abertura das inscrições do Enterprise Lab 01 — E-commerce e Operações Vivas (28/11, Anápolis). Código: EL01-SITE",
+      "Olá! Tenho dúvidas sobre a inscrição do Enterprise Lab 01 — E-commerce e Operações Vivas (28/11, Anápolis). Código: EL01-SITE",
   },
 ];
 
@@ -177,6 +177,6 @@ export function formatBRL(minor: number): string {
 
 export const workshopStatus = {
   label: "Inscrições",
-  note: "A inscrição só fica confirmada depois de o pagamento PIX ser aprovado. A lista de interesse não reserva lugar nem cria obrigação de compra.",
+  note: "A inscrição só fica confirmada depois de o pagamento PIX ser aprovado.",
   waNote: "A mensagem só é enviada quando você tocar em enviar no WhatsApp. Não envie documentos, comprovantes nem dados de clientes.",
 };

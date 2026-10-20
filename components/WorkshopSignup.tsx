@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { termsVersion } from "../lib/commerce/policy";
 import { formatBRL, type Workshop } from "../lib/workshops";
 
-type Avail = { open: boolean; soldOut: boolean; lot: "antecipado" | "regular"; priceMinor: number };
+export type Avail = { open: boolean; soldOut: boolean; lot: "antecipado" | "regular"; priceMinor: number };
 const errors: Record<string, string> = {
   sold_out: "As inscrições estão esgotadas. Entre na lista de espera pelo WhatsApp.",
   already_registered: "Este e-mail já tem uma inscrição confirmada neste workshop. Veja o e-mail ou o WhatsApp de confirmação.",
@@ -15,34 +15,35 @@ const errors: Record<string, string> = {
 const fieldLabel: Record<string, string> = { name: "nome", email: "e-mail", phone: "WhatsApp", company: "empresa", document: "CPF/CNPJ", acceptTerms: "aceite das condições" };
 
 /** CTA do topo: "Inscrever-me" só com vendas abertas; senão, "Conheça o programa". */
-export function SignupCta({ w, waUrl }: { w: Workshop; waUrl: string }) {
-  const a = useAvailability(w);
+export function SignupCta({ w, waUrl, initialAvailability }: { w: Workshop; waUrl: string; initialAvailability?: Avail | null }) {
+  const a = useAvailability(w, initialAvailability);
   if (a?.open && !a.soldOut)
-    return <a className="vp-btn vp-btn-primary" href="#inscricao">Inscrever-me <span aria-hidden="true">→</span></a>;
+    return <a className="vp-btn vp-btn-primary" href="#inscricao">GARANTIR INSCRIÇÃO — {formatBRL(a.priceMinor)} <span aria-hidden="true">→</span></a>;
   return (
     <>
       <a className="vp-btn vp-btn-primary" href="#programa">Conheça o programa <span aria-hidden="true">→</span></a>
-      <a className="vp-btn vp-btn-secondary" href={waUrl} target="_blank" rel="noopener noreferrer">Lista de interesse no WhatsApp</a>
+      <a className="vp-btn vp-btn-secondary" href={waUrl} target="_blank" rel="noopener noreferrer">Dúvidas pelo WhatsApp</a>
     </>
   );
 }
 
-function useAvailability(w: Workshop) {
-  const [a, setA] = useState<Avail | null>(null);
+function useAvailability(w: Workshop, initialAvailability?: Avail | null) {
+  const [a, setA] = useState<Avail | null>(initialAvailability ?? null);
   useEffect(() => {
     let alive = true;
-    fetch("/api/workshops/availability").then((r) => r.json()).then((d) => alive && setA(d?.[w.code] ?? null)).catch(() => {});
+    fetch("/api/workshops/availability", { cache: "no-store" }).then((r) => r.json()).then((d) => alive && setA(d?.[w.code] ?? null)).catch(() => {});
     return () => { alive = false; };
   }, [w.code]);
   return a;
 }
 
-export default function WorkshopSignup({ w, waUrl }: { w: Workshop; waUrl: string }) {
-  const a = useAvailability(w);
+export default function WorkshopSignup({ w, waUrl, initialAvailability }: { w: Workshop; waUrl: string; initialAvailability?: Avail | null }) {
+  const a = useAvailability(w, initialAvailability);
   const [busy, setBusy] = useState(false);
   const [msg, setMsg] = useState("");
 
-  if (!a?.open || a.soldOut)
+  if (!a) return <p role="status">Consultando disponibilidade…</p>;
+  if (!a.open || a.soldOut)
     return (
       <div className="vp-card">
         <h3>{a?.soldOut ? "Inscrições esgotadas" : "Inscrições em breve"}</h3>
