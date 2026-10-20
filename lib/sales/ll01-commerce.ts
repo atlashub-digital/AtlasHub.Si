@@ -52,6 +52,10 @@ function clean(body: unknown): Input {
 }
 export function salesReady() {
   const aro = aroConfig();
+  // E2E test mode: the isolated R$5 test offer + SALES_OPEN=yes suffices (RELEASE_V3 stays "no" until the real gates).
+  if (process.env.LL01_E2E_TEST_OFFER === "yes" && process.env.LL01_E2E_TEST_CODE && process.env.LL01_RELEASE_V3_VERIFIED !== "yes")
+    return process.env.LL01_SALES_OPEN === "yes" && Boolean(aro?.paymentsEnabled && aro.project === "atlashub-si"
+      && process.env.SI_DATABASE_URL && process.env.LL01_DOCUMENT_HASH_KEY && process.env.LL01_RESERVATION_SECRET);
   return process.env.LL01_SALES_OPEN === "yes" && process.env.LL01_RELEASE_V3_VERIFIED === "yes" && ll01Offer().approved && Boolean(aro?.paymentsEnabled && aro.project === "atlashub-si"
     && process.env.SI_DATABASE_URL && process.env.LL01_DOCUMENT_HASH_KEY && process.env.LL01_RESERVATION_SECRET);
 }
