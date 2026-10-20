@@ -31,6 +31,9 @@ export type ReserveInput = {
 export type ReserveResult = { id: string; status: Registration["status"]; ticket: string | null; outcome: "new" | "resume" | "already_confirmed" };
 
 export interface Store {
+  communicationEvent(id: string): Promise<void>;
+  communicationClaim(id: string, channel: "email" | "whatsapp"): Promise<boolean>;
+  communicationResult(id: string, channel: "email" | "whatsapp", status: "sent" | "failed" | "uncertain"): Promise<void>;
   availability(): Promise<Record<Code, { open: boolean; capacity: number; taken: number }>>;
   reserve(i: ReserveInput): Promise<ReserveResult>;
   get(id: string): Promise<Registration | null>;
@@ -65,6 +68,12 @@ export function pgStore(url: string): Store {
   const sql = postgres(url, { max: 3, prepare: false, idle_timeout: 20, connect_timeout: 10 });
   const one = async <T>(q: Promise<T[]>): Promise<T | null> => (await q)[0] ?? null;
   return {
+    async communicationEvent(id) { await sql`select si_workshops.communication_event(${id})`; },
+    async communicationClaim(id, channel) {
+      const r = await one(sql<{ claimed: boolean }[]>`select si_workshops.communication_claim(${id}, ${channel}) as claimed`);
+      return Boolean(r?.claimed);
+    },
+    async communicationResult(id, channel, status) { await sql`select si_workshops.communication_result(${id}, ${channel}, ${status})`; },
     async availability() {
       const rows = await sql<{ code: Code; sales_open: boolean; capacity: number; taken: number }[]>`
         select code, sales_open, capacity, si_workshops.seats_taken(code) as taken from si_workshops.workshops`;

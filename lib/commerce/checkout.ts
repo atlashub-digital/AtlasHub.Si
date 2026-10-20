@@ -4,11 +4,11 @@
 // confirmação, webhooks). Dependências injetadas para os testes.
 import QRCode from "qrcode";
 import {
-  AroError, createCheckoutSession, getCheckoutSession, hasActiveEntitlement, terminalCheckoutStates,
+  AroError, createCheckoutSession, getCheckoutSession, terminalCheckoutStates,
   type AroConfig, type CheckoutSession,
 } from "../aro/client";
 import { workshops, type Workshop } from "../workshops";
-import { sendLl01Ticket } from "./ll01-ticket-email";
+import { deliverRegistration } from "./registration-communications";
 import { notifyCrm } from "./crm";
 import { verifyLl01Purchase } from "./ll01-confirmation";
 import { earlyUntil, termsVersion } from "./policy";
@@ -129,11 +129,10 @@ export type StatusView =
 export async function finalize(reg: Registration, d: Deps): Promise<{ ticket: string } | null> {
   const w = byCode(reg.workshop);
   if (!reg.aro_order_id) return null;
-  const active = reg.workshop === "LL01"
-    ? await verifyLl01Purchase(reg, d.aro, d.fetch, d.now())
-    : await hasActiveEntitlement(d.aro, { email: reg.email }, w.aroEntitlement, d.fetch, d.now());
+  const active = await verifyLl01Purchase(reg, d.aro, d.fetch, d.now(), w.aroEntitlement);
   if (!active) return null;
   const c = await d.store!.confirm(reg.id, reg.aro_order_id);
+  await d.store!.communicationEvent(reg.id);
   const fresh = await d.store!.get(reg.id);
   if (fresh && !fresh.crm_notified_at) {
     const notified = await notifyCrm("workshop.registration.confirmed", fresh, d.env, d.fetch);
@@ -204,16 +203,9 @@ export async function handleEvent(event: AroEvent, d: Deps): Promise<"processed"
       case "payment.approved": case "order.approved": case "entitlement.granted": {
         if (reg.workshop === "LL01" && reg.status === "revoked") break;
         const done = await finalize(reg, d);
-        if (done && reg.workshop === "LL01") {
-          // Replayed events also retry delivery; transport failures never fail confirmation.
-          try {
-            const fresh = await store.get(reg.id);
-            if (fresh && !fresh.ticket_emailed_at && await sendLl01Ticket(fresh, done.ticket, d.env, d.fetch)) {
-              await store.markTicketEmailed(reg.id);
-            }
-          } catch {
-            console.error("ll01_ticket_email_failed", { registrationId: reg.id });
-          }
+        if (done) {
+          const fresh = await store.get(reg.id);
+          if (fresh) await deliverRegistration(fresh, store, d.env, d.fetch);
         }
         // Do not acknowledge a notification before its canonical entitlement is visible.
         if (reg.workshop === "LL01" && !done) throw Error("ll01_confirmation_pending");

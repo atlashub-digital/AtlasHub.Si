@@ -28,3 +28,43 @@ Antes de ativar a recolha real: configurar rate limiting/antiabuso, responsável
 
 Main de desenvolvimento: nexflowx-hub/AtlasHub.Si. Produção segue por contribuição e PR para atlashub-digital, merge após checks e deploy na Vercel atlashub1, sem substituir histórico nem fazer force push. Editions continua num repositório e projeto Vercel separado.
 
+
+### Comunicação pós-pagamento (005)
+
+Aplicar `db/si_workshops/005_registration_communications.sql` antes do deploy.
+Nenhuma migração ativa gates. O webhook emite `workshop.registration.confirmed`
+após confirmação canónica e persiste o evento uma vez por inscrição.
+`registration_communications` guarda histórico com timestamps e estados por canal
+(`sending`, `sent`, `failed`, `uncertain`). O primeiro canal aceite pelo fornecedor
+marca `welcome_sent` e `book_pending`; o outro canal mantém o seu estado independente.
+A migração respeita os e-mails já marcados pela 004, sem os reenviar.
+
+E-mail: mantém `NODE_ENV=production`, `LL01_TICKET_EMAIL=live`, `RESEND_API_KEY`
+e `RESEND_FROM`. WhatsApp: `LL01_WA_CONFIRM=live` (default off),
+`ATENDIMENTO_EVOLUTION_URL=https://evo-relay.lia.doctor` e
+`ATENDIMENTO_EVOLUTION_KEY` em segredo server-side. Usa o adaptador Evolution
+existente: `POST /message/sendText/atlashub-wa`, header `apikey`.
+Não altera consentimentos nem adiciona participantes a grupos.
+
+No servidor, com `SI_DATABASE_URL` do papel da aplicação:
+
+```bash
+npx tsx scripts/registration-communication.ts UUID status
+npx tsx scripts/registration-communication.ts UUID retry
+npx tsx scripts/registration-communication.ts UUID book_sent
+npx tsx scripts/registration-communication.ts UUID live_access_sent
+```
+
+`retry` envia apenas canais pendentes/falhados e respeita os gates; não revalida
+pagamento nem cria inscrição. Transições manuais só registam entrega já realizada,
+não enviam mensagens; são ordenadas e idempotentes. Para presenciais, o estado
+`live_access_*` representa as instruções de acesso presencial; o conteúdo nunca
+inclui link de live.
+
+Evolution não oferece idempotência comprovada: uma resposta falhada/ambígua após
+iniciar o pedido fica `uncertain`, sem reenvio automático. Uma interrupção do
+processo pode deixar `sending`. Nesses casos o operador deve reconciliar com o
+fornecedor antes de corrigir o estado por SQL administrativo. A mesma cautela
+aplica-se a falhas de e-mail antigas: a aplicação suspende retries após 23 horas
+da primeira tentativa, dentro da [janela de 24 horas do Resend](https://resend.com/changelog/idempotency-keys).
+Nunca limpar uma marca `sent` para forçar reenvio.

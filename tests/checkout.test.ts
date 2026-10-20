@@ -13,6 +13,9 @@ function memStore(capacity = { W01: 25, EL01: 12 }) {
   const events = new Set<string>();
   const live = (r: Registration) => r.status === "confirmed" || r.status === "pending";
   const store: Store = {
+    communicationEvent: async () => {},
+    communicationClaim: async () => true,
+    communicationResult: async () => {},
     markTicketEmailed: async () => {},
     async availability() { return { W01: { open: true, capacity: capacity.W01, taken: rows.filter((r) => r.workshop === "W01" && live(r)).length }, EL01: { open: true, capacity: capacity.EL01, taken: rows.filter((r) => r.workshop === "EL01" && live(r)).length } }; },
     async reserve(i) {
@@ -80,9 +83,16 @@ function fakeAro(opts: { amountOverride?: number; rejectOffers?: string[] } = {}
     }
     const m = url.match(/\/v1\/checkout-sessions\/([^/]+)$/);
     if (m) return headers["X-ARO-Checkout-Secret"] === `cs-${m[1]}` ? ok(session(m[1], false)) : ok({}, 401);
+    const orderMatch = url.match(/\/v1\/orders\/([^/]+)$/);
+    if (orderMatch) {
+      const s = [...sessions.values()].find(s => s.order === orderMatch[1])!;
+      return ok({ id: s.order, project: "atlashub-si", status: s.state,
+        amount: { amount_minor: prices[s.offer], currency: "BRL" },
+        items: [{ offer: s.offer, quantity: 1, unit_amount: { amount_minor: prices[s.offer], currency: "BRL" } }] });
+    }
     if (url.endsWith("/v1/entitlements/resolve")) {
       const email = body.identity.email;
-      return ok({ project: "atlashub-si", entitlements: [...entitled].filter((k) => k.startsWith(email + "|")).map((k) => ({ key: k.split("|")[1], status: "ACTIVE", starts_at: "2026-10-16T00:00:00Z" })) });
+      return ok({ project: "atlashub-si", entitlements: [...entitled].filter((k) => k.startsWith(email + "|")).map((k) => ({ key: k.split("|")[1], status: "ACTIVE", source_order_id: [...sessions.values()].find(s => s.email === email && s.state === "APPROVED")?.order, starts_at: "2026-10-16T00:00:00Z" })) });
     }
     if (url === "https://crm.example/hook") return ok({ ok: true });
     return ok({}, 404);

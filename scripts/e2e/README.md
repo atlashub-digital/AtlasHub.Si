@@ -12,3 +12,21 @@ ARO_API_URL=http://localhost:4010 ARO_PROJECT_SLUG=atlashub-si ARO_PUBLIC_KEY=pk
   SI_DATABASE_URL=postgres://postgres@localhost:5432/si_e2e npx next start -p 3200 &
 node scripts/e2e/checkout-e2e.mjs
 ```
+
+LL01 browser (DB local descartável com migrações 001–005, gates comerciais e
+transportes desligados): instalar Playwright apenas para o teste com
+`npm install --no-save --package-lock=false playwright` e ter Chromium instalado.
+Iniciar `mock-aro.mjs`, construir e iniciar Next com `SI_DATABASE_URL`,
+`ARO_API_URL=http://localhost:4010`, `ARO_PROJECT_SLUG=atlashub-si`,
+`ARO_PUBLIC_KEY=pk_test`, `ARO_SERVER_KEY=sk_test`, `ARO_WEBHOOK_SECRET=whsec_test`.
+Não definir `LL01_TICKET_EMAIL=live` nem `LL01_WA_CONFIRM=live`.
+Executar:
+
+```bash
+SI_DATABASE_URL=postgres://postgres@localhost:5432/si_e2e node scripts/e2e/ll01-confirmation-browser.mjs
+```
+
+O teste prepara uma inscrição de teste isolada no Postgres, mostra o PIX no browser,
+aprova no ARO simulado, envia duas vezes o webhook assinado, verifica evento único
+persistido e confirmação/bilhete visíveis, sem erros JavaScript. Não contacta
+Resend ou Evolution reais.
