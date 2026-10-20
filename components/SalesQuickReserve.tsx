@@ -7,7 +7,7 @@ import AroCheckoutSheet from "./AroCheckoutSheet";
 type Availability = {
   open: boolean;
   pricing: { earlyMinor: number; regularMinor: number; promoMinor: number; currentMinor: number };
-  promo?: { serverNow: string; expiresAt: string } | null;
+  promo?: { serverNow: string; expiresAt: string | null } | null;
 };
 const BRL = (minor: number) => (minor / 100).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
 const first = { earlyMinor: 24900, regularMinor: 49700, promoMinor: 24900, currentMinor: 24900 };
