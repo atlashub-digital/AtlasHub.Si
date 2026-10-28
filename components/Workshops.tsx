@@ -6,9 +6,9 @@ import { statusAvailability } from "../lib/sales/ll01-commerce";
 
 export default async function Workshops({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) {
   const H = headingLevel === 1 ? "h1" : "h2";
-  const [physical, live] = await Promise.all([availability(runtimeDeps()), statusAvailability()]);
+  const physical = await availability(runtimeDeps());
   const events = [
-    { code: "LL01", slug: "automacao-pessoas-no-centro", title: "Automação com Pessoas no Centro", date: "27 e 29 de outubro · 2 encontros", format: "100% ONLINE · AO VIVO", summary: "Crie um agente de IA do zero no segundo encontro.", unit: "por participante", price: live.pricing.currentMinor, open: false, completed: true, image: "ll01" },
+    { code: "LL01", slug: "automacao-pessoas-no-centro", title: "Automação com Pessoas no Centro", date: "27 e 29 de outubro · 2 encontros", format: "100% ONLINE · AO VIVO", summary: "Crie um agente de IA do zero no segundo encontro.", unit: "por participante", price: 24900, open: false, completed: true, image: "ll01" },
     ...workshops.map(w => ({ ...w, price: physical[w.code].priceMinor, open: physical[w.code].open && !physical[w.code].soldOut, unit: w.priceUnit, completed: false, image: w.code.toLowerCase() })),
   ];
   return <>
