@@ -2,8 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import MockupCanvas, { type MockScreen } from "../../../components/MockupCanvas";
-import screen from "../../../lib/mockups/enterprise-transformation.json";
 import OfferTabs from "../../../components/OfferTabs";
 import { transformationDomains, transformationMethod, transformationTrust, transformationFaq } from "../../../lib/site";
 
@@ -20,11 +18,7 @@ export default function EnterpriseTransformation() {
   return (
     <>
       <div id="conteudo">
-        <main className="mk-desktop">
-          <h1 className="mk-sr">Enterprise Transformation — Construa sua própria capacidade digital.</h1>
-          <MockupCanvas screen={screen as MockScreen} />
-        </main>
-        <div className="mk-mobile">
+
       <Header current="/solucoes/enterprise-transformation" />
       <main>
         <section className="vp-hero" aria-labelledby="et-title">
@@ -34,7 +28,7 @@ export default function EnterpriseTransformation() {
               <h1 className="vp-h1" id="et-title">Construa sua própria <em>capacidade digital.</em></h1>
               <p className="vp-lead">Implementamos agentes e processos inteligentes no seu ecossistema, com integração, governança e capacitação da sua equipe.</p>
               <div className="vp-actions">
-                <Link className="vp-btn vp-btn-primary" href="/?clara=build#clara">Agendar diagnóstico <span aria-hidden="true">→</span></Link>
+                <Link className="vp-btn vp-btn-primary" href="/diagnostico">Solicitar diagnóstico profissional <span aria-hidden="true">→</span></Link>
                 <a className="vp-btn vp-btn-secondary" href="#metodologia">Conheça nossa abordagem</a>
               </div>
               <div className="vp-hero-chips"><span className="vp-chip">No seu ambiente</span><span className="vp-chip">Com seu time</span><span className="vp-chip">Governança nativa</span></div>
@@ -74,12 +68,11 @@ export default function EnterpriseTransformation() {
         <section className="vp-section" aria-labelledby="cta-et">
           <div className="vp-wrap"><div className="vp-cta">
             <h2 className="vp-h2" id="cta-et">A inteligência deve ficar ao alcance da sua equipe.</h2>
-            <p className="vp-lead" style={{ margin: "0 auto" }}>Comece por um diagnóstico com a Clara. Sem compromisso e sem prometer prazos antes de conhecer o seu contexto.</p>
-            <div className="vp-actions"><Link className="vp-btn vp-btn-primary" href="/?clara=build#clara">Agendar diagnóstico <span aria-hidden="true">→</span></Link></div>
+            <p className="vp-lead" style={{ margin: "0 auto" }}>Comece com a pré-análise gratuita da Clara e, quando fizer sentido, solicite um diagnóstico profissional. A equipa confirma âmbito, entregáveis e condições antes de contratar.</p>
+            <div className="vp-actions"><Link className="vp-btn vp-btn-primary" href="/?clara=build#clara">Solicitar diagnóstico profissional <span aria-hidden="true">→</span></Link></div>
           </div></div>
         </section>
       </main>
-        </div>
       </div>
       <Footer />
     </>

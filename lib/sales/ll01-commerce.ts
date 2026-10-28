@@ -51,6 +51,9 @@ function clean(body: unknown): Input {
     marketing: b.marketing === true, campaign };
 }
 export function salesReady() {
+  // Event owner marked LL01 complete on Oct 28: close new real-world reservations and checkouts.
+  // No new reservations are permitted after closure, regardless of promotional flags.
+  if (Date.now() >= Date.parse("2026-10-28T00:00:00-03:00")) return false;
   const aro = aroConfig();
   // E2E test mode: the isolated R$5 test offer + SALES_OPEN=yes suffices (RELEASE_V3 stays "no" until the real gates).
   if (process.env.LL01_E2E_TEST_OFFER === "yes" && process.env.LL01_E2E_TEST_CODE && process.env.LL01_RELEASE_V3_VERIFIED !== "yes")
