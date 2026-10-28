@@ -28,7 +28,7 @@ export default function AiWorkforce() {
               <h1 className="vp-h1" id="aiw-title">Reforce sua operação com <em>colaboradores digitais geridos.</em></h1>
               <p className="vp-lead">Perfis digitais preparados para tarefas específicas e operados pela AtlasHub, com limites, supervisão e acompanhamento definidos.</p>
               <div className="vp-actions">
-                <Link className="vp-btn vp-btn-primary" href="/?clara=managed#clara">Falar com a Clara <span aria-hidden="true">→</span></Link>
+                <Link className="vp-btn vp-btn-primary" href="/diagnostico">Solicitar diagnóstico <span aria-hidden="true">→</span></Link>
                 <a className="vp-btn vp-btn-secondary" href="#perfis">Conheça os perfis</a>
               </div>
               <div className="vp-hero-chips">{["Atendimento", "Leads", "Processos", "Agenda", "Relatórios"].map((b) => <span className="vp-chip" key={b}>{b}</span>)}</div>
@@ -74,7 +74,7 @@ export default function AiWorkforce() {
         <section className="vp-section" aria-labelledby="cta-aiw">
           <div className="vp-wrap"><div className="vp-cta">
             <h2 className="vp-h2" id="cta-aiw">Que tarefa mais consome tempo na sua empresa?</h2>
-            <div className="vp-actions"><Link className="vp-btn vp-btn-primary" href="/?clara=managed#clara">Conversar com a Clara <span aria-hidden="true">→</span></Link></div>
+            <div className="vp-actions"><Link className="vp-btn vp-btn-primary" href="/?clara=managed#clara">Solicitar diagnóstico <span aria-hidden="true">→</span></Link></div>
           </div></div>
         </section>
       </main>
