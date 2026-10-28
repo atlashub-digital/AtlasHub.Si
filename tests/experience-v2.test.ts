@@ -46,5 +46,6 @@ test("the exact approved V1 hero composition and the solution Visual Pack assets
   assert.ok(hero.includes("/mockups/home.webp"));
   assert.ok(css.includes("mockups/ai-workforce.webp"));
   assert.ok(css.includes("mockups/enterprise-transformation.webp"));
-  assert.match(css, /prefers-reduced-motion:reduce/);\n  assert.match(css, /arch-original-plate/);
+  assert.match(css, /prefers-reduced-motion:reduce/);
+  assert.match(css, /arch-original-plate/);
 });
