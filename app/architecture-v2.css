@@ -62,7 +62,7 @@
 .arch-glow{filter:blur(90px)}
 /* Preserve original Visual Pack hero imagery in service pages without restoring obsolete mockup copy. */
 .atlas-solution-hero{position:relative;isolation:isolate;overflow:hidden;min-height:575px}
-.atlas-solution-hero:before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(95deg,#051321 12%,#071a2de8 42%,#0713224d 100%),var(--atlas-restored-art) center 35%/cover no-repeat;opacity:.95}
+.atlas-solution-hero:before{content:"";position:absolute;inset:0;z-index:0;background:linear-gradient(95deg,#051321 12%,#071a2de8 42%,#0713224d 100%),var(--atlas-restored-art) center 35%/cover no-repeat;opacity:.95}
 .atlas-solution-hero>.vp-wrap{position:relative;z-index:1}.atlas-solution-hero .vp-lead{max-width:760px}.atlas-solution-hero .vp-h1{max-width:990px;text-shadow:0 2px 30px #020916b0}
 @media(max-width:1100px){.arch-inner{grid-template-columns:1fr;max-width:820px;min-height:0}.arch-restored-photo{min-height:340px;aspect-ratio:1.5}.arch-copy h1{font-size:clamp(38px,5.2vw,56px)}}
 @media(max-width:680px){.arch-inner{padding-top:110px}.arch-restored-photo{aspect-ratio:1.15;min-height:280px}.arch-restored-photo-signature{left:12px;right:12px;bottom:12px}.arch-copy h1{font-size:clamp(35px,8vw,47px)}.arch-visual-caption{margin-top:12px}.atlas-solution-hero{min-height:0}.atlas-solution-hero:before{background:linear-gradient(0deg,#051321ea,#071a2de8),var(--atlas-restored-art) center/cover no-repeat}}
