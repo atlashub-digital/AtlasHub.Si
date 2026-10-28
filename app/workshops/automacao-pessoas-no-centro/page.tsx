@@ -1,19 +1,6 @@
 import type { Metadata } from "next";
-import SalesLanding from "../../../components/SalesLanding";
-import { ll01, salesWhatsAppUrl } from "../../../lib/sales/pages";
-
-export const dynamic = "force-dynamic";
-
-export const metadata: Metadata = {
-  title: "Automação com Pessoas no Centro — Live Lab 01 | AtlasHub.SI",
-  description: "Crie o seu próprio agente de IA. 100% ONLINE, ao vivo, 27 e 29 de outubro de 2026. Automação com Pessoas no Centro — A Nova Era da IA 2027–2030.",
-  openGraph: { type: "website", url: "/workshops/automacao-pessoas-no-centro", title: "Automação com Pessoas no Centro — Live Lab 01", description: "100% ONLINE · 27 e 29 de outubro de 2026 · 2 encontros ao vivo", images: ["/assets/cro-v2/ll01.webp"] },
-  twitter: { card: "summary_large_image", title: "Automação com Pessoas no Centro — Live Lab 01", description: "100% ONLINE · 27 e 29 de outubro de 2026 · 2 encontros ao vivo", images: ["/assets/cro-v2/ll01.webp"] },
-  robots: { index: false, follow: true }, // noindex mantido até revisão editorial CRO V2
-};
-
-type Props = { searchParams: Promise<{ origem?: string }> };
-export default async function LiveLab01Page({ searchParams }: Props) {
-  const { origem } = await searchParams;
-  return <SalesLanding offer={ll01} whatsapp={salesWhatsAppUrl(ll01, origem ?? "")} />;
-}
+import Header from "../../../components/Header";
+import Footer from "../../../components/Footer";
+import Link from "next/link";
+export const metadata: Metadata={title:"Automação com Pessoas no Centro — Concluído",description:"Workshop LL01 encerrado. Inscrições encerradas. Conheça as próximas jornadas da AtlasHub.",robots:{index:true,follow:true}};
+export default function ConcluidoLL01(){return <><Header current="/workshops"/><main id="conteudo"><section className="atlas-generic-hero"><div className="atlas-container"><p className="arch-eyebrow">LL01 · AUTOMAÇÃO COM PESSOAS NO CENTRO</p><div className="cro-event-completed">CONCLUÍDO · INSCRIÇÕES ENCERRADAS</div><h1 style={{marginTop:24}}>A inteligência também <em>se constrói.</em></h1><p>A edição LL01, anunciada para 27 e 29 de outubro de 2026, está encerrada para novas inscrições. Esta página mantém o registo editorial da experiência, mas não recebe reservas nem emite novos pagamentos.</p><div className="arch-actions"><Link href="/academy" className="arch-button arch-button-primary">Conhecer a jornada Academy →</Link><Link href="/diagnostico" className="arch-button arch-button-outline">Diagnosticar a minha operação ↗</Link></div></div></section><section className="vp-section"><div className="atlas-container"><div className="atlas-section-head"><p className="arch-eyebrow">CONTEÚDO DA EXPERIÊNCIA</p><h2>Da conversa com IA à <em>arquitetura agêntica.</em></h2><p>O programa explorou a passagem de ferramentas isoladas para agentes com responsabilidades, contexto, tarefas e supervisão humana.</p></div><div className="atlas-stages"><article className="atlas-stage"><h3>A Empresa Aumentada</h3><p>Como integrar pessoas, dados, processos e agentes numa organização orientada a resultados.</p></article><article className="atlas-stage"><h3>Construção orientada</h3><p>Como desenhar uma função digital, estabelecer limites e testar antes de permitir ações reais.</p></article></div><div className="atlas-diagnostic-cta"><h2>Quer continuar a construção?</h2><p>A AtlasHub está a organizar as próximas jornadas de aprendizagem e implementação. Consulte a Academy ou solicite um diagnóstico profissional.</p><div className="arch-actions"><Link href="/academy" className="arch-button arch-button-primary">Explorar Academy →</Link><Link href="/diagnostico" className="arch-button arch-button-outline">Solicitar diagnóstico ↗</Link></div></div></div></section></main><Footer/></>}
