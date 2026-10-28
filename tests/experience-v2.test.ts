@@ -7,7 +7,7 @@ test("home presents the approved architecture positioning", () => {
   const hero = read("components/ArchitectureHero.tsx");
   assert.match(hero, /A sua empresa não precisa de mais uma ferramenta de IA/);
   assert.match(hero, /Precisa de uma arquitetura para o futuro/);
-  assert.match(hero, /hero-office\\.jpg/);
+  assert.ok(hero.includes("hero-office.jpg"));
   assert.match(hero, /arch-restored-photo/);
   assert.doesNotMatch(hero, /arch-scene/);
 });
@@ -43,8 +43,8 @@ test("Clara identifies the professional handoff and consent", () => {
 test("original approved photographic and visual-pack assets remain in use", () => {
   const hero = read("components/ArchitectureHero.tsx");
   const css = read("app/architecture-v2.css");
-  assert.match(hero, /hero-office\\.jpg/);
-  assert.match(css, /mockups\\/ai-workforce\\.webp/);
-  assert.match(css, /mockups\\/enterprise-transformation\\.webp/);
+  assert.ok(hero.includes("hero-office.jpg"));
+  assert.ok(css.includes("mockups/ai-workforce.webp"));
+  assert.ok(css.includes("mockups/enterprise-transformation.webp"));
   assert.match(css, /prefers-reduced-motion:reduce/);
 });
