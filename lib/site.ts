@@ -8,9 +8,9 @@ export const EDITIONS_URL = "https://editions.atlashub.si";
 export const nav = [
   { label: "Soluções", href: "/#solucoes" },
   { label: "Plataforma", href: APP_URL, external: true },
-  { label: "Casos de uso", href: "/#areas" },
+  { label: "Casos de uso", href: "/casos" },
   { label: "Conhecimento", href: EDITIONS_URL, external: true },
-  { label: "Sobre", href: "/#ecossistema" },
+  { label: "Sobre", href: "/sobre" },
 ] as const;
 
 export const offers = [
