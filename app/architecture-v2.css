@@ -70,3 +70,68 @@
 
 .atlas-solution-hero-workforce{--atlas-restored-art:url('/mockups/ai-workforce.webp')}
 .atlas-solution-hero-enterprise{--atlas-restored-art:url('/mockups/enterprise-transformation.webp')}
+
+/* HERO V2.2 — Restore the exact Visual Pack V1 scene.
+ * The approved /mockups/home.webp is a full composition plate; use its
+ * upper region as original photographic artwork, not an unrelated office photo.
+ * Live header and new conversion copy remain semantic and accessible.
+ */
+.arch-hero.arch-hero-restored{isolation:isolate;position:relative;overflow:hidden;background:#040c18;min-height:710px}
+.arch-hero-restored:before{content:none}
+.arch-original-art{position:absolute;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.arch-original-plate{position:absolute;top:0;left:50%;display:block;width:100%;min-width:1190px;max-width:none;height:auto;transform:translateX(-50%);object-fit:contain;object-position:top center;filter:none}
+.arch-original-shade{position:absolute;inset:0;z-index:1;pointer-events:none;background:
+  linear-gradient(90deg,#040d1bf7 0%,#040d1bdc 24%,#040d1b9c 39%,#040d1b27 58%,#040d1b00 74%),
+  linear-gradient(180deg,rgba(3,12,25,.78) 0px,transparent 105px,transparent 285px,rgba(4,12,24,.40) 400px,#040c18 730px)}
+.arch-hero-restored .arch-inner{position:relative;z-index:2;grid-template-columns:minmax(0,0.94fr) minmax(0,1.06fr);min-height:700px;padding-top:158px;padding-bottom:85px;align-items:start;gap:28px}
+.arch-hero-restored .arch-copy{max-width:680px}
+.arch-hero-restored .arch-copy h1{font-size:clamp(33px,3.45vw,58px);line-height:1.09;letter-spacing:-.042em;max-width:650px;text-shadow:0 2px 18px #030b17d4;margin-bottom:24px}
+.arch-hero-restored .arch-copy h1 em{color:#f2c27b}
+.arch-hero-restored .arch-lead{font-size:clamp(16px,1.18vw,19px);max-width:660px;line-height:1.58;text-shadow:0 2px 15px #030916ec}
+.arch-hero-restored .arch-actions{margin-top:27px}
+.arch-hero-restored .arch-signature{margin-top:22px}
+.arch-hero-restored .arch-visual{position:relative;min-height:460px;align-self:stretch}
+.arch-hero-restored .arch-visual-caption{position:absolute;right:0;bottom:0;width:min(100%,440px);background:#03111fcb;border:1px solid #2b6180a8;box-shadow:0 12px 38px #00101a88;backdrop-filter:blur(12px);margin:0}
+.arch-hero-restored .arch-bottom{position:relative;z-index:2;background:#040e1ccf;border-top-color:#39708b72}
+@media(min-width:1672px){
+  .arch-original-plate{width:100%;min-width:0}
+}
+@media(min-width:1101px) and (max-width:1350px){
+  .arch-hero-restored .arch-inner{grid-template-columns:1fr .88fr}
+  .arch-hero-restored .arch-copy h1{font-size:clamp(34px,3.7vw,51px)}
+  .arch-hero-restored .arch-visual-caption{max-width:365px}
+}
+@media(max-width:1100px){
+  .arch-hero.arch-hero-restored{min-height:0}
+  .arch-hero-restored .arch-inner{grid-template-columns:1fr;max-width:800px;min-height:760px;padding-top:136px;padding-bottom:68px}
+  .arch-hero-restored .arch-copy{max-width:740px}
+  .arch-hero-restored .arch-copy h1{font-size:clamp(38px,5vw,52px);max-width:690px}
+  .arch-original-plate{width:1250px;min-width:1250px;left:24%;transform:translateX(-50%)}
+  .arch-original-shade{background:linear-gradient(90deg,#040c18fc,#040c18e5 55%,#040c1855),linear-gradient(180deg,#040c18cc,transparent 45%,#040c18 90%)}
+  .arch-hero-restored .arch-visual{min-height:190px}
+  .arch-hero-restored .arch-visual-caption{bottom:0;left:0;right:auto;max-width:540px}
+}
+@media(max-width:680px){
+  .arch-hero-restored .arch-inner{display:flex;flex-direction:column;max-width:none;min-height:0;padding-top:111px;padding-bottom:70px;gap:0}
+  .arch-hero-restored .arch-copy{width:100%}
+  .arch-hero-restored .arch-copy h1{font-size:clamp(34px,8vw,44px);letter-spacing:-.043em}
+  .arch-hero-restored .arch-lead{font-size:16px;line-height:1.55}
+  .arch-hero-restored .arch-actions{margin-top:20px}
+  .arch-hero-restored .arch-signature{margin:20px 0 0}
+  .arch-original-art{top:770px;height:440px}
+  .arch-original-plate{top:0;left:-430px;min-width:1000px;width:1000px;transform:none}
+  .arch-original-shade{background:linear-gradient(180deg,#040c18 0px,#040c18 730px,#040c1808 845px,#040c18b5 1090px,#040c18 1220px)}
+  .arch-hero-restored .arch-visual{margin-top:390px;min-height:0;width:100%}
+  .arch-hero-restored .arch-visual-caption{position:relative;max-width:none;width:100%;bottom:auto}
+  .arch-hero-restored .arch-bottom{padding-top:15px;padding-bottom:17px}
+}
+@media(prefers-reduced-motion:reduce){.arch-hero-restored .arch-original-plate{animation:none;transition:none}}
+
+/* The visual plate also contained blank nav/CTA placeholders.
+   Hide ONLY those two upper corners; preserve the model, holographic A and panels. */
+@media(min-width:1101px){
+  .arch-hero-restored .arch-original-art:before,
+  .arch-hero-restored .arch-original-art:after{content:"";position:absolute;top:0;height:88px;z-index:1;pointer-events:none;background:#040d1bf0}
+  .arch-hero-restored .arch-original-art:before{left:0;width:34%;mask-image:linear-gradient(90deg,#000 75%,transparent)}
+  .arch-hero-restored .arch-original-art:after{right:0;width:22%;mask-image:linear-gradient(270deg,#000 70%,transparent)}
+}

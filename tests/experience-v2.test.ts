@@ -7,9 +7,9 @@ test("home presents the approved architecture positioning", () => {
   const hero = read("components/ArchitectureHero.tsx");
   assert.match(hero, /A sua empresa não precisa de mais uma ferramenta de IA/);
   assert.match(hero, /Precisa de uma arquitetura para o futuro/);
-  assert.ok(hero.includes("hero-office.jpg"));
-  assert.match(hero, /arch-restored-photo/);
-  assert.doesNotMatch(hero, /arch-scene/);
+  assert.ok(hero.includes("/mockups/home.webp"));
+  assert.match(hero, /arch-original-plate/);
+  assert.doesNotMatch(hero, /hero-office\\.jpg|arch-scene/);
 });
 
 test("all six journey steps are linked to real routes", () => {
@@ -40,11 +40,12 @@ test("Clara identifies the professional handoff and consent", () => {
 });
 
 
-test("original approved photographic and visual-pack assets remain in use", () => {
+test("the exact approved V1 hero composition and the solution Visual Pack assets remain in use", () => {
   const hero = read("components/ArchitectureHero.tsx");
   const css = read("app/architecture-v2.css");
-  assert.ok(hero.includes("hero-office.jpg"));
+  assert.ok(hero.includes("/mockups/home.webp"));
   assert.ok(css.includes("mockups/ai-workforce.webp"));
   assert.ok(css.includes("mockups/enterprise-transformation.webp"));
   assert.match(css, /prefers-reduced-motion:reduce/);
+  assert.match(css, /arch-original-plate/);
 });
