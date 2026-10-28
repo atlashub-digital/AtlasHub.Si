@@ -33,3 +33,17 @@
 @media(max-width:1050px){.arch-inner{grid-template-columns:1fr;padding-top:110px}.arch-scene{height:360px}.arch-visual{max-width:650px;width:100%;margin:auto}.atlas-journey-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:680px){.arch-inner{padding-top:115px;padding-bottom:50px}.arch-copy h1{font-size:clamp(33px,8vw,49px)}.arch-actions{flex-direction:column}.arch-button{width:100%}.arch-scene{height:290px}.arch-platform{width:65%;height:200px}.arch-floor{height:125px}.arch-floor span{font-size:10px}.arch-floor span+span{font-size:8px}.arch-visual-caption{padding:15px}.arch-bottom{justify-content:flex-start}.atlas-journey{padding:65px 0}.atlas-journey-grid{grid-template-columns:1fr}.atlas-journey-card{min-height:170px}}
 @media(prefers-reduced-motion:reduce){.arch-platform{animation:none}.arch-button,.atlas-journey-card{transition:none}.arch-button:hover,.atlas-journey-card:hover{transform:none}}
+
+/* Shared content pages and commercial follow-up */
+.atlas-generic-hero{padding:155px 0 90px;background:radial-gradient(ellipse at 85% 5%,#0d3b57b3,transparent 48%),linear-gradient(140deg,#061322,#081c31);border-bottom:1px solid #23475d}
+.atlas-generic-hero h1{font-size:clamp(38px,5.3vw,76px);line-height:1.08;letter-spacing:-.052em;max-width:1050px;margin:0 0 25px}
+.atlas-generic-hero h1 em{font-style:normal;color:#efbc72}
+.atlas-generic-hero>.atlas-container>p:not(.arch-eyebrow){font-size:clamp(17px,1.6vw,21px);line-height:1.7;max-width:850px}
+.atlas-stages{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.atlas-stage{border:1px solid #305774;border-radius:18px;background:linear-gradient(145deg,#0d2840,#091624);padding:30px}
+.atlas-stage h3{font-size:23px;color:#f6faff;margin:0 0 12px}.atlas-stage p{font-size:15px}.atlas-stage strong{color:#ebbc73;font-size:13px}
+.atlas-diagnostic-cta{margin-top:38px;border:1px solid #b18a5890;background:#1c2231;border-radius:20px;padding:36px}
+.atlas-diagnostic-cta h2{font-size:clamp(25px,3vw,42px);margin:0 0 12px}.atlas-diagnostic-cta p{max-width:740px}
+.atlas-about{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px;margin-bottom:30px}.atlas-about article{padding:30px;border:1px solid #31536d;border-radius:18px;background:#102338}.atlas-about h3{font-size:26px}.atlas-role{color:#eabb74!important;font-size:14px}
+.atlas-clara-next{padding:16px 20px 16px 34px;margin:14px 0;background:#0c2b3e;border:1px solid #2f6c8d;border-radius:13px}.atlas-clara-next li{font-size:13px;line-height:1.5;margin-bottom:7px;color:#d3e6f0}
+.cro-event-completed{display:inline-flex;align-items:center;background:#e8bc73;color:#101a28!important;padding:8px 12px;border-radius:999px;font-weight:800;font-size:12px}
+@media(max-width:730px){.atlas-generic-hero{padding-top:115px;padding-bottom:55px}.atlas-stages,.atlas-about{grid-template-columns:1fr}.atlas-stage,.atlas-about article,.atlas-diagnostic-cta{padding:22px}}
