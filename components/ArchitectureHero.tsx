@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState } from "react";
+import Image from "next/image";
 type Layer = "operacao" | "dados" | "agentes";
 const layers: Record<Layer, { title: string; description: string }> = {
   operacao: { title: "Operação real", description: "Processos, equipas, clientes, compromissos e exceções." },
@@ -24,12 +25,20 @@ export default function ArchitectureHero() {
           <p className="arch-signature">A inteligência também se constrói.</p>
         </div>
         <div className="arch-visual" aria-label="Diagrama ilustrativo das camadas da empresa aumentada">
-          <div className="arch-scene" aria-hidden="true">
-            <div className="arch-platform">
-              <div className="arch-floor arch-floor-bottom"><span>OPERAÇÃO</span><span>CLIENTES · EQUIPAS</span></div>
-              <div className="arch-floor arch-floor-middle"><span>FONTES DE VERDADE</span><span>CRM · ERP · PROCESSOS</span></div>
-              <div className="arch-floor arch-floor-top"><span>AGENTES + PESSOAS</span><span>MISSÕES · APROVAÇÕES</span></div>
-              <span className="arch-light arch-light-a" /><span className="arch-light arch-light-b" /><span className="arch-light arch-light-c" />
+          {/* Restore the original approved photographic hero asset; no synthetic CSS blocks. */}
+          <div className="arch-restored-photo">
+            <Image
+              src="/assets/hero-office.jpg"
+              alt="Equipa de operações a trabalhar num ambiente empresarial contemporâneo"
+              fill
+              priority
+              quality={95}
+              sizes="(max-width: 1050px) 100vw, 48vw"
+              className="arch-restored-photo-image"
+            />
+            <div className="arch-restored-photo-signature">
+              <Image src="/assets/atlashub-logo.webp" alt="" width={39} height={39} />
+              <span><strong>Pessoas + agentes.</strong><small>Inteligência com supervisão humana.</small></span>
             </div>
           </div>
           <div className="arch-visual-caption">
