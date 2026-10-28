@@ -2,8 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import MockupCanvas, { type MockScreen } from "../../../components/MockupCanvas";
-import screen from "../../../lib/mockups/ai-workforce.json";
 import RoleLibrary from "../../../components/RoleLibrary";
 import { workforceSteps, supervision } from "../../../lib/site";
 
@@ -20,11 +18,7 @@ export default function AiWorkforce() {
   return (
     <>
       <div id="conteudo">
-        <main className="mk-desktop">
-          <h1 className="mk-sr">AI Workforce — Reforce sua operação com colaboradores digitais geridos.</h1>
-          <MockupCanvas screen={screen as MockScreen} />
-        </main>
-        <div className="mk-mobile">
+
       <Header current="/solucoes/ai-workforce" />
       <main>
         <section className="vp-hero" aria-labelledby="aiw-title">
@@ -84,7 +78,6 @@ export default function AiWorkforce() {
           </div></div>
         </section>
       </main>
-        </div>
       </div>
       <Footer />
     </>
