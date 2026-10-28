@@ -126,3 +126,12 @@
   .arch-hero-restored .arch-bottom{padding-top:15px;padding-bottom:17px}
 }
 @media(prefers-reduced-motion:reduce){.arch-hero-restored .arch-original-plate{animation:none;transition:none}}
+
+/* The visual plate also contained blank nav/CTA placeholders.
+   Hide ONLY those two upper corners; preserve the model, holographic A and panels. */
+@media(min-width:1101px){
+  .arch-hero-restored .arch-original-art:before,
+  .arch-hero-restored .arch-original-art:after{content:"";position:absolute;top:0;height:88px;z-index:1;pointer-events:none;background:#040d1bf0}
+  .arch-hero-restored .arch-original-art:before{left:0;width:34%;mask-image:linear-gradient(90deg,#000 75%,transparent)}
+  .arch-hero-restored .arch-original-art:after{right:0;width:22%;mask-image:linear-gradient(270deg,#000 70%,transparent)}
+}
