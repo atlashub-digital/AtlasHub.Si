@@ -2,8 +2,6 @@ import Link from "next/link";
 import type { Metadata } from "next";
 import Header from "../../../components/Header";
 import Footer from "../../../components/Footer";
-import MockupCanvas, { type MockScreen } from "../../../components/MockupCanvas";
-import screen from "../../../lib/mockups/enterprise-transformation.json";
 import OfferTabs from "../../../components/OfferTabs";
 import { transformationDomains, transformationMethod, transformationTrust, transformationFaq } from "../../../lib/site";
 
@@ -20,11 +18,7 @@ export default function EnterpriseTransformation() {
   return (
     <>
       <div id="conteudo">
-        <main className="mk-desktop">
-          <h1 className="mk-sr">Enterprise Transformation — Construa sua própria capacidade digital.</h1>
-          <MockupCanvas screen={screen as MockScreen} />
-        </main>
-        <div className="mk-mobile">
+
       <Header current="/solucoes/enterprise-transformation" />
       <main>
         <section className="vp-hero" aria-labelledby="et-title">
@@ -79,7 +73,6 @@ export default function EnterpriseTransformation() {
           </div></div>
         </section>
       </main>
-        </div>
       </div>
       <Footer />
     </>
