@@ -50,7 +50,7 @@ function clean(body: unknown): Input {
   return { name, email, phone: phone.length <= 11 ? "+55" + phone : "+" + phone, document,
     marketing: b.marketing === true, campaign };
 }
-export function salesReady() {\n  // Event owner marked LL01 complete on Oct 28: close new real-world reservations and checkouts.\n  // Keep the isolated E2E offer available for automated tests, never production.\n  if (process.env.LL01_E2E_TEST_OFFER !== "yes" && Date.now() >= Date.parse("2026-10-28T00:00:00-03:00")) return false;
+export function salesReady() {\n  // Event owner marked LL01 complete on Oct 28: close new real-world reservations and checkouts.\n  // No new reservations are permitted after closure, regardless of promotional flags.\n  if (Date.now() >= Date.parse("2026-10-28T00:00:00-03:00")) return false;
   const aro = aroConfig();
   // E2E test mode: the isolated R$5 test offer + SALES_OPEN=yes suffices (RELEASE_V3 stays "no" until the real gates).
   if (process.env.LL01_E2E_TEST_OFFER === "yes" && process.env.LL01_E2E_TEST_CODE && process.env.LL01_RELEASE_V3_VERIFIED !== "yes")
