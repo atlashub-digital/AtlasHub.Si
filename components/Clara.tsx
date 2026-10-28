@@ -315,7 +315,9 @@ export default function Clara({
               )}
               {complete && contact && (
                 <div className="clara-contact" id="clara-contact">
-                  <h4>Próximo passo: diagnóstico profissional</h4>\n                  <p>Um especialista valida o mapa, confirma os processos e apresenta escopo, entregáveis e condições antes de qualquer contratação. Uma reunião ainda não está marcada.</p>\n                  <ol className="atlas-clara-next"><li>Solicitação pelo canal que escolher.</li><li>Confirmação de âmbito e janela de contacto.</li><li>Proposta de diagnóstico e eventual Blueprint.</li></ol>
+                  <h4>Próximo passo: diagnóstico profissional</h4>
+                  <p>Um especialista valida o mapa, confirma os processos e apresenta escopo, entregáveis e condições antes de qualquer contratação. Uma reunião ainda não está marcada.</p>
+                  <ol className="atlas-clara-next"><li>Solicitação pelo canal que escolher.</li><li>Confirmação de âmbito e janela de contacto.</li><li>Proposta de diagnóstico e eventual Blueprint.</li></ol>
                   <a
                     className="button primary"
                     href={
