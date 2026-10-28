@@ -21,7 +21,7 @@ export default function AiWorkforce() {
 
       <Header current="/solucoes/ai-workforce" />
       <main>
-        <section className="vp-hero" aria-labelledby="aiw-title">
+        <section className="vp-hero atlas-solution-hero atlas-solution-hero-workforce" aria-labelledby="aiw-title">
           <div className="vp-wrap" style={{ gridTemplateColumns: "1fr", minHeight: 0, paddingTop: 96, paddingBottom: 96 }}>
             <div>
               <p className="vp-eyebrow">AI Workforce · Mais capacidade. Menos complexidade.</p>

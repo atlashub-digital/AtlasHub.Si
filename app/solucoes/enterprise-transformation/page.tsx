@@ -21,7 +21,7 @@ export default function EnterpriseTransformation() {
 
       <Header current="/solucoes/enterprise-transformation" />
       <main>
-        <section className="vp-hero" aria-labelledby="et-title">
+        <section className="vp-hero atlas-solution-hero atlas-solution-hero-enterprise" aria-labelledby="et-title">
           <div className="vp-wrap" style={{ gridTemplateColumns: "1fr", minHeight: 0, paddingTop: 96, paddingBottom: 96 }}>
             <div>
               <p className="vp-eyebrow">Enterprise Transformation</p>
