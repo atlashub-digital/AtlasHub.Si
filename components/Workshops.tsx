@@ -2,7 +2,6 @@ import Link from "next/link";
 import { formatBRL, workshops } from "../lib/workshops";
 import { availability } from "../lib/commerce/checkout";
 import { runtimeDeps } from "../lib/commerce/runtime";
-import { statusAvailability } from "../lib/sales/ll01-commerce";
 
 export default async function Workshops({ headingLevel = 2 }: { headingLevel?: 1 | 2 }) {
   const H = headingLevel === 1 ? "h1" : "h2";
