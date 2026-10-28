@@ -267,7 +267,7 @@ export default function Clara({
               ))}
               <p className="chat-message assistant">
                 {complete
-                  ? "Já temos uma primeira hipótese. Veja o mapa de automação. Pode guardar o resumo ou pedir uma análise técnica, sem compromisso."
+                  ? "A pré-análise gratuita terminou. Guarde o mapa ou solicite um diagnóstico profissional, com escopo e condições confirmados pela equipa."
                   : questions[answers.length][0]}
               </p>
             </div>
@@ -299,7 +299,7 @@ export default function Clara({
                     className="button secondary"
                     onClick={() => setContact(true)}
                   >
-                    Explorar o próximo passo →
+                    Solicitar diagnóstico profissional →
                   </button>
                 </>
               )}
@@ -315,19 +315,19 @@ export default function Clara({
               )}
               {complete && contact && (
                 <div className="clara-contact" id="clara-contact">
-                  <h4>Como gostaria de continuar?</h4>
+                  <h4>Próximo passo: diagnóstico profissional</h4>\n                  <p>Um especialista valida o mapa, confirma os processos e apresenta escopo, entregáveis e condições antes de qualquer contratação. Uma reunião ainda não está marcada.</p>\n                  <ol className="atlas-clara-next"><li>Solicitação pelo canal que escolher.</li><li>Confirmação de âmbito e janela de contacto.</li><li>Proposta de diagnóstico e eventual Blueprint.</li></ol>
                   <a
                     className="button primary"
                     href={
                       "https://wa.me/5562991903462?text=" +
                       encodeURIComponent(
-                        `Olá, equipa AtlasHub. Explorei o cenário «${c.title}» com a Clara e gostaria de pedir uma análise técnica. A minha janela preferida para contacto é: `,
+                        `Olá, equipa AtlasHub. Concluí a pré-análise Clara para «${c.title}» e pretendo solicitar um diagnóstico profissional. Canal: ${label(1)}; sistemas: ${label(2)}; abordagem: ${label(4)}; modelo: ${label(5)}. Gostaria de conhecer os entregáveis, condições e disponibilidade. Janela para contacto: `,
                       )
                     }
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    Conversar pelo WhatsApp oficial ↗
+                    Solicitar diagnóstico pelo WhatsApp ↗
                   </a>
                   <p>
                     +55 62 99190-3462 · A mensagem abre para revisão. Só é
@@ -388,20 +388,20 @@ export default function Clara({
                             type="tel"
                             autoComplete="tel"
                             maxLength={30}
-                            placeholder="+351 …"
+                            placeholder="+55 62 …"
                           />
                         </label>
                         <label>
                           O próximo passo
                           <select name="intent">
                             <option value="contact">
-                              Gostaria de ser contactado
+                              Solicitar diagnóstico profissional
                             </option>
                             <option value="meeting">
-                              Pedir uma reunião técnica
+                              Solicitar reunião com arquiteto
                             </option>
                             <option value="quote">
-                              Análise para orçamento
+                              Solicitar Blueprint / proposta
                             </option>
                           </select>
                         </label>
@@ -410,7 +410,7 @@ export default function Clara({
                           <input
                             name="preferredWindow"
                             maxLength={160}
-                            placeholder="Ex.: terça de manhã, hora de Lisboa"
+                            placeholder="Ex.: terça de manhã, horário de Brasília"
                           />
                         </label>
                         <label className="consent">
@@ -454,7 +454,7 @@ export default function Clara({
               </span>
               <progress
                 id="clara-progress"
-                max={5}
+                max={questions.length}
                 value={answers.length}
                 aria-label="Progresso do diagnóstico"
               />
