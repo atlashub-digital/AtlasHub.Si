@@ -5,15 +5,16 @@ import "./tokens.css";
 import "./theme.css";
 import "./mockup.css";
 import "./cro-v2.css";
+import "./architecture-v2.css";
 
 // Self-hosted (OFL, public/fonts/LICENSE-Inter-OFL.txt): the build does not depend on fonts.googleapis.com.
 const inter = localFont({ src: "./inter-latin-wght-normal.woff2", weight: "100 900", variable: "--font-inter", display: "swap" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://atlashub.si"),
-  title: { default: "AtlasHub.SI — Mais capacidade. Menos complexidade.", template: "%s · AtlasHub.SI" },
+  title: { default: "AtlasHub.SI — A inteligência também se constrói.", template: "%s · AtlasHub.SI" },
   description:
-    "Colaboradores digitais geridos e transformação empresarial: reforce a sua operação hoje e construa a sua própria capacidade, com pessoas no controle.",
+    "Arquitetura empresarial agêntica: desenhamos, construímos e acompanhamos a integração entre pessoas, processos, sistemas e funcionários digitais.",
   alternates: { canonical: "/" },
   icons: { icon: "/assets/atlashub-logo.webp" },
   openGraph: {
@@ -21,8 +22,8 @@ export const metadata: Metadata = {
     locale: "pt_BR",
     url: "/",
     siteName: "AtlasHub.SI",
-    title: "AtlasHub.SI — Mais capacidade. Menos complexidade.",
-    description: "AI Workforce e Enterprise Transformation: capacidade gerida ou capacidade própria.",
+    title: "AtlasHub.SI — A inteligência também se constrói.",
+    description: "Arquitetura empresarial agêntica: diagnóstico, blueprint, engenharia, operação e capacitação.",
     images: ["/assets/hero-office.jpg"],
   },
 };
