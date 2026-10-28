@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "AtlasHub.SI",
     title: "AtlasHub.SI — A inteligência também se constrói.",
     description: "Arquitetura empresarial agêntica: diagnóstico, blueprint, engenharia, operação e capacitação.",
-    images: ["/assets/hero-office.jpg"],
+    images: ["/mockups/home.webp"],
   },
 };
 export const viewport: Viewport = { themeColor: "#040C18" };
