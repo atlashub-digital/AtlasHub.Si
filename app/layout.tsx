@@ -6,6 +6,7 @@ import "./theme.css";
 import "./mockup.css";
 import "./cro-v2.css";
 import "./architecture-v2.css";
+import "./commercial-packs.css";
 
 // Self-hosted (OFL, public/fonts/LICENSE-Inter-OFL.txt): the build does not depend on fonts.googleapis.com.
 const inter = localFont({ src: "./inter-latin-wght-normal.woff2", weight: "100 900", variable: "--font-inter", display: "swap" });
