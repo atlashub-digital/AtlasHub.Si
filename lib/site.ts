@@ -3,13 +3,15 @@
 // sem evidência (percentagens, 24/7, "pronto", "online", SLA, clientes).
 
 export const APP_URL = "https://app.atlashub.si";
-export const EDITIONS_URL = "https://editions.atlashub.si";
+export const CLUB_URL = "https://club.atlashub.si";
+export const EDITIONS_URL = "https://editions.atlashub.si"; // Endereços antigos permanecem válidos.
 
 export const nav = [
   { label: "Soluções", href: "/#solucoes" },
+  { label: "Serviços", href: "/#pacotes" },
   { label: "Plataforma", href: APP_URL, external: true },
   { label: "Casos de uso", href: "/casos" },
-  { label: "Conhecimento", href: EDITIONS_URL, external: true },
+  { label: "Club Atlas", href: CLUB_URL, external: true },
   { label: "Sobre", href: "/sobre" },
 ] as const;
 
