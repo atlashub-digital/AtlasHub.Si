@@ -3,9 +3,9 @@ const phases = [
   { title: "Descoberta", detail: "Conhecimento, demonstrações e primeiras perguntas.", destination: "/casos" },
   { title: "Pré-diagnóstico", detail: "A Clara ajuda a identificar um processo e desenhar um mapa inicial.", destination: "/diagnostico" },
   { title: "Diagnostic + Blueprint", detail: "Um profissional valida o contexto e propõe uma arquitetura priorizada.", destination: "/diagnostico#profissional" },
-  { title: "Atlas Build", detail: "Piloto, integrações, testes, aprovação humana e aceitação.", destination: "/solucoes/enterprise-transformation" },
+  { title: "Atlas Build", detail: "Piloto, integrações, testes, aprovação humana e aceitação.", destination: "/servicos/setup-agentico" },
   { title: "Atlas Operate", detail: "Operação acompanhada, indicadores, incidentes e melhoria contínua.", destination: "/solucoes/ai-workforce" },
-  { title: "Academy + Club", detail: "Capacitação das equipas e evolução da capacidade própria.", destination: "/academy" },
+  { title: "Academy + Club", detail: "Capacitação das equipas e evolução da capacidade própria.", destination: "https://club.atlashub.si" },
 ];
 export default function AtlasJourney() {
   return <section className="atlas-journey" id="jornada" aria-labelledby="jornada-title"><div className="atlas-container">
