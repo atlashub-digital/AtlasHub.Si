@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import { APP_URL, EDITIONS_URL } from "../lib/site";
+import { APP_URL, CLUB_URL } from "../lib/site";
 
 export default function Footer({ conditionsHref = "/workshops/automacao-pessoas-no-centro#condicoes" }: { conditionsHref?: string }) {
   return (
@@ -17,11 +17,13 @@ export default function Footer({ conditionsHref = "/workshops/automacao-pessoas-
         <nav aria-label="Soluções">
           <h2>Soluções</h2>
           <ul>
+            <li><Link href="/diagnostico">Diagnóstico IA</Link></li>
+            <li><Link href="/servicos/setup-agentico">Setup Agêntico</Link></li>
             <li><Link href="/solucoes/ai-workforce">AI Workforce</Link></li>
             <li><Link href="/solucoes/enterprise-transformation">Enterprise Transformation</Link></li>
             <li><Link href="/workshops">Workshops</Link></li>
             <li><a href={APP_URL}>Plataforma ↗</a></li>
-            <li><a href={EDITIONS_URL}>Editions ↗</a></li>
+            <li><a href={CLUB_URL}>Club Atlas ↗</a></li>
           </ul>
         </nav>
         <nav aria-label="Contato">
