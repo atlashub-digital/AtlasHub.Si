@@ -2,11 +2,53 @@ import type { Metadata } from "next";
 import Header from "../../components/Header";
 import Footer from "../../components/Footer";
 import Link from "next/link";
-export const metadata: Metadata = {title:"Diagnóstico Empresarial",description:"Da pré-análise gratuita ao diagnóstico profissional de processos e arquitetura agêntica.",alternates:{canonical:"/diagnostico"}};
-const stages=[
-{title:"01 · Pré-análise com a Clara",text:"Responda a seis perguntas. Receba uma primeira hipótese de fluxo e guarde o mapa sem facultar dados de contacto.",out:"Mapa exploratório gratuito"},
-{title:"02 · Contacto profissional",text:"Envie o mapa pelo canal escolhido. Um responsável valida a necessidade, os sistemas e a janela de contacto.",out:"Contacto sujeito a confirmação"},
-{title:"03 · Diagnóstico da operação",text:"Definimos previamente âmbito, preço e entregáveis. Só depois da aceitação se inicia o levantamento profissional.",out:"Mapa de processos, riscos e oportunidades"},
-{title:"04 · Blueprint",text:"Se fizer sentido, estruturamos fontes de verdade, responsabilidades, integrações, indicadores e fases de implementação.",out:"Plano técnico e prioridades"}
-];
-export default function DiagnosticPage(){return <><Header/><main id="conteudo"><section className="atlas-generic-hero"><div className="atlas-container"><p className="arch-eyebrow">COMEÇAR PELA OPERAÇÃO, NÃO PELA FERRAMENTA</p><h1>Da primeira pergunta ao <em>diagnóstico profissional.</em></h1><p>Uma avaliação séria começa com um processo concreto. Conheça as etapas, o que recebe e como solicitar o próximo passo à equipa AtlasHub.</p><div className="arch-actions"><Link className="arch-button arch-button-primary" href="/#clara">Iniciar pré-análise gratuita ↗</Link><a className="arch-button arch-button-outline" href="#profissional">Solicitar análise profissional ↓</a></div></div></section><section className="vp-section" id="profissional"><div className="atlas-container"><div className="atlas-section-head"><p className="arch-eyebrow">JORNADA DE DIAGNÓSTICO</p><h2>Sem atalhos artificiais. <em>Com entregáveis claros.</em></h2><p>O questionário da Clara não substitui a avaliação humana nem constitui orçamento, promessa de retorno ou agendamento confirmado.</p></div><div className="atlas-stages">{stages.map(s=><article className="atlas-stage" key={s.title}><h3>{s.title}</h3><p>{s.text}</p><strong>{s.out}</strong></article>)}</div><div className="atlas-diagnostic-cta"><h2>Pronto para discutir um processo real?</h2><p>Fale com a nossa equipa. Confirmaremos o âmbito, o valor e a disponibilidade antes de qualquer contratação.</p><div className="arch-actions"><Link href="/#clara" className="arch-button arch-button-primary">Fazer o mapa com a Clara →</Link><a className="arch-button arch-button-outline" href="https://wa.me/5562991903462?text=Ol%C3%A1%2C%20AtlasHub.%20Gostaria%20de%20solicitar%20um%20diagn%C3%B3stico%20profissional%20da%20minha%20opera%C3%A7%C3%A3o%20e%20conhecer%20os%20entreg%C3%A1veis%20e%20condi%C3%A7%C3%B5es." target="_blank" rel="noopener noreferrer">Pedir contacto profissional ↗</a></div></div></div></section></main><Footer/></>}
+
+export const metadata: Metadata = {
+  title: "Diagnóstico IA — Oportunidade, processo e plano de ação",
+  description: "Diagnóstico AtlasHub AI Workforce: mapa de um processo, oportunidades de IA, missão do agente, estimativa preliminar de benefícios e roteiro de implementação.",
+  alternates: { canonical: "/diagnostico" },
+};
+
+const deliverables = [
+  { title: "Entrevista de descoberta", detail: "Até 90 minutos com o responsável pelo processo. Identificamos tarefa, pessoas, sistemas e obstáculos." },
+  { title: "Mapa do processo atual", detail: "Desenho dos passos, fontes de informação, decisões e pontos de passagem para pessoas." },
+  { title: "Oportunidades priorizadas", detail: "Até três hipóteses, com comparação de valor potencial, viabilidade, riscos e pré-requisitos." },
+  { title: "Missão do primeiro agente", detail: "Objetivos, limites, fontes permitidas e ações sujeitas a aprovação humana." },
+  { title: "Estimativa e roteiro", detail: "Hipóteses transparentes de benefício, fases e requisitos de um eventual projeto de implementação." },
+  { title: "Relatório e devolutiva", detail: "PDF executivo com plano de ação e sessão de apresentação de até 45 minutos." },
+] as const;
+
+const requestUrl = "https://wa.me/5562991903462?text=" + encodeURIComponent("Olá, AtlasHub. Gostaria de contratar o Diagnóstico IA de um processo da minha empresa. Por favor, confirmem o escopo, o investimento e a disponibilidade.");
+
+export default function DiagnosticPage() {
+  return <><Header /><main id="conteudo">
+    <section className="atlas-generic-hero"><div className="atlas-container">
+      <p className="arch-eyebrow">PACOTE 01 · DIAGNÓSTICO IA</p>
+      <h1>Antes de automatizar, <em>entenda a sua operação.</em></h1>
+      <p>Um diagnóstico profissional, centrado num processo real da sua empresa. Saiba onde a IA pode ajudar, o que precisa de ser preparado e qual deve ser a primeira missão.</p>
+      <div className="arch-actions">
+        <a className="arch-button arch-button-primary" href={requestUrl} target="_blank" rel="noopener noreferrer">Solicitar Diagnóstico IA ↗</a>
+        <Link className="arch-button arch-button-outline" href="/#clara">Experimentar pré-análise gratuita →</Link>
+      </div>
+    </div></section>
+    <section className="vp-section" id="profissional"><div className="atlas-container">
+      <div className="atlas-section-head">
+        <p className="arch-eyebrow">UM PROCESSO · ENTREGÁVEIS CLAROS</p>
+        <h2>Da primeira conversa ao <em>AtlasHub AI Opportunity Report.</em></h2>
+        <p>Referência comercial: <strong>R$ 1.490, pagamento único</strong>. Prazo de 3–5 dias úteis estimados após início acordado e acesso às informações necessárias. As condições finais são confirmadas por proposta escrita.</p>
+      </div>
+      <div className="commercial-detail-list">
+        {deliverables.map(item => <article className="vp-card" key={item.title}><h3>{item.title}</h3><p>{item.detail}</p></article>)}
+      </div>
+      <p className="commercial-detail-note">O Diagnóstico não constitui auditoria integral, garantia de redução de custos, programação, integração de sistemas ou entrada em produção. A análise depende de informações disponibilizadas pelo cliente; benefícios são estimativas, não resultados comprovados.</p>
+      <div className="atlas-diagnostic-cta">
+        <h2>Pronto para identificar a primeira oportunidade?</h2>
+        <p>Comece por uma conversa. Confirmamos o âmbito e enviamos as condições antes de qualquer pagamento. Se já tem o processo documentado, também pode solicitar avaliação direta para o Setup Agêntico.</p>
+        <div className="arch-actions">
+          <a className="arch-button arch-button-primary" href={requestUrl} target="_blank" rel="noopener noreferrer">Pedir proposta de Diagnóstico ↗</a>
+          <Link className="arch-button arch-button-outline" href="/servicos/setup-agentico">Conhecer Setup Agêntico →</Link>
+        </div>
+      </div>
+    </div></section>
+  </main><Footer /></>;
+}
