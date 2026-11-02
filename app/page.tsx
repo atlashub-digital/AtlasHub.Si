@@ -6,8 +6,8 @@ import Areas from "../components/Areas";
 import Cases from "../components/Cases";
 import Clara from "../components/Clara";
 import Workshops from "../components/Workshops";
-import Ecosystem from "../components/Ecosystem";
-import Editions from "../components/Editions";
+import ClubBridge from "../components/ClubBridge";
+import CommercialPackages from "../components/CommercialPackages";
 import Closing from "../components/Closing";
 import Footer from "../components/Footer";
 import SiteInteractions from "../components/SiteInteractions";
@@ -16,14 +16,14 @@ export default function Home() {
     <Header />
     <main id="conteudo">
       <ArchitectureHero />
+      <CommercialPackages />
       <Offers />
       <AtlasJourney />
       <Areas />
       <Cases />
       <Workshops />
       <Clara leadsEnabled={Boolean(process.env.LEAD_WEBHOOK_URL && process.env.LEAD_WEBHOOK_TOKEN)} />
-      <Ecosystem />
-      <Editions />
+      <ClubBridge />
       <Closing />
     </main>
     <Footer />
