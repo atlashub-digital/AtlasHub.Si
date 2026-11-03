@@ -120,7 +120,19 @@ export default async function FrancophoniePage({ searchParams }: { searchParams:
                 <div className={styles.leadSteps}><span>01 · Votre objectif</span><span>02 · Votre contexte</span><span>03 · Retour humain</span></div>
                 <p className={styles.privacySmall}>Une demande n’est ni une réservation automatique ni une inscription payée. Les disponibilités sont confirmées individuellement.</p>
               </div>
-              <FrancophonieLeadForm initialInterest={initialInterest} />
+              {process.env.FR_LEAD_ENABLED === "true"
+                ? <FrancophonieLeadForm initialInterest={initialInterest} />
+                : <div className={styles.form}>
+                    <div className={styles.formHeading}>
+                      <span>CONTACT DIRECT · FRANCOPHONIE</span>
+                      <strong>Échangeons sur votre projet</strong>
+                    </div>
+                    <p>Notre formulaire de qualification est en cours de configuration. Pour recevoir les dates de nos ateliers ou demander un échange, contactez directement l’équipe AtlasHub sur WhatsApp.</p>
+                    <p>Nous répondons en français. Votre message ne constitue pas une réservation, une inscription ou un achat.</p>
+                    <a className={styles.goldAction} style={{ textAlign: "center" }} href={"https://wa.me/5562991903462?text=" + encodeURIComponent("Bonjour AtlasHub, je vous contacte depuis atlashub.si/fr. Je souhaite en savoir plus sur " + ({ atelier: "l'atelier d'IA agentique", diagnostic: "le diagnostic opérationnel", integration: "un projet d'intégration d'agents IA", qualification: "un appel de qualification" } as Record<string, string>)[initialInterest] + ". Pouvez-vous me répondre en français ?")} target="_blank" rel="noopener noreferrer">Contacter AtlasHub sur WhatsApp ↗</a>
+                    <p className={styles.formNote}>Merci de ne pas transmettre de données sensibles, de mots de passe ou de documents confidentiels.</p>
+                  </div>
+              }
             </div>
           </div>
         </section>
